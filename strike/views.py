@@ -9,6 +9,7 @@ from .models import Card
 
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
+from .filters import CardFilter
 
 @login_required
 def append_case(request):
@@ -35,13 +36,32 @@ class StrikeListView(SingleTableView):
     table_class = CardTable
     template_name = 'strike/strikes.html'
 
+def strikes_cases(request):
+    cards = Card.objects.all()
+
+
 class FilteredPersonListView(SingleTableMixin, FilterView):
     table_class = CardTable
     model = Card
-    template_name = 'strike/strikes.html'
+    template_name = "strike/strikes.html"
 
-    filterset_class = FilterView
+    filterset_class = CardFilter
 
 @login_required
 def strikes(request):
-    return render(request,'strike/strikes.html', {'cards':Card.objects.all()})
+    cards = Card.objects.all()
+    return render(request,'strike/strike.html', {'cards':Card.objects.all()})
+
+
+def cases(request):
+
+    cards = Card.objects.all()
+
+    myFilter = CardFilter(request.GET,queryset=cards)
+    cards = myFilter.qs
+
+    context = {'cards':cards, 'myFilter':myFilter}
+
+    return render(request, 'strike/strike.html', context)
+
+

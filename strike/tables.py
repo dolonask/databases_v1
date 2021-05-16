@@ -7,4 +7,4 @@ class CardTable(tables.Table):
     class Meta:
         model = Card
         template_name = "django_tables2/bootstrap.html"
-        fields = ("name","country", "region","city_name")
+        fields = ("id","added_by","name","country", "region","city_name", "date_create", "date_update")

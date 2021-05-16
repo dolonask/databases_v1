@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'strike.apps.StrikeConfig',
     'crispy_forms',
     'django_tables2',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

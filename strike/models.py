@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+
 # Create your models here.
 
 class TradeUnion(models.Model):
@@ -130,6 +131,7 @@ class Card(models.Model):
         ("ДР", "Другое")
     ]
 
+    id = models.BigAutoField("№", primary_key=True)
     name = models.CharField("Название", max_length=100, blank=False)
     card_sources = models.ManyToManyField(Source, verbose_name="Источник")
     source_url = models.CharField("Источник информации (ссылка)", max_length=255, null=True, blank=True)
@@ -164,8 +166,8 @@ class Card(models.Model):
 
     has_trade_union = models.CharField("Профсоюз", choices=ANSWER, max_length=50, blank=False, default='+')
 
-    card_create_date = models.DateTimeField("Дата создания карточки", auto_now_add=True)
-    last_update = models.DateTimeField("Дата последнего изменения", auto_now=True)
+    date_create = models.DateTimeField("Дата создания", auto_now_add=True)
+    date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
     is_active = models.BooleanField("Активен", default=True)
 
     THE_NATURE_OF_THE_GROUP = [
@@ -191,7 +193,7 @@ class Card(models.Model):
         ('> 63', '63 и старше'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING,null=True,verbose_name="Монитор")
+    added_by = models.ForeignKey(User, on_delete=models.DO_NOTHING,null=True,verbose_name="Монитор")
 
     # trade_union = models.CharField("Название профсоюза", max_length=200, default="")
     # phone_number_union = models.CharField("Контакты", max_length=200, blank=True, null=True)
