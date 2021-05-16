@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Забастовки{% endblock %}
+
+{% block content %}
+    <form method="post">
+
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+
+                {{ field.label_tag }}
+                <br>
+                {{ field }}
+                <div class="invalid_feedback">
+                    {{ field.errors }}
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+
+        <input type="submit" value="Сохранить" class="btn btn-primary btn-block">
+    </form>
+
+
+
+{% endblock %}
