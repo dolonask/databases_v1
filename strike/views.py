@@ -13,7 +13,6 @@ from .filters import CardFilter
 
 @login_required
 def append_case(request):
-
     if request.method == 'POST':
         form = CardForm(request.POST)
         if form.is_valid():
@@ -22,7 +21,6 @@ def append_case(request):
             form.user = request.user
             print(form.user)
             card = form.save()
-
 
             #return redirect('strike_case')
     else:

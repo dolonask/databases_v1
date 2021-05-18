@@ -14,7 +14,7 @@ class CardForm(forms.ModelForm):
         # region = forms.ModelChoiceField(queryset=Region.objects.all().filter(country=), to_field_name='region_name')
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'card_sources': forms.CheckboxSelectMultiple(attrs={'class': 'checkbox-list-none'}),
+            'card_sources': forms.CheckboxSelectMultiple(attrs={'class': 'checkbox-list-none', 'onchange': "onSourceChanged(this.value);"}),
             'source_url': forms.URLInput(attrs={'class': 'form-control'}),
             'source_content': forms.Textarea(attrs={'class': 'form-control'}),
             'country': forms.Select(attrs={'class': 'form-control'}),
