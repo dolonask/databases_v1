@@ -158,6 +158,7 @@ class Card(models.Model):
                                                   verbose_name="Количество участников забастовки/акции")
     card_demand_categories = models.ManyToManyField(DemandCategory, verbose_name="Характер требований")
 
+
     start_date = models.DateTimeField("Дата начало проведения забастовки/акции",
                                       default=datetime.now())
     end_date = models.DateTimeField("Дата конца проведения забастовки/акции",
@@ -169,6 +170,8 @@ class Card(models.Model):
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
     is_active = models.BooleanField("Активен", default=True)
+
+
 
     THE_NATURE_OF_THE_GROUP = [
         ('Б/ПГ', 'Бригада или производственная группа'),

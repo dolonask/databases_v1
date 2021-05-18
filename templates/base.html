@@ -46,5 +46,10 @@
 {#    <script src="{% static 'js/index.js' %}"> </script>#}
 {#    <script src="{% static 'js/script.js' %}"> </script>#}
     <script src="{% static 'strike/js/script.js' %}"> </script>
+
+    {% block scripts %}
+      <!--- some scripts that apply to all pages -->
+    {% endblock %}
+
 </body>
 </html>

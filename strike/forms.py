@@ -10,7 +10,8 @@ class CardForm(forms.ModelForm):
         model = Card
         fields = ['name', 'card_sources', 'source_url', 'source_content', 'country', 'region',
                   'city_name', 'company_name', 'company_ownership_type','company_is_tnk_member','company_tnk_name','company_employees_count',
-                  'count_strike_participants','card_demand_categories', 'start_date', 'end_date', 'has_trade_union',]
+                  'count_strike_participants','card_demand_categories', 'start_date', 'end_date', 'has_trade_union',
+                  ]
         # region = forms.ModelChoiceField(queryset=Region.objects.all().filter(country=), to_field_name='region_name')
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
