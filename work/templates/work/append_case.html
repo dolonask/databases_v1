@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{##}
+{#{% block scripts %}#}
+{#    <!-- block.super will get the content of the block from the parent template -->#}
+{#    {{ block.super }}#}
+{#    <script src="{% static 'js/milk.js' %}"></script>#}
+{#{% endblock %}#}
+
+
+{% block content %}
+
+    <div class="container">
+      <ul>
+        <li>
+          <input type="checkbox" id="option"><label for="option"> Electronics</label>
+          <ul>
+            <li><label><input type="checkbox" class="subOption"> Laptops</label></li>
+            <li><label><input type="checkbox" class="subOption"> TVs</label></li>
+            <li><label><input type="checkbox" class="subOption"> Microphones</label></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group"></div>
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            <div class="invalid_feedback">
+                {{ form.name.errors }}
+            </div>
+
+        <div class="form-group"></div>
+            {{ form.source.label_tag }}
+            {{ form.source }}
+            <div class="invalid_feedback">
+                {{ form.source.errors }}
+            </div>
+
+        <div class="form-group"></div>
+            {{ form.source_url.label_tag.as_hidden }}
+            {{ form.source_url.as_hidden }}
+            <div class="invalid_feedback">
+                {{ form.source_url.errors }}
+            </div>
+
+        <div class="form-group"></div>
+            {{ form.source_content.label_tag.as_hidden }}
+            <br>
+            {{ form.source_content.as_hidden }}
+            <div class="invalid_feedback">
+                {{ form.source_content.errors }}
+            </div>
+        <br>
+
+
+
+{#        <div class="form-group"></div><br>#}
+{#        {% for field in form %}#}
+{#                <div class="form-group">#}
+{##}
+{#                    {{ field.label_tag }}#}
+{##}
+{#                    <br>#}
+{#                    {{ field }}#}
+{#                    <div class="invalid_feedback">#}
+{#                        {{ field.errors }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <br>#}
+{#        {% endfor %}#}
+    </form>
+
+    groupForm
+    <form method="post">
+
+        {% csrf_token %}
+        {% for field in groupForm %}
+                <div class="form-group">
+
+                    {{ field.label_tag }}
+
+                    <br>
+                    {{ field }}
+                    <div class="invalid_feedback">
+                        {{ field.errors }}
+                    </div>
+                </div>
+                <br>
+        {% endfor %}
+    </form>
+
+    individualForm
+    <form method="post">
+
+        {% csrf_token %}
+        {% for field in individualForm %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    <br>
+                    {{ field }}
+                    <div class="invalid_feedback">
+                        {{ field.errors }}
+                    </div>
+                </div>
+                <br>
+        {% endfor %}
+    </form>
+
+
+
+{% endblock %}

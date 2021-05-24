@@ -1,7 +1,39 @@
 {% extends "base.html" %}
 {#{% block title %}Забастовки{% endblock %}#}
+{% load static %}
+
 
 {% block content %}
+    {% block scripts %}
+    <!-- block.super will get the content of the block from the parent template -->
+        {{ block.super }}
+        <script src="{% static 'strike/js/script.js' %}"></script>
+    {% endblock %}
+
+    ReactDOM.render(
+      <App
+        country = { {{ country_json | safe }} }
+        region = { {{ region_json | safe }} }
+        ownership = { {{ ownership_json | safe }} }
+        demandCategory = { {{ demandCategory_json | safe }} }
+        demandType = { {{ demandType_json | safe }} }
+        employeeCount = { {{ employeeCount_json | safe }} }
+        participantsCount = { {{ participantsCount_json | safe }} }
+        hasTradeUnionChoice = { {{ hasTradeUnionChoice_json | safe }} }
+        personGroup_json = { {{ personGroup_json | safe }} }
+        groupCharacter_json = { {{ groupCharacter_json | safe }} }
+        age_json = { {{ age_json | safe }} }
+        strikeCharacter = { {{ strikeCharacter_json | safe }} }
+        meetingRequirment = { {{ meetingRequirment_json | safe }} }
+        source_json = { {{ source_json | safe }} }
+        initiator_json = { {{ initiator_json | safe }} }
+        token = "{{ csrf_token | safe }}"
+        cleaned_data = { {{ cleaned_data | safe }} }
+
+      />,
+      document.querySelector('#test')
+    );
+
 
     <form method="post">
 
