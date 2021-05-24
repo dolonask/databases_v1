@@ -35,7 +35,6 @@
                 {{ form.victim_status.errors }}
             </div>
         </div>
-
         <div class="form-group">
             {{ form.banOnEntry.label_tag }}
             {{ form.banOnEntry }}
@@ -57,28 +56,20 @@
                 {{ form.source.errors }}
             </div>
         </div>
-
-        <div class="panel panel-default" id="div_media">
-            <div class="panel-heading">Информация про СМИ</div>
-            <div class="panel-body">
-                <div class="form-group">
-                    {{ form.source_url.label_tag }}
-                    {{ form.source_url }}
-                    <div class="invalid_feedback">
-                        {{ form.source_url.errors }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ form.source_content.label_tag }}
-                        {{ form.source_content }}
-                        <div class="invalid_feedback">
-                            {{ form.source_content.errors }}
-                        </div>
-                    </div>
+        <div class="form-group">
+            {{ form.source_url.label_tag }}
+            {{ form.source_url }}
+            <div class="invalid_feedback">
+                {{ form.source_url.errors }}
             </div>
         </div>
-
-
+        <div class="form-group">
+            {{ form.source_content.label_tag }}
+            {{ form.source_content }}
+            <div class="invalid_feedback">
+                {{ form.source_content.errors }}
+            </div>
+        </div>
         <div class="form-group">
             {{ form.violated_right.label_tag }}
             {{ form.violated_right }}
@@ -114,11 +105,7 @@
                 {{ form.victim.errors }}
             </div>
         </div>
-
-        <div class="panel panel-default" id="div_individual">
-            <div class="panel-heading">Информация о физическом лице</div>
-            <div class="panel-body">
-                <div class="form-group">
+        <div class="form-group">
             {{ individualForm.name.label_tag }}
             {{ individualForm.name }}
             <div class="invalid_feedback">
@@ -307,13 +294,8 @@
                 {{ individualForm.wayOfGettingSalary.errors }}
             </div>
         </div>
-            </div>
-        </div>
 
-        <div class="panel panel-default" id="div_group">
-            <div class="panel-heading">Информация про группу лиц</div>
-                <div class="panel-body">
-                    <div class="form-group">
+        <div class="form-group">
             {{ groupForm.amount.label_tag }}
             {{ groupForm.amount }}
             <div class="invalid_feedback">
@@ -324,27 +306,23 @@
             {{ groupForm.groupType.label_tag }}
             {{ groupForm.groupType }}
             <div class="invalid_feedback">
-                    {{ groupForm.groupType.errors }}
-                </div>
+                {{ groupForm.groupType.errors }}
             </div>
-            <div class="form-group">
-                {{ groupForm.workDescription.label_tag }}
-                {{ groupForm.workDescription }}
-                <div class="invalid_feedback">
-                    {{ groupForm.workDescription.errors }}
-                </div>
-            </div>
-            <div class="form-group">
-                {{ groupForm.membership.label_tag }}
-                {{ groupForm.membership }}
-                <div class="invalid_feedback">
-                    {{ groupForm.membership.errors }}
-                </div>
-            </div>
-                </div>
         </div>
-
-
+        <div class="form-group">
+            {{ groupForm.workDescription.label_tag }}
+            {{ groupForm.workDescription }}
+            <div class="invalid_feedback">
+                {{ groupForm.workDescription.errors }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ groupForm.membership.label_tag }}
+            {{ groupForm.membership }}
+            <div class="invalid_feedback">
+                {{ groupForm.membership.errors }}
+            </div>
+        </div>
         <div class="form-group">
             {{ form.intruder.label_tag }}
             {{ form.intruder }}
@@ -381,11 +359,7 @@
                 {{ form.control_agency_name.errors }}
             </div>
         </div>
-
-        <div class="panel panel-default" id="div_company">
-            <div class="panel-heading">Информации о компании</div>
-            <div class="panel-body">
-                <div class="form-group">
+        <div class="form-group">
             {{ companyForm.company_name.label_tag }}
             {{ companyForm.company_name }}
             <div class="invalid_feedback">
@@ -446,30 +420,24 @@
             {{ companyForm.country_from.label_tag }}
             {{ companyForm.country_from }}
             <div class="invalid_feedback">
-                    {{ companyForm.country_from.errors }}
-                </div>
-            </div>
-            <div class="form-group">
-                {{ companyForm.is_tnk_member.label_tag }}
-                {{ companyForm.is_tnk_member }}
-                <div class="invalid_feedback">
-                    {{ companyForm.is_tnk_member.errors }}
-                </div>
-            </div>
-            <div class="form-group">
-                {{ companyForm.tnk_name.label_tag }}
-                {{ companyForm.tnk_name }}
-                <div class="invalid_feedback">
-                    {{ companyForm.tnk_name.errors }}
-                </div>
-            </div>
+                {{ companyForm.country_from.errors }}
             </div>
         </div>
-
-        <div class="panel panel-default" id="div_entrepreneur">
-        <div class="panel-heading">Информация о работодателе</div>
-            <div class="panel-body">
-                 <div class="form-group">
+        <div class="form-group">
+            {{ companyForm.is_tnk_member.label_tag }}
+            {{ companyForm.is_tnk_member }}
+            <div class="invalid_feedback">
+                {{ companyForm.is_tnk_member.errors }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ companyForm.tnk_name.label_tag }}
+            {{ companyForm.tnk_name }}
+            <div class="invalid_feedback">
+                {{ companyForm.tnk_name.errors }}
+            </div>
+        </div>
+        <div class="form-group">
             {{ entrepreneurForm.entrepreneur_name.label_tag }}
             {{ entrepreneurForm.entrepreneur_name }}
             <div class="invalid_feedback">
@@ -546,9 +514,6 @@
                 {{ entrepreneurForm.entrepreneur_hireWayAnother.errors }}
             </div>
         </div>
-            </div>
-        </div>
-
 
         <div class="form-group">
             {{ form.case_additional.label_tag }}

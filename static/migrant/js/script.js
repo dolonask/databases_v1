@@ -143,15 +143,15 @@ function onIntruderChanged(value) {
     }
 
     if (document.getElementById("id_intruder_4").checked == true){
-        showCompanyForm()
+        show_div('div_company')
     }else{
-        hideCompanyForm()
+        hide_div('div_company')
     }
 
     if (document.getElementById("id_intruder_5").checked == true){
-        showIntruderIndividualForm()
+        show_div('div_entrepreneur')
     }else{
-        hideIntruderIndividualForm()
+        hide_div('div_entrepreneur')
     }
 }
 
@@ -219,14 +219,20 @@ function showGroupForm(){
 function onVictimChanged(value) {
     if (value == 1) {
         // document.getElementById("id_source_url").readOnly=true;
-        showIndivualForm()
-        hideGroupForm()
+        // showIndivualForm()
+        //     hideGroupForm()
+        show_div('div_individual')
+        hide_div('div_group')
     } else if (value ==2 ){
-        hideIndivualForm()
-        showGroupForm()
+        // hideIndivualForm()
+        // showGroupForm()
+        hide_div('div_individual')
+        show_div('div_group')
     }else{
-        hideIndivualForm()
-        hideGroupForm()
+        // hideIndivualForm()
+        // hideGroupForm()
+        hide_div('div_individual')
+        hide_div('div_group')
     }
 }
 
@@ -300,8 +306,17 @@ function onWayFindingChanged(value) {
     }
 }
 
+function show_div(id){
+    document.getElementById(id).style.display = '';
+}
+function hide_div(id){
+    document.getElementById(id).style.display = 'none';
+}
+
 function onSourceChanged(value) {
+
     if (value == 2){
+
           // Get the checkbox
           var checkBox = document.getElementById("id_source_1");
           // Get the output text
@@ -309,11 +324,14 @@ function onSourceChanged(value) {
           // If the checkbox is checked, display the output text
           if (checkBox.checked == true){
             // document.getElementById("id_source_url").readOnly=true;
-              showTandem("id_source_url");
-              showTandem("id_source_content");
+            //   showTandem("id_source_url");
+            //   showTandem("id_source_content");
+
+              show_div("div_media")
           } else {
-              hideTandem("id_source_url")
-              hideTandem("id_source_content")
+              // hideTandem("id_source_url")
+              // hideTandem("id_source_content")
+              hide_div("div_media")
           }
     }
 }
@@ -334,9 +352,15 @@ function onRightChanged(value) {
     }
 }
 
+hide_div('div_media')
+hide_div('div_individual')
+hide_div('div_group')
+hide_div('div_company')
+hide_div('div_entrepreneur')
+
 hideTandem("id_banOnEntryAnother")
-hideTandem("id_source_url")
-hideTandem("id_source_content")
+// hideTandem("id_source_url")
+// hideTandem("id_source_content")
 hideTandem("id_violatedRightAnother")
 hideTandem("id_gender_another")
 hideTandem("id_countryAnother")
@@ -357,7 +381,7 @@ hideTandem("id_changesInSalary_another")
 hideTandem("id_rights_state_another")
 hideTandem("id_tradeUnionSituation_another")
 hideTandem("id_victim_situation_another")
-hideCompanyForm()
-hideIndivualForm()
-hideGroupForm()
-hideIntruderIndividualForm()
+//hideCompanyForm()
+// hideIndivualForm()
+// hideGroupForm()
+//hideIntruderIndividualForm()

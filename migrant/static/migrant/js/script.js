@@ -301,6 +301,9 @@ function onWayFindingChanged(value) {
 }
 
 function onSourceChanged(value) {
+
+
+
     if (value == 2){
           // Get the checkbox
           var checkBox = document.getElementById("id_source_1");
@@ -361,3 +364,4 @@ hideCompanyForm()
 hideIndivualForm()
 hideGroupForm()
 hideIntruderIndividualForm()
+
