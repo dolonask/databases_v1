@@ -42,10 +42,10 @@ def append_case(request):
                   context={
                       'form': form,
                       'companyForm': companyForm,
-                      # 'individualForm': individualForm,
-                      # 'victimForm': victimForm,
-                      # 'groupForm': groupForm,
-                      # 'entrepreneurForm': entrepreneurForm,
+                      'individualForm': individualForm,
+                      'victimForm': victimForm,
+                      'groupForm': groupForm,
+                      'entrepreneurForm': entrepreneurForm,
                   })
 
 
