@@ -14,7 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.static import serve
+
+from databases_v1 import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +26,5 @@ urlpatterns = [
     path('strike/', include('strike.urls')),
     path('work/', include('work.urls')),
     path('migrant/', include('migrant.urls')),
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
