@@ -352,7 +352,7 @@ function onRightChanged(value) {
     }
 }
 
-hide_div('div_media')
+// hide_div('div_media')
 hide_div('div_individual')
 hide_div('div_group')
 hide_div('div_company')

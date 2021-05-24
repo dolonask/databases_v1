@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from django import forms
+from django.core.exceptions import ValidationError
+
 from .models import Case, IndividualInfo, PersonGroup, Company, Entrepreneur
 
 
@@ -57,8 +59,22 @@ class CaseForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        intruder = cleaned_data.get("intruder")
-        companyForm = cleaned_data.get("companyForm")
+        source = cleaned_data.get("source")
+        source_url = cleaned_data.get("source_url")
+        source_content = cleaned_data.get("source_content")
+
+        if source:
+            for item in source:
+                if item.id == 2 and (source_url is None or source_content is None):
+                    self.add_error('source_url', "Укажите источник информации (ссылку)" )
+                    self.add_error('source_content', "Если нет ссылки, то перенесите сюда текст статьи/сообщения ")
+
+
+
+    def __init__(self, *args, **kwargs):
+        super(CaseForm, self).__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.error_messages = {'required': 'Необходимо ввести значение'}
 
 
 
@@ -70,6 +86,7 @@ class VictimForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
 
 
 class IndividualForm(forms.ModelForm):
@@ -144,6 +161,9 @@ class CompanyForm(forms.ModelForm):
             'is_tnk_member': forms.Select(attrs={'class': 'form-control', 'onchange': "onTnkChanged(this.value);"}),
             'tnk_name': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+    def is_valid(self):
+        pass
 
     def clean(self):
         cleaned_data = super().clean()

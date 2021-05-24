@@ -17,23 +17,27 @@
 
     {% endblock %}
 
-    <form method="post">
+    <form method="post" novalidate>
         {% csrf_token %}
 
         <div class="form-group">
             {{ form.case_name.label_tag }}
             {{ form.case_name }}
-            <div class="invalid_feedback">
-                {{ form.case_name.errors }}
-            </div>
+            {% if form.case_name.errors %}
+                <div class="invalid_feedback alert alert-danger">
+                    {{ form.case_name.errors }}
+                </div>
+            {% endif %}
         </div>
 
         <div class="form-group">
             {{ form.victim_status.label_tag }}
             {{ form.victim_status }}
-            <div class="invalid_feedback">
-                {{ form.victim_status.errors }}
-            </div>
+            {% if form.victim_status.errors %}
+                <div class="invalid_feedback alert alert-danger">
+                    {{ form.victim_status.errors }}
+                </div>
+            {% endif %}
         </div>
 
         <div class="form-group">
@@ -691,7 +695,7 @@
             </div>
         </div>
 
-{#    <input type="submit" value="Сохранить" class="btn btn-primary btn-block">#}
+    <input type="submit" value="Сохранить" class="btn btn-primary btn-block">
 
     </form>
 
