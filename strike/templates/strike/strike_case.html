@@ -1,7 +1,39 @@
 {% extends "base.html" %}
 {#{% block title %}Забастовки{% endblock %}#}
+{% load static %}
+
 
 {% block content %}
+    {% block scripts %}
+    <!-- block.super will get the content of the block from the parent template -->
+        {{ block.super }}
+        <script src="{% static 'strike/js/script.js' %}"></script>
+    {% endblock %}
+
+    ReactDOM.render(
+      <App
+        country = { {{ country_json | safe }} }
+        region = { {{ region_json | safe }} }
+        ownership = { {{ ownership_json | safe }} }
+        demandCategory = { {{ demandCategory_json | safe }} }
+        demandType = { {{ demandType_json | safe }} }
+        employeeCount = { {{ employeeCount_json | safe }} }
+        participantsCount = { {{ participantsCount_json | safe }} }
+        hasTradeUnionChoice = { {{ hasTradeUnionChoice_json | safe }} }
+        personGroup_json = { {{ personGroup_json | safe }} }
+        groupCharacter_json = { {{ groupCharacter_json | safe }} }
+        age_json = { {{ age_json | safe }} }
+        strikeCharacter = { {{ strikeCharacter_json | safe }} }
+        meetingRequirment = { {{ meetingRequirment_json | safe }} }
+        source_json = { {{ source_json | safe }} }
+        initiator_json = { {{ initiator_json | safe }} }
+        token = "{{ csrf_token | safe }}"
+        cleaned_data = { {{ cleaned_data | safe }} }
+
+      />,
+      document.querySelector('#test')
+    );
+
 
     <form method="post">
 
@@ -22,4 +54,45 @@
 
         <input type="submit" value="Сохранить" class="btn btn-primary btn-block">
     </form>
+
+
+<script type="text/javascript">
+
+    let select = document.createElement('select');
+
+    let types = [
+        {
+            name: 'Экономич',
+            values: [ 0, 1, 2, 4 ]
+        },
+        {
+            name: 'Политич',
+            values: [ 5, 6, 7, 8 ]
+        },
+        {
+            name: 'Прочие',
+            values: [ 9, 10 ]
+        }
+    ];
+
+    types.map((v, i) => {
+       let option = document.createElement('option');
+       option.value = i;
+       option.innerHTML = v.name;
+       select.appendChild(option);
+    });
+
+    ul = document.getElementById('card_demands');
+    ul.parentNode.insertBefore(select, ul);
+
+    select.onchange = ()=>{
+        [...new Array(11)].map((v, i) => {
+           ul.getElementsByTagName('li').item(i).style.display =
+               types[select.value].values.indexOf(i) > -1 ? 'block' : 'none';
+        });
+    }
+
+    select.onchange();
+
+</script>
 {% endblock %}

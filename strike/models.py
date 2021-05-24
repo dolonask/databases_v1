@@ -1,8 +1,7 @@
 from datetime import datetime
 
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.db import models
-
 
 
 # Create your models here.
@@ -21,7 +20,7 @@ class TradeUnion(models.Model):
 
 class OwnerShipType(models.Model):
     name = models.CharField("Название", max_length=255)
-    is_active = models.BooleanField("Активен", default=True)
+    active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
         return self.name
@@ -38,7 +37,7 @@ class EmployeesCount(models.Model):
     # ]
 
     choice = models.CharField("Выбор", max_length=255)
-    is_active = models.BooleanField("Активен", default=True)
+    active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
         return self.choice
@@ -50,7 +49,7 @@ class EmployeesCount(models.Model):
 
 class ParticipantsCount(models.Model):
     choice = models.CharField("Выбор", max_length=255)
-    is_active = models.BooleanField("Активен", default=True)
+    active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
         return self.choice
@@ -75,8 +74,8 @@ class DemandType(models.Model):
 class DemandCategory(models.Model):
     name = models.CharField("Название", max_length=255)
     demand_type = models.ForeignKey('DemandType', on_delete=models.DO_NOTHING, null=True, blank=True,
-                                          verbose_name='Тип требования')
-    is_active = models.BooleanField("Активен", default=True)
+                                    verbose_name='Тип требования')
+    active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
         return self.name
@@ -88,7 +87,7 @@ class DemandCategory(models.Model):
 
 class Country(models.Model):
     name = models.CharField("Название", max_length=255)
-    is_active = models.BooleanField("Активен", default=True)
+    active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
         return self.name
@@ -99,8 +98,8 @@ class Country(models.Model):
 
 
 class Region(models.Model):
-    name = models.CharField("Название", max_length=255)
-    is_active = models.BooleanField("Активен", default=True)
+    name = models.CharField("Название", max_length=255, blank=False)
+    active = models.BooleanField("Активен", default=True)
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING)
 
     def __str__(self):
@@ -113,7 +112,7 @@ class Region(models.Model):
 
 class Source(models.Model):
     name = models.CharField("Название", max_length=100, help_text='Название источника')
-    is_active = models.BooleanField("Активен", default=True)
+    active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
         return self.name
@@ -123,14 +122,150 @@ class Source(models.Model):
         verbose_name_plural = "Источники"
 
 
-class Card(models.Model):
-    ANSWER = [
-        ("+", "Да"),
-        ("-", "Отсутствует"),
-        ("?", "Неизвестно"),
-        ("ДР", "Другое")
-    ]
+class PersonGroup(models.Model):
+    value = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
 
+    class Meta:
+        verbose_name = "Группа лиц"
+        verbose_name_plural = "Группы лиц"
+
+    def __str__(self):
+        return self.value
+
+
+class GroupCharacter(models.Model):
+    value = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+    person_group = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Характер групп")
+
+    class Meta:
+        verbose_name = "Характер групп"
+        verbose_name_plural = "Характеры групп"
+
+    def __str__(self):
+        return self.value
+
+
+class TradeunionData(models.Model):
+    name = models.CharField("Название", max_length=100, help_text='Название профсоюза')
+    contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
+                                help_text='Реквизиты (контакты/адрес и т.д.) ')
+
+    class Meta:
+        verbose_name = "Профсоюз"
+        verbose_name_plural = "Профсоюзы"
+
+
+class Employer(models.Model):
+    name = models.CharField("Название", max_length=100, help_text='Название профсоюза')
+    contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
+                                help_text='Реквизиты (контакты/адрес и т.д.) ')
+
+    class Meta:
+        verbose_name = "Работодатель"
+        verbose_name_plural = "Работодатели"
+
+
+class Age(models.Model):
+    value = models.CharField("Возраст", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Возраст"
+        verbose_name_plural = "Возраст"
+
+    def __str__(self):
+        return self.value
+
+
+class Individual(models.Model):
+    genders = [
+        ("MALE", "Мужской"),
+        ("FEMALE", "Женский")
+    ]
+    name = models.CharField("ФИО", max_length=150, help_text='ФИО')
+    gender = models.CharField("Пол", choices=genders, null=False, max_length=100)
+    age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст")
+    profession = models.CharField("Профессия", max_length=100, help_text='Профессия')
+    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, verbose_name="Физическое лицо", null=True)
+
+    class Meta:
+        verbose_name = "Физическое лицо"
+        verbose_name_plural = "Физические лица"
+
+
+class Initiator(models.Model):
+    name = models.CharField("ФИО", max_length=150, help_text='ФИО')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Инициатор забастовки/акции"
+        verbose_name_plural = "Инициаторы забастовки/акции"
+
+
+class CardPhoto(models.Model):
+    file = models.FileField()
+    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True)
+
+    def __str__(self):
+        return self.file
+
+    class Meta:
+        verbose_name = "Фото/видео/документы "
+        verbose_name_plural = "Фото/видео/документы "
+
+
+class CardFile(models.Model):
+    file = models.FileField()
+    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True)
+
+    def __str__(self):
+        return self.file
+
+    class Meta:
+        verbose_name = "Кейсы, связанные с забастовкой"
+        verbose_name_plural = "Кейсы, связанные с забастовкой"
+
+
+class TradeunionChoice(models.Model):
+    value = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Есть ли на предприятии профсоюз"
+        verbose_name_plural = "Есть ли на предприятии профсоюзы"
+
+    def __str__(self):
+        return self.value
+
+
+
+class StrikeCharacter(models.Model):
+    value = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Характер забастовки/акции"
+        verbose_name_plural = "Характеры забастовки/акции"
+
+    def __str__(self):
+        return self.value
+
+class MeetingRequirment(models.Model):
+    value = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Удовлетворение требований "
+        verbose_name_plural = "Удовлетворения требований"
+
+    def __str__(self):
+        return self.value
+
+class Card(models.Model):
     id = models.BigAutoField("№", primary_key=True)
     name = models.CharField("Название", max_length=100, blank=False)
     card_sources = models.ManyToManyField(Source, verbose_name="Источник")
@@ -138,7 +273,7 @@ class Card(models.Model):
     source_content = models.TextField("Текст статьи/сообщения ", null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
-    city_name = models.CharField("Название города", max_length=100)
+    city_name = models.CharField("Название города", max_length=100, null=True)
 
     company_name = models.CharField("Название предприятия (юридического лица)", max_length=100, blank=False)
 
@@ -151,24 +286,20 @@ class Card(models.Model):
                                                 default=False)
     company_tnk_name = models.CharField("Название ТНК (Транснациональная компания)", max_length=100, null=True,
                                         blank=True)
-    company_employees_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING,null=True,
+    company_employees_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, null=True,
                                                 verbose_name='Общая численность работников на предприятии')
 
-    count_strike_participants = models.ForeignKey(ParticipantsCount, on_delete=models.DO_NOTHING,null=True,
+    count_strike_participants = models.ForeignKey(ParticipantsCount, on_delete=models.DO_NOTHING, null=True,
                                                   verbose_name="Количество участников забастовки/акции")
     card_demand_categories = models.ManyToManyField(DemandCategory, verbose_name="Характер требований")
 
-    start_date = models.DateTimeField("Дата начало проведения забастовки/акции",
-                                      default=datetime.now())
-    end_date = models.DateTimeField("Дата конца проведения забастовки/акции",
-                                    default=datetime.now())
-
-
-    has_trade_union = models.CharField("Профсоюз", choices=ANSWER, max_length=50, blank=False, default='+')
-
+    start_date = models.DateTimeField("Дата начало проведения забастовки/акции", auto_now_add=True)
+    end_date = models.DateTimeField("Дата конца проведения забастовки/акции", auto_now_add=True)
+    tradeunionChoice = models.ForeignKey(TradeunionChoice, on_delete=models.DO_NOTHING,
+                                         verbose_name="Есть ли на предприятии профсоюз", null=True)
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
-    is_active = models.BooleanField("Активен", default=True)
+    active = models.BooleanField("Активен", default=True)
 
     THE_NATURE_OF_THE_GROUP = [
         ('Б/ПГ', 'Бригада или производственная группа'),
@@ -193,7 +324,19 @@ class Card(models.Model):
         ('> 63', '63 и старше'),
     ]
 
-    added_by = models.ForeignKey(User, on_delete=models.DO_NOTHING,null=True,verbose_name="Монитор")
+    added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
+                                 verbose_name="Монитор")
+    initiator = models.ForeignKey(Initiator, on_delete=models.DO_NOTHING, verbose_name="Инициатор забастовки/акции",
+                                  null=True)
+    tradeunion_data = models.ForeignKey(TradeunionData, on_delete=models.DO_NOTHING, verbose_name="Данные профсоюза",
+                                        null=True)
+    person_group = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
+    person_character = models.ForeignKey(GroupCharacter, on_delete=models.DO_NOTHING, verbose_name="Характер группы",
+                                         null=True)
+
+    person_group_another = models.CharField("Другое", max_length=150, help_text='Другое', null=True, blank=True)
+
+    employear = models.ForeignKey(Employer, on_delete=models.DO_NOTHING, verbose_name="Работодатель", null=True)
 
     # trade_union = models.CharField("Название профсоюза", max_length=200, default="")
     # phone_number_union = models.CharField("Контакты", max_length=200, blank=True, null=True)
@@ -210,36 +353,39 @@ class Card(models.Model):
     # phone_number_employer = models.CharField("Контакты", max_length=200, blank=True, null=True)
     # address_employer = models.CharField("Адрес", max_length=200, blank=True, null=True)
     #
-    # ANSWER = [
-    #     ('-', 'Кратковременная'),
-    #     ('---', 'Длящаяся')
-    # ]
-    # ANSWER2 = [
-    #     ('+', 'удовлетворены'),
-    #     ('-', 'не удовлетворены'),
-    #     ('+-', 'удовлетворены частично')
-    # ]
-    # duration = models.CharField('Длительность забастовки/акции', max_length=3, choices=ANSWER, default='-')
-    # meeting_requirements = models.CharField('Удовлетворение требований', max_length=2, choices=ANSWER2, default='+')
-    # story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло',
-    #                          help_text='Параллельно указывайте, чем подтверждаются эти факты (если есть приложения,'
-    #                                    ' укажите сразу номера и названия соответствующих приложений)', default="")
-    # reasons_for_strike = models.TextField('Причины начала забастовки',
-    #                                       help_text='Опишите причины начала забастовки (например: условия труда на '
-    #                                                 'предприятии, продолжительность рабочего времени, безопасность и'
-    #                                                 'т.д. время, связанное с работой)', default="")
-    # change_number_participants = models.TextField('Как менялось количество участников забастовки',
-    #                                               help_text='Опишите как менялось количество участников '
-    #                                                         'забастовки во время проведения и что на это влияло?',
-    #                                               default="")
-    # initiators_and_participants = models.TextField('Что с инициаторами и участниками',
-    #                                                help_text="Ситуация с инициаторами и участниками забастовки/акции"
-    #                                                          " (продолжают ли они работать, применялись ли к ним административные"
-    #                                                          " меры со стороны предприятия)", default="")
-    # state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", default="")
-    # results_so_far = models.TextField("C какими итогами закончилась забастовка, "
-    #                                   "если еще не закончилась, то какие итоги на данный момент.", default="")
-    # additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True)
+    DURATIONS = [
+        ('LONG', 'Кратковременная'),
+        ('SHORT', 'Длящаяся')
+    ]
+    RESULTS = [
+        ('+', 'удовлетворены'),
+        ('-', 'не удовлетворены'),
+        ('+-', 'удовлетворены частично')
+    ]
+    duration = models.ForeignKey(StrikeCharacter, on_delete=models.DO_NOTHING, verbose_name='Длительность забастовки/акции', null=True)
+    meeting_requirements = models.ForeignKey(MeetingRequirment, on_delete=models.DO_NOTHING, verbose_name='Удовлетворение требований', null=True)
+
+    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло',
+                             help_text='Параллельно указывайте, чем подтверждаются эти факты (если есть приложения,'
+                                       ' укажите сразу номера и названия соответствующих приложений)', default="")
+    reasons_for_strike = models.TextField('Причины начала забастовки',
+                                          help_text='Опишите причины начала забастовки (например: условия труда на '
+                                                    'предприятии, продолжительность рабочего времени, безопасность и'
+                                                    'т.д. время, связанное с работой)', default="")
+    change_number_participants = models.TextField('Как менялось количество участников забастовки',
+                                                  help_text='Опишите как менялось количество участников '
+                                                            'забастовки во время проведения и что на это влияло?',
+                                                  default="")
+    initiators_and_participants = models.TextField('Что с инициаторами и участниками',
+                                                   help_text="Ситуация с инициаторами и участниками забастовки/акции"
+                                                             " (продолжают ли они работать, применялись ли к ним административные"
+                                                             " меры со стороны предприятия)", default="")
+    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", default="")
+    results_so_far = models.TextField("C какими итогами закончилась забастовка, "
+                                      "если еще не закончилась, то какие итоги на данный момент.", default="")
+    additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True)
+
+    case_text = models.TextField("Кейсы, связанные с забастовкой", max_length=1800, null=True, blank=True)
 
     def __str__(self):
         return self.name

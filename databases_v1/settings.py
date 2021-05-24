@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'strike.apps.StrikeConfig',
     'crispy_forms',
     'django_tables2',
     'django_filters',
+    'work.apps.WorkConfig',
+    'migrant.apps.MigrantConfig',
+    'strike.apps.StrikeConfig',
+
 
 ]
 
@@ -81,10 +84,21 @@ WSGI_APPLICATION = 'databases_v1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'databases-crm-1',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+# }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db-crm-10.sqlite3',
     }
 }
 
