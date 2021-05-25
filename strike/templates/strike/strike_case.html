@@ -3,7 +3,16 @@
 {% load static %}
 
 
+
 {% block content %}
+
+    {% block toggle %}
+        {{ block.super }}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>
+        </ul>
+    {% endblock %}
+
     {% block scripts %}
     <!-- block.super will get the content of the block from the parent template -->
         {{ block.super }}

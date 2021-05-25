@@ -11,6 +11,14 @@
 <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    {% block toggle %}
+        {{ block.super }}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>
+        </ul>
+    {% endblock %}
+
 <div id = "test"></div>
 <script type="text/babel">
 

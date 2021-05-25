@@ -506,7 +506,7 @@ class TradeUnionCount(models.Model):
         verbose_name_plural = "Численность профсоюза после произошедшего"
 
 class CasePhoto(models.Model):
-    file = models.FileField()
+    file = models.FileField("Фото/видео/документы",upload_to="photos")
     card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
@@ -518,7 +518,7 @@ class CasePhoto(models.Model):
 
 
 class CaseFile(models.Model):
-    file = models.FileField()
+    file = models.FileField("Кейсы, связанные с забастовкой",upload_to="files")
     card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):

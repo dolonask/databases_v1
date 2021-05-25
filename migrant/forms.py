@@ -3,7 +3,26 @@ from datetime import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 
-from .models import Case, IndividualInfo, PersonGroup, Company, Entrepreneur
+from .models import Case, IndividualInfo, PersonGroup, Company, Entrepreneur, CasePhoto, CaseFile
+
+
+class PhotoForm(forms.ModelForm):
+
+    class Meta:
+        model = CasePhoto
+        fields = ['file']
+        widgets = {
+            'file': forms.ClearableFileInput(attrs={'class': 'form-control', 'multiple':'True'}),
+        }
+
+class FileForm(forms.ModelForm):
+
+    class Meta:
+        model = CaseFile
+        fields = ['file']
+        widgets = {
+            'file': forms.ClearableFileInput(attrs={'class': 'form-control', 'multiple':'True'}),
+        }
 
 
 class CaseForm(forms.ModelForm):

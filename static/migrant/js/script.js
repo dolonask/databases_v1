@@ -307,9 +307,16 @@ function onWayFindingChanged(value) {
 }
 
 function show_div(id){
+    if (id == 'div_media'){
+        console.log(document.getElementById("id_source"))
+    }
     document.getElementById(id).style.display = '';
 }
 function hide_div(id){
+    if (id == 'div_media'){
+        console.log(document.getElementById("id_source_url"))
+    }
+
     document.getElementById(id).style.display = 'none';
 }
 
@@ -352,7 +359,7 @@ function onRightChanged(value) {
     }
 }
 
-// hide_div('div_media')
+hide_div('div_media')
 hide_div('div_individual')
 hide_div('div_group')
 hide_div('div_company')

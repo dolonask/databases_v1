@@ -23,14 +23,20 @@
                 <a class="navbar-brand" href="/">Система регистрации нарушений</a>
             </div>
 
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'logout' %}">Выйти</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>
-                </ul>
-            </div>
+
+                <div id="navbar" class="collapse navbar-collapse">
+                    {% block toggle %}
+                     {% endblock %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+{#                    <ul class="nav navbar-nav navbar-right">#}
+{#                        <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>#}
+{#                    </ul>#}
+                </div>
+
+
+
         </div>
     </nav>
 

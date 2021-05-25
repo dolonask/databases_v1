@@ -310,6 +310,7 @@ function show_div(id){
     document.getElementById(id).style.display = '';
 }
 function hide_div(id){
+    console.log(document.getElementById(id))
     document.getElementById(id).style.display = 'none';
 }
 
@@ -352,7 +353,7 @@ function onRightChanged(value) {
     }
 }
 
-//hide_div('div_media')
+hide_div('div_media')
 hide_div('div_individual')
 hide_div('div_group')
 hide_div('div_company')

@@ -10,15 +10,18 @@
 
 {% block content %}
 
-    {% block scripts %}
-    <!-- block.super will get the content of the block from the parent template -->
+    {% block toggle %}
         {{ block.super }}
-        <script src="{% static 'migrant/js/script.js' %}"></script>
-
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'migrants_list' %}">Список мигрантов</a></li>
+        </ul>
     {% endblock %}
 
     <form method="post" novalidate>
         {% csrf_token %}
+        <br>
+        <br>
+        <br>
 
         <div class="form-group">
             {{ form.case_name.label_tag }}
@@ -638,6 +641,29 @@
                 {{ form.tradeUnionCount.errors }}
             </div>
         </div>
+
+        <div class="panel panel-default" id="div_docs">
+            <div class="panel-heading">Документы по кейсу</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    {{ photoForm.file.label_tag }}
+                    {{ photoForm.file }}
+                    <div class="invalid_feedback">
+                        {{ photoForm.file.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ fileForm.file.label_tag }}
+                    {{ fileForm.file }}
+                    <div class="invalid_feedback">
+                        {{ fileForm.file.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="form-group">
             {{ form.frequent_problems.label_tag }}
             {{ form.frequent_problems }}
@@ -705,5 +731,12 @@
         <br>
         <br>
         <br>
+
+    {% block scripts %}
+    <!-- block.super will get the content of the block from the parent template -->
+        {{ block.super }}
+        <script src="{% static 'migrant/js/script.js' %}"></script>
+
+    {% endblock %}
 
 {% endblock %}

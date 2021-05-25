@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 
-from .forms import CaseForm, CompanyForm, IndividualForm, VictimForm, GroupForm, EntrepreneurForm
-
+from .forms import CaseForm, CompanyForm, IndividualForm, VictimForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm
+from .filters import MigrantFilter
 
 # Create your views here.
+from .models import Case
+
 
 def append_case(request):
     if request.method == 'POST':
@@ -13,6 +15,15 @@ def append_case(request):
         victimForm = VictimForm(request.POST)
         groupForm = GroupForm(request.POST)
         entrepreneurForm = EntrepreneurForm(request.POST)
+        photoForm = PhotoForm(request.POST)
+        fileForm = FileForm(request.POST)
+        if photoForm.is_valid():
+            for file in request.FILES.getlist("photoForm"):
+                print(file)
+
+        if fileForm.is_valid():
+            for file in request.FILES.getlist("fileForm"):
+                print(file)
 
         if form.is_valid():
 
@@ -33,7 +44,9 @@ def append_case(request):
                 form.personGroupInfo = groupForm.save()
             if entrepreneurForm.is_valid():
                 form.entrepreneur = entrepreneurForm.save()
-
+            if photoForm.is_valid():
+                for file in request.FILES.getlist("photoForm"):
+                    print(file)
 
             form.user = request.user
 
@@ -48,6 +61,8 @@ def append_case(request):
         victimForm = VictimForm
         groupForm = GroupForm
         entrepreneurForm = EntrepreneurForm
+        photoForm = PhotoForm
+        fileForm = FileForm
 
     return render(request,
                   'migrant/append_case.html',
@@ -58,8 +73,17 @@ def append_case(request):
                       'victimForm': victimForm,
                       'groupForm': groupForm,
                       'entrepreneurForm': entrepreneurForm,
+                      'photoForm': photoForm,
+                      'fileForm': fileForm,
                   })
 
-
 def cases(request):
-    pass
+
+    cases = Case.objects.all().filter(user=request.user)
+
+    filter = MigrantFilter(request.GET,queryset=cases)
+    cards = filter.qs
+
+    context = {'cards':cards, 'myFilter':filter}
+
+    return render(request, 'migrant/cases.html', context)
