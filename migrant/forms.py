@@ -66,6 +66,7 @@ class CaseForm(forms.ModelForm):
             'tradeUnionSituation': forms.Select(attrs={'class': 'form-control', 'onchange': "onTradeUnionSituationChanged(this.value);"}),
             'tradeUnionSituation_another': forms.TextInput(attrs={'class': 'form-control'}),
             'tradeUnionCount': forms.Select(attrs={'class': 'form-control'}),
+            'case_additional_info': forms.Textarea(attrs={'class': 'form-control'}),
             'frequent_problems': forms.Textarea(attrs={'class': 'form-control'}),
             'decision': forms.Textarea(attrs={'class': 'form-control'}),
             'advice': forms.Textarea(attrs={'class': 'form-control'}),
@@ -132,7 +133,7 @@ class IndividualForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'onchange': "onWayFindingChanged(this.value);"}),
             'wayOfFindingWorkAnother': forms.TextInput(attrs={'class': 'form-control'}),
             'hasRegistration': forms.Select(attrs={'class': 'form-control'}),
-            'tradeUnionMembership': forms.Select(attrs={'class': 'form-control'}),
+            'tradeUnionMembership': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimTradeUnionMembershipChanged(this.value);"}),
             'experience': forms.TextInput(attrs={'class': 'form-control'}),
             'hasAgreement': forms.Select(attrs={'class': 'form-control', 'onchange': "onAgreementChanged(this.value);"}),
             'agreementDetailYes': forms.Select(attrs={'class': 'form-control'}),
@@ -156,7 +157,7 @@ class GroupForm(forms.ModelForm):
             'amount': forms.TextInput(attrs={'class': 'form-control'}),
             'groupType': forms.Select(attrs={'class': 'form-control'}),
             'workDescription': forms.TextInput(attrs={'class': 'form-control'}),
-            'membership': forms.Select(attrs={'class': 'form-control'}),
+            'membership': forms.Select(attrs={'class': 'form-control', 'onchange': "onPersonGroupUnionMembershipChanged(this.value);"}),
         }
 
 

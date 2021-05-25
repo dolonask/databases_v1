@@ -7,7 +7,6 @@ function showTandem(id){
 }
 
 function onBanChanged(value) {
-    console.log(value)
     if (value == 4) {
         // document.getElementById("id_source_url").readOnly=true;
         showTandem("id_banOnEntryAnother");
@@ -272,7 +271,6 @@ function onViolationTypeChanged(value) {
     }
 }
 function onVictim_SituationChanged(value) {
-    console.log(value)
     if (value == 4) {
         // document.getElementById("id_source_url").readOnly=true;
         showTandem("id_victim_situation_another")
@@ -310,7 +308,6 @@ function show_div(id){
     document.getElementById(id).style.display = '';
 }
 function hide_div(id){
-    console.log(document.getElementById(id))
     document.getElementById(id).style.display = 'none';
 }
 

@@ -1,0 +1,826 @@
+{% extends 'base.html' %}
+{##}
+{#{% block scripts %}#}
+{#    <!-- block.super will get the content of the block from the parent template -->#}
+{#    {{ block.super }}#}
+{#    <script src="{% static 'js/milk.js' %}"></script>#}
+{#{% endblock %}#}
+
+{% block head %}{% endblock %}
+
+
+{% load static %}
+
+{% block content %}
+
+{#    {% block toggle %}#}
+{#        {{ block.super }}#}
+{#        <ul class="nav navbar-nav navbar-right">#}
+{#            <li><a href="{% url 'migrants_list' %}">Список мигрантов</a></li>#}
+{#        </ul>#}
+{#    {% endblock %}#}
+    <div class="row">
+    <div >
+        <form id="msform" method="post" novalidate>
+            {% csrf_token %}
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Общая информация</li>
+                <li>Информация о пострадавшем/ей (пострадавших)</li>
+                <li>Кем нарушены права</li>
+                <li>Описание кейса</li>
+                <li>Документы по кейсу</li>
+                <li>Вопросы для сбора информации</li>
+                <li>Нарушения связанные с COVID-19</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Общая информация</h2>
+                <br>
+{#                <h3 class="fs-subtitle">Tell us something more about you</h3>#}
+{#                        <div class="form-group">#}
+                            {{ form.case_name.label_tag }}{{ form.case_name }}
+                            {% if form.case_name.errors %}
+                                <div class="invalid_feedback alert alert-danger">
+                                    {{ form.case_name.errors }}
+                                </div>
+                            {% endif %}
+{#                        </div>#}
+
+                        <div class="form-group">
+                            {{ form.victim_status.label_tag }}
+                            {{ form.victim_status }}
+                            {% if form.victim_status.errors %}
+                                <div class="invalid_feedback alert alert-danger">
+                                    {{ form.victim_status.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.banOnEntry.label_tag }}
+                            {{ form.banOnEntry }}
+                            <div class="invalid_feedback">
+                                {{ form.banOnEntry.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.banOnEntryAnother.label_tag }}
+                            {{ form.banOnEntryAnother }}
+                            <div class="invalid_feedback">
+                                {{ form.banOnEntryAnother.errors }}
+                            </div>
+                        </div>
+{#                        <div class="form-group">#}
+                            {{ form.source.label_tag }}
+                            {{ form.source }}
+                            <div class="invalid_feedback">
+                                {{ form.source.errors }}
+                            </div>
+{#                        </div>#}
+
+                        <div class="panel panel-default" id="div_media">
+                            <div class="panel-heading">Информация про СМИ</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    {{ form.source_url.label_tag }}
+                                    {{ form.source_url }}
+                                    <div class="invalid_feedback">
+                                        {{ form.source_url.errors }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.source_content.label_tag }}
+                                        {{ form.source_content }}
+                                        <div class="invalid_feedback">
+                                            {{ form.source_content.errors }}
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            {{ form.violated_right.label_tag }}
+                            {{ form.violated_right }}
+                            <div class="invalid_feedback">
+                                {{ form.violated_right.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.violatedRightAnother.label_tag }}
+                            {{ form.violatedRightAnother }}
+                            <div class="invalid_feedback">
+                                {{ form.violatedRightAnother.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.start_date.label_tag }}
+                            {{ form.start_date }}
+                            <div class="invalid_feedback">
+                                {{ form.start_date.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.end_date.label_tag }}
+                            {{ form.end_date }}
+                            <div class="invalid_feedback">
+                                {{ form.end_date.errors }}
+                            </div>
+                        </div>
+                <input type="button" name="next" class="next action-button" value="Следующий"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Информация о пострадавшем/ей (пострадавших)</h2>
+                <br>
+{#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
+                <div class="form-group">
+                    {{ form.victim.label_tag }}
+                    {{ form.victim }}
+                    <div class="invalid_feedback">
+                        {{ form.victim.errors }}
+                    </div>
+                </div>
+
+                <div class="panel panel-default" id="div_individual">
+                    <div class="panel-heading">Информация о физическом лице</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                    {{ individualForm.name.label_tag }}
+                    {{ individualForm.name }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.name.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.gender.label_tag }}
+                    {{ individualForm.gender }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.gender.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.gender_another.label_tag }}
+                    {{ individualForm.gender_another }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.gender_another.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.contacts.label_tag }}
+                    {{ individualForm.contacts }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.contacts.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.education.label_tag }}
+                    {{ individualForm.education }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.education.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.country.label_tag }}
+                    {{ individualForm.country }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.country.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.countryAnother.label_tag }}
+                    {{ individualForm.countryAnother }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.countryAnother.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.city_name.label_tag }}
+                    {{ individualForm.city_name }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.city_name.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.countryFrom.label_tag }}
+                    {{ individualForm.countryFrom }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.countryFrom.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.countryFromAnother.label_tag }}
+                    {{ individualForm.countryFromAnother }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.countryFromAnother.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.city_name_from.label_tag }}
+                    {{ individualForm.city_name_from }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.city_name_from.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.wayOfArrival.label_tag }}
+                    {{ individualForm.wayOfArrival }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.wayOfArrival.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.wayOfArrivalAnother.label_tag }}
+                    {{ individualForm.wayOfArrivalAnother }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.wayOfArrivalAnother.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.wayOfFindingWork.label_tag }}
+                    {{ individualForm.wayOfFindingWork }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.wayOfFindingWork.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.wayOfFindingWorkAnother.label_tag }}
+                    {{ individualForm.wayOfFindingWorkAnother }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.wayOfFindingWorkAnother.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.hasRegistration.label_tag }}
+                    {{ individualForm.hasRegistration }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.hasRegistration.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.tradeUnionMembership.label_tag }}
+                    {{ individualForm.tradeUnionMembership }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.tradeUnionMembership.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.experience.label_tag }}
+                    {{ individualForm.experience }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.experience.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.hasAgreement.label_tag }}
+                    {{ individualForm.hasAgreement }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.hasAgreement.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.agreementDetailYes.label_tag }}
+                    {{ individualForm.agreementDetailYes }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.agreementDetailYes.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.agreementDetailNo.label_tag }}
+                    {{ individualForm.agreementDetailNo }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.agreementDetailNo.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.agreementLang.label_tag }}
+                    {{ individualForm.agreementLang }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.agreementLang.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.understoodTheContents.label_tag }}
+                    {{ individualForm.understoodTheContents }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.understoodTheContents.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.workBookStatus.label_tag }}
+                    {{ individualForm.workBookStatus }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.workBookStatus.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.workingDayDuration.label_tag }}
+                    {{ individualForm.workingDayDuration }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.workingDayDuration.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.hasOverResponsibilities.label_tag }}
+                    {{ individualForm.hasOverResponsibilities }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.hasOverResponsibilities.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ individualForm.wayOfGettingSalary.label_tag }}
+                    {{ individualForm.wayOfGettingSalary }}
+                    <div class="invalid_feedback">
+                        {{ individualForm.wayOfGettingSalary.errors }}
+                    </div>
+                </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" id="div_group">
+                    <div class="panel-heading">Информация про группу лиц</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                    {{ groupForm.amount.label_tag }}
+                    {{ groupForm.amount }}
+                    <div class="invalid_feedback">
+                        {{ groupForm.amount.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ groupForm.groupType.label_tag }}
+                    {{ groupForm.groupType }}
+                    <div class="invalid_feedback">
+                            {{ groupForm.groupType.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ groupForm.workDescription.label_tag }}
+                        {{ groupForm.workDescription }}
+                        <div class="invalid_feedback">
+                            {{ groupForm.workDescription.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ groupForm.membership.label_tag }}
+                        {{ groupForm.membership }}
+                        <div class="invalid_feedback">
+                            {{ groupForm.membership.errors }}
+                        </div>
+                    </div>
+                        </div>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                <input type="button" name="next" class="next action-button" value="Следующий"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Кем нарушены права</h2>
+                <br>
+{#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
+                <div class="form-group">
+                    {{ form.intruder.label_tag }}
+                    {{ form.intruder }}
+                    <div class="invalid_feedback">
+                        {{ form.intruder.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.government_agency_name.label_tag }}
+                    {{ form.government_agency_name }}
+                    <div class="invalid_feedback">
+                        {{ form.government_agency_name.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.local_agency_name.label_tag }}
+                    {{ form.local_agency_name }}
+                    <div class="invalid_feedback">
+                        {{ form.local_agency_name.errors }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.police_agency_name.label_tag }}
+                    {{ form.police_agency_name }}
+                    <div class="invalid_feedback">
+                        {{ form.police_agency_name.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.control_agency_name.label_tag }}
+                    {{ form.control_agency_name }}
+                    <div class="invalid_feedback">
+                        {{ form.control_agency_name.errors }}
+                    </div>
+                </div>
+
+                <div class="panel panel-default" id="div_company">
+                    <div class="panel-heading">Информации о компании</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                    {{ companyForm.company_name.label_tag }}
+                    {{ companyForm.company_name }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.company_name.errors }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ companyForm.address.label_tag }}
+                    {{ companyForm.address }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.address.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.ownership.label_tag }}
+                    {{ companyForm.ownership }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.ownership.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.branch.label_tag }}
+                    {{ companyForm.branch }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.branch.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.product_type.label_tag }}
+                    {{ companyForm.product_type }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.product_type.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.company_experience.label_tag }}
+                    {{ companyForm.company_experience }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.company_experience.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.emp_count.label_tag }}
+                    {{ companyForm.emp_count }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.emp_count.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.additional.label_tag }}
+                    {{ companyForm.additional }}
+                    <div class="invalid_feedback">
+                        {{ companyForm.additional.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ companyForm.country_from.label_tag }}
+                    {{ companyForm.country_from }}
+                    <div class="invalid_feedback">
+                            {{ companyForm.country_from.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ companyForm.is_tnk_member.label_tag }}
+                        {{ companyForm.is_tnk_member }}
+                        <div class="invalid_feedback">
+                            {{ companyForm.is_tnk_member.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ companyForm.tnk_name.label_tag }}
+                        {{ companyForm.tnk_name }}
+                        <div class="invalid_feedback">
+                            {{ companyForm.tnk_name.errors }}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" id="div_entrepreneur">
+                <div class="panel-heading">Информация о работодателе</div>
+                    <div class="panel-body">
+                         <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_name.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_name }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_name.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_age.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_age }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_age.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_gender.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_gender }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_gender.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_address.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_address }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_address.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="id_entrepreneur_workPurpose">
+                        {{ entrepreneurForm.entrepreneur_workPurpose.label_tag }}
+                    </label>
+                    {{ entrepreneurForm.entrepreneur_workPurpose }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_workPurpose.errors }}
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_emp_count.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_emp_count }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_emp_count.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_doAgreement.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_doAgreement }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_doAgreement.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_payWay.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_payWay }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_payWay.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="id_entrepreneur_hireWay">
+                        {{ entrepreneurForm.entrepreneur_hireWay.label_tag }}
+                    </label>
+                    {{ entrepreneurForm.entrepreneur_hireWay }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_hireWay.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ entrepreneurForm.entrepreneur_hireWayAnother.label_tag }}
+                    {{ entrepreneurForm.entrepreneur_hireWayAnother }}
+                    <div class="invalid_feedback">
+                        {{ entrepreneurForm.entrepreneur_hireWayAnother.errors }}
+                    </div>
+                </div>
+                    </div>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                <input type="button" name="next" class="next action-button" value="Следующий"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Описание кейса</h2>
+                <br>
+{#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
+                <div class="form-group">
+                    {{ form.case_additional.label_tag }}
+                    {{ form.case_additional }}
+                    <div class="invalid_feedback">
+                        {{ form.case_additional.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.story.label_tag }}
+                    {{ form.story }}
+                    <div class="invalid_feedback">
+                        {{ form.story.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.actions.label_tag }}
+                    {{ form.actions }}
+                    <div class="invalid_feedback">
+                        {{ form.actions.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.final.label_tag }}
+                    {{ form.final }}
+                    <div class="invalid_feedback">
+                        {{ form.final.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.violation_nature.label_tag }}
+                    {{ form.violation_nature }}
+                    <div class="invalid_feedback">
+                        {{ form.violation_nature.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.rights_state.label_tag }}
+                    {{ form.rights_state }}
+                    <div class="invalid_feedback">
+                        {{ form.rights_state.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.rights_state_another.label_tag }}
+                    {{ form.rights_state_another }}
+                    <div class="invalid_feedback">
+                        {{ form.rights_state_another.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.victim_situation.label_tag }}
+                    {{ form.victim_situation }}
+                    <div class="invalid_feedback">
+                        {{ form.victim_situation.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.victim_situation_another.label_tag }}
+                    {{ form.victim_situation_another }}
+                    <div class="invalid_feedback">
+                        {{ form.victim_situation_another.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.tradeUnionSituation.label_tag }}
+                    {{ form.tradeUnionSituation }}
+                    <div class="invalid_feedback">
+                        {{ form.tradeUnionSituation.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.tradeUnionSituation_another.label_tag }}
+                    {{ form.tradeUnionSituation_another }}
+                    <div class="invalid_feedback">
+                        {{ form.tradeUnionSituation_another.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.tradeUnionCount.label_tag }}
+                    {{ form.tradeUnionCount }}
+                    <div class="invalid_feedback">
+                        {{ form.tradeUnionCount.errors }}
+                    </div>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                <input type="button" name="next" class="next action-button" value="Следующий"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Документы по кейсу</h2>
+                <br>
+{#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
+                <div class="form-group">
+                    {{ photoForm.file.label_tag }}
+                    {{ photoForm.file }}
+                    <div class="invalid_feedback">
+                        {{ photoForm.file.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ fileForm.file.label_tag }}
+                    {{ fileForm.file }}
+                    <div class="invalid_feedback">
+                        {{ fileForm.file.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.case_additional_info.file.label_tag }}
+                    {{ form.case_additional_info.file }}
+                    <div class="invalid_feedback">
+                        {{ form.case_additional_info.file.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.case_additional_info.label_tag }}
+                    {{ form.case_additional_info }}
+                    <div class="invalid_feedback">
+                        {{ form.case_additional_info.errors }}
+                    </div>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                <input type="button" name="next" class="next action-button" value="Следующий"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Вопросы для сбора информации</h2>
+                <br>
+{#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
+                        <div class="form-group">
+                            {{ form.frequent_problems.label_tag }}
+                            {{ form.frequent_problems }}
+                            <div class="invalid_feedback">
+                                {{ form.frequent_problems.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.decision.label_tag }}
+                            {{ form.decision }}
+                            <div class="invalid_feedback">
+                                {{ form.decision.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.advice.label_tag }}
+                            {{ form.advice }}
+                            <div class="invalid_feedback">
+                                {{ form.advice.errors }}
+                            </div>
+                        </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                <input type="button" name="next" class="next action-button" value="Следующий"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Нарушения связанные с COVID-19</h2>
+{#                <h3 class="fs-subtitle">Fill in your credentials</h3>#}
+                <br>
+                    <div class="form-group">
+                                {{ form.has_violation_in_covid.label_tag }}
+                                {{ form.has_violation_in_covid }}
+                                <div class="invalid_feedback">
+                                    {{ form.has_violation_in_covid.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form.violationType.label_tag }}
+                                {{ form.violationType }}
+                                <div class="invalid_feedback">
+                                    {{ form.violationType.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form.violationType_another.label_tag }}
+                                {{ form.violationType_another }}
+                                <div class="invalid_feedback">
+                                    {{ form.violationType_another.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form.changesInSalary.label_tag }}
+                                {{ form.changesInSalary }}
+                                <div class="invalid_feedback">
+                                    {{ form.changesInSalary.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form.changesInSalary_another.label_tag }}
+                                {{ form.changesInSalary_another }}
+                                <div class="invalid_feedback">
+                                    {{ form.changesInSalary_another.errors }}
+                                </div>
+                            </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                <input type="submit" name="submit" class="submit action-button" value="Сохранить"/>
+{#                <input type="submit" value="Сохранить" class="btn btn-primary btn-block">#}
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{#    <form method="post" needs-validation novalidate>#}
+{#        #}
+{#        <br>#}
+{#        <br>#}
+{#        <br>#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#        <div class="panel panel-default" id="div_docs">#}
+{#            <div class="panel-heading">Документы по кейсу</div>#}
+{#            <div class="panel-body">#}
+{#                #}
+{#            </div>#}
+{#        </div>#}
+{##}
+{##}
+{##}
+{##}
+{#        #}
+{##}
+{#    #}
+{##}
+{#    </form>#}
+
+
+    {% block scripts %}
+    <!-- block.super will get the content of the block from the parent template -->
+        {{ block.super }}
+        <script src="{% static 'migrant/js/script.js' %}"></script>
+
+    {% endblock %}
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 
@@ -196,30 +197,30 @@ class WayOfGettingSalary(models.Model):
 
 
 class IndividualInfo(models.Model):
-    name = models.CharField("ФИО", max_length=100, help_text='ФИО', default="анонимно")
+    name = models.CharField("ФИО", max_length=100, help_text='ФИО', default="анонимно", validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     #member_of_tradeunion = models.BooleanField("Член профсоюза", default=True)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     gender_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                            blank=True)
+                                            blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     age = models.CharField("Возраст пострадавшего", max_length=50, help_text='Возраст пострадавшего')
     contacts = models.CharField("Контактные данные (телефон/адрес) ", max_length=500,
-                                help_text='Контактные данные (телефон/адрес) ')
+                                help_text='Контактные данные (телефон/адрес) ', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна пребывания пострадавшего")
     countryAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                            blank=True)
+                                            blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     city_name = models.CharField("Город пребывания пострадавшего", max_length=100, null=True)
     countryFrom = models.ForeignKey(CountryFrom, on_delete=models.DO_NOTHING, verbose_name="Страна исхода пострадавшего")
     countryFromAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                            blank=True)
-    city_name_from = models.CharField("Город/село", max_length=100, null=True)
+                                            blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
+    city_name_from = models.CharField("Город/село", max_length=100, null=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
 
     wayOfArrival = models.ForeignKey(WayOfArrival, on_delete=models.DO_NOTHING, verbose_name="Как пострадавший приехал в страну пребывания?")
     wayOfArrivalAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                            blank=True)
+                                            blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     wayOfFindingWork = models.ForeignKey(WayOfFindingWork, on_delete=models.DO_NOTHING, verbose_name="Как пострадавший нашел работу?")
     wayOfFindingWorkAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                            blank=True)
+                                            blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     hasRegistration=models.CharField("Есть ли у пострадавшего регистрация в стране пребывания?", choices=[('YES', 'Да'),('NO', 'Нет'),], default='YES', max_length=20)
     tradeUnionMembership = models.ForeignKey(TradeUnionMembership, on_delete=models.DO_NOTHING,
                                          verbose_name="Членство в профсоюзе на данный момент ")
@@ -230,7 +231,7 @@ class IndividualInfo(models.Model):
                                          verbose_name="Уточнение, если договор есть", null=True)
     agreementDetailNo = models.ForeignKey(AgreementDetailNo, on_delete=models.DO_NOTHING,
                                          verbose_name="Уточнение, если договора нет", null=True)
-    agreementLang = models.CharField("На каком языке был подписан договор?", max_length=50, help_text='На каком языке был подписан договор?')
+    agreementLang = models.CharField("На каком языке был подписан договор?", max_length=50, help_text='На каком языке был подписан договор?', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     understoodTheContents = models.CharField("Вы поняли содержание договора?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     workBookStatus = models.ForeignKey(WorkBookStatus, on_delete=models.DO_NOTHING,
@@ -325,22 +326,22 @@ class EmployeesCount(models.Model):
         verbose_name_plural = "Количество сотрудников предприятия"
 
 class Company(models.Model):
-    company_name = models.CharField("Название", max_length=100, help_text='Название')
-    address = models.CharField("Адрес", max_length=100, help_text='Адрес')
+    company_name = models.CharField("Название", max_length=100, help_text='Название', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
+    address = models.CharField("Адрес", max_length=100, help_text='Адрес', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=100,
-                                    help_text='Вид производимой продукции / Предоставляемые услуги ')
+                                    help_text='Вид производимой продукции / Предоставляемые услуги ', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
                                   verbose_name="Форма собственности компании")
     company_experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
     branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
-    additional = models.CharField("Иная важная информация", max_length=500, help_text='Иная важная информация ')
+    additional = models.CharField("Иная важная информация", max_length=500, help_text='Иная важная информация ', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     country_from = models.CharField("Страна происхождения компании", max_length=100,
-                                    help_text='Страна происхождения кампании')
+                                    help_text='Страна происхождения кампании', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     is_tnk_member= models.CharField("Является ли эта компания частью ТНК?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
-                                help_text='Название ТНК, в которую входит эта компания')
+                                help_text='Название ТНК, в которую входит эта компания', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
 
     def __str__(self):
         return self.name
@@ -422,10 +423,10 @@ class RightsState(models.Model):
         verbose_name_plural = "Ситуации с правами"
 
 class Entrepreneur(models.Model):
-    entrepreneur_name = models.CharField("ФИО", max_length=50, help_text='ФИО', default="анонимно")
+    entrepreneur_name = models.CharField("ФИО", max_length=50, help_text='ФИО', default="анонимно", validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     entrepreneur_gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол")
     entrepreneur_age = models.CharField("Возраст", choices=[('1', '20-35'),('2', '35-50'),('3', '50-70'), ], max_length=50)
-    entrepreneur_address = models.CharField("Адрес", max_length=100, help_text='Адрес')
+    entrepreneur_address = models.CharField("Адрес", max_length=100, help_text='Адрес', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     entrepreneur_workPurpose = models.ManyToManyField(WorkPurpose, verbose_name="Для какой цели нанимает работников?")
     entrepreneur_emp_count = models.ForeignKey(EntrepreneurEmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
     entrepreneur_doAgreement= models.CharField("Оформляет ли он трудовые договора/соглашения с работниками? ",
@@ -534,17 +535,17 @@ class Case(models.Model):
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
 
-    case_name = models.CharField("Название (описание) карточки", max_length=30, help_text='Название (описание) карточки')
+    case_name = models.CharField("Название (описание) карточки", max_length=30, help_text='Название (описание) карточки', validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     victim_status = models.ForeignKey(VictimStatus, on_delete=models.DO_NOTHING, verbose_name="Статус пострадавшего/ей")
     banOnEntry = models.ForeignKey(BanOnEntry, on_delete=models.DO_NOTHING, verbose_name="Запрет на въезд", null=False)
     banOnEntryAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                         blank=True)
+                                         blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     source = models.ManyToManyField(Source, verbose_name="Источник информации о нарушении")
-    source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True)
+    source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     source_content = models.TextField("Текст статьи/сообщения ", null=True, blank=True)
     violated_right = models.ManyToManyField(Right,verbose_name="Какое право нарушено?")
     violatedRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                         blank=True)
+                                         blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     case_date = models.DateTimeField("Дата создания", auto_now_add=True)
     start_date = models.DateTimeField("Дата начала нарушения", auto_now_add=True)
     end_date = models.DateTimeField("Дата конца нарушения", auto_now_add=True)
@@ -572,16 +573,16 @@ class Case(models.Model):
     rights_state = models.ForeignKey(RightsState, on_delete=models.DO_NOTHING, verbose_name="Ситуация с правами",
                                      null=True)
     rights_state_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                              blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     victim_situation=models.ForeignKey(VictimSituation,on_delete=models.DO_NOTHING, verbose_name="Ситуация с потерпевшим(и)", null=True)
     victim_situation_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                              blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     tradeUnionSituation=models.ForeignKey(TradeUnionSituation,on_delete=models.DO_NOTHING, verbose_name="Профсоюз на месте работы после произошедшего ", null=True)
     tradeUnionSituation_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                              blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     tradeUnionCount = models.ForeignKey(TradeUnionCount, on_delete=models.DO_NOTHING,
                                             verbose_name="Численность профсоюза после произошедшего", null=True)
-
+    case_additional_info = models.CharField("Информация", max_length=5000, null=True, blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
     frequent_problems = models.TextField('С какими на ваш взгляд проблемами чаще всего сталкиваются мигранты и почему?',
                              max_length=1800, default="")
     decision = models.TextField('Какие по вашему мнению есть пути решения этих проблем?',
@@ -593,11 +594,11 @@ class Case(models.Model):
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], default='YES', max_length=20)
     violationType=models.ForeignKey(ViolationType,on_delete=models.DO_NOTHING, verbose_name="С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?", null=True)
     violationType_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                              blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
 
     changesInSalary=models.ForeignKey(ChangesInSalary,on_delete=models.DO_NOTHING, verbose_name="Как изменились Ваши доходы из-за COVID-19?", null=True)
     changesInSalary_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                              blank=True, validators=[MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING,
                                  verbose_name="Монитор")

@@ -65,7 +65,7 @@ def append_case(request):
         fileForm = FileForm
 
     return render(request,
-                  'migrant/append_case.html',
+                  'migrant/add_case.html',
                   context={
                       'form': form,
                       'companyForm': companyForm,
@@ -87,3 +87,7 @@ def cases(request):
     context = {'cards':cards, 'myFilter':filter}
 
     return render(request, 'migrant/cases.html', context)
+
+
+def multistep(request):
+    return render(request, 'migrant/add_case.html')
