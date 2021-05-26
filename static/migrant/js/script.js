@@ -279,6 +279,26 @@ function onVictim_SituationChanged(value) {
     }
 }
 
+function onAnonimChanged(value) {
+    if (value == 'YES') {
+        // document.getElementById("id_source_url").readOnly=true;
+        showTandem("id_name")
+    } else {
+        hideTandem("id_name")
+    }
+}
+
+function onVictimTradeUnionMembershipChanged(value) {
+    if (value != 1) {
+        // document.getElementById("id_source_url").readOnly=true;
+        hide_div("id_tradeUnionSituation")
+        hide_div("id_tradeUnionCount")
+    } else {
+        show_div("id_tradeUnionSituation")
+        show_div("id_tradeUnionCount")
+    }
+}
+
 function onTradeUnionSituationChanged(value) {
     if (value == 4) {
         // document.getElementById("id_source_url").readOnly=true;

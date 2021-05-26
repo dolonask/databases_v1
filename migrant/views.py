@@ -4,7 +4,7 @@ from .forms import CaseForm, CompanyForm, IndividualForm, VictimForm, GroupForm,
 from .filters import MigrantFilter
 
 # Create your views here.
-from .models import Case
+from .models import Case, CasePhoto, CaseFile
 
 
 def append_case(request):
@@ -15,19 +15,12 @@ def append_case(request):
         victimForm = VictimForm(request.POST)
         groupForm = GroupForm(request.POST)
         entrepreneurForm = EntrepreneurForm(request.POST)
-        photoForm = PhotoForm(request.POST)
-        fileForm = FileForm(request.POST)
-        if photoForm.is_valid():
-            for file in request.FILES.getlist("photoForm"):
-                print(file)
-
-        if fileForm.is_valid():
-            for file in request.FILES.getlist("fileForm"):
-                print(file)
+        photoForm = PhotoForm(request.POST, request.FILES)
+        fileForm = FileForm(request.POST, request.FILES)
 
         if form.is_valid():
 
-            cleaned_data = form.cleaned_data;
+            # cleaned_data = form.cleaned_data;
             form = form.save(commit=False)
             # if cleaned_data['source']:
             #     for item in cleaned_data['source']:
@@ -44,13 +37,19 @@ def append_case(request):
                 form.personGroupInfo = groupForm.save()
             if entrepreneurForm.is_valid():
                 form.entrepreneur = entrepreneurForm.save()
-            if photoForm.is_valid():
-                for file in request.FILES.getlist("photoForm"):
-                    print(file)
+
 
             form.user = request.user
-
             form.save()
+
+            if photoForm.is_valid():
+                for f in request.FILES.getlist('photo'):
+                    photo = CasePhoto(photo=f,card = form)
+                    photo.save()
+            if fileForm.is_valid():
+                for f in request.FILES.getlist('file'):
+                    file = CaseFile(file=f,card=form)
+                    file.save()
 
             return redirect('migrant_case')
 
