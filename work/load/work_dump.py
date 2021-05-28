@@ -128,6 +128,21 @@ def load_works(apps, schema_editor):
     maritalStatus = MaritalStatus(id=6, name="Никогда не состоял(а) в браке", active=True)
     maritalStatus.save()
 
+    Intruder = apps.get_model("work", "Intruder")
+    intruder = Intruder(id=1,name="Государственные органы",active=True)
+    intruder.save()
+    intruder = Intruder(id=2,name="Органы местного самоуправления ",active=True)
+    intruder.save()
+    intruder = Intruder(id=3,name="Правоохранительные органы",active=True)
+    intruder.save()
+    intruder = Intruder(id=4,name="Работодатель (компания)",active=True)
+    intruder.save()
+    intruder = Intruder(id=5,name="Затрудняюсь ответить",active=True)
+    intruder.save()
+    intruder = Intruder(id=6,name="Другое ",active=True)
+    intruder.save()
+
+
 
     Victim = apps.get_model("work", "Victim")
     victim = Victim(id=1,name="профсоюзная организация",active=True)

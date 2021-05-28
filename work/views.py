@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm
+from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, CaseFileForm
 from .models import *
 
 
@@ -51,10 +51,36 @@ def add_case(request):
         'governmentCoercion',
         'violationsUsingCompulsoryLabor',
         'failureSystemicMeasures',
-        'case_date',
+        'start_date',
+        'end_date',
     ]
     initiator_tab_fields = [
         'victim'
+    ]
+    intruder_tab_fields = [
+        'intruder',
+        'intruderAnother',
+        'government_agency_name',
+        'local_agency_name',
+        'police_agency_name',
+        'control_agency_name',
+    ]
+    description_tab_fields = [
+        'exact_data',
+        'case_description',
+        'actions',
+        'result',
+        'violation_nature',
+        'rights_state',
+        'rights_state_another',
+        'victim_situation',
+        'victim_situation_another',
+        'tradeUnionSituation',
+        'tradeUnionSituation_another',
+        'tradeUnionCount',
+    ]
+    files_tab_fields=[
+        'case_text'
     ]
 
 
@@ -65,14 +91,23 @@ def add_case(request):
         tradeUnionForm = TradeUnionInfoForm
         individualForm = IndividualForm
         personGroupForm = PersonGroupForm
+        companyInfoForm = CompanyInfoForm
+        casePhotoForm = CasePhotoForm
+        caseFileForm = CaseFileForm
 
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
         'individualForm':individualForm,
         'personGroupForm':personGroupForm,
+        'companyInfoForm':companyInfoForm,
+        'caseFileForm':caseFileForm,
+        'casePhotoForm':casePhotoForm,
         'general_tabs_fields':general_tabs_fields,
         'initiator_tab_fields':initiator_tab_fields,
+        'intruder_tab_fields':intruder_tab_fields,
+        'description_tab_fields':description_tab_fields,
+        'files_tab_fields':files_tab_fields,
     })
 
 def cases(request):

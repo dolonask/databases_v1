@@ -314,8 +314,8 @@ class RightsState(models.Model):
 
 
 class Company(models.Model):
-    name = models.CharField("Название", max_length=100, help_text='Название')
-    address = models.CharField("Адрес", max_length=100, help_text='Адрес')
+    company_name = models.CharField("Название организации (с указанием организационно-правовой формы)", max_length=100, help_text='Название')
+    address = models.CharField("Адрес / Телефон", max_length=100, help_text='Адрес')
     product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=100,
                                     help_text='Вид производимой продукции / Предоставляемые услуги ')
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
@@ -568,11 +568,11 @@ class FailureSystemicMeasures(models.Model):
 
 
 class CasePhoto(models.Model):
-    file = models.FileField()
+    photo = models.FileField("Фото/видео/документы", upload_to='workfiles/photo')
     card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
-        return self.file
+        return self.photo
 
     class Meta:
         verbose_name = "Фото/видео/документы "
@@ -580,7 +580,7 @@ class CasePhoto(models.Model):
 
 
 class CaseFile(models.Model):
-    file = models.FileField()
+    file = models.FileField("Кейсы, связанные с забастовкой", upload_to='workfiles/files')
     card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
@@ -704,8 +704,8 @@ class Case(models.Model):
                                           verbose_name="Нарушения, связанные с непринятием государством системных мер",
                                                      null=True, blank=True)
 
-
-    case_date = models.DateTimeField("Дата нарушения")
+    start_date = models.DateTimeField("Дата начала")
+    end_date = models.DateTimeField("Дата завершения")
 
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение: ", null=True, blank=True)
     tradeUnionInfo = models.ForeignKey(TradeUnionInfo, on_delete=models.DO_NOTHING, verbose_name="Профсоюзная организация", null=True, blank=True)
@@ -713,16 +713,22 @@ class Case(models.Model):
     groupOfPersons = models.ForeignKey(GroupOfPersons, on_delete=models.DO_NOTHING, verbose_name="Группа лиц (работников)", null=True, blank=True)
 
 
-    intruder = models.ForeignKey(Intruder, on_delete=models.DO_NOTHING, verbose_name="Нарушитель", null=False,
-                                 default=None)
-    agency_name = models.CharField("Название органа", max_length=500, null=True)
+    intruder = models.ManyToManyField(Intruder, verbose_name="Кем было совершено нарушение", null=False)
+    intruderAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
+                                                null=True,
+                                                blank=True)
+    government_agency_name = models.CharField("Название государственного органа", max_length=200, null=True,blank=True)
+    local_agency_name = models.CharField("Название органа местного самоуправления", max_length=500, null=True, blank=True)
+    police_agency_name = models.CharField("Название правоохранительного органа", max_length=500, null=True,blank=True)
+    control_agency_name = models.CharField("Название контролирующего органа", max_length=500, null=True,blank=True)
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True)
-    intruder_another = models.CharField("Информация о нарушителе прав", max_length=500, null=True)
-    description = models.CharField("Точные имена, даты, места событий", max_length=200, blank=False, null=True)
-    full_description = models.CharField("Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло", max_length=1800, blank=False,
-                                        null=True),
-    actions = models.CharField("Действия предприняты профсоюзом/правозащитной организацией", max_length=1800,
+
+
+    exact_data = models.CharField("Укажите точные имена, даты, места событий", max_length=200,blank=False, null=True)
+    case_description = models.CharField("Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений)", max_length=1800,blank=False, null=True)
+    actions = models.CharField("Опишите, какие действия предприняты профсоюзом/правозащитной организацией. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ", max_length=1800,
                                blank=False, null=True),
+
     result = models.CharField("Чем завершилась ситуация (если завершилась) или состояние в текущий момент",
                               max_length=1800, blank=False, null=True),
 
@@ -736,4 +742,11 @@ class Case(models.Model):
                                          verbose_name="Ситуация с потерпевшим(и)", null=True)
     victim_situation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                                 blank=False)
+    tradeUnionSituation = models.ForeignKey(TradeUnionSituation, on_delete=models.DO_NOTHING,
+                                         verbose_name="Профсоюз на месте работы после произошедшего", null=True)
+    tradeUnionSituation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+                                                blank=False)
+    tradeUnionCount = models.ForeignKey(TradeUnionCount, on_delete=models.DO_NOTHING,
+                                            verbose_name="Численность профсоюза после произошедшего", null=True)
+
     case_text = models.TextField("Кейсы, связанные с забастовкой", max_length=1800, null=True, blank=True)
