@@ -158,4 +158,65 @@ def cases(request):
 
     return render(request, 'strike/strike.html', context)
 
+@login_required()
+def add_case(request):
+
+    general_tabs_fields = ['name',
+                           'card_sources',
+                           'source_url',
+                           'source_content',
+                           'region',
+                           'city_name',
+                           'company_name',
+                           'company_ownership_type',
+                           'company_is_tnk_member',
+                           'company_tnk_name',
+                           'company_employees_count',
+                           'count_strike_participants',
+                           'card_demand_categories',
+                           'start_date',
+                           'end_date',
+                           'tradeunionChoice',
+                           'tradeunionChoiceAnother',
+                           'economic_another',
+                           'politic_another',
+                           'combo_another',
+                           ]
+    initiator_tab_fields = ['initiator']
+    description_tab_fields = ['duration',
+                              'meeting_requirements',
+                              'story',
+                              'reasons_for_strike',
+                              'change_number_participants',
+                              'initiators_and_participants',
+                              'state_position',
+                              'results_so_far',
+                              'additional_information',
+
+                              ]
+    if request.method == "POST":
+        pass
+    else:
+        form = CardForm
+        tradeUnionForm = TradeunionForm
+        personGroupInfoForm = PersonGroupInfoForm
+        individualForm = IndividualForm
+        employerForm = EmployerForm
+        photoForm = CardPhotoForm
+        fileForm = CardFileForm
+
+    return render(request,'strike/add_case.html', context={
+        'form':form,
+        'tradeUnionForm':tradeUnionForm,
+        'personGroupInfoForm':personGroupInfoForm,
+        'individualForm':individualForm,
+        'employerForm':employerForm,
+        'photoForm':photoForm,
+        'fileForm':fileForm,
+        'demandTypes':DemandType.objects.all().filter(active=True),
+        'general_tabs_fields':general_tabs_fields,
+        'initiator_tab_fields':initiator_tab_fields,
+        'description_tab_fields':description_tab_fields,
+    })
+
 

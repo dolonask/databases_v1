@@ -122,3 +122,35 @@
      */
   </script>
 {% endblock %}
+
+
+        {% for demandType in demandTypes %}
+            <ul>
+                <li>
+                    <input type="checkbox" id="option"><label for="option"> {{ demandType}}</label>
+                </li>
+            </ul>
+
+
+        {% endfor %}
+
+
+        {% regroup querySet by demand_type as demands %}
+        {% for item in demands %}
+            <div class="form-group">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="option"><label for="option"> {{ item.grouper}}</label>
+                        <ul>
+                            {% for event in item.list %}
+                                <li><label><input type="checkbox" class="subOption"> {{ event }}</label></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        {% endfor %}

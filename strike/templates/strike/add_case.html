@@ -1,0 +1,426 @@
+{% extends 'base.html' %}
+{##}
+{#{% block scripts %}#}
+{#    <!-- block.super will get the content of the block from the parent template -->#}
+{#    {{ block.super }}#}
+{#    <script src="{% static 'js/milk.js' %}"></script>#}
+{#{% endblock %}#}
+
+{% block head %}
+
+    <style>
+        #progressbar li {
+            list-style-type: none;
+            color: #000000;
+            text-transform: uppercase;
+            font-size: 9px;
+            width: 25%;
+            float: left;
+            position: relative;
+            letter-spacing: 1px;
+        }
+    </style>
+{% endblock %}
+
+{% block toggle %}
+    {{ block.super }}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>
+    </ul>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div>
+            <form id="msform" method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li class="active">Общая информация</li>
+                    <li>Инициатор забастовки</li>
+                    <li>Описание кейса</li>
+                    <li>Кейсы, связанные с данной ситуацией</li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset id='id_general_info_fieldset'>
+                    <h2 class="fs-title">Общая информация</h2>
+                    <br>
+                    {% for field in form %}
+                        {% if field.name in general_tabs_fields %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <div class="invalid_feedback">
+                                    {{ field.errors }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+
+                    <input type="button" onclick="validate('checkGeneralTab')" class="action-button" value="Следующий"/>
+                    <input type="button" id="btnNextFromStrikeGeneral" name="next" class="next action-button d-none" value="Следующий"/>
+                </fieldset>
+                <fieldset id = 'id_initiator_fieldset'>
+                    <h2 class="fs-title">Инициатор забастовки</h2>
+                    <br>
+                    {% for field in form %}
+                        {% if field.name in initiator_tab_fields %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <div class="invalid_feedback">
+                                    {{ field.errors }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="panel panel-default" id="idTradeUnionDiv">
+                        <div class="panel-heading">Информация о профсоюзе</div>
+                        <div class="panel-body">
+                            {% for field in tradeUnionForm %}
+                                <div class="form-group">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    <div class="invalid_feedback">
+                                        {{ field.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="panel panel-default" id="idPersonGroupInfoDiv">
+                        <div class="panel-heading">Группа лиц</div>
+                        <div class="panel-body">
+                            {% for field in personGroupInfoForm %}
+                                <div class="form-group">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    <div class="invalid_feedback">
+                                        {{ field.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="panel panel-default" id="idIndividualFormDiv">
+                        <div class="panel-heading">Физическое лицо</div>
+                        <div class="panel-body">
+                            {% for field in individualForm %}
+                                <div class="form-group">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    <div class="invalid_feedback">
+                                        {{ field.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="panel panel-default" id="idEmployerFormDiv">
+                        <div class="panel-heading">Работодатель</div>
+                        <div class="panel-body">
+                            {% for field in employerForm %}
+                                <div class="form-group">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    <div class="invalid_feedback">
+                                        {{ field.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                    {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
+                    <input type="button" onclick="validate('initiator_tab')" class="action-button" value="Следующий"/>
+                    <input type="button" id="btnNextFromInitiator" name="next" class="next action-button d-none" value="Следующий"/>
+                </fieldset>
+                <fieldset id = "id_case_desc_fieldset">
+                    <h2 class="fs-title">Описание кейса</h2>
+                    <br>
+                    {% for field in form %}
+                        {% if field.name in description_tab_fields %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <div class="invalid_feedback">
+                                    {{ field.errors }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                    {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
+                    <input type="button" onclick="validate('case_description_tab')" class="action-button" value="Следующий"/>
+                    <input type="button" id="btnNextFromCaseDesc" name="next" class="next action-button d-none" value="Следующий"/>
+                </fieldset>
+                <fieldset id="id_files_fieldset">
+                    <h2 class="fs-title">Кейсы, связанные с данной ситуацией</h2>
+                    <br>
+                    <div class="form-group">
+                        {{ photoForm.photo.label_tag }}
+                        {{ photoForm.photo }}
+                        <div class="invalid_feedback">
+                            {{ photoForm.photo.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ fileForm.file.label_tag }}
+                        {{ fileForm.file }}
+                        <div class="invalid_feedback">
+                            {{ fileForm.file.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.case_text.label_tag }}
+                        {{ form.case_text }}
+                        <div class="invalid_feedback">
+                            {{ form.case_text.errors }}
+                        </div>
+                    </div>
+
+
+                    <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
+                    <input type="button" onclick="validate('id_files_tab')" class="action-button" value="Сохранить"/>
+                    <input type="submit" id="btnSaveForm" name="submit" class="btn btn-primary action-button d-none" value="Сохранить"/>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    {% block scripts %}
+        {{ block.super }}
+
+
+        <script src="{% static 'strike/js/script.js' %}"></script>
+
+        <script>
+            let has_error;
+
+            function validate(id) {
+                switch (id) {
+                    case 'checkGeneralTab':
+                        checkGeneralTab();
+                        break;
+                    case 'initiator_tab':
+                        checkInitiatorTab();
+                        break;
+                    case 'case_description_tab':
+                        checkDescriptionTab();
+                        break;
+                    case 'id_files_tab':
+                        checkFilesTab();
+                        break;
+                }
+            }
+
+            function validate_files_uploaded(id){
+                let field = document.querySelector('#%'.replace('%', id));
+
+                if (field.files.length == 0){
+                    set_error(field, 'files')
+                }
+            }
+            function set_error(field, type = 'empty', amount = 7) {
+                if (has_error === false){
+                    field.focus();
+                }
+                let err;
+                switch (type){
+                    case 'length':
+                        err = errorMessage('Значение должно состоять как минимум из amount символов!'.replace('amount',amount));
+                        break;
+                    case 'select':
+                        err = errorMessage('Необходимо выбрать значение!');
+                        break;
+                    case 'empty':
+                        err = errorMessage('Значение не может быть пустым!');
+                        break;
+                    case 'any':
+                        err = errorMessage('Необходимо заполнить хотя бы одно поле!');
+                        break;
+                    case 'files':
+                        err = errorMessage('Необходимо прикрепить файлы!');
+                        break;
+                }
+
+                field.after(err);
+                has_error = true
+            }
+
+            function is_checked(id){
+                return document.querySelector('#%'.replace('%',id)).checked;
+            }
+
+            function get_selected(id){
+                return document.querySelector('#%'.replace('%', id)).value;
+            }
+
+            function validate_text_field(id, length=0){
+                let field = document.querySelector('#%'.replace('%',id));
+                if (length > 0) {
+                    if (field.value.length < length) {
+                        set_error(field, 'length', length);
+                    }
+                }else{
+                    if (field.value === '') {
+                        set_error(field, 'empty');
+                    }
+                }
+            }
+
+            function validate_selected(id){
+                let field = document.querySelector('#%'.replace('%', id));
+                if (field.value === '') {
+                    set_error(field, 'select');
+                }
+            }
+
+            function clear_errors() {
+                document.querySelectorAll(".err").forEach(el => el.remove());
+            }
+
+            function checkedAny(checkBoxList){
+                for(let i = 0; i < checkBoxList.length; i++) {
+                    if (checkBoxList[i].checked) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function validate_checkbox_list(classname, id){
+                let list = document.querySelectorAll('input[name=%]'.replace('%', classname));
+                if (!checkedAny(list)){
+                    set_error(document.querySelector('#%'.replace('%', id)), 'select');
+                }
+            }
+
+            function checkGeneralTab() {
+                has_error = false;
+                clear_errors();
+
+                validate_text_field('id_name',7);
+                validate_checkbox_list('card_sources','id_card_sources');
+                if (document.querySelector('#id_card_sources_0').checked){
+                    let id_source_url = document.querySelector('#id_source_url');
+                    let id_source_content = document.querySelector('#id_source_content');
+
+                    if (id_source_url.value === '' && id_source_content.value === ''){
+                        set_error(id_source_content, 'any');
+                    }
+                }
+                validate_selected('id_region');
+                validate_text_field('id_city_name',3);
+                validate_text_field('id_company_name',3);
+                validate_selected('id_company_ownership_type');
+                if (get_selected('id_company_ownership_type') == 4){
+                    validate_selected('id_company_is_tnk_member');
+                    if (get_selected('id_company_is_tnk_member') == 'YES'){
+                        validate_text_field('id_company_tnk_name', 7);
+                    }
+                }
+
+                validate_selected('id_company_employees_count');
+                validate_selected('id_count_strike_participants');
+                validate_checkbox_list('card_demand_categories', 'card_demands');
+
+                if (is_checked('card_demands_4')){
+                    validate_text_field('id_economic_another',7);
+                }
+                if (is_checked('card_demands_8')){
+                    validate_text_field('id_politic_another',7);
+                }
+                if (is_checked('card_demands_10')){
+                    validate_text_field('id_combo_another',7);
+                }
+                validate_selected('id_tradeunionChoice');
+
+                if (has_error == false) {
+                    document.querySelector('#btnNextFromStrikeGeneral').click();
+                }
+            }
+
+            function checkInitiatorTab() {
+                has_error = false;
+                clear_errors();
+
+                validate_selected('id_initiator');
+                let selectedValue = get_selected('id_initiator');
+
+                if (selectedValue == 1){
+                    validate_text_field('id_tradeUnion_name',7);
+                    validate_text_field('id_tradeUnion_contacts',7);
+                }else if(selectedValue==2){
+                    validate_selected('id_groupCharacter');
+                    if (get_selected('id_groupCharacter') == 3){
+                        validate_text_field('id_groupCharacter_another',7);
+                    }
+                    validate_selected('id_tradeUnionMembership');
+                }else if(selectedValue==3){
+                    validate_text_field('id_individual_name',7);
+                    validate_selected('id_gender');
+                    validate_selected('id_age');
+                    validate_text_field('id_profession',7);
+                }
+
+
+                if (has_error == false) {
+                    document.querySelector('#btnNextFromInitiator').click();
+                }
+            }
+
+            function checkDescriptionTab() {
+                has_error = false;
+                clear_errors();
+
+                validate_selected('id_duration');
+                validate_selected('id_meeting_requirements');
+                validate_text_field('id_story',7);
+                validate_text_field('id_reasons_for_strike',7);
+                validate_text_field('id_change_number_participants',7);
+                validate_text_field('id_initiators_and_participants',7);
+                validate_text_field('id_state_position',7);
+                validate_text_field('id_results_so_far',7);
+                validate_text_field('id_additional_information',7);
+
+                if (has_error == false) {
+                    document.querySelector('#btnNextFromCaseDesc').click();
+                }
+            }
+
+            function errorMessage(txt) {
+                let p = document.createElement('p');
+                p.style.color = 'red';
+                p.className = 'err';
+                p.innerHTML = txt;
+                return p;
+            }
+
+            function checkFilesTab(){
+                has_error = false;
+                clear_errors();
+
+                validate_files_uploaded('id_photo');
+                validate_files_uploaded('id_file');
+                validate_text_field('id_case_text', 7);
+
+                if (has_error == false) {
+                    document.querySelector('#btnSaveForm').click();
+                }
+
+            }
+
+
+
+        </script>
+
+    {% endblock %}
+
+{% endblock %}

@@ -7,11 +7,11 @@ from django.db import models
 # Create your models here.
 
 class TradeUnion(models.Model):
-    value = models.CharField("Значение", max_length=100, blank=False)
+    name = models.CharField("Значение", max_length=100, blank=False)
     visible = models.BooleanField("Видимый", default=False)
 
     def __str__(self):
-        return self.value
+        return self.name
 
     class Meta:
         verbose_name = "Есть ли на предприятии профсоюз"
@@ -122,35 +122,49 @@ class Source(models.Model):
         verbose_name_plural = "Источники"
 
 
-class PersonGroup(models.Model):
-    value = models.CharField("Значение", max_length=100)
-    active = models.BooleanField("Активен", default=True)
-
-    class Meta:
-        verbose_name = "Группа лиц"
-        verbose_name_plural = "Группы лиц"
-
-    def __str__(self):
-        return self.value
-
-
 class GroupCharacter(models.Model):
-    value = models.CharField("Значение", max_length=100)
+    name = models.CharField("Значение", max_length=100)
     active = models.BooleanField("Активен", default=True)
-    person_group = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Характер групп")
 
     class Meta:
         verbose_name = "Характер групп"
         verbose_name_plural = "Характеры групп"
 
     def __str__(self):
-        return self.value
+        return self.name
+
+class TradeUnionGroupMembership(models.Model):
+    name = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Членство в профсоюзе"
+        verbose_name_plural = "Членства в профсоюзе"
+
+    def __str__(self):
+        return self.name
+
+
+
+class PersonGroupInfo(models.Model):
+    groupCharacter = models.ForeignKey(GroupCharacter, on_delete=models.DO_NOTHING,verbose_name="Характер группы")
+    groupCharacter_another =models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,blank=True)
+    tradeUnionMembership = models.ForeignKey(TradeUnionGroupMembership, on_delete=models.DO_NOTHING,verbose_name="Членство в профсоюзе")
+
+    class Meta:
+        verbose_name = "Группа лиц"
+        verbose_name_plural = "Группы лиц"
+
+    def __str__(self):
+        return self.name
+
+
 
 
 class TradeunionData(models.Model):
-    name = models.CharField("Название", max_length=100, help_text='Название профсоюза')
-    contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
-                                help_text='Реквизиты (контакты/адрес и т.д.) ')
+    tradeUnion_name = models.CharField("Название", max_length=100, help_text='Название профсоюза')
+    tradeUnion_contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
+                                help_text='Реквизиты (контакты/адрес и т.д.)')
 
     class Meta:
         verbose_name = "Профсоюз"
@@ -158,8 +172,8 @@ class TradeunionData(models.Model):
 
 
 class Employer(models.Model):
-    name = models.CharField("Название", max_length=100, help_text='Название профсоюза')
-    contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
+    emp_name = models.CharField("Название", max_length=100, help_text='Название')
+    emp_contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
                                 help_text='Реквизиты (контакты/адрес и т.д.) ')
 
     class Meta:
@@ -168,7 +182,7 @@ class Employer(models.Model):
 
 
 class Age(models.Model):
-    value = models.CharField("Возраст", max_length=100)
+    name = models.CharField("Возраст", max_length=100)
     active = models.BooleanField("Активен", default=True)
 
     class Meta:
@@ -176,7 +190,7 @@ class Age(models.Model):
         verbose_name_plural = "Возраст"
 
     def __str__(self):
-        return self.value
+        return self.name
 
 
 class Individual(models.Model):
@@ -184,11 +198,11 @@ class Individual(models.Model):
         ("MALE", "Мужской"),
         ("FEMALE", "Женский")
     ]
-    name = models.CharField("ФИО", max_length=150, help_text='ФИО')
-    gender = models.CharField("Пол", choices=genders, null=False, max_length=100)
+    individual_name = models.CharField("ФИО", max_length=150, help_text='ФИО')
+    gender = models.CharField("Пол", choices=genders, max_length=20)
     age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст")
     profession = models.CharField("Профессия", max_length=100, help_text='Профессия')
-    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, verbose_name="Физическое лицо", null=True)
+    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING)
 
     class Meta:
         verbose_name = "Физическое лицо"
@@ -207,11 +221,11 @@ class Initiator(models.Model):
 
 
 class CardPhoto(models.Model):
-    file = models.FileField()
+    photo = models.FileField("Фото/видео/документы", upload_to='strikefiles/photo')
     card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
-        return self.file
+        return self.photo.path
 
     class Meta:
         verbose_name = "Фото/видео/документы "
@@ -219,7 +233,7 @@ class CardPhoto(models.Model):
 
 
 class CardFile(models.Model):
-    file = models.FileField()
+    file = models.FileField("Кейсы, связанные с забастовкой", upload_to='strikefiles/files')
     card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
@@ -231,7 +245,7 @@ class CardFile(models.Model):
 
 
 class TradeunionChoice(models.Model):
-    value = models.CharField("Значение", max_length=100)
+    name = models.CharField("Значение", max_length=100)
     active = models.BooleanField("Активен", default=True)
 
     class Meta:
@@ -239,12 +253,12 @@ class TradeunionChoice(models.Model):
         verbose_name_plural = "Есть ли на предприятии профсоюзы"
 
     def __str__(self):
-        return self.value
+        return self.name
 
 
 
 class StrikeCharacter(models.Model):
-    value = models.CharField("Значение", max_length=100)
+    name = models.CharField("Значение", max_length=100)
     active = models.BooleanField("Активен", default=True)
 
     class Meta:
@@ -252,10 +266,10 @@ class StrikeCharacter(models.Model):
         verbose_name_plural = "Характеры забастовки/акции"
 
     def __str__(self):
-        return self.value
+        return self.name
 
 class MeetingRequirment(models.Model):
-    value = models.CharField("Значение", max_length=100)
+    name = models.CharField("Значение", max_length=100)
     active = models.BooleanField("Активен", default=True)
 
     class Meta:
@@ -263,7 +277,7 @@ class MeetingRequirment(models.Model):
         verbose_name_plural = "Удовлетворения требований"
 
     def __str__(self):
-        return self.value
+        return self.name
 
 class Card(models.Model):
     id = models.BigAutoField("№", primary_key=True)
@@ -282,8 +296,9 @@ class Card(models.Model):
 
     company_country_name = models.CharField("Страна происхождения компании", max_length=100, blank=True)
 
-    company_is_tnk_member = models.BooleanField("Является ли эта кампания частью ТНК (Транснациональная компания)",
-                                                default=False)
+    company_is_tnk_member = models.CharField("Является ли эта кампания частью ТНК (Транснациональная компания)",
+                                       choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+
     company_tnk_name = models.CharField("Название ТНК (Транснациональная компания)", max_length=100, null=True,
                                         blank=True)
     company_employees_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, null=True,
@@ -292,11 +307,17 @@ class Card(models.Model):
     count_strike_participants = models.ForeignKey(ParticipantsCount, on_delete=models.DO_NOTHING, null=True,
                                                   verbose_name="Количество участников забастовки/акции")
     card_demand_categories = models.ManyToManyField(DemandCategory, verbose_name="Характер требований")
+    economic_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,blank=True)
+    politic_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,blank=True)
+    combo_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,blank=True)
 
     start_date = models.DateTimeField("Дата начало проведения забастовки/акции", auto_now_add=True)
     end_date = models.DateTimeField("Дата конца проведения забастовки/акции", auto_now_add=True)
     tradeunionChoice = models.ForeignKey(TradeunionChoice, on_delete=models.DO_NOTHING,
                                          verbose_name="Есть ли на предприятии профсоюз", null=True)
+    tradeunionChoiceAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+                                            blank=True)
+
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
     active = models.BooleanField("Активен", default=True)
@@ -329,30 +350,12 @@ class Card(models.Model):
     initiator = models.ForeignKey(Initiator, on_delete=models.DO_NOTHING, verbose_name="Инициатор забастовки/акции",
                                   null=True)
     tradeunion_data = models.ForeignKey(TradeunionData, on_delete=models.DO_NOTHING, verbose_name="Данные профсоюза",
-                                        null=True)
-    person_group = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
-    person_character = models.ForeignKey(GroupCharacter, on_delete=models.DO_NOTHING, verbose_name="Характер группы",
-                                         null=True)
+                                        null=True,blank=True)
+    personGroupInfo = models.ForeignKey(PersonGroupInfo, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True,blank=True)
 
-    person_group_another = models.CharField("Другое", max_length=150, help_text='Другое', null=True, blank=True)
+    employear = models.ForeignKey(Employer, on_delete=models.DO_NOTHING, verbose_name="Работодатель", null=True, blank=True)
 
-    employear = models.ForeignKey(Employer, on_delete=models.DO_NOTHING, verbose_name="Работодатель", null=True)
 
-    # trade_union = models.CharField("Название профсоюза", max_length=200, default="")
-    # phone_number_union = models.CharField("Контакты", max_length=200, blank=True, null=True)
-    # address_union = models.CharField("Адрес", max_length=200, blank=True, null=True)
-    # group = models.CharField("Группа лиц", choices=THE_NATURE_OF_THE_GROUP, max_length=200, default='Б/ПГ')
-    # union_membership = models.CharField("Членство в профсоюзе", choices=TRADE_UNION_MEMBERSHIP, max_length=200,
-    #                                     default='Все')
-    # first_name = models.CharField("Имя", max_length=50, blank=True, null=True)
-    # last_name = models.CharField("Фамилия", max_length=50, blank=True, null=True)
-    # gender = models.CharField("Пол", max_length=1, choices=GENDER, default='М')
-    # age = models.CharField("Возраст", max_length=10, choices=AGE, default='<18')
-    # profession = models.CharField("Профессия", max_length=100, default="")
-    # employer = models.CharField('Работодатель', max_length=200, default="")
-    # phone_number_employer = models.CharField("Контакты", max_length=200, blank=True, null=True)
-    # address_employer = models.CharField("Адрес", max_length=200, blank=True, null=True)
-    #
     DURATIONS = [
         ('LONG', 'Кратковременная'),
         ('SHORT', 'Длящаяся')
@@ -362,7 +365,7 @@ class Card(models.Model):
         ('-', 'не удовлетворены'),
         ('+-', 'удовлетворены частично')
     ]
-    duration = models.ForeignKey(StrikeCharacter, on_delete=models.DO_NOTHING, verbose_name='Длительность забастовки/акции', null=True)
+    duration = models.ForeignKey(StrikeCharacter, on_delete=models.DO_NOTHING, verbose_name='Характер забастовки/акции - сколько длилась', null=True)
     meeting_requirements = models.ForeignKey(MeetingRequirment, on_delete=models.DO_NOTHING, verbose_name='Удовлетворение требований', null=True)
 
     story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло',
@@ -385,7 +388,7 @@ class Card(models.Model):
                                       "если еще не закончилась, то какие итоги на данный момент.", default="")
     additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True)
 
-    case_text = models.TextField("Кейсы, связанные с забастовкой", max_length=1800, null=True, blank=True)
+    case_text = models.TextField("Окно для внесения информации", max_length=1800, null=True, blank=True)
 
     def __str__(self):
         return self.name
