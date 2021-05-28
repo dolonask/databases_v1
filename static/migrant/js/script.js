@@ -240,9 +240,20 @@ function onAgreementChanged(value) {
         // document.getElementById("id_source_url").readOnly=true;
         showTandem("id_agreementDetailYes")
         hideTandem("id_agreementDetailNo")
+        // showTandem("id_agreementLang")
+        // showTandem("id_understoodTheContents")
     } else {
         hideTandem("id_agreementDetailYes")
         showTandem("id_agreementDetailNo")
+        // hideTandem("id_agreementLang")
+        // hideTandem("id_understoodTheContents")
+    }
+}
+function onEntrepreneurAnonimChanged(value) {
+    if (value == 'YES') {
+        hideTandem("id_entrepreneur_name")
+    } else {
+        showTandem("id_entrepreneur_name")
     }
 }
 function onTnkChanged(value) {
@@ -282,20 +293,30 @@ function onVictim_SituationChanged(value) {
 function onAnonimChanged(value) {
     if (value == 'YES') {
         // document.getElementById("id_source_url").readOnly=true;
-        showTandem("id_name")
-    } else {
         hideTandem("id_name")
+    } else {
+        showTandem("id_name")
     }
 }
 
 function onVictimTradeUnionMembershipChanged(value) {
     if (value != 1) {
         // document.getElementById("id_source_url").readOnly=true;
-        hide_div("id_tradeUnionSituation")
-        hide_div("id_tradeUnionCount")
+        hideTandem("id_tradeUnionSituation")
+        hideTandem("id_tradeUnionCount")
     } else {
-        show_div("id_tradeUnionSituation")
-        show_div("id_tradeUnionCount")
+        showTandem("id_tradeUnionSituation")
+        showTandem("id_tradeUnionCount")
+    }
+}
+function onPersonGroupUnionMembershipChanged(value) {
+    if (value == 2) {
+        // document.getElementById("id_source_url").readOnly=true;
+        hideTandem("id_tradeUnionSituation")
+        hideTandem("id_tradeUnionCount")
+    } else {
+        showTandem("id_tradeUnionSituation")
+        showTandem("id_tradeUnionCount")
     }
 }
 
