@@ -198,8 +198,7 @@ class WayOfGettingSalary(models.Model):
 
 class IndividualInfo(models.Model):
     is_anonim = models.CharField("Аноним?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    name = models.CharField("ФИО", max_length=100, help_text='ФИО', validators=[
-        MinLengthValidator(limit_value=3, message="Значение должно состоять минимум из 3 символов")])
+    name = models.CharField("ФИО", max_length=100, help_text='ФИО')
     #member_of_tradeunion = models.BooleanField("Член профсоюза", default=True)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     gender_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,

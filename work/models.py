@@ -92,7 +92,7 @@ class Victim(models.Model):
 
 
 class TradeUnionInfo(models.Model):
-    name = models.CharField("Объединение ", max_length=500, help_text='Название федерации, конфедерации профсоюзов')
+    tradeunion_name = models.CharField("Объединение ", max_length=500, help_text='Название федерации, конфедерации профсоюзов')
     branch_name = models.CharField("Название отраслевой профсоюзной организации", max_length=500,
                                    help_text='Название отраслевой профсоюзной организации')
     victim_name = models.CharField("Название организации, права которой были нарушены ", max_length=500,
@@ -157,16 +157,17 @@ class AgreementDetail(models.Model):
 
 
 class IndividualInfo(models.Model):
-    name = models.CharField("ФИО", max_length=50, help_text='ФИО', default="анонимно")
-    member_of_tradeunion = models.BooleanField("Член профсоюза", default=True)
+    is_anonim = models.CharField("Аноним?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    name = models.CharField("ФИО", max_length=100, help_text='ФИО')
+    member_of_tradeunion = models.CharField("Член профсоюза?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     age = models.CharField("Возраст пострадавшего", max_length=50, help_text='Возраст пострадавшего')
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
     marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке")
     position = models.CharField("Должность в организации", max_length=50, help_text='Должность в организации')
     experience = models.CharField("Стаж работы в организации", max_length=50, help_text='Стаж работы в организации')
-    is_official = models.BooleanField("Было ли официальное трудоустройство? ", default=True)
-    has_agreement = models.BooleanField("Был ли подписан трудовой договор?", default=False)
+    is_official = models.CharField("Было ли официальное трудоустройство?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    has_agreement = models.CharField("Был ли подписан трудовой договор?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     agreementDetail = models.ForeignKey(AgreementDetail, on_delete=models.DO_NOTHING, verbose_name="Детали договора")
     case = models.ForeignKey("Case", on_delete=models.CASCADE, verbose_name="Карточка")
 
@@ -176,6 +177,7 @@ class IndividualInfo(models.Model):
     class Meta:
         verbose_name = "Физическое лицо"
         verbose_name_plural = "Физические лица"
+
 
 # class TradeunionMembership(models.Model):
 #     name = models.CharField("Значение", max_length=100)
@@ -231,7 +233,7 @@ class GroupOfPersons(models.Model):
     type_another = models.CharField("Другое", max_length=50, null=True)
     membership = models.ForeignKey(MembershipOfGroupPersons, on_delete=models.DO_NOTHING,
                                    verbose_name="Членство в профсоюзе ")
-    membership_another=models.CharField("Другое", max_length=50, null=True)
+    membership_another = models.CharField("Другое", max_length=50, null=True)
 
     def __str__(self):
         return self.amount
@@ -286,6 +288,7 @@ class TradeUnionCount(models.Model):
         verbose_name = "Численность профсоюза после произошедшего"
         verbose_name_plural = "Численность профсоюза после произошедшего"
 
+
 class NatureViolation(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -296,6 +299,7 @@ class NatureViolation(models.Model):
     class Meta:
         verbose_name = "Характер нарушения"
         verbose_name_plural = "Характеры нарушения"
+
 
 class RightsState(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -345,6 +349,7 @@ class VictimSituation(models.Model):
         verbose_name = "Ситуация с потерпевшим(и)"
         verbose_name_plural = "Ситуации с потерпевшим(и)"
 
+
 class TradeUnionSituation(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -355,6 +360,7 @@ class TradeUnionSituation(models.Model):
     class Meta:
         verbose_name = "Профсоюз на месте работы после произошедшего"
         verbose_name_plural = "Профсоюзы на месте работы после произошедшего "
+
 
 class TradeUnionRight(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -367,6 +373,7 @@ class TradeUnionRight(models.Model):
         verbose_name = "Нарушение в сфере профсоюзных прав и гражданских свобод"
         verbose_name_plural = "Нарушения в сфере профсоюзных прав и гражданских свобод"
 
+
 class TradeUnionCrime(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -377,6 +384,7 @@ class TradeUnionCrime(models.Model):
     class Meta:
         verbose_name = "Обвинения в преступном поведении в связи с профсоюзной деятельностью"
         verbose_name_plural = "Обвинения в преступном поведении в связи с профсоюзной деятельностью"
+
 
 class MeetingsRight(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -389,6 +397,7 @@ class MeetingsRight(models.Model):
         verbose_name = "Нарушение права на проведение собраний и демонстраций"
         verbose_name_plural = "Нарушения права на проведение собраний и демонстраций"
 
+
 class TradeUnionBuildingsRight(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -399,6 +408,7 @@ class TradeUnionBuildingsRight(models.Model):
     class Meta:
         verbose_name = "Защита профсоюзных помещений и имущества профсоюзов"
         verbose_name_plural = "Защиты профсоюзных помещений и имущества профсоюзов"
+
 
 class CreateOrganizationRight(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -423,6 +433,7 @@ class CreateTradeUnionRight(models.Model):
         verbose_name = "Создание профсоюзов без предварительного разрешения"
         verbose_name_plural = "Создания профсоюзов без предварительного разрешения"
 
+
 class ElectionsRight(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -433,6 +444,7 @@ class ElectionsRight(models.Model):
     class Meta:
         verbose_name = "Нарушение права свободно выбирать своих представителей"
         verbose_name_plural = "Нарушения права свободно выбирать своих представителей"
+
 
 class TradeUnionActivityRight(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -445,6 +457,7 @@ class TradeUnionActivityRight(models.Model):
         verbose_name = "Нарушение права профсоюза организовывать деятельность своего аппарата"
         verbose_name_plural = "Нарушения права профсоюза организовывать деятельность своего аппарата"
 
+
 class CreateStrikeRight(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -455,6 +468,104 @@ class CreateStrikeRight(models.Model):
     class Meta:
         verbose_name = "Нарушение права на забастовку"
         verbose_name_plural = "Нарушения прав на забастовку"
+
+
+class AntiTradeUnionDiscrimination(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
+class СonversationRight(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
+class Сonvention135(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
+class ConsultationRight(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
+class DiscriminatiOnVariousGrounds(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
+class DiscriminationInVariousAreas(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class PublicPolicyDiscrimination(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class ChildLabor(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class Сonvention138(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class Сonvention182(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class ProhibitionOfForcedLabor(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class UseOfForcedLabor(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class GovernmentCoercion(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class ViolationsUsingCompulsoryLabor(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class FailureSystemicMeasures(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
 
 class CasePhoto(models.Model):
     file = models.FileField()
@@ -480,8 +591,6 @@ class CaseFile(models.Model):
         verbose_name_plural = "Кейсы, связанные с забастовкой"
 
 
-
-
 class Case(models.Model):
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
@@ -497,7 +606,6 @@ class Case(models.Model):
     company_name = models.CharField("Название организации", max_length=100, blank=False, null=True)
     groupOfRights = models.ForeignKey(GroupOfRights, on_delete=models.DO_NOTHING, verbose_name="Группа прав")
 
-
     tradeUnionRight = models.ForeignKey(TradeUnionRight, on_delete=models.DO_NOTHING,
                                         verbose_name="Нарушение в сфере профсоюзных прав и гражданских свобод")
     tradeUnionRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
@@ -507,51 +615,103 @@ class Case(models.Model):
     tradeUnionCrimeAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                               blank=True)
 
-
-    # rightsViolation = models.ForeignKey(RightsViolation, on_delete=models.DO_NOTHING,
-    #                                     verbose_name="Какое право нарушено")
-    # rightsViolationAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-    #                                           blank=True)
-
-    # rightsViolationCase = models.ForeignKey(RightsViolationCase, on_delete=models.DO_NOTHING,
-    #                                         verbose_name="Обвинения в преступном поведении в связи с профсоюзной деятельностью",
-    #                                         null=True)
-    # rightsViolationCaseAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-    #                                               blank=True)
     meetingsRight = models.ForeignKey(MeetingsRight, on_delete=models.DO_NOTHING,
-                                            verbose_name="Нарушения права на проведение собраний и демонстраций",
-                                            null=True)
+                                      verbose_name="Нарушения права на проведение собраний и демонстраций",
+                                      null=True)
     meetingsRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                                  blank=True)
+                                            blank=True)
     tradeUnionBuildingsRight = models.ForeignKey(TradeUnionBuildingsRight, on_delete=models.DO_NOTHING,
-                                            verbose_name="Защита профсоюзных помещений и имущества профсоюзов",
-                                            null=True)
+                                                 verbose_name="Защита профсоюзных помещений и имущества профсоюзов",
+                                                 null=True)
     tradeUnionBuildingsRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                                  blank=True)
+                                                       blank=True)
     createOrganizationRight = models.ForeignKey(CreateOrganizationRight, on_delete=models.DO_NOTHING,
-                                        verbose_name="Создание организации без предварительного разрешения")
+                                                verbose_name="Создание организации без предварительного разрешения")
     createOrganizationRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                                      blank=True)
     createTradeUnionRight = models.ForeignKey(CreateTradeUnionRight, on_delete=models.DO_NOTHING,
-                                        verbose_name="Создание профсоюзов и вступление в профсоюзы ")
+                                              verbose_name="Создание профсоюзов и вступление в профсоюзы ")
     createTradeUnionRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                                    blank=True)
     electionsRight = models.ForeignKey(ElectionsRight, on_delete=models.DO_NOTHING,
-                                        verbose_name="Нарушение права свободно выбирать своих представителей")
+                                       verbose_name="Нарушение права свободно выбирать своих представителей")
     electionsRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                             blank=True)
     tradeUnionActivityRight = models.ForeignKey(TradeUnionActivityRight, on_delete=models.DO_NOTHING,
-                                        verbose_name="Нарушения права профсоюза организовывать деятельность своего аппарата")
+                                                verbose_name="Нарушения права профсоюза организовывать деятельность своего аппарата")
     tradeUnionActivityRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                                      blank=True)
     createStrikeRight = models.ForeignKey(CreateStrikeRight, on_delete=models.DO_NOTHING,
-                                        verbose_name="Нарушение права на забастовку")
+                                          verbose_name="Нарушение права на забастовку")
     createStrikeRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=True)
+                                                blank=True)
+    antiTradeUnionDiscrimination = models.ForeignKey(AntiTradeUnionDiscrimination, on_delete=models.DO_NOTHING,
+                                                     verbose_name="Антипрофсоюзная дискриминация")
+    antiTradeUnionDiscriminationAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
+                                                           null=True,
+                                                           blank=True)
+    conversationRight = models.ForeignKey(СonversationRight, on_delete=models.DO_NOTHING,
+                                          verbose_name="Нарушения права на проведение коллективных переговоров")
+    conversationRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
+                                                null=True,
+                                                blank=True)
+    сonvention135 = models.ForeignKey(Сonvention135, on_delete=models.DO_NOTHING,
+                                          verbose_name="Нарушения положений Конвенции МОТ №135")
+    сonvention135Another = models.CharField("Другое", max_length=50, help_text='Введите значение',
+                                                null=True,
+                                                blank=True)
+    consultationRight = models.ForeignKey(ConsultationRight, on_delete=models.DO_NOTHING,
+                                          verbose_name="Проведение консультаций", null= True, blank= True)
+    consultationRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
+                                                null=True,
+                                                blank=True)
+    discriminatiOnVariousGrounds = models.ForeignKey(DiscriminatiOnVariousGrounds, on_delete=models.DO_NOTHING,
+                                          verbose_name="Дискриминация по различным основаниям", null= True, blank= True)
+
+    discriminationInVariousAreas = models.ForeignKey(DiscriminationInVariousAreas, on_delete=models.DO_NOTHING,
+                                          verbose_name="Дискриминация в различных сферах трудовых отношений", null= True, blank= True)
+    discriminationInVariousAreasAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
+                                                null=True,
+                                                blank=True)
+    publicPolicyDiscrimination = models.ForeignKey(PublicPolicyDiscrimination, on_delete=models.DO_NOTHING,
+                                                     verbose_name="Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей	",
+                                                     null=True, blank=True)
+    childLabor = models.ForeignKey(ChildLabor, on_delete=models.DO_NOTHING,
+                                                     verbose_name="Использование детского труда",
+                                                     null=True, blank=True)
+
+    сonvention138 = models.ForeignKey(Сonvention138, on_delete=models.DO_NOTHING,
+                                          verbose_name="О минимальном возрасте для приема на работу",
+                                                     null=True, blank=True)
+    convention182 = models.ForeignKey(Сonvention182, on_delete=models.DO_NOTHING,
+                                          verbose_name="О запрещении и немедленных мерах по искоренению наихудших форм детского труда",
+                                                     null=True, blank=True)
+
+    prohibitionOfForcedLabor = models.ForeignKey(ProhibitionOfForcedLabor, on_delete=models.DO_NOTHING,
+                                          verbose_name="Запрет принудительного труда",
+                                                     null=True, blank=True)
+    useOfForcedLabor = models.ForeignKey(UseOfForcedLabor, on_delete=models.DO_NOTHING,
+                                          verbose_name="Использование принудительного труда",
+                                                     null=True, blank=True)
+    governmentCoercion = models.ForeignKey(GovernmentCoercion, on_delete=models.DO_NOTHING,
+                                          verbose_name="Косвенное принуждение государством к труду ",
+                                                     null=True, blank=True)
+    violationsUsingCompulsoryLabor = models.ForeignKey(ViolationsUsingCompulsoryLabor, on_delete=models.DO_NOTHING,
+                                          verbose_name="Нарушения при использовании принудительного (обязательного) труда в допустимых случаях",
+                                                     null=True, blank=True)
+
+    failureSystemicMeasures = models.ForeignKey(FailureSystemicMeasures, on_delete=models.DO_NOTHING,
+                                          verbose_name="Нарушения, связанные с непринятием государством системных мер",
+                                                     null=True, blank=True)
+
 
     case_date = models.DateTimeField("Дата нарушения")
 
-    group = models.ForeignKey(GroupOfPersons, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
+    victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение: ", null=True, blank=True)
+    tradeUnionInfo = models.ForeignKey(TradeUnionInfo, on_delete=models.DO_NOTHING, verbose_name="Профсоюзная организация", null=True, blank=True)
+    # individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="Физическое лицо", null=True, blank=True)
+    groupOfPersons = models.ForeignKey(GroupOfPersons, on_delete=models.DO_NOTHING, verbose_name="Группа лиц (работников)", null=True, blank=True)
+
 
     intruder = models.ForeignKey(Intruder, on_delete=models.DO_NOTHING, verbose_name="Нарушитель", null=False,
                                  default=None)
@@ -559,17 +719,21 @@ class Case(models.Model):
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True)
     intruder_another = models.CharField("Информация о нарушителе прав", max_length=500, null=True)
     description = models.CharField("Точные имена, даты, места событий", max_length=200, blank=False, null=True)
-    full_description = models.CharField("Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло", max_length=1800, blank=False, null=True),
+    full_description = models.CharField("Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло", max_length=1800, blank=False,
+                                        null=True),
     actions = models.CharField("Действия предприняты профсоюзом/правозащитной организацией", max_length=1800,
                                blank=False, null=True),
     result = models.CharField("Чем завершилась ситуация (если завершилась) или состояние в текущий момент",
                               max_length=1800, blank=False, null=True),
 
-    violation_nature=models.ForeignKey(NatureViolation,on_delete=models.DO_NOTHING, verbose_name="Характер нарушения", null=True)
-    rights_state=models.ForeignKey(RightsState,on_delete=models.DO_NOTHING, verbose_name="Ситуация с правами", null=True)
-    rights_state_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=False)
-    victim_situation=models.ForeignKey(VictimSituation,on_delete=models.DO_NOTHING, verbose_name="Ситуация с потерпевшим(и)", null=True)
-    victim_situation_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
-                                              blank=False)
+    violation_nature = models.ForeignKey(NatureViolation, on_delete=models.DO_NOTHING,
+                                         verbose_name="Характер нарушения", null=True)
+    rights_state = models.ForeignKey(RightsState, on_delete=models.DO_NOTHING, verbose_name="Ситуация с правами",
+                                     null=True)
+    rights_state_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+                                            blank=False)
+    victim_situation = models.ForeignKey(VictimSituation, on_delete=models.DO_NOTHING,
+                                         verbose_name="Ситуация с потерпевшим(и)", null=True)
+    victim_situation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+                                                blank=False)
     case_text = models.TextField("Кейсы, связанные с забастовкой", max_length=1800, null=True, blank=True)

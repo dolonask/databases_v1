@@ -300,29 +300,8 @@ def load_works(apps, schema_editor):
     # rightsViolation = RightsViolation(id=29, name="Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей",
     #                                   )
     # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=30, name="Нарушение положений Конвенции МОТ № 138 «О минимальном возрасте для приема на работу»",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=31,
-    #                                   name="Нарушения Конвенции МОТ № 182 «О запрещении и немедленных мерах по искоренению наихудших форм детского труда»",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=32,
-    #                                   name="Использование принудительного труда в случаях, прямо запрещенных Конвенциями МОТ №29 и №105",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=33,
-    #                                   name="Косвенное принуждение государством к труду (Рекомендация МОТ № 35 О косвенном принуждении к труду)",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=34,
-    #                                   name="Нарушения при использовании принудительного (обязательного) труда в допустимых случаях (Конвенция МОТ №29 Относительно принудительного или обязательного труда)",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=35,
-    #                                   name="Нарушения, связанные с непринятием государством системных мер",
-    #                                   )
-    # rightsViolation.save()
+
+
 
     TradeUnionCrime = apps.get_model("work", "TradeUnionCrime")
     tradeUnionCrime = TradeUnionCrime(id=1, name="арест, задержание")
@@ -458,195 +437,260 @@ def load_works(apps, schema_editor):
                                               )
     createStrikeRight.save()
 
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=40, name="Увольнения профсоюзных активистов",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=41, name="Незаконные переводы, отправление в простой и иные формы дискриминации",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=42, name="Давление на членов профсоюза",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=43, name="Эффективная защита от дискриминации",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=44, name="Другое",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=45, name="Нарушение принципа добросовестности ведения переговоров",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=46, name="Непризнание за профсоюзом права на коллективные переговоры (в т.ч. вопросы представительности профсоюзов)",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=47, name="Нарушение свободных и добровольных переговоров",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=48, name="Вмешательство властей в проведение коллективных переговоров",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=49, name="Отказ в обсуждении определённых вопросов",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=50, name="Отказ работодателя предоставить необходимую информацию для проведения коллективных переговоров",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=51, name="Отказ органов государственной власти регистрировать коллективный договор",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=52, name="Другие",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=53, name="Дискриминация по основаниям, перечисленным в Конвенции №111",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=54, name="Дискриминация по основаниям, устанавливаемым национальным законодательством",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=55, name="Доступ к профориентации и трудоустройству",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=56, name="Доступ к обучению и занятости по своему выбору",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=57, name="Возможности карьерного роста и продвижения по службе на основе индивидуальных качеств",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=58, name="Доступ к гарантиям сохранения занятости",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=59, name="Оплата труда",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=60, name="Рабочее время и время отдыха",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=61, name="Безопасность условий труда на работе",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=62, name="Доступ к социальному обеспечению и медицинскому обслуживанию",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=63, name="Доступ к членству в объединениях работников или работодателей и к участию в их делах",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=64, name="Другое",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=65, name="Отказ от разработки и проведения государственной политики",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=66, name="Нарушения в сфере антидискриминационного законодательства и практики его применения",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=67, name="Нарушения в сфере социального диалога",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=68, name="Непринятие органами власти мер для предотвращения дискриминации",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=69, name="Использование труда детей моложе минимального возраста (не опасные работы)",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=70, name="Использование детского труда на опасной работе (ОР)",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=71, name="Нарушения Рекомендации МОТ №146 «О минимальном возрасте для приема на работу»",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=72, name="Привлечение детей к «наихудшим формам детского труда»",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=73, name="Нарушения на уровне государственной политики",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=74, name="В пользу частных лиц и компаний",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=75, name="Для выполнения подземных работ в шахтах",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=76, name="В качестве коллективного наказания, применяемые к коллективу в целом, за преступления, совершенные какими-либо из его членов",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=77, name="В качестве средства или меры наказания",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=78, name="Принятие решений о развитии территорий без учета способности населения к труду, жизненных и трудовых привычек",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=79, name="Экономическое давление с целью заставить искать работу по найму",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=80, name="Введение ограничений добровольного перехода в иные виды занятости или районы (косвенное принуждение к работе в определенных отраслях или районах)",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=81, name="Привлечение к принудительному (обязательному) труду в ситуации, когда отсутствуют условия, позволяющие использовать принудительный труд",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=82, name="Привлечение к принудительному труду лиц запрещенных категорий",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=83, name="Несоблюдение ограничений при привлечении к принудительному (обязательному труду)",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=84, name="Нарушения при оплате принудительного (обязательного) труда",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=85, name="Нарушения при несчастных случаях и профзаболеваниях лиц, привлекавшихся к принудительному труду",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=86, name="Нарушения в сфере охраны труда (здоровье и безопасность)",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=87, name="Нарушения при привлечении к строительным или ремонтным работам на длительное время",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=88, name="Нарушения при привлечении к принудительному труду для перевозки лиц или грузов в отсутствие изданной регламентации",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=89, name="Нарушения при привлечении к принудительной обработке земли",
-    #                                           )
-    # rightsViolationCase.save()
-    #
-    #
-    # rightsViolationCase = RightsViolationCase(id=90, name="Отсутствие полной регламентации применения принудительного или обязательного труда государством",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=91, name="Отсутствие возможности у трудящихся предъявлять претензии по поводу их привлечения к принудительному труду и / или отсутствие гарантий рассмотрения и учета претензий",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=92, name="Необеспечение строгого соблюдения правил использования принудительного труда, в частности отсутствие компетентного органа надзора",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=93, name="Необеспечение уголовного преследования лиц, незаконно использующих принудительный труд",
-    #                                           )
-    # rightsViolationCase.save()
-    # rightsViolationCase = RightsViolationCase(id=94, name="Непринятие мер, предусмотренных в Рекомендации, МОТ № 203",
-    #                                           )
-    # rightsViolationCase.save()
+    AntiTradeUnionDiscrimination = apps.get_model("work", "AntiTradeUnionDiscrimination")
+    antiTradeUnionDiscrimination = AntiTradeUnionDiscrimination(id=1, name="Увольнения профсоюзных активистов",)
+    antiTradeUnionDiscrimination.save()
+    antiTradeUnionDiscrimination = AntiTradeUnionDiscrimination(id=2, name="Незаконные переводы, отправление в простой и иные формы дискриминации",
+                                              )
+    antiTradeUnionDiscrimination.save()
+    antiTradeUnionDiscrimination = AntiTradeUnionDiscrimination(id=3, name="Давление на членов профсоюза",
+                                              )
+    antiTradeUnionDiscrimination.save()
+    antiTradeUnionDiscrimination = AntiTradeUnionDiscrimination(id=4, name="Эффективная защита от дискриминации",
+                                              )
+    antiTradeUnionDiscrimination.save()
+    antiTradeUnionDiscrimination = AntiTradeUnionDiscrimination(id=5, name="Другое",)
+    antiTradeUnionDiscrimination.save()
+
+
+    СonversationRight = apps.get_model("work", "СonversationRight")
+
+    conversationRight = СonversationRight(id=1, name="Нарушение принципа добросовестности ведения переговоров",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=2, name="Непризнание за профсоюзом права на коллективные переговоры (в т.ч. вопросы представительности профсоюзов)",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=3, name="Нарушение свободных и добровольных переговоров",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=4, name="Вмешательство властей в проведение коллективных переговоров",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=5, name="Отказ в обсуждении определённых вопросов",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=6, name="Отказ работодателя предоставить необходимую информацию для проведения коллективных переговоров",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=7, name="Отказ органов государственной власти регистрировать коллективный договор",
+                                              )
+    conversationRight.save()
+    conversationRight = СonversationRight(id=8, name="Другие",
+                                              )
+    conversationRight.save()
+
+    Сonvention135 = apps.get_model("work", "Сonvention135")
+    convention135 = Сonvention135(id=1, name="Непредставление времени для участия в профсоюзных собраниях",
+                                  )
+    convention135.save()
+    convention135 = Сonvention135(id=2, name="Воспрепятствование в сборе профсоюзных взносов",
+                                  )
+    convention135.save()
+    convention135 = Сonvention135(id=3, name="Ограничение доступа представителей профсоюза на рабочие места",
+                                  )
+    convention135.save()
+    convention135 = Сonvention135(id=4, name="Другое",
+                                  )
+    convention135.save()
+
+    ConsultationRight = apps.get_model("work", "ConsultationRight")
+    consultationRight = ConsultationRight(id=1, name="Непроведение консультаций относительно докладов Правительства в МОТ",
+                                      )
+    consultationRight.save()
+    consultationRight = ConsultationRight(id=2, name="Непроведение консультаций в период подготовки и редактирования законодательства",
+                                      )
+    consultationRight.save()
+    consultationRight = ConsultationRight(id=3, name="Непроведение консультаций в процессе реструктурирования, рационализации и сокращения персонала",
+                                      )
+    consultationRight.save()
+    consultationRight = ConsultationRight(id=4, name="Другое",
+                                      )
+    consultationRight.save()
+
+    DiscriminatiOnVariousGrounds = apps.get_model("work", "DiscriminatiOnVariousGrounds")
+    discriminatiOnVariousGrounds = DiscriminatiOnVariousGrounds(id=1, name="Дискриминация по основаниям, перечисленным в Конвенции №111",
+                                              )
+    discriminatiOnVariousGrounds.save()
+    discriminatiOnVariousGrounds = DiscriminatiOnVariousGrounds(id=2, name="Дискриминация по основаниям, устанавливаемым национальным законодательством",
+                                              )
+    discriminatiOnVariousGrounds.save()
+
+    DiscriminationInVariousAreas = apps.get_model("work", "DiscriminationInVariousAreas")
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=1, name="Доступ к профориентации и трудоустройству",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=2, name="Доступ к обучению и занятости по своему выбору",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=3, name="Возможности карьерного роста и продвижения по службе на основе индивидуальных качеств",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=4, name="Доступ к гарантиям сохранения занятости",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=5, name="Оплата труда",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=6, name="Рабочее время и время отдыха",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=7, name="Безопасность условий труда на работе",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=8, name="Доступ к социальному обеспечению и медицинскому обслуживанию",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=9, name="Доступ к членству в объединениях работников или работодателей и к участию в их делах",
+                                              )
+    discriminationInVariousAreas.save()
+    discriminationInVariousAreas = DiscriminationInVariousAreas(id=10, name="Другое",
+                                              )
+    discriminationInVariousAreas.save()
+
+
+    PublicPolicyDiscrimination = apps.get_model("work", "PublicPolicyDiscrimination")
+    publicPolicyDiscrimination = PublicPolicyDiscrimination(id=1, name="Отказ от разработки и проведения государственной политики",
+                                              )
+    publicPolicyDiscrimination.save()
+    publicPolicyDiscrimination = PublicPolicyDiscrimination(id=2, name="Нарушения в сфере антидискриминационного законодательства и практики его применения",
+                                              )
+    publicPolicyDiscrimination.save()
+    publicPolicyDiscrimination = PublicPolicyDiscrimination(id=3, name="Нарушения в сфере социального диалога",
+                                              )
+    publicPolicyDiscrimination.save()
+    publicPolicyDiscrimination = PublicPolicyDiscrimination(id=4, name="Непринятие органами власти мер для предотвращения дискриминации",
+                                              )
+    publicPolicyDiscrimination.save()
+
+
+    ChildLabor = apps.get_model("work", "ChildLabor")
+    childLabor = ChildLabor(id=1, name="Нарушение положений Конвенции МОТ № 138 «О минимальном возрасте для приема на работу»",
+                                      )
+    childLabor.save()
+    childLabor = ChildLabor(id=2,
+                                      name="Нарушения Конвенции МОТ № 182 «О запрещении и немедленных мерах по искоренению наихудших форм детского труда»",
+                                      )
+    childLabor.save()
+
+    Сonvention138 = apps.get_model("work", "Сonvention138")
+    convention138 = Сonvention138(id=1, name="Использование труда детей моложе минимального возраста (не опасные работы)",
+                                              )
+    convention138.save()
+    convention138 = Сonvention138(id=2, name="Использование детского труда на опасной работе (ОР)",
+                                              )
+    convention138.save()
+    convention138 = Сonvention138(id=3, name="Нарушения Рекомендации МОТ №146 «О минимальном возрасте для приема на работу»",
+                                              )
+    convention138.save()
+
+
+    Сonvention182 = apps.get_model("work", "Сonvention182")
+    convention182 = Сonvention182(id=1, name="Привлечение детей к «наихудшим формам детского труда»",
+                                              )
+    convention182.save()
+    convention182 = Сonvention182(id=2, name="Нарушения на уровне государственной политики",
+                                              )
+    convention182.save()
+
+
+    ProhibitionOfForcedLabor = apps.get_model("work", "ProhibitionOfForcedLabor")
+    prohibitionOfForcedLabor = ProhibitionOfForcedLabor(id=1,
+                                      name="Использование принудительного труда в случаях, прямо запрещенных Конвенциями МОТ №29 и №105",
+                                      )
+    prohibitionOfForcedLabor.save()
+    prohibitionOfForcedLabor = ProhibitionOfForcedLabor(id=2,
+                                      name="Косвенное принуждение государством к труду (Рекомендация МОТ № 35 О косвенном принуждении к труду)",
+                                      )
+    prohibitionOfForcedLabor.save()
+    prohibitionOfForcedLabor = ProhibitionOfForcedLabor(id=3,
+                                      name="Нарушения при использовании принудительного (обязательного) труда в допустимых случаях (Конвенция МОТ №29 Относительно принудительного или обязательного труда)",
+                                      )
+    prohibitionOfForcedLabor.save()
+    prohibitionOfForcedLabor = ProhibitionOfForcedLabor(id=4,
+                                      name="Нарушения, связанные с непринятием государством системных мер",
+                                      )
+    prohibitionOfForcedLabor.save()
+
+
+
+    UseOfForcedLabor = apps.get_model("work", "UseOfForcedLabor")
+    useOfForcedLabor = UseOfForcedLabor(id=1, name="В пользу частных лиц и компаний",
+                                              )
+    useOfForcedLabor.save()
+    useOfForcedLabor = UseOfForcedLabor(id=2, name="Для выполнения подземных работ в шахтах",
+                                              )
+    useOfForcedLabor.save()
+    useOfForcedLabor = UseOfForcedLabor(id=3, name="В качестве коллективного наказания, применяемые к коллективу в целом, за преступления, совершенные какими-либо из его членов",
+                                              )
+    useOfForcedLabor.save()
+    useOfForcedLabor = UseOfForcedLabor(id=4, name="В качестве средства или меры наказания",
+                                              )
+    useOfForcedLabor.save()
+
+
+
+    GovernmentCoercion = apps.get_model("work", "GovernmentCoercion")
+    governmentCoercion = GovernmentCoercion(id=1, name="Принятие решений о развитии территорий без учета способности населения к труду, жизненных и трудовых привычек",
+                                              )
+    governmentCoercion.save()
+    governmentCoercion = GovernmentCoercion(id=2, name="Экономическое давление с целью заставить искать работу по найму",
+                                              )
+    governmentCoercion.save()
+    governmentCoercion = GovernmentCoercion(id=3, name="Введение ограничений добровольного перехода в иные виды занятости или районы (косвенное принуждение к работе в определенных отраслях или районах)",
+                                              )
+    governmentCoercion.save()
+
+
+    ViolationsUsingCompulsoryLabor = apps.get_model("work", "ViolationsUsingCompulsoryLabor")
+
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=1, name="Привлечение к принудительному (обязательному) труду в ситуации, когда отсутствуют условия, позволяющие использовать принудительный труд",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=2, name="Привлечение к принудительному труду лиц запрещенных категорий",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=3, name="Несоблюдение ограничений при привлечении к принудительному (обязательному труду)",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=4, name="Нарушения при оплате принудительного (обязательного) труда",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=5, name="Нарушения при несчастных случаях и профзаболеваниях лиц, привлекавшихся к принудительному труду",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=6, name="Нарушения в сфере охраны труда (здоровье и безопасность)",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=7, name="Нарушения при привлечении к строительным или ремонтным работам на длительное время",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=8, name="Нарушения при привлечении к принудительному труду для перевозки лиц или грузов в отсутствие изданной регламентации",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+    violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLabor(id=9, name="Нарушения при привлечении к принудительной обработке земли",
+                                              )
+    violationsUsingCompulsoryLabor.save()
+
+    FailureSystemicMeasures = apps.get_model("work", "FailureSystemicMeasures")
+
+    failureSystemicMeasures = FailureSystemicMeasures(id=1,
+                                                      name="Отсутствие полной регламентации применения принудительного или обязательного труда государством",
+                                                      )
+    failureSystemicMeasures.save()
+    failureSystemicMeasures = FailureSystemicMeasures(id=2,
+                                                      name="Отсутствие возможности у трудящихся предъявлять претензии по поводу их привлечения к принудительному труду и / или отсутствие гарантий рассмотрения и учета претензий",
+                                                      )
+    failureSystemicMeasures.save()
+    failureSystemicMeasures = FailureSystemicMeasures(id=3,
+                                                      name="Необеспечение строгого соблюдения правил использования принудительного труда, в частности отсутствие компетентного органа надзора",
+                                                      )
+    failureSystemicMeasures.save()
+    failureSystemicMeasures = FailureSystemicMeasures(id=4,
+                                                      name="Необеспечение уголовного преследования лиц, незаконно использующих принудительный труд",
+                                                      )
+    failureSystemicMeasures.save()
+    failureSystemicMeasures = FailureSystemicMeasures(id=5,
+                                                      name="Непринятие мер, предусмотренных в Рекомендации, МОТ № 203",
+                                                      )
+    failureSystemicMeasures.save()

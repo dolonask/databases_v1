@@ -74,6 +74,7 @@ function onMeetingsRightChanged(value){
     }
 }
 function onCreateOrganizationRightChanged(value){
+
     if (value == 7){
         showTandem('id_createOrganizationRightAnother');
     }else{
@@ -121,6 +122,16 @@ function onGroupOfRightsChanged(value){
     }
 }
 
+function onСreateStrikeRightChanged(value){
+
+}
+function onAntiTradeUnionDiscriminationChanged(value){
+
+}
+function onConvention135Changed(value){
+
+}
+
 function hideRights(){
     hideTandem('id_tradeUnionRight');
     hideTandem('id_tradeUnionRightAnother');
@@ -132,9 +143,17 @@ function hideRights(){
     hideTandem('id_tradeUnionBuildingsRightAnother');
     hideTandem('id_createOrganizationRight');
     hideTandem('id_createOrganizationRightAnother');
+    hideTandem('id_createTradeUnionRight');
+    hideTandem('id_createTradeUnionRightAnother');
+    hideTandem('id_electionsRight');
+    hideTandem('id_electionsRightAnother');
+    hideTandem('id_tradeUnionActivityRight');
+    hideTandem('id_tradeUnionActivityRightAnother');
 }
 
 
-hideRights()
+hide_div('idTradeUnionDiv');
+
+// hideRights()
 
 

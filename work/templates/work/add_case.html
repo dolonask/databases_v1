@@ -72,10 +72,10 @@
 
 
                     <input type="button" onclick="validate('checkGeneralTab')" class="action-button" value="Следующий"/>
-                    <input type="button" id="btnNextFromStrikeGeneral" name="next" class="next action-button d-none" value="Следующий"/>
+                    <input type="button" id="btnStrikeNextFromStrikeGeneral" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
                 <fieldset id = 'id_initiator_fieldset'>
-                    <h2 class="fs-title">Инициатор забастовки</h2>
+                    <h2 class="fs-title">Лицо или организация</h2>
                     <br>
                     {% for field in form %}
                         {% if field.name in initiator_tab_fields %}
@@ -103,10 +103,10 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="panel panel-default" id="idPersonGroupInfoDiv">
-                        <div class="panel-heading">Группа лиц</div>
+                    <div class="panel panel-default" id="idTradeUnionForm">
+                        <div class="panel-heading">Профсоюзная организация</div>
                         <div class="panel-body">
-                            {% for field in personGroupInfoForm %}
+                            {% for field in tradeUnionForm %}
                                 <div class="form-group">
                                     {{ field.label_tag }}
                                     {{ field }}
@@ -131,10 +131,10 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="panel panel-default" id="idEmployerFormDiv">
-                        <div class="panel-heading">Работодатель</div>
+                    <div class="panel panel-default" id="idPersonGroupFormDiv">
+                        <div class="panel-heading">Группа лиц (работников)</div>
                         <div class="panel-body">
-                            {% for field in employerForm %}
+                            {% for field in personGroupForm %}
                                 <div class="form-group">
                                     {{ field.label_tag }}
                                     {{ field }}
@@ -349,8 +349,9 @@
                 clear_errors();
 
                 validate_text_field('id_name',7);
-                validate_checkbox_list('card_sources','id_card_sources');
-                if (document.querySelector('#id_card_sources_0').checked){
+                //validate_checkbox_list('card_sources','id_card_sources');
+
+                if (document.querySelector('#id_source_2').checked){
                     let id_source_url = document.querySelector('#id_source_url');
                     let id_source_content = document.querySelector('#id_source_content');
 
@@ -358,34 +359,34 @@
                         set_error(id_source_content, 'any');
                     }
                 }
-                validate_selected('id_region');
-                validate_text_field('id_city_name',3);
-                validate_text_field('id_company_name',3);
-                validate_selected('id_company_ownership_type');
-                if (get_selected('id_company_ownership_type') == 4){
-                    validate_selected('id_company_is_tnk_member');
-                    if (get_selected('id_company_is_tnk_member') == 'YES'){
-                        validate_text_field('id_company_tnk_name', 7);
-                    }
-                }
+                {#validate_selected('id_region');#}
+                {#validate_text_field('id_city_name',3);#}
+                {#validate_text_field('id_company_name',3);#}
+                {#validate_selected('id_company_ownership_type');#}
+                {#if (get_selected('id_company_ownership_type') == 4){#}
+                {#    validate_selected('id_company_is_tnk_member');#}
+                {#    if (get_selected('id_company_is_tnk_member') == 'YES'){#}
+                {#        validate_text_field('id_company_tnk_name', 7);#}
+                {#    }#}
+                {#}#}
+                {##}
+                {#validate_selected('id_company_employees_count');#}
+                {#validate_selected('id_count_strike_participants');#}
+                {#validate_checkbox_list('card_demand_categories', 'card_demands');#}
+                {##}
+                {#if (is_checked('card_demands_4')){#}
+                {#    validate_text_field('id_economic_another',7);#}
+                {#}#}
+                {#if (is_checked('card_demands_8')){#}
+                {#    validate_text_field('id_politic_another',7);#}
+                {#}#}
+                {#if (is_checked('card_demands_10')){#}
+                {#    validate_text_field('id_combo_another',7);#}
+                {#}#}
+                {#validate_selected('id_tradeunionChoice');#}
 
-                validate_selected('id_company_employees_count');
-                validate_selected('id_count_strike_participants');
-                validate_checkbox_list('card_demand_categories', 'card_demands');
-
-                if (is_checked('card_demands_4')){
-                    validate_text_field('id_economic_another',7);
-                }
-                if (is_checked('card_demands_8')){
-                    validate_text_field('id_politic_another',7);
-                }
-                if (is_checked('card_demands_10')){
-                    validate_text_field('id_combo_another',7);
-                }
-                validate_selected('id_tradeunionChoice');
-
-                if (has_error == false) {
-                    document.querySelector('#btnNextFromStrikeGeneral').click();
+                if (has_error == true) {
+                    document.querySelector('#btnStrikeNextFromStrikeGeneral').click();
                 }
             }
 
