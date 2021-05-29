@@ -104,9 +104,9 @@ class CardForm(forms.ModelForm):
             'politic_another': forms.TextInput(attrs={'class': 'form-control'}),
             'combo_another': forms.TextInput(attrs={'class': 'form-control'}),
             'start_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%d-%m-%Y"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
             'end_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%d-%m-%Y"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
 
             'tradeunionChoice': forms.Select(
                 attrs={'class': 'form-control', 'onchange': "onTradeunionChoiceChanged(this.value);"}),
@@ -138,3 +138,16 @@ class CardForm(forms.ModelForm):
             'case_text': forms.Textarea(attrs={'class': 'form-control'}),
 
         }
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['region'].queryset = Region.objects.none()
+
+            if 'country' in self.data:
+                try:
+                    country_id = int(self.data.get('country'))
+                    self.fields['region'].queryset = Region.objects.filter(country_id=country_id).order_by('name')
+                except (ValueError, TypeError):
+                    pass  # invalid input from the client; ignore and fallback to empty City queryset
+            elif self.instance.pk:
+                self.fields['region'].queryset = self.instance.country.region_set.order_by('name')

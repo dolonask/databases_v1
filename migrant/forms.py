@@ -44,9 +44,9 @@ class CaseForm(forms.ModelForm):
             'violatedRightAnother': forms.TextInput(attrs={'class': 'form-control'}),
 
             'start_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%d-%m-%Y"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
             'end_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%d-%m-%Y"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
 
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
             'intruder': forms.CheckboxSelectMultiple(

@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, CaseFileForm
 from .models import *
+from .filters import WorkFilter
 
 
 def add_case(request):
@@ -111,4 +112,11 @@ def add_case(request):
     })
 
 def cases(request):
-    pass
+    cases = Case.objects.all().filter(user=request.user)
+
+    filter = WorkFilter(request.GET, queryset=cases)
+    cards = filter.qs
+
+    context = {'cards': cards, 'myFilter': filter}
+
+    return render(request, 'migrant/cases.html', context)

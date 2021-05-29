@@ -108,22 +108,25 @@ function onInitiatorSelected(value){
             show_div('idTradeUnionDiv')
             hide_div('idPersonGroupInfoDiv')
             hide_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
             break;
         case '2':
             hide_div('idTradeUnionDiv')
             show_div('idPersonGroupInfoDiv')
             hide_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
             break;
         case '3':
             hide_div('idTradeUnionDiv')
             hide_div('idPersonGroupInfoDiv')
             show_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
             break;
         case '4':
             hide_div('idTradeUnionDiv')
-            hide_div('idTradeUnionInfoDiv')
             hide_div('idPersonGroupInfoDiv')
-            show_div('idIndividualFormDiv')
+            hide_div('idIndividualFormDiv')
+            show_div('idEmployerFormDiv')
             break;
     }
 }
@@ -138,6 +141,7 @@ function onGroupCharacterChanged(value){
 hide_div('idTradeUnionDiv')
 hide_div('idPersonGroupInfoDiv')
 hide_div('idIndividualFormDiv')
+hide_div('idEmployerFormDiv')
 
 hideTandem("id_source_url")
 hideTandem("id_groupCharacter_another")

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -590,6 +591,20 @@ class CaseFile(models.Model):
         verbose_name = "Кейсы, связанные с забастовкой"
         verbose_name_plural = "Кейсы, связанные с забастовкой"
 
+#
+# class UserCountry(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
+#                                  verbose_name="Монитор")
+#     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
+#
+#     def __str__(self):
+#         return self.user.name + self.country.name
+#
+#     class Meta:
+#         verbose_name = "Страна пользователя"
+#         verbose_name_plural = "Страны пользователя"
+
+
 
 class Case(models.Model):
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
@@ -750,3 +765,5 @@ class Case(models.Model):
                                             verbose_name="Численность профсоюза после произошедшего", null=True)
 
     case_text = models.TextField("Кейсы, связанные с забастовкой", max_length=1800, null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
+                             verbose_name="Монитор", related_name="strike_users")
