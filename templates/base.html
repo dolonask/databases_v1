@@ -61,6 +61,11 @@
             display: none;
         }
 
+        ul
+        {
+            list-style-type: none;
+        }
+
         /*inputs*/
         {##msform input, #msform textarea {#}
         {#    padding: 15px;#}
@@ -217,134 +222,137 @@
     {% block head %}{% endblock %}
 </head>
 <body class="override">
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Система регистрации нарушений</a>
-            </div>
-
-
-                <div id="navbar" class="collapse navbar-collapse">
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'logout' %}">Выйти</a></li>
-                    </ul>
-{#                    <ul class="nav navbar-nav navbar-right">#}
-{#                        <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>#}
-{#                    </ul>#}
-
-                     {% block toggle %}
-                    {% endblock %}
-                </div>
-        </div>
-    </nav>
-
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
-        <div class="row">
-            {% block content %}{% endblock %}
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Система регистрации нарушений</a>
+        </div>
+
+
+        <div id="navbar" class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            </ul>
+            {#                    <ul class="nav navbar-nav navbar-right">#}
+            {#                        <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>#}
+            {#                    </ul>#}
+
+            {% block toggle %}
+            {% endblock %}
         </div>
     </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        {% block content %}{% endblock %}
+    </div>
+</div>
 
 {#    <script src="{% static 'js/index.js' %}"> </script>#}
 {#    <script src="{% static 'js/script.js' %}"> </script>#}
 
-    {% block scripts %}
-{#        <script src="{% static 'strike/js/script.js' %}"> </script>#}
-{#        <script src="{% static 'strike/js/tabs.js' %}"> </script>#}
-{#        <script src="{% static 'js/tabs.js' %}"> </script>#}
-      <!--- some scripts that apply to all pages -->
+{% block scripts %}
+    {#        <script src="{% static 'strike/js/script.js' %}"> </script>#}
+    {#        <script src="{% static 'strike/js/tabs.js' %}"> </script>#}
+    {#        <script src="{% static 'js/tabs.js' %}"> </script>#}
+    <!--- some scripts that apply to all pages -->
+
+
+
 
     <script>
- //jQuery time
+        //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate
         var animating; //flag to prevent quick multi-click glitches
 
-            $(".next").click(function(){
-                if(animating) return false;
-                animating = true;
+        $(".next").click(function(){
+            if(animating) return false;
+            animating = true;
 
-                current_fs = $(this).parent();
-                next_fs = $(this).parent().next();
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
 
-                //activate next step on progressbar using the index of next_fs
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
-                //show the next fieldset
-                next_fs.show();
-                //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
-                    step: function(now, mx) {
-                        //as the opacity of current_fs reduces to 0 - stored in "now"
-                        //1. scale current_fs down to 80%
-                        scale = 1 - (1 - now) * 0.2;
-                        //2. bring next_fs from the right(50%)
-                        left = (now * 50)+"%";
-                        //3. increase opacity of next_fs to 1 as it moves in
-                        opacity = 1 - now;
-                        current_fs.css({
-                    'transform': 'scale('+scale+')',
-                    'position': 'absolute'
-                  });
-                        next_fs.css({'left': left, 'opacity': opacity});
-                    },
-                    duration: 800,
-                    complete: function(){
-                        current_fs.hide();
-                        animating = false;
-                    },
-                    //this comes from the custom easing plugin
-                    easing: 'easeInOutBack'
-                });
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function(now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50)+"%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale('+scale+')',
+                        'position': 'absolute'
+                    });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function(){
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
             });
+        });
 
-            $(".previous").click(function(){
-                if(animating) return false;
-                animating = true;
+        $(".previous").click(function(){
+            if(animating) return false;
+            animating = true;
 
-                current_fs = $(this).parent();
-                previous_fs = $(this).parent().prev();
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
 
-                //de-activate current step on progressbar
-                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
-                //show the previous fieldset
-                previous_fs.show();
-                //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
-                    step: function(now, mx) {
-                        //as the opacity of current_fs reduces to 0 - stored in "now"
-                        //1. scale previous_fs from 80% to 100%
-                        scale = 0.8 + (1 - now) * 0.2;
-                        //2. take current_fs to the right(50%) - from 0%
-                        left = ((1-now) * 50)+"%";
-                        //3. increase opacity of previous_fs to 1 as it moves in
-                        opacity = 1 - now;
-                        current_fs.css({'left': left});
-                        previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-                    },
-                    duration: 800,
-                    complete: function(){
-                        current_fs.hide();
-                        animating = false;
-                    },
-                    //this comes from the custom easing plugin
-                    easing: 'easeInOutBack'
-                });
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function(now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1-now) * 50)+"%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({'left': left});
+                    previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function(){
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
             });
+        });
 
-            $(".submit").click(function(){
-                return false;
-            })
+        $(".submit").click(function(){
+            return false;
+        })
 
     </script>
-    {% endblock %}
+{% endblock %}
 <br>
 <br>
 <br>

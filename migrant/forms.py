@@ -102,7 +102,7 @@ class IndividualForm(forms.ModelForm):
             'gender_another': forms.TextInput(attrs={'class': 'form-control'}),
             'contacts': forms.TextInput(attrs={'class': 'form-control'}),
             'education': forms.Select(attrs={'class': 'form-control'}),
-            'age': forms.TextInput(attrs={'class': 'form-control'}),
+            'individual_age': forms.TextInput(attrs={'class': 'form-control'}),
             'country': forms.Select(attrs={'class': 'form-control', 'onchange': "onCountryChanged(this.value);"}),
             'countryAnother': forms.TextInput(attrs={'class': 'form-control'}),
             'city_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -156,13 +156,14 @@ class CompanyForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'product_type': forms.TextInput(attrs={'class': 'form-control'}),
             'ownership': forms.Select(attrs={'class': 'form-control', 'onchange': "onOwnershipChanged(this.value);"}),
+            'country_from': forms.TextInput(attrs={'class': 'form-control'}),
+            'is_tnk_member': forms.Select(attrs={'class': 'form-control', 'onchange': "onTnkChanged(this.value);"}),
+            'tnk_name': forms.TextInput(attrs={'class': 'form-control'}),
             'branch': forms.TextInput(attrs={'class': 'form-control'}),
             'company_experience': forms.TextInput(attrs={'class': 'form-control'}),
             'emp_count': forms.Select(attrs={'class': 'form-control'}),
             'additional': forms.Textarea(attrs={'class': 'form-control'}),
-            'country_from': forms.TextInput(attrs={'class': 'form-control'}),
-            'is_tnk_member': forms.Select(attrs={'class': 'form-control', 'onchange': "onTnkChanged(this.value);"}),
-            'tnk_name': forms.TextInput(attrs={'class': 'form-control'}),
+
         }
 
 

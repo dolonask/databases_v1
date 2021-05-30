@@ -174,33 +174,271 @@ def load_works(apps, schema_editor):
     source = Source(id=10, name='другое', active=True)
     source.save()
 
-    Country = apps.get_model("work", "Country")
-    Region = apps.get_model("work", "Region")
+    print("Gender")
+    Gender = apps.get_model("work", "Gender")
+    gender = Gender(name='мужской', active=True)
+    gender.save()
+    gender = Gender(name='женский ', active=True)
+    gender.save()
 
+
+    print("EmployeesCount")
+    EmployeesCount = apps.get_model("work", "EmployeesCount")
+    employeesCount = EmployeesCount(name='от 10 до 50 человек', active=True)
+    employeesCount.save()
+    employeesCount = EmployeesCount(name='малое до 50 человек', active=True)
+    employeesCount.save()
+    employeesCount = EmployeesCount(name='среднее от 50 до 200 чел', active=True)
+    employeesCount.save()
+    employeesCount = EmployeesCount(name='крупное от 200 до 1000 чел.', active=True)
+    employeesCount.save()
+    employeesCount = EmployeesCount(name='очень большое - свыше 1000 чел.', active=True)
+    employeesCount.save()
+
+    print("OwnerShipType")
+    OwnerShipType = apps.get_model("work", "OwnerShipType")
+    ownerShipType = OwnerShipType(name='Национальная, государственная', active=True)
+    ownerShipType.save()
+    ownerShipType = OwnerShipType(name='Национальная, частная', active=True)
+    ownerShipType.save()
+    ownerShipType = OwnerShipType(name='Иностранная', active=True)
+    ownerShipType.save()
+    ownerShipType = OwnerShipType(name='Смешанная', active=True)
+    ownerShipType.save()
+
+    print("Country")
+    Country = apps.get_model("work", "Country")
     country = Country(id=1, name='Россия', active=True)
     country.save()
-    region = Region(id=1, name='г. Москва', active=True, country=country)
+    Region = apps.get_model("work", "Region")
+
+    region = Region(id=1, name='г.Москва', active=True, country=country)
+    region.save()
+
+    region = Region(id=2, name='Амурскаяобласть(Благовещенск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=3, name='Архангельскаяобласть(Архангельск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=4, name='Астраханскаяобласть(Астрахань)', active=True, country=country)
+    region.save()
+
+    region = Region(id=5, name='Белгородскаяобласть(Белгород)', active=True, country=country)
+    region.save()
+
+    region = Region(id=6, name='Брянскаяобласть(Брянск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=7, name='Челябинскаяобласть(Челябинск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=8, name='Иркутскаяобласть(Иркутск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=9, name='Ивановскаяобласть(Иваново)', active=True, country=country)
+    region.save()
+
+    region = Region(id=10, name='Калининградскаяобласть(Калининград)', active=True, country=country)
+    region.save()
+
+    region = Region(id=11, name='Калужскаяобласть(Калуга)', active=True, country=country)
+    region.save()
+
+    region = Region(id=12, name='Кемеровскаяобласть—Кузбасс(Кемерово)', active=True, country=country)
+    region.save()
+
+    region = Region(id=13, name='Кировскаяобласть(Киров)', active=True, country=country)
+    region.save()
+
+    region = Region(id=14, name='Костромскаяобласть(Кострома)', active=True, country=country)
+    region.save()
+
+    region = Region(id=15, name='Курганскаяобласть(Курган)', active=True, country=country)
+    region.save()
+
+    region = Region(id=16, name='Курскаяобласть(Курск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=17, name='Ленинградскаяобласть(Санкт Петербург)', active=True, country=country)
+    region.save()
+
+    region = Region(id=19, name='Липецкаяобласть(Липецк)', active=True, country=country)
+    region.save()
+
+    region = Region(id=20, name='Магаданскаяобласть(Магадан)', active=True, country=country)
+    region.save()
+
+    region = Region(id=21, name='Московскаяобласть(Москва)', active=True, country=country)
+    region.save()
+
+    region = Region(id=22, name='Мурманскаяобласть(Мурманск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=23, name='Нижегородскаяобласть(НижнийНовгород)', active=True, country=country)
+    region.save()
+
+    region = Region(id=24, name='Новгородскаяобласть(ВеликийНовгород)', active=True, country=country)
+    region.save()
+
+    region = Region(id=25, name='Новосибирскаяобласть(Новосибирск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=26, name='Омскаяобласть(Омск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=27, name='Оренбургскаяобласть(Оренбург)', active=True, country=country)
+    region.save()
+
+    region = Region(id=28, name='Орловскаяобласть(Орёл)', active=True, country=country)
+    region.save()
+
+    region = Region(id=29, name='Пензенскаяобласть(Пенза)', active=True, country=country)
+    region.save()
+
+    region = Region(id=30, name='Псковскаяобласть(Псков)', active=True, country=country)
+    region.save()
+
+    region = Region(id=31, name='Ростовскаяобласть(Ростов на Дону)', active=True, country=country)
+    region.save()
+
+    region = Region(id=32, name='Рязанскаяобласть(Рязань)', active=True, country=country)
+    region.save()
+
+    region = Region(id=33, name='Сахалинскаяобласть(Южно Сахалинск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=34, name='Самарскаяобласть(Самара)', active=True, country=country)
+    region.save()
+
+    region = Region(id=35, name='Саратовскаяобласть(Саратов)', active=True, country=country)
+    region.save()
+
+    region = Region(id=36, name='Смоленскаяобласть(Смоленск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=37, name='Свердловскаяобласть(Екатеринбург)', active=True, country=country)
+    region.save()
+
+    region = Region(id=38, name='Тамбовскаяобласть(Тамбов)', active=True, country=country)
+    region.save()
+
+    region = Region(id=39, name='Томскаяобласть(Томск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=40, name='Тверскаяобласть(Тверь)', active=True, country=country)
+    region.save()
+
+    region = Region(id=41, name='Тульскаяобласть(Тула)', active=True, country=country)
+    region.save()
+
+    region = Region(id=42, name='Тюменскаяобласть(Тюмень)', active=True, country=country)
+    region.save()
+
+    region = Region(id=43, name='Ульяновскаяобласть(Ульяновск)', active=True, country=country)
+    region.save()
+
+    region = Region(id=44, name='Владимирскаяобласть(Владимир)', active=True, country=country)
+    region.save()
+
+    region = Region(id=45, name='Волгоградскаяобласть(Волгоград)', active=True, country=country)
+    region.save()
+
+    region = Region(id=46, name='Вологодскаяобласть(Вологда)', active=True, country=country)
+    region.save()
+
+    region = Region(id=47, name='Воронежскаяобласть(Воронеж)', active=True, country=country)
+    region.save()
+
+    region = Region(id=48, name='Ярославскаяобласть(Ярославль)', active=True, country=country)
     region.save()
 
     country = Country(id=2, name='Кыргызстан', active=True)
     country.save()
-    region = Region(id=2, name='г. Бишкек', active=True, country=country)
+    region = Region(name='г. Бишкек', active=True, country=country)
     region.save()
-    region = Region(id=3, name='г. Ош', active=True, country=country)
+    region = Region(name='г. Ош', active=True, country=country)
     region.save()
-    region = Region(id=4, name='Чуйская область', active=True, country=country)
+    region = Region(name='Баткенская область', active=True, country=country)
     region.save()
-    region = Region(id=5, name='Ошская область', active=True, country=country)
+    region = Region(name='Джалал-Абадская область', active=True, country=country)
     region.save()
-    region = Region(id=6, name='Баткенская область', active=True, country=country)
+    region = Region(name='Иссык-Кульская область', active=True, country=country)
     region.save()
-    region = Region(id=7, name='Джалал-Абадская область', active=True, country=country)
+    region = Region(name='Нарынская область', active=True, country=country)
     region.save()
-    region = Region(id=8, name='Иссык-Кульская область', active=True, country=country)
+    region = Region(name='Ошская область', active=True, country=country)
     region.save()
-    region = Region(id=9, name='Нарынская область', active=True, country=country)
+    region = Region(name='Таласская область', active=True, country=country)
     region.save()
-    region = Region(id=10, name='Таласская область', active=True, country=country)
+    region = Region(name='Чуйская область', active=True, country=country)
+    region.save()
+
+    country = Country(id=3, name='Казахстан', active=True)
+    country.save()
+    region = Region(name='Нур-Султан (Астана)', active=True, country=country)
+    region.save()
+    region = Region(name='Алматы', active=True, country=country)
+    region.save()
+    region = Region(name='Шымкент', active=True, country=country)
+    region.save()
+    region = Region(name='Байконыр', active=True, country=country)
+    region.save()
+    region = Region(name='Акмолинская область', active=True, country=country)
+    region.save()
+    region = Region(name='Актюбинская область', active=True, country=country)
+    region.save()
+    region = Region(name='Алматинская область', active=True, country=country)
+    region.save()
+    region = Region(name='Атырауская область', active=True, country=country)
+    region.save()
+    region = Region(name='Восточно-Казахстанская область', active=True, country=country)
+    region.save()
+    region = Region(name='Жамбылская область', active=True, country=country)
+    region.save()
+    region = Region(name='Западно-Казахстанская область', active=True, country=country)
+    region.save()
+    region = Region(name='Карагандинская область', active=True, country=country)
+    region.save()
+    region = Region(name='Костанайская область', active=True, country=country)
+    region.save()
+    region = Region(name='Кызылординская область', active=True, country=country)
+    region.save()
+    region = Region(name='Мангистауская область', active=True, country=country)
+    region.save()
+    region = Region(name='Павлодарская область', active=True, country=country)
+    region.save()
+    region = Region(name='Севрено-Казахстанская область', active=True, country=country)
+    region.save()
+    region = Region(name='Туркестанская область', active=True, country=country)
+    region.save()
+
+    country = Country(id=4, name='Таджикистан', active=True)
+    country.save()
+    region = Region(name='г. Душанбе', active=True, country=country)
+    region.save()
+    region = Region(name='Горно - Бажахшанская область', active=True, country=country)
+    region.save()
+    region = Region(name='Согдийская область', active=True, country=country)
+    region.save()
+    region = Region(name='Хатлонская область', active=True, country=country)
+    region.save()
+    region = Region(name='Районы республиканского подчинения', active=True, country=country)
+    region.save()
+
+    country = Country(id=5, name='Туркменистан', active=True)
+    country.save()
+    region = Region(name='г. Ашхабад', active=True, country=country)
+    region.save()
+    region = Region(name='Ахалский велаят', active=True, country=country)
+    region.save()
+    region = Region(name='Балканский велаят', active=True, country=country)
+    region.save()
+    region = Region(name='Дашогузский велаят', active=True, country=country)
+    region.save()
+    region = Region(name='Лебапский велаят', active=True, country=country)
+    region.save()
+    region = Region(name='Марыйский велаят', active=True, country=country)
     region.save()
 
     GroupOfRights = apps.get_model("work", "GroupOfRights")
@@ -246,41 +484,48 @@ def load_works(apps, schema_editor):
     tradeUnionRight = TradeUnionRight(id=7, name="Другое")
     tradeUnionRight.save()
 
+    Сonvention87 = apps.get_model("work", "Сonvention87")
+    convention87 = Сonvention87(
+        name="Нарушение права трудящихся без какого-либо различия создавать организации без предварительного разрешения",
+        )
+    convention87.save()
+    convention87 = Сonvention87(
+        name="Нарушение права свободно создавать профсоюзы и вступать в профсоюзы только лишь на условии подчинения уставу",
+        )
+    convention87.save()
+    convention87 = Сonvention87(name="Нарушение права профсоюза самостоятельно вырабатывать свои уставы и положения",
+                                )
+    convention87.save()
+    convention87 = Сonvention87(name="Нарушение права свободно выбирать своих представителей",
+                                )
+    convention87.save()
+    convention87 = Сonvention87(name="Нарушения права профсоюза организовывать деятельность своего аппарата",
+                                )
+    convention87.save()
+    convention87 = Сonvention87(
+        name="Нарушение права профсоюза свободно организовывать свою деятельность и формулировать свою программу действий",
+        )
+    convention87.save()
+    convention87 = Сonvention87(name="Нарушение права на забастовку",
+                                )
+    convention87.save()
+    convention87 = Сonvention87(
+        name="Нарушение права на создание федераций и конфедераций и на вступление в международные организации",
+        )
+    convention87.save()
+    convention87 = Сonvention87(name="Принудительный роспуск и приостановление деятельности профсоюза",
+                                )
+    convention87.save()
 
-    # rightsViolation = RightsViolation(id=8, name="Нарушение права трудящихся без какого-либо различия создавать организации без предварительного разрешения",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=9, name="Нарушение права свободно создавать профсоюзы и вступать в профсоюзы только лишь на условии подчинения уставу",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=10, name="Нарушение права профсоюза самостоятельно вырабатывать свои уставы и положения",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=11, name="Нарушение права свободно выбирать своих представителей",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=12, name="Нарушения права профсоюза организовывать деятельность своего аппарата",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=13, name="Нарушение права профсоюза свободно организовывать свою деятельность и формулировать свою программу действий",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=14, name="Нарушение права на забастовку",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=15, name="Нарушение права на создание федераций и конфедераций и на вступление в международные организации",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=16, name="Принудительный роспуск и приостановление деятельности профсоюза",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=17, name="Антипрофсоюзная дискриминация",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=18, name="Нарушения права на проведение коллективных переговоров",
-    #                                   )
-    # rightsViolation.save()
-    #
+
+    Сonvention98 = apps.get_model("work", "Сonvention98")
+    convention98 = Сonvention98( name="Антипрофсоюзная дискриминация",
+                                      )
+    convention98.save()
+    convention98 = Сonvention98( name="Нарушения права на проведение коллективных переговоров",
+                                      )
+    convention98.save()
+
     # rightsViolation = RightsViolation(id=19, name="Непредставление времени для участия в профсоюзных собраниях",
     #                                   )
     # rightsViolation.save()
@@ -306,15 +551,18 @@ def load_works(apps, schema_editor):
     # rightsViolation = RightsViolation(id=26, name="Другое",
     #                                   )
     # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=27, name="Дискриминация по различным основаниям",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=28, name="Дискриминация в различных сферах трудовых отношений",
-    #                                   )
-    # rightsViolation.save()
-    # rightsViolation = RightsViolation(id=29, name="Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей",
-    #                                   )
-    # rightsViolation.save()
+
+
+    PrincipleOfNonDiscrimination = apps.get_model("work", "PrincipleOfNonDiscrimination")
+    principleOfNonDiscrimination = PrincipleOfNonDiscrimination( name="Дискриминация по различным основаниям",
+                                      )
+    principleOfNonDiscrimination.save()
+    principleOfNonDiscrimination = PrincipleOfNonDiscrimination( name="Дискриминация в различных сферах трудовых отношений",
+                                      )
+    principleOfNonDiscrimination.save()
+    principleOfNonDiscrimination = PrincipleOfNonDiscrimination(name="Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей",
+                                      )
+    principleOfNonDiscrimination.save()
 
 
 

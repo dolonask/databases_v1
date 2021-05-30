@@ -1,5 +1,5 @@
 from django.forms import model_to_dict
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -12,8 +12,10 @@ def add_case(request):
     general_tabs_fields =[
         'name',
         'source',
+        'source_another',
         'source_url',
         'source_content',
+        'country',
         'region',
         'city_name',
         'company_name',
@@ -24,6 +26,13 @@ def add_case(request):
         'tradeUnionCrimeAnother',
         'meetingsRight',
         'meetingsRightAnother',
+        'сonvention87',
+        'сonvention98',
+        'conversationRight',
+        'conversationRightAnother',
+        'principleOfNonDiscrimination',
+        'discriminationInVariousAreas',
+        'discriminationInVariousAreasAnother',
         'tradeUnionBuildingsRight',
         'tradeUnionBuildingsRightAnother',
         'createOrganizationRight',
@@ -86,7 +95,41 @@ def add_case(request):
 
 
     if request.method=='POST':
-        pass
+        form = CaseForm(request.POST)
+        tradeUnionForm = TradeUnionInfoForm(request.POST)
+        individualForm = IndividualForm(request.POST)
+        personGroupForm = PersonGroupForm(request.POST)
+        companyInfoForm = CompanyInfoForm(request.POST)
+        casePhotoForm = CasePhotoForm(request.POST)
+        caseFileForm = CaseFileForm(request.POST)
+
+        if form.is_valid():
+            form = form.save(commit=False)
+
+            if tradeUnionForm.is_valid():
+                form.tradeUnionInfo = tradeUnionForm.save()
+            if personGroupForm.is_valid():
+                form.groupOfPersons = personGroupForm.save()
+            if companyInfoForm.is_valid():
+                form.company = companyInfoForm.save()
+
+            form.user = request.user
+            form.save()
+
+            if individualForm.is_valid():
+                individualForm = individualForm.save(commit=False)
+                individualForm.card = form
+                individualForm.save()
+            if casePhotoForm.is_valid():
+                for f in request.FILES.getlist('photo'):
+                    photo = CasePhoto(photo=f, card=form)
+                    photo.save()
+            if caseFileForm.is_valid():
+                for f in request.FILES.getlist('file'):
+                    file = CaseFile(file=f, card=form)
+                    file.save()
+
+            return redirect('work_case')
     else:
         form = CaseForm
         tradeUnionForm = TradeUnionInfoForm
@@ -120,3 +163,10 @@ def cases(request):
     context = {'cards': cards, 'myFilter': filter}
 
     return render(request, 'migrant/cases.html', context)
+
+
+
+def load_regions(request):
+    country_id = request.GET.get('country_id')
+    regions = Region.objects.filter(country=country_id).all()
+    return render(request,'work/region_dropdown.html',{'regions':regions})

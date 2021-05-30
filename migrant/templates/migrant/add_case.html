@@ -206,6 +206,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                {{ individualForm.individual_age.label_tag }}
+                                {{ individualForm.individual_age }}
+                                <div class="invalid_feedback">
+                                    {{ individualForm.individual_age.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ individualForm.country.label_tag }}
                                 {{ individualForm.country }}
                                 <div class="invalid_feedback">
@@ -466,6 +473,27 @@
                                     {{ companyForm.ownership.errors }}
                                 </div>
                             </div>
+                                                        <div class="form-group">
+                                {{ companyForm.country_from.label_tag }}
+                                {{ companyForm.country_from }}
+                                <div class="invalid_feedback">
+                                    {{ companyForm.country_from.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ companyForm.is_tnk_member.label_tag }}
+                                {{ companyForm.is_tnk_member }}
+                                <div class="invalid_feedback">
+                                    {{ companyForm.is_tnk_member.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ companyForm.tnk_name.label_tag }}
+                                {{ companyForm.tnk_name }}
+                                <div class="invalid_feedback">
+                                    {{ companyForm.tnk_name.errors }}
+                                </div>
+                            </div>
                             <div class="form-group">
                                 {{ companyForm.branch.label_tag }}
                                 {{ companyForm.branch }}
@@ -501,27 +529,7 @@
                                     {{ companyForm.additional.errors }}
                                 </div>
                             </div>
-                            <div class="form-group">
-                                {{ companyForm.country_from.label_tag }}
-                                {{ companyForm.country_from }}
-                                <div class="invalid_feedback">
-                                    {{ companyForm.country_from.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                {{ companyForm.is_tnk_member.label_tag }}
-                                {{ companyForm.is_tnk_member }}
-                                <div class="invalid_feedback">
-                                    {{ companyForm.is_tnk_member.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                {{ companyForm.tnk_name.label_tag }}
-                                {{ companyForm.tnk_name }}
-                                <div class="invalid_feedback">
-                                    {{ companyForm.tnk_name.errors }}
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -1263,7 +1271,7 @@
 
                 validate_files_uploaded('id_photo');
                 validate_files_uploaded('id_file');
-                validate_text_field('id_case_additional_info', 7);
+                {#validate_text_field('id_case_additional_info', 7);#}
 
                 if (has_error == false) {
                     document.querySelector('#btnNextFromFileTab').click();
@@ -1275,9 +1283,9 @@
                 has_error = false;
                 clear_errors();
 
-                validate_text_field('id_frequent_problems', 7);
-                validate_text_field('id_decision', 7);
-                validate_text_field('id_advice', 7);
+                {#validate_text_field('id_frequent_problems', 7);#}
+                {#validate_text_field('id_decision', 7);#}
+                {#validate_text_field('id_advice', 7);#}
 
 
                 if (has_error == false) {

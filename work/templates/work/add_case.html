@@ -34,7 +34,7 @@
 {% block content %}
     <div class="row">
         <div>
-            <form id="msform" method="post" enctype="multipart/form-data" novalidate>
+            <form id="msform" method="post" enctype="multipart/form-data" regions-url="{% url 'works_regions_list' %}" novalidate >
                 {% csrf_token %}
                 <!-- progressbar -->
                 <ul id="progressbar">
@@ -166,7 +166,7 @@
                         {% endif %}
                     {% endfor %}
 
-                    <div class="panel panel-default" id="idTradeUnionDiv">
+                    <div class="panel panel-default" id="idEmployerCompanyDiv">
                         <div class="panel-heading">Работодатель (компания)</div>
                         <div class="panel-body">
                             {% for field in companyInfoForm %}
@@ -409,109 +409,113 @@
                         set_error(id_source_content, 'any');
                     }
                 }
-                {#validate_selected('id_region');#}
-                {#validate_text_field('id_city_name',3);#}
-                {#validate_text_field('id_company_name',3);#}
-                {#validate_selected('id_company_ownership_type');#}
-                {#if (get_selected('id_company_ownership_type') == 4){#}
-                {#    validate_selected('id_company_is_tnk_member');#}
-                {#    if (get_selected('id_company_is_tnk_member') == 'YES'){#}
-                {#        validate_text_field('id_company_tnk_name', 7);#}
-                {#    }#}
-                {#}#}
-                    {##}
-                    {#validate_selected('id_company_employees_count');#}
-                    {#validate_selected('id_count_strike_participants');#}
-                    {#validate_checkbox_list('card_demand_categories', 'card_demands');#}
-                    {##}
-                    {#if (is_checked('card_demands_4')){#}
-                    {#    validate_text_field('id_economic_another',7);#}
-                    {#}#}
-                        {#if (is_checked('card_demands_8')){#}
-                        {#    validate_text_field('id_politic_another',7);#}
-                        {#}#}
-                            {#if (is_checked('card_demands_10')){#}
-                            {#    validate_text_field('id_combo_another',7);#}
-                            {#}#}
-                                {#validate_selected('id_tradeunionChoice');#}
 
-                                if (has_error == true) {
-                                    document.querySelector('#btnStrikeNextFromStrikeGeneral').click();
-                                }
-                            }
+                if (has_error == true) {
+                    document.querySelector('#btnStrikeNextFromStrikeGeneral').click();
+                }
+            }
 
-                            function checkInitiatorTab() {
-                                has_error = false;
-                                clear_errors();
+            function checkInitiatorTab() {
+                has_error = false;
+                clear_errors();
 
-                                validate_selected('id_initiator');
-                                let selectedValue = get_selected('id_initiator');
+                validate_selected('id_initiator');
+                let selectedValue = get_selected('id_initiator');
 
-                                if (selectedValue == 1){
-                                    validate_text_field('id_tradeUnion_name',7);
-                                    validate_text_field('id_tradeUnion_contacts',7);
-                                }else if(selectedValue==2){
-                                    validate_selected('id_groupCharacter');
-                                    if (get_selected('id_groupCharacter') == 3){
-                                        validate_text_field('id_groupCharacter_another',7);
-                                    }
-                                    validate_selected('id_tradeUnionMembership');
-                                }else if(selectedValue==3){
-                                    validate_text_field('id_individual_name',7);
-                                    validate_selected('id_gender');
-                                    validate_selected('id_age');
-                                    validate_text_field('id_profession',7);
-                                }
+                if (selectedValue == 1) {
+                    validate_text_field('id_tradeUnion_name', 7);
+                    validate_text_field('id_tradeUnion_contacts', 7);
+                } else if (selectedValue == 2) {
+                    validate_selected('id_groupCharacter');
+                    if (get_selected('id_groupCharacter') == 3) {
+                        validate_text_field('id_groupCharacter_another', 7);
+                    }
+                    validate_selected('id_tradeUnionMembership');
+                } else if (selectedValue == 3) {
+                    validate_text_field('id_individual_name', 7);
+                    validate_selected('id_gender');
+                    validate_selected('id_age');
+                    validate_text_field('id_profession', 7);
+                }
 
 
-                                if (has_error == false) {
-                                    document.querySelector('#btnNextFromInitiator').click();
-                                }
-                            }
+                if (has_error == false) {
+                    document.querySelector('#btnNextFromInitiator').click();
+                }
+            }
 
-                            function checkDescriptionTab() {
-                                has_error = false;
-                                clear_errors();
+            function checkDescriptionTab() {
+                has_error = false;
+                clear_errors();
 
-                                validate_selected('id_duration');
-                                validate_selected('id_meeting_requirements');
-                                validate_text_field('id_story',7);
-                                validate_text_field('id_reasons_for_strike',7);
-                                validate_text_field('id_change_number_participants',7);
-                                validate_text_field('id_initiators_and_participants',7);
-                                validate_text_field('id_state_position',7);
-                                validate_text_field('id_results_so_far',7);
-                                validate_text_field('id_additional_information',7);
+                validate_selected('id_duration');
+                validate_selected('id_meeting_requirements');
+                validate_text_field('id_story', 7);
+                validate_text_field('id_reasons_for_strike', 7);
+                validate_text_field('id_change_number_participants', 7);
+                validate_text_field('id_initiators_and_participants', 7);
+                validate_text_field('id_state_position', 7);
+                validate_text_field('id_results_so_far', 7);
+                validate_text_field('id_additional_information', 7);
 
-                                if (has_error == false) {
-                                    document.querySelector('#btnNextFromCaseDesc').click();
-                                }
-                            }
+                if (has_error == false) {
+                    document.querySelector('#btnNextFromCaseDesc').click();
+                }
+            }
 
-                            function errorMessage(txt) {
-                                let p = document.createElement('p');
-                                p.style.color = 'red';
-                                p.className = 'err';
-                                p.innerHTML = txt;
-                                return p;
-                            }
+            function errorMessage(txt) {
+                let p = document.createElement('p');
+                p.style.color = 'red';
+                p.className = 'err';
+                p.innerHTML = txt;
+                return p;
+            }
 
-                            function checkFilesTab(){
-                                has_error = false;
-                                clear_errors();
+            function checkFilesTab() {
+                has_error = false;
+                clear_errors();
 
-                                validate_files_uploaded('id_photo');
-                                validate_files_uploaded('id_file');
-                                validate_text_field('id_case_text', 7);
+                validate_files_uploaded('id_photo');
+                validate_files_uploaded('id_file');
+                validate_text_field('id_case_text', 7);
 
-                                if (has_error == false) {
-                                    document.querySelector('#btnSaveForm').click();
-                                }
+                if (has_error == false) {
+                    document.querySelector('#btnSaveForm').click();
+                }
 
-                            }
+            }
 
 
 
+
+        </script>
+
+        <script>
+            $("#id_country").change(function () {
+                console.log("work")
+                const url = $("#msform").attr("regions-url");  // get the url of the `load_cities` view
+                console.log(url)
+                const countryId = $(this).val();  // get the selected country ID from the HTML input
+                console.log(countryId)
+                $.ajax({                       // initialize an AJAX request
+                    url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+                    data: {
+                        'country_id': countryId       // add the country id to the GET parameters
+                    },
+                    success: function (data) {   // `data` is the return of the `load_cities` view function
+                        $("#id_region").html(data);  // replace the contents of the city input with the data that came from the server
+                        /*
+                        let html_data = '<option value="">---------</option>';
+                        data.forEach(function (city) {
+                            html_data += `<option value="${city.id}">${city.name}</option>`
+                        });
+                        console.log(html_data);
+                        $("#id_city").html(html_data);
+                        */
+                    }
+                });
+
+            });
         </script>
 
     {% endblock %}

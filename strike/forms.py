@@ -38,6 +38,7 @@ class IndividualForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['card']
         widgets={
+            'is_anonim':forms.Select(attrs={'class': 'form-control', 'onchange': "onIndividualAnonimChanged(this.value);"}),
             'individual_name':forms.TextInput(attrs={'class': 'form-control'}),
             'gender':forms.Select(attrs={'class': 'form-control'}),
             'age':forms.Select(attrs={'class': 'form-control'}),
@@ -100,8 +101,14 @@ class CardForm(forms.ModelForm):
             'card_demand_categories': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'id': 'card_demands',
                        'onchange': "onCardDemandCategoriesChanged(this.value);"}),
+            'economic_demands': forms.CheckboxSelectMultiple(
+                attrs={'class': 'checkbox-list-none','id': 'economic_demands','onchange': "onEconomicDemandsChanged(this.value);"}),
             'economic_another': forms.TextInput(attrs={'class': 'form-control'}),
+            'politic_demands': forms.CheckboxSelectMultiple(
+                attrs={'class': 'checkbox-list-none', 'onchange': "onPoliticDemandsChanged(this.value);"}),
             'politic_another': forms.TextInput(attrs={'class': 'form-control'}),
+            'combo_demands': forms.CheckboxSelectMultiple(
+                attrs={'class': 'checkbox-list-none', 'onchange': "onComboDemandsChanged(this.value);"}),
             'combo_another': forms.TextInput(attrs={'class': 'form-control'}),
             'start_date': forms.DateInput(
                 attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
@@ -140,14 +147,15 @@ class CardForm(forms.ModelForm):
         }
 
         def __init__(self, *args, **kwargs):
+
             super().__init__(*args, **kwargs)
             self.fields['region'].queryset = Region.objects.none()
 
-            if 'country' in self.data:
-                try:
-                    country_id = int(self.data.get('country'))
-                    self.fields['region'].queryset = Region.objects.filter(country_id=country_id).order_by('name')
-                except (ValueError, TypeError):
-                    pass  # invalid input from the client; ignore and fallback to empty City queryset
-            elif self.instance.pk:
-                self.fields['region'].queryset = self.instance.country.region_set.order_by('name')
+            # if 'country' in self.data:
+            #     try:
+            #         country_id = int(self.data.get('country'))
+            #         self.fields['region'].queryset = Region.objects.filter(country_id=country_id).order_by('name')
+            #     except (ValueError, TypeError):
+            #         pass  # invalid input from the client; ignore and fallback to empty City queryset
+            # elif self.instance.pk:
+            #     self.fields['region'].queryset = self.instance.country.region_set.order_by('name')

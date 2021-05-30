@@ -6,6 +6,14 @@ function showTandem(id){
     $('#' + id + ', label[for=' + id + ']').show();
 }
 
+function disable(id){
+    document.getElementById(id).disabled = true;
+}
+function enable(id){
+    document.getElementById(id).disabled = false;
+}
+
+
 function show_div(id){
     document.getElementById(id).style.display = '';
 }
@@ -84,20 +92,20 @@ function sources(){
 }
 
 function onCardDemandCategoriesChanged(value) {
-    if (document.getElementById("card_demands_4").checked == true) {
-        showTandem('id_economic_another');
+    if (document.getElementById("card_demands_0").checked == true) {
+        enable('id_economic_demands');
     }else{
-        hideTandem('id_economic_another');
+        disable('id_economic_demands');
     }
-    if(document.getElementById("card_demands_8").checked== true) {
-        showTandem('id_politic_another');
+    if(document.getElementById("card_demands_1").checked== true) {
+        showTandem('id_politic_demands');
     }else{
-        hideTandem('id_politic_another');
+        hideTandem('id_politic_demands');
     }
-    if(document.getElementById("card_demands_10").checked== true){
-        showTandem('id_combo_another');
+    if(document.getElementById("card_demands_2").checked== true){
+        showTandem('id_politic_demands');
     }else{
-        hideTandem('id_combo_another');
+        hideTandem('id_politic_demands');
     }
 }
 
@@ -108,22 +116,25 @@ function onInitiatorSelected(value){
             show_div('idTradeUnionDiv')
             hide_div('idPersonGroupInfoDiv')
             hide_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
             break;
         case '2':
             hide_div('idTradeUnionDiv')
             show_div('idPersonGroupInfoDiv')
             hide_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
             break;
         case '3':
             hide_div('idTradeUnionDiv')
             hide_div('idPersonGroupInfoDiv')
             show_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
             break;
         case '4':
             hide_div('idTradeUnionDiv')
-            hide_div('idTradeUnionInfoDiv')
             hide_div('idPersonGroupInfoDiv')
-            show_div('idIndividualFormDiv')
+            hide_div('idIndividualFormDiv')
+            show_div('idEmployerFormDiv')
             break;
     }
 }
@@ -135,11 +146,44 @@ function onGroupCharacterChanged(value){
         hideTandem("id_groupCharacter_another")
     }
 }
+function onIndividualAnonimChanged(value){
+    if (value == 'NO'){
+        showTandem("id_individual_name")
+    }else {
+        hideTandem("id_individual_name")
+    }
+}
+
+function onEconomicDemandsChanged(value){
+    if(document.getElementById("economic_demands_4").checked== true){
+        showTandem('id_economic_another');
+    }else{
+        hideTandem('id_economic_another');
+    }
+}
+function onPoliticDemandsChanged(value){
+    if(document.getElementById("id_politic_demands_3").checked== true){
+        showTandem('id_politic_another');
+    }else{
+        hideTandem('id_politic_another');
+    }
+}
+function onComboDemandsChanged(value){
+    if(document.getElementById("id_combo_demands_1").checked== true){
+        showTandem('id_combo_another');
+    }else{
+        hideTandem('id_combo_another');
+    }
+}
+
 hide_div('idTradeUnionDiv')
 hide_div('idPersonGroupInfoDiv')
 hide_div('idIndividualFormDiv')
+hide_div('idEmployerFormDiv')
+hide_div('card_demands')
 
 hideTandem("id_source_url")
+hideTandem("id_individual_name")
 hideTandem("id_groupCharacter_another")
 hideTandem("id_source_content")
 hideTandem("id_company_is_tnk_member")

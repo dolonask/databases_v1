@@ -213,7 +213,7 @@ class IndividualInfo(models.Model):
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     gender_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                             blank=True, )
-    age = models.CharField("Возраст пострадавшего", max_length=50, help_text='Возраст пострадавшего')
+    individual_age = models.CharField("Возраст пострадавшего", max_length=50)
     contacts = models.CharField("Контактные данные (телефон/адрес) ", max_length=500,
                                 help_text='Контактные данные (телефон/адрес) ', )
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
@@ -343,16 +343,17 @@ class Company(models.Model):
                                     help_text='Вид производимой продукции / Предоставляемые услуги ', )
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
                                   verbose_name="Форма собственности компании")
-    company_experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
-    branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
-    emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
-    additional = models.CharField("Иная важная информация", max_length=500, help_text='Иная важная информация ', )
     country_from = models.CharField("Страна происхождения компании", max_length=100,
                                     help_text='Страна происхождения кампании', )
     is_tnk_member= models.CharField("Является ли эта компания частью ТНК?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
                                 help_text='Название ТНК, в которую входит эта компания', )
+    company_experience = models.CharField("Время работы на рынке (в стране, где произошел случай)", max_length=100)
+    branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
+    emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
+    additional = models.CharField("Иная важная информация", max_length=500, help_text='Иная важная информация ', )
+
 
     def __str__(self):
         return self.name
@@ -556,9 +557,7 @@ class Case(models.Model):
     entrepreneur = models.ForeignKey(Entrepreneur,on_delete=models.DO_NOTHING, verbose_name="Работодатель(Частное лицо)", null=True)
 
     case_additional = models.TextField('Укажите точные имена, даты, места событий', max_length=200)
-    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло', max_length=1800,
-                             help_text='Параллельно указывайте, чем подтверждаются эти факты (если есть приложения,'
-                                       ' укажите сразу номера и названия соответствующих приложений)')
+    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений)', max_length=1800)
     actions = models.TextField('Опишите, какие действия предприняты профсоюзом/правозащитной организацией. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ', max_length=200)
     final = models.TextField('Чем завершилась ситуация (если завершилась) или состояние в текущий момент', max_length=1800)
 

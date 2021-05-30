@@ -19,6 +19,7 @@
             position: relative;
             letter-spacing: 1px;
         }
+
     </style>
 {% endblock %}
 
@@ -302,6 +303,12 @@
                 }
             }
 
+            function checked_any_in_checkbox_list(classname){
+                let list = document.querySelectorAll('input[name=%]'.replace('%', classname));
+                return checkedAny(list);
+            }
+
+
             function checkGeneralTab() {
                 has_error = false;
                 clear_errors();
@@ -330,15 +337,23 @@
 
                 validate_selected('id_company_employees_count');
                 validate_selected('id_count_strike_participants');
-                validate_checkbox_list('card_demand_categories', 'card_demands');
+                {#validate_checkbox_list('card_demand_categories', 'card_demands');#}
 
-                if (is_checked('card_demands_4')){
+
+                if (!checked_any_in_checkbox_list('economic_demands') &&
+                    !checked_any_in_checkbox_list('politic_demands') &&
+                    !checked_any_in_checkbox_list('combo_demands')){
+                    let field = document.querySelector('#%'.replace('%','id_combo_demands'));
+                    set_error(field,'select');
+                }
+
+                if (is_checked('economic_demands_4')){
                     validate_text_field('id_economic_another',7);
                 }
-                if (is_checked('card_demands_8')){
+                if (is_checked('id_politic_demands_3')){
                     validate_text_field('id_politic_another',7);
                 }
-                if (is_checked('card_demands_10')){
+                if (is_checked('id_combo_demands_1')){
                     validate_text_field('id_combo_another',7);
                 }
                 validate_selected('id_tradeunionChoice');
@@ -365,7 +380,9 @@
                     }
                     validate_selected('id_tradeUnionMembership');
                 }else if(selectedValue==3){
-                    validate_text_field('id_individual_name',7);
+                    if (get_selected('id_is_anonim')=='NO') {
+                        validate_text_field('id_individual_name', 7);
+                    }
                     validate_selected('id_gender');
                     validate_selected('id_age');
                     validate_text_field('id_profession',7);
@@ -413,7 +430,7 @@
 
                 validate_files_uploaded('id_photo');
                 validate_files_uploaded('id_file');
-                validate_text_field('id_case_text', 7);
+                {#validate_text_field('id_case_text', 7);#}
 
                 if (has_error == false) {
                     document.querySelector('#btnSaveForm').click();

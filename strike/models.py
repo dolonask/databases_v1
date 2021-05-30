@@ -59,26 +59,16 @@ class ParticipantsCount(models.Model):
         verbose_name_plural = "Количество участников забастовки"
 
 
-class DemandType(models.Model):
-    demand = models.CharField("Требование", max_length=255)
-    active = models.BooleanField("Активен", default=True)
-
-    def __str__(self):
-        return self.demand
-
-    class Meta:
-        verbose_name = "Тип требования"
-        verbose_name_plural = "Типы требований"
 
 
 class DemandCategory(models.Model):
-    name = models.CharField("Название", max_length=255)
-    demand_type = models.ForeignKey('DemandType', on_delete=models.DO_NOTHING, null=True, blank=True,
-                                    verbose_name='Тип требования')
+    demand_cat_name = models.CharField("Название", max_length=255)
+    # demand_type = models.ForeignKey('DemandType', on_delete=models.DO_NOTHING, null=True, blank=True,
+    #                                 verbose_name='Тип требования')
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return self.demand_cat_name
 
     class Meta:
         verbose_name = "Характер требования"
@@ -198,6 +188,7 @@ class Individual(models.Model):
         ("MALE", "Мужской"),
         ("FEMALE", "Женский")
     ]
+    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     individual_name = models.CharField("ФИО", max_length=150, help_text='ФИО')
     gender = models.CharField("Пол", choices=genders, max_length=20)
     age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст")
@@ -275,6 +266,39 @@ class StrikeCharacter(models.Model):
     def __str__(self):
         return self.name
 
+class EconomicDemand(models.Model):
+    name = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Экономический"
+        verbose_name_plural = "Экономические"
+
+    def __str__(self):
+        return self.name
+
+class PoliticDemand(models.Model):
+    name = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Политический"
+        verbose_name_plural = "Политический"
+
+    def __str__(self):
+        return self.name
+
+class ComboDemand(models.Model):
+    name = models.CharField("Значение", max_length=100)
+    active = models.BooleanField("Активен", default=True)
+
+    class Meta:
+        verbose_name = "Смешанный"
+        verbose_name_plural = "Смешанный"
+
+    def __str__(self):
+        return self.name
+
 
 class MeetingRequirment(models.Model):
     name = models.CharField("Значение", max_length=100)
@@ -308,7 +332,7 @@ class Card(models.Model):
     company_is_tnk_member = models.CharField("Является ли эта кампания частью ТНК (Транснациональная компания)",
                                              choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, null=True, blank=True)
 
-    company_tnk_name = models.CharField("Название ТНК (Транснациональная компания)", max_length=100, null=True,
+    company_tnk_name = models.CharField("Название ТНК (Транснациональная компания), в которую входит эта кампания", max_length=100, null=True,
                                         blank=True)
     company_employees_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING,
                                                 verbose_name='Общая численность работников на предприятии')
@@ -316,8 +340,12 @@ class Card(models.Model):
     count_strike_participants = models.ForeignKey(ParticipantsCount, on_delete=models.DO_NOTHING,
                                                   verbose_name="Количество участников забастовки/акции")
     card_demand_categories = models.ManyToManyField(DemandCategory, verbose_name="Характер требований")
+    economic_demands = models.ManyToManyField(EconomicDemand, verbose_name="Экономический")
     economic_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
+    politic_demands = models.ManyToManyField(PoliticDemand, verbose_name="Политический")
+
     politic_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
+    combo_demands = models.ManyToManyField(ComboDemand, verbose_name="Смешанный")
     combo_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
 
     start_date = models.DateTimeField("Дата начало проведения забастовки/акции")
@@ -380,24 +408,12 @@ class Card(models.Model):
     meeting_requirements = models.ForeignKey(MeetingRequirment, on_delete=models.DO_NOTHING,
                                              verbose_name='Удовлетворение требований', null=True)
 
-    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло',
-                             help_text='Параллельно указывайте, чем подтверждаются эти факты (если есть приложения,'
-                                       ' укажите сразу номера и названия соответствующих приложений)', default="")
-    reasons_for_strike = models.TextField('Причины начала забастовки',
-                                          help_text='Опишите причины начала забастовки (например: условия труда на '
-                                                    'предприятии, продолжительность рабочего времени, безопасность и'
-                                                    'т.д. время, связанное с работой)', default="")
-    change_number_participants = models.TextField('Как менялось количество участников забастовки',
-                                                  help_text='Опишите как менялось количество участников '
-                                                            'забастовки во время проведения и что на это влияло?',
-                                                  default="")
-    initiators_and_participants = models.TextField('Что с инициаторами и участниками',
-                                                   help_text="Ситуация с инициаторами и участниками забастовки/акции"
-                                                             " (продолжают ли они работать, применялись ли к ним административные"
-                                                             " меры со стороны предприятия)", default="")
-    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", default="")
-    results_so_far = models.TextField("C какими итогами закончилась забастовка, "
-                                      "если еще не закончилась, то какие итоги на данный момент.", default="")
+    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ',max_length=1800)
+    reasons_for_strike = models.TextField('Опишите причины начала забастовки (например: условия труда на предприятии, продолжительность рабочего времени, безопасность и т.д. время, связанное с работой)',max_length=1800)
+    change_number_participants = models.TextField('Опишите как менялось количество участников забастовки во время проведения и что на это влияло?', max_length=1800)
+    initiators_and_participants = models.TextField('Ситуация с инициаторами и участниками забастовки/акции (продолжают ли они работать, применялись ли к ним административные меры со стороны предприятия). ', max_length=1800)
+    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", max_length=1800)
+    results_so_far = models.TextField('Опишите, с какими итогами закончилась забастовка, если еще не закончилась, то какие итоги на данный момент.', max_length=1800)
     additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True)
 
     case_text = models.TextField("Окно для внесения информации", max_length=1800, null=True, blank=True)

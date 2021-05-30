@@ -158,7 +158,7 @@ class AgreementDetail(models.Model):
 
 
 class IndividualInfo(models.Model):
-    is_anonim = models.CharField("Аноним?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     name = models.CharField("ФИО", max_length=100, help_text='ФИО')
     member_of_tradeunion = models.CharField("Член профсоюза?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
@@ -262,11 +262,11 @@ class EmployeesCount(models.Model):
     #     ('STRIKE', 'Для численности участников')
     # ]
 
-    choice = models.CharField("Выбор", max_length=255)
+    name = models.CharField("Выбор", max_length=255)
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.choice
+        return self.name
 
     class Meta:
         verbose_name = "Количество сотрудников предприятия"
@@ -321,15 +321,18 @@ class Company(models.Model):
                                     help_text='Вид производимой продукции / Предоставляемые услуги ')
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
                                   verbose_name="Форма собственности компании")
+    country_from = models.CharField("Страна происхождения компании", max_length=100,
+                                    help_text='Страна происхождения кампании')
+    is_tnk_member = models.CharField("Является ли эта кампания частью ТНК (Транснациональная компания)",
+                                             choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, null=True,
+                                             blank=True)
+    tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
+                                help_text='Название ТНК, в которую входит эта компания')
     experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
     branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
     additional = models.CharField("Иная важная информация ", max_length=500, help_text='Иная важная информация ')
-    country_from = models.CharField("Страна происхождения компании", max_length=100,
-                                    help_text='Страна происхождения кампании')
-    is_tnk_member = models.BooleanField("Является ли эта компания частью ТНК?", default=False)
-    tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
-                                help_text='Название ТНК, в которую входит эта компания')
+
 
     def __str__(self):
         return self.name
@@ -506,6 +509,13 @@ class DiscriminatiOnVariousGrounds(models.Model):
     def __str__(self):
         return self.name
 
+class PrincipleOfNonDiscrimination(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
 class DiscriminationInVariousAreas(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
@@ -525,6 +535,18 @@ class ChildLabor(models.Model):
     def __str__(self):
         return self.name
 class Сonvention138(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class Сonvention87(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+class Сonvention98(models.Model):
     name = models.CharField("Название", max_length=255)
     active = models.BooleanField("Активен", default=True)
 
@@ -612,8 +634,10 @@ class Case(models.Model):
 
     name = models.CharField("Название (описание) карточки", max_length=50, help_text='Название (описание) карточки')
     source = models.ManyToManyField(Source, verbose_name="Источник информации о нарушении")
+    source_another = models.CharField("Другое", max_length=50, null=True, blank=True)
     source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True)
     source_content = models.TextField("Текст статьи/сообщения ", null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
 
     city_name = models.CharField("Город (населённый пункт)", max_length=100)
@@ -635,6 +659,10 @@ class Case(models.Model):
                                       null=True)
     meetingsRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                             blank=True)
+
+    сonvention87 = models.ForeignKey(Сonvention87, on_delete=models.DO_NOTHING,
+                                          verbose_name="Нарушения положений Конвенции МОТ №87", null=True, blank=True)
+
     tradeUnionBuildingsRight = models.ForeignKey(TradeUnionBuildingsRight, on_delete=models.DO_NOTHING,
                                                  verbose_name="Защита профсоюзных помещений и имущества профсоюзов",
                                                  null=True)
@@ -660,6 +688,10 @@ class Case(models.Model):
                                           verbose_name="Нарушение права на забастовку")
     createStrikeRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                                 blank=True)
+
+    сonvention98 = models.ForeignKey(Сonvention98, on_delete=models.DO_NOTHING,
+                                     verbose_name="Нарушения положений Конвенции МОТ №98", null=True, blank=True)
+
     antiTradeUnionDiscrimination = models.ForeignKey(AntiTradeUnionDiscrimination, on_delete=models.DO_NOTHING,
                                                      verbose_name="Антипрофсоюзная дискриминация")
     antiTradeUnionDiscriminationAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
@@ -680,6 +712,8 @@ class Case(models.Model):
     consultationRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
                                                 null=True,
                                                 blank=True)
+    principleOfNonDiscrimination = models.ForeignKey(PrincipleOfNonDiscrimination, on_delete=models.DO_NOTHING,
+                                          verbose_name="Принцип запрещения дискриминации", null= True, blank= True)
     discriminatiOnVariousGrounds = models.ForeignKey(DiscriminatiOnVariousGrounds, on_delete=models.DO_NOTHING,
                                           verbose_name="Дискриминация по различным основаниям", null= True, blank= True)
 
