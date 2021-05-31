@@ -93,13 +93,11 @@ class Victim(models.Model):
 
 
 class TradeUnionInfo(models.Model):
-    tradeunion_name = models.CharField("Объединение ", max_length=500,
-                                       help_text='Название федерации, конфедерации профсоюзов')
-    branch_name = models.CharField("Название отраслевой профсоюзной организации", max_length=500,
-                                   help_text='Название отраслевой профсоюзной организации')
-    victim_name = models.CharField("Название организации, права которой были нарушены ", max_length=500,
-                                   help_text='федерация, отраслевое объединение, первичная организация')
-    contacts = models.CharField("Контактные данные этой организации", max_length=500,
+    tradeunion_name = models.CharField("Укажите объединение (название федерации, конфедерации профсоюзов) ", max_length=500)
+    branch_name = models.CharField("Название отраслевой профсоюзной организации", max_length=500)
+    victim_name = models.CharField("Название организации, права которой были нарушены (федерация, отраслевое объединение, первичная организация) ", max_length=500,
+                        )
+    contacts = models.CharField("Контактные данные этой организации (электронная почта, адрес\телефон) ", max_length=500,
                                 help_text='электронная почта, адрес\телефон')
 
     def __str__(self):
@@ -161,7 +159,7 @@ class AgreementDetail(models.Model):
 class IndividualInfo(models.Model):
     is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     name = models.CharField("ФИО", max_length=100, help_text='ФИО',blank=True, null = True)
-    member_of_tradeunion = models.CharField("Член профсоюза?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     age = models.CharField("Возраст пострадавшего", max_length=50, help_text='Возраст пострадавшего')
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
@@ -335,7 +333,7 @@ class Company(models.Model):
     company_experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
     branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
-    additional = models.CharField("Иная важная информация ", max_length=500, help_text='Иная важная информация ')
+    additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=500, help_text='Иная важная информация ')
 
     def __str__(self):
         return self.name
@@ -807,7 +805,7 @@ class Case(models.Model):
     end_date = models.DateTimeField("Дата завершения")
 
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING,
-                               verbose_name="В отношении кого совершено нарушение: ", null=True, blank=True)
+                               verbose_name="В отношении кого совершено нарушение:", null=True, blank=True)
     tradeUnionInfo = models.ForeignKey(TradeUnionInfo, on_delete=models.DO_NOTHING,
                                        verbose_name="Профсоюзная организация", null=True, blank=True)
     # individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="Физическое лицо", null=True, blank=True)
@@ -818,11 +816,11 @@ class Case(models.Model):
     intruderAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
                                        null=True,
                                        blank=True)
-    government_agency_name = models.CharField("Название государственного органа", max_length=200, null=True, blank=True)
-    local_agency_name = models.CharField("Название органа местного самоуправления", max_length=500, null=True,
+    government_agency_name = models.CharField("Название государственного органа, полное с указанием территориальной принадлежности ", max_length=200, null=True, blank=True)
+    local_agency_name = models.CharField("Название органа местного самоуправления, полное с указанием территориальной принадлежности ", max_length=500, null=True,
                                          blank=True)
-    police_agency_name = models.CharField("Название правоохранительного органа", max_length=500, null=True, blank=True)
-    control_agency_name = models.CharField("Название контролирующего органа", max_length=500, null=True, blank=True)
+    police_agency_name = models.CharField("Название правоохранительного органа, полное с указанием территориальной принадлежности ", max_length=500, null=True, blank=True)
+    # control_agency_name = models.CharField("Название контролирующего органа", max_length=500, null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True, blank=True)
 
     exact_data = models.CharField("Укажите точные имена, даты, места событий", max_length=200, blank=True, null=True)
@@ -854,6 +852,6 @@ class Case(models.Model):
     tradeUnionCount = models.ForeignKey(TradeUnionCount, on_delete=models.DO_NOTHING,
                                         verbose_name="Численность профсоюза после произошедшего", null=True)
 
-    case_text = models.TextField("Кейсы, связанные с забастовкой", max_length=1800, null=True, blank=True)
+    case_text = models.TextField("Кейсы, связанные с данной ситуацией", max_length=1800, null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
                              verbose_name="Монитор", related_name="strike_users", blank=True)

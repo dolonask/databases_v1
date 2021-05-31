@@ -51,7 +51,7 @@
                     {% for field in form %}
                         {% if field.name in general_tabs_fields %}
                             <div class="form-group">
-                                {{ field.label_tag }}
+                                <label for="{{ field.auto_id }}">{{ field.label }}</label>
                                 {{ field }}
                                 <div class="invalid_feedback">
                                     {{ field.errors }}
@@ -315,6 +315,8 @@
 
                 validate_text_field('id_name',7);
                 validate_checkbox_list('card_sources','id_card_sources');
+                validate_checkbox_list('card_demand_categories','card_demands');
+
                 if (document.querySelector('#id_card_sources_0').checked){
                     let id_source_url = document.querySelector('#id_source_url');
                     let id_source_content = document.querySelector('#id_source_content');
@@ -340,14 +342,17 @@
                 {#validate_checkbox_list('card_demand_categories', 'card_demands');#}
 
 
-                if (!checked_any_in_checkbox_list('economic_demands') &&
-                    !checked_any_in_checkbox_list('politic_demands') &&
-                    !checked_any_in_checkbox_list('combo_demands')){
-                    let field = document.querySelector('#%'.replace('%','id_combo_demands'));
-                    set_error(field,'select');
+                if (is_checked('card_demands_0')){
+                    validate_checkbox_list('economic_demands','id_economic_demands');
+                }
+                if (is_checked('card_demands_1')){
+                    validate_checkbox_list('politic_demands','id_politic_demands');
+                }
+                if (is_checked('card_demands_2')){
+                    validate_checkbox_list('combo_demands','id_combo_demands');
                 }
 
-                if (is_checked('economic_demands_4')){
+                if (is_checked('id_economic_demands_4')){
                     validate_text_field('id_economic_another',7);
                 }
                 if (is_checked('id_politic_demands_3')){

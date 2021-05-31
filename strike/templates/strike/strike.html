@@ -6,54 +6,63 @@
 
 
 
-<br>
-<div class="row">
-	<div class="col">
-		<div class="card card-body">
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
 
-			<form method="get">
-				{{myFilter.form}}
-		    <button class="btn btn-primary" type="submit">Найти</button>
-		  </form>
+                <form method="get">
+                    {% for card in myFilter.form %}
+                        {{ card.label }}
+                            {{ card }}
+                    {% endfor %}
 
-		</div>
-	</div>
 
-</div>
-<br>
+                    <button class="btn btn-primary" type="submit">Найти</button>
+                </form>
 
-<div class="row">
-	<div class="col-md">
-		<div class="card card-body">
-			<table class="table table-sm">
-				<tr>
-					<th>№</th>
-					<th>Монитор</th>
-					<th>Название</th>
-					<th>Регион</th>
-					<th>Дата создания</th>
-					<th>Дата последних изменений</th>
-					<th>Редактировать</th>
-				</tr>
+            </div>
+        </div>
 
-				{% for card in cards %}
+    </div>
+    <br>
 
-				<tr>
-					<td>{{card.id}}</td>
-					<td>{{card.added_by}}</td>
-					<td>{{card.name}}</td>
-					<td>{{card.region}}</td>
-					<td>{{card.date_create | date:"d.m.Y H:i"}}</td>
-					<td>{{card.date_update | date:"d.m.Y H:i"}}</td>
-					<td><a class="btn btn-sm btn-info" href="{% url 'strike_case' %}">Update</a></td>
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>№</th>
+                        <th>Монитор</th>
+                        <th>Название</th>
+                        <th>Регион</th>
+                        <th>Дата создания</th>
+                        <th>Дата последних изменений</th>
+                        <th>Редактировать</th>
+                    </tr>
 
-{#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
-				</tr>
-				{% endfor %}
+                    {% for card in cards %}
 
-			</table>
-		</div>
-	</div>
-</div>
+                        <tr>
+                            <td>{{card.id}}</td>
+                            <td>{{card.added_by}}</td>
+                            <td>{{card.name}}</td>
+                            <td>{{card.region}}</td>
+                            <td>{{card.date_create | date:"d.m.Y H:i"}}</td>
+                            <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
+                            <td>
+
+                                <a class="btn btn-sm btn-info" href="{% url 'strike_case_update' card.id %}">Edit</a>
+                                <a class="btn btn-sm btn-danger" href="{% url 'strike_case_delete' card.id%}">Delete</a>
+                            </td>
+
+                            {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

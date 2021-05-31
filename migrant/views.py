@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.views.generic import UpdateView
 
 from .forms import CaseForm, CompanyForm, IndividualForm, VictimForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm
 from .filters import MigrantFilter
@@ -77,7 +76,20 @@ def append_case(request):
                       'fileForm': fileForm,
                   })
 @login_required()
+def delete_case(request, pk):
+    case = Case.objects.get(id=pk)
+    case.active = False
+    case.save()
+    cases = Case.objects.filter(user=request.user, active = True)
 
+    filter = MigrantFilter(request.GET,queryset=cases)
+    cards = filter.qs
+
+    context = {'cards':cards, 'myFilter':filter}
+
+    return render(request, 'migrant/cases.html', context)
+
+@login_required()
 def update_case(request,pk):
 
     case = Case.objects.get(id=pk)
@@ -124,7 +136,7 @@ def update_case(request,pk):
 
 def cases(request):
 
-    cases = Case.objects.all().filter(user=request.user)
+    cases = Case.objects.filter(user=request.user, active = True)
 
     filter = MigrantFilter(request.GET,queryset=cases)
     cards = filter.qs

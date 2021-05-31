@@ -88,21 +88,6 @@
                             </div>
                         {% endif %}
                     {% endfor %}
-
-                    <div class="panel panel-default" id="idTradeUnionDiv">
-                        <div class="panel-heading">Информация о профсоюзе</div>
-                        <div class="panel-body">
-                            {% for field in tradeUnionForm %}
-                                <div class="form-group">
-                                    {{ field.label_tag }}
-                                    {{ field }}
-                                    <div class="invalid_feedback">
-                                        {{ field.errors }}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
                     <div class="panel panel-default" id="idTradeUnionForm">
                         <div class="panel-heading">Профсоюзная организация</div>
                         <div class="panel-body">

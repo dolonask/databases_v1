@@ -36,6 +36,7 @@ class CaseForm(forms.ModelForm):
             'region': forms.Select(attrs={'class': 'form-control'}),
             'victim_status': forms.Select(attrs={'class': 'form-control'}),
             'banOnEntry': forms.Select(attrs={'class': 'form-control', 'onchange': "onBanChanged(this.value);"}),
+            'banned_country': forms.TextInput(attrs={'class': 'form-control'}),
             'banOnEntryAnother': forms.TextInput(attrs={'class': 'form-control'}),
             'source': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onSourceChanged(this.value);"}),

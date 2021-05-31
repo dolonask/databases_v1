@@ -145,7 +145,7 @@ class CaseForm(forms.ModelForm):
             'government_agency_name': forms.TextInput(attrs={'class': 'form-control'}),
             'local_agency_name': forms.TextInput(attrs={'class': 'form-control'}),
             'police_agency_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'control_agency_name': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'control_agency_name': forms.TextInput(attrs={'class': 'form-control'}),
             'exact_data': forms.Textarea(attrs={'class': 'form-control'}),
             'case_description': forms.Textarea(attrs={'class': 'form-control'}),
             'actions': forms.Textarea(attrs={'class': 'form-control'}),

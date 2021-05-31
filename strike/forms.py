@@ -102,7 +102,7 @@ class CardForm(forms.ModelForm):
                 attrs={'class': 'checkbox-list-none', 'id': 'card_demands',
                        'onchange': "onCardDemandCategoriesChanged(this.value);"}),
             'economic_demands': forms.CheckboxSelectMultiple(
-                attrs={'class': 'checkbox-list-none','id': 'economic_demands','onchange': "onEconomicDemandsChanged(this.value);"}),
+                attrs={'class': 'checkbox-list-none','onchange': "onEconomicDemandsChanged(this.value);"}),
             'economic_another': forms.TextInput(attrs={'class': 'form-control'}),
             'politic_demands': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onPoliticDemandsChanged(this.value);"}),

@@ -233,7 +233,7 @@ class Region(models.Model):
 
 
 class IndividualInfo(models.Model):
-    is_anonim = models.CharField("Аноним?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    is_anonim = models.CharField("анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     name = models.CharField("ФИО", max_length=100, help_text='ФИО')
     #member_of_tradeunion = models.BooleanField("Член профсоюза", default=True)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
@@ -363,10 +363,8 @@ class EmployeesCount(models.Model):
         verbose_name_plural = "Количество сотрудников предприятия"
 
 class Company(models.Model):
-    company_name = models.CharField("Название", max_length=100, help_text='Название', )
-    address = models.CharField("Адрес", max_length=100, help_text='Адрес', )
-    product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=100,
-                                    help_text='Вид производимой продукции / Предоставляемые услуги ', )
+    company_name = models.CharField("Название компании ", max_length=100, help_text='Название', )
+    address = models.CharField("Место нахождения (адрес\телефон)", max_length=100, help_text='Адрес', )
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
                                   verbose_name="Форма собственности компании")
     country_from = models.CharField("Страна происхождения компании", max_length=100,
@@ -375,10 +373,14 @@ class Company(models.Model):
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
                                 help_text='Название ТНК, в которую входит эта компания', )
+    branch = models.CharField("Отрасль деятельности", max_length=50)
+    product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=100,
+                                    help_text='Вид производимой продукции / Предоставляемые услуги ', )
+
     company_experience = models.CharField("Время работы на рынке (в стране, где произошел случай)", max_length=100)
-    branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
+
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
-    additional = models.CharField("Иная важная информация", max_length=500, help_text='Иная важная информация ', )
+    additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.) ", max_length=200, help_text='Иная важная информация ', null=True, blank=True )
 
 
     def __str__(self):
@@ -561,7 +563,8 @@ class Case(models.Model):
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
     victim_status = models.ForeignKey(VictimStatus, on_delete=models.DO_NOTHING, verbose_name="Статус пострадавшего/ей")
-    banOnEntry = models.ForeignKey(BanOnEntry, on_delete=models.DO_NOTHING, verbose_name="Запрет на въезд", null=False)
+    banOnEntry = models.ForeignKey(BanOnEntry, on_delete=models.DO_NOTHING, verbose_name="Есть ли у вас запрет на въезд?", null=False)
+    banned_country = models.CharField("В какую страну?", max_length=50, null=True, blank=True )
     banOnEntryAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                          blank=True, )
     source = models.ManyToManyField(InfoSource, verbose_name="Источник информации о нарушении")

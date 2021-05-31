@@ -339,13 +339,13 @@ class Card(models.Model):
 
     count_strike_participants = models.ForeignKey(ParticipantsCount, on_delete=models.DO_NOTHING,
                                                   verbose_name="Количество участников забастовки/акции")
-    card_demand_categories = models.ManyToManyField(DemandCategory, verbose_name="Характер требований")
-    economic_demands = models.ManyToManyField(EconomicDemand, verbose_name="Экономический")
+    card_demand_categories = models.ManyToManyField(DemandCategory, verbose_name="Характер требований", null=True, blank=True)
+    economic_demands = models.ManyToManyField(EconomicDemand, verbose_name="Экономический", null=True, blank=True)
     economic_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    politic_demands = models.ManyToManyField(PoliticDemand, verbose_name="Политический")
+    politic_demands = models.ManyToManyField(PoliticDemand, verbose_name="Политический", null=True, blank=True)
 
     politic_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    combo_demands = models.ManyToManyField(ComboDemand, verbose_name="Смешанный")
+    combo_demands = models.ManyToManyField(ComboDemand, verbose_name="Смешанный", null=True, blank=True)
     combo_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
 
     start_date = models.DateTimeField("Дата начало проведения забастовки/акции")

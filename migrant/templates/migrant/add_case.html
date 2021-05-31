@@ -9,7 +9,7 @@
 {% block head %}
 
     <style>
-            #progressbar li {
+        #progressbar li {
             list-style-type: none;
             color: #000000;
             text-transform: uppercase;
@@ -59,7 +59,7 @@
                             </div>
                         {% endif %}
                     </div>
-                <div class="form-group">
+                    <div class="form-group">
                         {{ form.country.label_tag }}{{ form.country }}
                         {% if form.country.errors %}
                             <div class="invalid_feedback alert alert-danger">
@@ -67,7 +67,7 @@
                             </div>
                         {% endif %}
                     </div>
-                <div class="form-group">
+                    <div class="form-group">
                         {{ form.region.label_tag }}{{ form.region }}
                         {% if form.region.errors %}
                             <div class="invalid_feedback alert alert-danger">
@@ -91,6 +91,14 @@
                         {{ form.banOnEntry }}
                         <div class="invalid_feedback">
                             {{ form.banOnEntry.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.banned_country.label_tag }}
+                        {{ form.banned_country }}
+                        <div class="invalid_feedback">
+                            {{ form.banned_country.errors }}
                         </div>
                     </div>
 
@@ -419,7 +427,7 @@
                         </div>
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
-{#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
+                    {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
                     <input type="button" onclick="validate('id_victim_tab')" class="action-button" value="Следующий"/>
                     <input type="button" id="btnNextFromVictim" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
@@ -489,7 +497,7 @@
                                     {{ companyForm.ownership.errors }}
                                 </div>
                             </div>
-                                                        <div class="form-group">
+                            <div class="form-group">
                                 {{ companyForm.country_from.label_tag }}
                                 {{ companyForm.country_from }}
                                 <div class="invalid_feedback">
@@ -639,7 +647,7 @@
                         </div>
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
-{#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
+                    {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
                     <input type="button" onclick="validate('id_intruder_tab')" class="action-button" value="Следующий"/>
                     <input type="button" id="btnNextFromIntruder" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
@@ -733,7 +741,7 @@
                     </div>
 
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
-{#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
+                    {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
                     <input type="button" onclick="validate('id_case_description_tab')" class="action-button" value="Следующий"/>
                     <input type="button" id="btnNextFromCaseDesc" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
@@ -800,7 +808,7 @@
                         </div>
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
-{#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
+                    {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
                     <input type="button" onclick="validate('id_collect_info_tab')" class="action-button" value="Следующий"/>
                     <input type="button" id="btnNextFromCollectInfo" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
@@ -848,8 +856,8 @@
                     <input type="submit" id="btnSaveForm" name="submit" class="btn btn-primary action-button d-none" value="Сохранить"/>
 
 
-{#                    <input type="button" id="btnSaveForm" name="next" class="next action-button d-none" value="Следующий"/>#}
-{#                    #}
+                    {#                    <input type="button" id="btnSaveForm" name="next" class="next action-button d-none" value="Следующий"/>#}
+                    {#                    #}
                     {#                <input type="submit" value="Сохранить" class="btn btn-primary btn-block">#}
                 </fieldset>
             </form>
@@ -954,16 +962,16 @@
             }
 
             function clear_errors() {
-               document.querySelectorAll(".err").forEach(el => el.remove());
+                document.querySelectorAll(".err").forEach(el => el.remove());
             }
 
             function checkedAny(checkBoxList){
-                 for(let i = 0; i < checkBoxList.length; i++) {
-                     if (checkBoxList[i].checked) {
-                         return true;
-                     }
-                 }
-                 return false;
+                for(let i = 0; i < checkBoxList.length; i++) {
+                    if (checkBoxList[i].checked) {
+                        return true;
+                    }
+                }
+                return false;
             }
 
             function validate_checkbox_list(classname, id){
@@ -987,9 +995,16 @@
                     set_error(id_victim_status, 'select');
                 }
 
-                let id_banOnEntry = document.querySelector('#id_banOnEntry');
-                if (id_banOnEntry.value === '') {
-                    set_error(id_banOnEntry, 'select');
+
+                validate_selected('id_banOnEntry');
+
+                switch (get_selected('id_banOnEntry')){
+                    case '1':
+                        validate_text_field('id_banned_country',3);
+                        break;
+                    case '4':
+                        validate_text_field('id_banOnEntryAnother', 7);
+                        break;
                 }
 
                 let id_source = document.querySelectorAll('input[name=source]');
@@ -1224,23 +1239,23 @@
                 }
                 if(is_checked('id_intruder_5')){
                     validate_selected('id_entrepreneur_is_anonim');
-                   if (get_selected('id_entrepreneur_is_anonim')=='NO'){
-                       validate_text_field('id_entrepreneur_name',7);
-                   }
-                   validate_selected('id_entrepreneur_age');
-                   validate_selected('id_entrepreneur_gender');
-                   validate_text_field('id_entrepreneur_address',7);
-                   validate_checkbox_list('entrepreneur_workPurpose','id_entrepreneur_workPurpose');
-                   validate_selected('id_entrepreneur_emp_count');
-                   validate_selected('id_entrepreneur_doAgreement');
-                   validate_selected('id_entrepreneur_payWay');
-                   validate_checkbox_list('entrepreneur_hireWay','id_entrepreneur_hireWay');
-                   if (get_selected('id_entrepreneur_hireWay_6') == 6){
-                       validate_text_field('id_entrepreneur_hireWayAnother', 7)
-                   }
+                    if (get_selected('id_entrepreneur_is_anonim')=='NO'){
+                        validate_text_field('id_entrepreneur_name',7);
+                    }
+                    validate_selected('id_entrepreneur_age');
+                    validate_selected('id_entrepreneur_gender');
+                    validate_text_field('id_entrepreneur_address',7);
+                    validate_checkbox_list('entrepreneur_workPurpose','id_entrepreneur_workPurpose');
+                    validate_selected('id_entrepreneur_emp_count');
+                    validate_selected('id_entrepreneur_doAgreement');
+                    validate_selected('id_entrepreneur_payWay');
+                    validate_checkbox_list('entrepreneur_hireWay','id_entrepreneur_hireWay');
+                    if (get_selected('id_entrepreneur_hireWay_6') == 6){
+                        validate_text_field('id_entrepreneur_hireWayAnother', 7)
+                    }
                 }
 
-               if (has_error == false) {
+                if (has_error == false) {
                     document.querySelector('#btnNextFromIntruder').click();
                 }
             }
@@ -1262,7 +1277,7 @@
                 if (get_selected('id_victim_situation') == 4) {
                     validate_text_field('id_victim_situation_another', 7);
                 }
-                 if (get_selected("id_tradeUnionMembership") == 1 || get_selected('id_membership') != 2) {
+                if (get_selected("id_tradeUnionMembership") == 1 || get_selected('id_membership') != 2) {
                     validate_selected('id_tradeUnionSituation');
                     if (get_selected('id_tradeUnionSituation') == 4) {
                         validate_text_field('id_tradeUnionSituation_another', 7);

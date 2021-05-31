@@ -1,5 +1,12 @@
+
+function get_selected(id){
+    return document.querySelector('#%'.replace('%', id)).value;
+}
+
 function hideTandem(id){
     $('#' + id + ', label[for=' + id + ']').hide();
+    $('#' + id ).prop('selectedIndex',0);
+    $('#' + id ).val('');
 }
 
 function showTandem(id){
@@ -19,6 +26,12 @@ function show_div(id){
 }
 function hide_div(id){
     document.getElementById(id).style.display = 'none';
+    let allElems = `#${id} input, #${id} select, #${id} textarea`;
+    let hideElems = document.querySelectorAll(allElems);
+
+    hideElems.forEach((item) => {
+        item.value = '';
+    })
 }
 
 function onSourceChanged(value) {
@@ -39,7 +52,7 @@ function onCompanyOwnershipChanged(value) {
     //     hide_div("div_media")
     // }
 
-    if (value == 4){
+    if (get_selected('id_company_ownership_type') == 4){
         showTandem('id_company_is_tnk_member');
     }else{
         hideTandem('id_company_is_tnk_member');
@@ -47,7 +60,7 @@ function onCompanyOwnershipChanged(value) {
 }
 
 function onTradeunionChoiceChanged(value) {
-    if (value == 4){
+    if (get_selected('id_tradeunionChoice') == 4){
         showTandem('id_tradeunionChoiceAnother');
     }else{
         hideTandem('id_tradeunionChoiceAnother');
@@ -57,7 +70,7 @@ function onTradeunionChoiceChanged(value) {
 
 
 function onTnkChanged(value) {
-    if (value == 'YES'){
+    if (get_selected('id_company_is_tnk_member') == 'YES'){
         showTandem('id_company_tnk_name')
     }else if (value = 'NO'){
         hideTandem('id_company_tnk_name')
@@ -92,10 +105,11 @@ function sources(){
 }
 
 function onCardDemandCategoriesChanged(value) {
+
     if (document.getElementById("card_demands_0").checked == true) {
-        enable('id_economic_demands');
+        showTandem('id_economic_demands');
     }else{
-        disable('id_economic_demands');
+        hideTandem('id_economic_demands');
     }
     if(document.getElementById("card_demands_1").checked== true) {
         showTandem('id_politic_demands');
@@ -103,15 +117,15 @@ function onCardDemandCategoriesChanged(value) {
         hideTandem('id_politic_demands');
     }
     if(document.getElementById("card_demands_2").checked== true){
-        showTandem('id_politic_demands');
+        showTandem('id_combo_demands');
     }else{
-        hideTandem('id_politic_demands');
+        hideTandem('id_combo_demands');
     }
 }
 
 function onInitiatorSelected(value){
 
-    switch (value){
+    switch (get_selected('id_initiator')){
         case '1':
             show_div('idTradeUnionDiv')
             hide_div('idPersonGroupInfoDiv')
@@ -136,26 +150,34 @@ function onInitiatorSelected(value){
             hide_div('idIndividualFormDiv')
             show_div('idEmployerFormDiv')
             break;
+        default:
+            hide_div('idTradeUnionDiv')
+            hide_div('idPersonGroupInfoDiv')
+            hide_div('idIndividualFormDiv')
+            hide_div('idEmployerFormDiv')
+            break;
     }
 }
 
 function onGroupCharacterChanged(value){
-    if (value == 3){
+    if (get_selected('id_groupCharacter')==3){
         showTandem("id_groupCharacter_another")
     }else {
         hideTandem("id_groupCharacter_another")
     }
 }
+
+
 function onIndividualAnonimChanged(value){
-    if (value == 'NO'){
-        showTandem("id_individual_name")
+    if (get_selected('id_is_anonim') == 'NO'){
+        showTandem("id_individual_name");
     }else {
-        hideTandem("id_individual_name")
+        hideTandem("id_individual_name");
     }
 }
 
 function onEconomicDemandsChanged(value){
-    if(document.getElementById("economic_demands_4").checked== true){
+    if(document.getElementById("id_economic_demands_4").checked== true){
         showTandem('id_economic_another');
     }else{
         hideTandem('id_economic_another');
@@ -176,19 +198,28 @@ function onComboDemandsChanged(value){
     }
 }
 
-hide_div('idTradeUnionDiv')
-hide_div('idPersonGroupInfoDiv')
-hide_div('idIndividualFormDiv')
-hide_div('idEmployerFormDiv')
-hide_div('card_demands')
+// hide_div('idTradeUnionDiv')
+// hide_div('idPersonGroupInfoDiv')
+// hide_div('idIndividualFormDiv')
+// hide_div('idEmployerFormDiv')
+// hide_div('card_demands')
 
-hideTandem("id_source_url")
-hideTandem("id_individual_name")
-hideTandem("id_groupCharacter_another")
-hideTandem("id_source_content")
-hideTandem("id_company_is_tnk_member")
-hideTandem("id_company_tnk_name")
-hideTandem("id_tradeunionChoiceAnother")
-hideTandem("id_economic_another ")
-hideTandem("id_politic_another")
-hideTandem("id_combo_another")
+onIndividualAnonimChanged();
+onSourceChanged();
+onInitiatorSelected();
+onEconomicDemandsChanged();
+onPoliticDemandsChanged();
+onComboDemandsChanged();
+onTradeunionChoiceChanged();
+onCompanyOwnershipChanged();
+onTnkChanged();
+onGroupCharacterChanged();
+onCardDemandCategoriesChanged();
+//
+// hideTandem("id_groupCharacter_another")
+// hideTandem("id_company_is_tnk_member")
+// hideTandem("id_company_tnk_name")
+// hideTandem("id_tradeunionChoiceAnother")
+// hideTandem("id_economic_another ")
+// hideTandem("id_politic_another")
+// hideTandem("id_combo_another")

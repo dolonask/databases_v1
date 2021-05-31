@@ -5,13 +5,9 @@ from .filters import CardFilter
 from .forms import *
 from .models import *
 
-@login_required()
-def cases(request):
-    cards = Card.objects.all()
-    myFilter = CardFilter(request.GET,queryset=cards)
-    cards = myFilter.qs
-    context = {'cards':cards, 'myFilter':myFilter}
-    return render(request, 'strike/strike.html', context)
+
+
+
 
 @login_required()
 def add_case(request):
@@ -75,6 +71,7 @@ def add_case(request):
                 form.employear = employerForm.save()
 
             form.added_by = request.user
+            form.active = True
             form.save()
 
             if individualForm.is_valid():
@@ -119,4 +116,102 @@ def load_regions(request):
     regions = Region.objects.filter(country=country_id).all()
     return render(request,'strike/region_dropdown.html',{'regions':regions})
 
+@login_required()
+def cases(request):
+    cards = Card.objects.all().filter(active=True)
+    myFilter = CardFilter(request.GET,queryset=cards)
+    cards = myFilter.qs
+    context = {'cards':cards, 'myFilter':myFilter}
+    return render(request, 'strike/strike.html', context)
+
+
+@login_required()
+def delete_case(request, pk):
+    case = Card.objects.get(id=pk)
+    case.active = False
+    case.save()
+    cases = Card.objects.filter(added_by=request.user, active=True)
+
+    filter = CardFilter(request.GET,queryset=cases)
+    cards = filter.qs
+    context = {'cards':cards, 'myFilter':filter}
+    return render(request, 'strike/strike.html', context)
+
+@login_required()
+def update_case(request,pk):
+
+    case = Card.objects.get(id=pk)
+
+
+    general_tabs_fields = ['name',
+                           'card_sources',
+                           'source_url',
+                           'source_content',
+                           'country',
+                           'region',
+                           'city_name',
+                           'company_name',
+                           'company_ownership_type',
+                           'company_is_tnk_member',
+                           'company_tnk_name',
+                           'company_employees_count',
+                           'count_strike_participants',
+                           'card_demand_categories',
+                           'economic_demands',
+                           'politic_demands',
+                           'combo_demands',
+                           'start_date',
+                           'end_date',
+                           'tradeunionChoice',
+                           'tradeunionChoiceAnother',
+                           'economic_another',
+                           'politic_another',
+                           'combo_another',
+                           ]
+    initiator_tab_fields = ['initiator']
+    description_tab_fields = ['duration',
+                              'meeting_requirements',
+                              'story',
+                              'reasons_for_strike',
+                              'change_number_participants',
+                              'initiators_and_participants',
+                              'state_position',
+                              'results_so_far',
+                              'additional_information',
+
+                              ]
+
+    form = CardForm(instance=case)
+
+    tradeUnionForm = TradeunionForm
+    if case.tradeunion_data is not None:
+        tradeUnionForm = TradeunionForm(instance=TradeunionData.objects.get(pk = case.tradeunion_data_id))
+
+    personGroupInfoForm = PersonGroupInfoForm
+    if case.personGroupInfo is not None:
+        personGroupInfoForm = PersonGroupInfoForm(instance=PersonGroupInfo.objects.get(pk=case.personGroupInfo_id))
+
+    individualForm = IndividualForm
+    # if Individual.objects.exists(card=case.pk):
+    #     individualForm = IndividualForm(instance=Individual.objects.get(card=case.pk))
+
+    employerForm = EmployerForm
+    if case.employear is not None:
+        employerForm = EmployerForm(instance=Employer.objects.get(pk=case.employear_id))
+
+    photoForm = CardPhotoForm
+    fileForm = CardFileForm
+
+    return render(request, 'strike/add_case.html', context={
+        'form': form,
+        'tradeUnionForm': tradeUnionForm,
+        'personGroupInfoForm': personGroupInfoForm,
+        'individualForm': individualForm,
+        'employerForm': employerForm,
+        'photoForm': photoForm,
+        'fileForm': fileForm,
+        'general_tabs_fields': general_tabs_fields,
+        'initiator_tab_fields': initiator_tab_fields,
+        'description_tab_fields': description_tab_fields,
+    })
 

@@ -13,5 +13,13 @@ class CardFilter(django_filters.FilterSet):
 
     class Meta:
         model = Card
-        fields = ['name', 'region', ]
+        fields = ['name', 'country', 'region', 'initiator']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'country': forms.Select(attrs={'class': 'form-control'}),
+            'region': forms.Select(attrs={'class': 'form-control'}),
+            'initiator': forms.Select(attrs={'class': 'form-control'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control'}),
+        }
         # exclude = ['customer', 'date_created']
