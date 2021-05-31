@@ -10,7 +10,7 @@ from .filters import WorkFilter
 
 def add_case(request):
     general_tabs_fields =[
-        'name',
+        'case_name',
         'source',
         'source_another',
         'source_url',
@@ -18,7 +18,7 @@ def add_case(request):
         'country',
         'region',
         'city_name',
-        'company_name',
+        'case_company_name',
         'groupOfRights',
         'tradeUnionRight',
         'tradeUnionRightAnother',
@@ -120,11 +120,11 @@ def add_case(request):
                 individualForm = individualForm.save(commit=False)
                 individualForm.card = form
                 individualForm.save()
-            if casePhotoForm.is_valid():
+            # if casePhotoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
                     photo = CasePhoto(photo=f, card=form)
                     photo.save()
-            if caseFileForm.is_valid():
+            # if caseFileForm.is_valid():
                 for f in request.FILES.getlist('file'):
                     file = CaseFile(file=f, card=form)
                     file.save()

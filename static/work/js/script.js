@@ -115,24 +115,35 @@ function onTradeUnionBuildingsRightChanged(value){
     }
 }
 function onTradeUnionRightChanged(value){
-    hideTandem('id_tradeUnionRightAnother');
-    hideTandem('id_tradeUnionCrime');
-    hideTandem('id_tradeUnionCrimeAnother');
-    hideTandem('id_tradeUnionBuildingsRight');
-    hideTandem('id_meetingsRight');
 
     switch (value){
         case '1':
             showTandem('id_tradeUnionCrime');
+            hideTandem('id_tradeUnionRightAnother');
+            hideTandem('id_tradeUnionCrimeAnother');
+            hideTandem('id_tradeUnionBuildingsRight');
+            hideTandem('id_meetingsRight');
             break;
         case '3':
-            showTandem('id_meetingsRight')
+            hideTandem('id_tradeUnionCrime');
+            hideTandem('id_tradeUnionRightAnother');
+            hideTandem('id_tradeUnionCrimeAnother');
+            hideTandem('id_tradeUnionBuildingsRight');
+            showTandem('id_meetingsRight');
             break;
         case '7':
-            showTandem('id_tradeUnionRightAnother');
+            showTandem('id_tradeUnionCrime');
+            hideTandem('id_tradeUnionRightAnother');
+            hideTandem('id_tradeUnionCrimeAnother');
+            hideTandem('id_tradeUnionBuildingsRight');
+            hideTandem('id_meetingsRight');
             break;
         case '6':
-            showTandem('id_tradeUnionBuildingsRight')
+            hideTandem('id_tradeUnionCrime');
+            hideTandem('id_tradeUnionRightAnother');
+            hideTandem('id_tradeUnionCrimeAnother');
+            showTandem('id_tradeUnionBuildingsRight');
+            hideTandem('id_meetingsRight');
             break;
     }
 }
@@ -170,17 +181,37 @@ function onConvention87Changed(value){
     switch (value){
         case '1':
             showTandem('id_createOrganizationRight');
+            hideTandem('id_createTradeUnionRight');
+            hideTandem('id_electionsRight');
+            hideTandem('id_tradeUnionActivityRight');
+            hideTandem('id_createStrikeRight');
             break;
         case '2':
+            hideTandem('id_createOrganizationRight');
             showTandem('id_createTradeUnionRight');
+            hideTandem('id_electionsRight');
+            hideTandem('id_tradeUnionActivityRight');
+            hideTandem('id_createStrikeRight');
             break;
         case '4':
+            hideTandem('id_createOrganizationRight');
+            hideTandem('id_createTradeUnionRight');
             showTandem('id_electionsRight');
+            hideTandem('id_tradeUnionActivityRight');
+            hideTandem('id_createStrikeRight');
             break;
         case '5':
+            hideTandem('id_createOrganizationRight');
+            hideTandem('id_createTradeUnionRight');
+            hideTandem('id_electionsRight');
             showTandem('id_tradeUnionActivityRight');
+            hideTandem('id_createStrikeRight');
             break;
         case '7':
+            hideTandem('id_createOrganizationRight');
+            hideTandem('id_createTradeUnionRight');
+            hideTandem('id_electionsRight');
+            hideTandem('id_tradeUnionActivityRight');
             showTandem('id_createStrikeRight');
             break;
     }
@@ -238,6 +269,11 @@ function onVictimChanged(value){
             hide_div('idTradeUnionForm');
             hide_div('idIndividualFormDiv');
             showTandem('idPersonGroupFormDiv');
+            break;
+        default:
+             hide_div('idTradeUnionForm');
+            hide_div('idIndividualFormDiv');
+            hide_div('idPersonGroupFormDiv');
             break;
 
     }
@@ -417,7 +453,6 @@ function onTradeUnionSituationChanged(value){
 
 function hideRights(){
     for (key in fields){
-        console.log('id_'+fields[key]);
         hideTandem('id_'+fields[key]);
     }
 }

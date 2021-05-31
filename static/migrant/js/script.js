@@ -23,7 +23,7 @@ function onGenderChanged(value) {
     }
 }
 
-function onCountryChanged(value) {
+function onIndividual_countryChanged(value) {
     if (value == 4) {
         // document.getElementById("id_source_url").readOnly=true;
         showTandem("id_countryAnother");

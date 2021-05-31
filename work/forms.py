@@ -47,7 +47,7 @@ class CompanyInfoForm(forms.ModelForm):
             'is_tnk_member': forms.Select(attrs={'class': 'form-control', 'onchange': "onTnkChanged(this.value);"}),
             'tnk_name': forms.TextInput(attrs={'class': 'form-control'}),
             'branch': forms.TextInput(attrs={'class': 'form-control'}),
-            'experience': forms.TextInput(attrs={'class': 'form-control'}),
+            'company_experience': forms.TextInput(attrs={'class': 'form-control'}),
             'emp_count': forms.Select(attrs={'class': 'form-control'}),
             'additional': forms.Textarea(attrs={'class': 'form-control'}),
 
@@ -60,7 +60,7 @@ class CaseForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'case_name': forms.TextInput(attrs={'class': 'form-control'}),
             'source': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onSourceChanged(this.value);"}),
             'source_another': forms.TextInput(attrs={'class': 'form-control'}),
@@ -70,7 +70,7 @@ class CaseForm(forms.ModelForm):
             'country': forms.Select(attrs={'class': 'form-control'}),
             'region': forms.Select(attrs={'class': 'form-control'}),
             'city_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'company_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'case_company_name': forms.TextInput(attrs={'class': 'form-control'}),
             'groupOfRights': forms.Select(
                 attrs={'class': 'form-control', 'onchange': "onGroupOfRightsChanged(this.value);"}),
             'tradeUnionRight': forms.Select(

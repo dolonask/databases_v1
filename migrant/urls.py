@@ -7,4 +7,5 @@ urlpatterns = [
     path('update/<str:pk>', views.update_case, name="migrant_case_update"),
     path('download/<str:case_id>', views.download, name="migrant_files_download"),
 
+    path('dict/regions', views.load_regions, name='migrant_regions_list'),
 ]

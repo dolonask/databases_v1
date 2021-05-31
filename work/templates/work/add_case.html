@@ -359,6 +359,40 @@
                 has_error = false;
                 clear_errors();
 
+                validate_checkbox_list('intruder', 'id_intruder');
+
+                if (is_checked('id_intruder_0')){
+                    validate_text_field('id_government_agency_name',3);
+                }
+
+                if (is_checked('id_intruder_1')){
+                    validate_text_field('id_local_agency_name',3);
+                }
+                if (is_checked('id_intruder_2')){
+                    validate_text_field('id_police_agency_name',3);
+                }
+                if (is_checked('id_intruder_3')){
+                    validate_text_field('id_company_name',3);
+                    validate_text_field('id_address',7);
+                    validate_text_field('id_product_type',7);
+                    validate_selected('id_ownership');
+                    if (get_selected('id_ownership') == 3){
+                        validate_text_field('id_country_from',3);
+                        validate_selected('id_is_tnk_member');
+                        if (get_selected('id_is_tnk_member') == 'YES'){
+                            validate_text_field('id_tnk_name', 3);
+                        }
+                    }
+                    validate_text_field('id_company_experience', 3);
+                    validate_text_field('id_branch', 3);
+                    validate_selected('id_emp_count');
+                    validate_text_field('id_additional',7);
+                }
+
+                if (is_checked('id_intruder_5')){
+                    validate_text_field('id_intruderAnother',7);
+                }
+
                 if (has_error == false) {
                     document.querySelector('#btnWorkNextFromIntruderTab').click();
                 }
@@ -369,6 +403,39 @@
                 has_error = false;
                 clear_errors();
 
+                validate_selected('id_victim');
+
+                switch (get_selected('id_victim')){
+                    case '1':
+                        validate_text_field('id_tradeunion_name', 7);
+                        validate_text_field('id_branch_name', 7);
+                        validate_text_field('id_victim_name', 7);
+                        validate_text_field('id_contacts', 7);
+                        break;
+                    case '2':
+                        validate_selected('id_is_anonim');
+                        if (get_selected('id_is_anonim') == 'NO'){
+                            validate_text_field('id_name', 7);
+                        }
+                        validate_selected('id_member_of_tradeunion');
+                        validate_selected('id_gender');
+                        validate_text_field('id_age', 0);
+                        validate_selected('id_education');
+                        validate_selected('id_marital_status');
+                        validate_text_field('id_position', 3);
+                        validate_text_field('id_experience', 0);
+                        validate_selected('id_is_official');
+                        validate_selected('id_has_agreement');
+                        break;
+                    case '3':
+                        validate_text_field('id_amount',0);
+                        validate_selected('id_type');
+                        validate_selected('id_membership');
+                        break;
+
+                }
+
+
                 if (has_error == false) {
                     document.querySelector('#btnWorkNextFromVictimTab').click();
                 }
@@ -378,6 +445,23 @@
             function checkWorkDescriptionTab(){
                 has_error = false;
                 clear_errors();
+                validate_text_field('id_exact_data',7);
+                validate_text_field('id_case_description',7);
+                validate_selected('id_violation_nature');
+                validate_selected('id_rights_state');
+                if (get_selected('id_rights_state') == 4){
+                    validate_text_field('id_rights_state_another',7);
+                }
+                validate_selected('id_victim_situation');
+                if (get_selected('id_victim_situation') == 7){
+                    validate_text_field('id_victim_situation_another',7);
+                }
+                validate_selected('id_tradeUnionSituation');
+                if (get_selected('id_tradeUnionSituation') == 4){
+                    validate_text_field('id_tradeUnionSituation_another', 7);
+                }
+                validate_selected('id_tradeUnionCount');
+
 
                 if (has_error == false) {
                     document.querySelector('#btnWorkNextFromDesc').click();
@@ -387,6 +471,9 @@
             function checkWorkFilesTab(){
                 has_error = false;
                 clear_errors();
+
+                validate_files_uploaded('id_photo');
+                validate_files_uploaded('id_file');
 
                 if (has_error == false) {
                     document.querySelector('#btnWorkSaveForm').click();
@@ -398,8 +485,8 @@
                 has_error = false;
                 clear_errors();
 
-                validate_text_field('id_name',7);
-                //validate_checkbox_list('card_sources','id_card_sources');
+                validate_text_field('id_case_name',7);
+                validate_checkbox_list('source','id_source');
 
                 if (document.querySelector('#id_source_2').checked){
                     let id_source_url = document.querySelector('#id_source_url');
@@ -409,38 +496,149 @@
                         set_error(id_source_content, 'any');
                     }
                 }
-
-                if (has_error == true) {
-                    document.querySelector('#btnStrikeNextFromStrikeGeneral').click();
-                }
-            }
-
-            function checkInitiatorTab() {
-                has_error = false;
-                clear_errors();
-
-                validate_selected('id_initiator');
-                let selectedValue = get_selected('id_initiator');
-
-                if (selectedValue == 1) {
-                    validate_text_field('id_tradeUnion_name', 7);
-                    validate_text_field('id_tradeUnion_contacts', 7);
-                } else if (selectedValue == 2) {
-                    validate_selected('id_groupCharacter');
-                    if (get_selected('id_groupCharacter') == 3) {
-                        validate_text_field('id_groupCharacter_another', 7);
-                    }
-                    validate_selected('id_tradeUnionMembership');
-                } else if (selectedValue == 3) {
-                    validate_text_field('id_individual_name', 7);
-                    validate_selected('id_gender');
-                    validate_selected('id_age');
-                    validate_text_field('id_profession', 7);
+                if (document.querySelector('#id_source_9').checked){
+                    validate_text_field('id_source_another', 7);
                 }
 
+                validate_selected('id_country');
+                validate_selected('id_region');
+                validate_text_field('id_city_name',3);
+                validate_text_field('id_case_company_name',3);
+                validate_selected('id_groupOfRights');
+
+                switch (get_selected('id_groupOfRights')){
+                    case '1':
+                        validate_selected('id_tradeUnionRight');
+
+                        switch (get_selected('id_tradeUnionRight')) {
+                            case '1':
+                                validate_selected('id_tradeUnionCrime');
+                                if (get_selected('id_tradeUnionCrime') == 3){
+                                    validate_text_field('id_tradeUnionCrimeAnother', 7)
+                                }
+                                break;
+                            case '3':
+                                validate_selected('id_meetingsRight');
+                                if (get_selected('id_meetingsRight') == 3){
+                                    validate_text_field('id_meetingsRightAnother', 7)
+                                }
+                                break;
+                            case '6':
+                                validate_selected('id_tradeUnionBuildingsRight');
+                                if (get_selected('id_tradeUnionBuildingsRight') == 3){
+                                    validate_text_field('id_tradeUnionBuildingsRightAnother', 7)
+                                }
+                                break;
+                        }
+
+                        break;
+
+                    case '2':
+                        validate_selected('id_сonvention87');
+
+                        switch (get_selected('id_сonvention87')){
+                            case '1':
+                                validate_selected('id_createOrganizationRight');
+                                if (get_selected('id_createOrganizationRight') == 7){
+                                    validate_text_field('id_createOrganizationRightAnother', 7);
+                                }
+                                break;
+                            case '2':
+                                validate_selected('id_createTradeUnionRight');
+
+                                if (get_selected('id_createTradeUnionRight') == 5){
+                                    validate_text_field('id_createTradeUnionRightAnother', 7);
+                                }
+                                break;
+                            case '4':
+                                validate_selected('id_electionsRight');
+                                if (get_selected('id_electionsRight') == 3){
+                                    validate_text_field('id_electionsRightAnother', 7);
+                                }
+                                break;
+                            case '5':
+                                validate_selected('id_tradeUnionActivityRight');
+                                if (get_selected('id_tradeUnionActivityRight') == 4){
+                                    validate_text_field('id_tradeUnionActivityRightAnother', 7);
+                                }
+                                break;
+                            case '7':
+                                validate_selected('id_createStrikeRight');
+                                if (get_selected('id_tradeUnionActivityRight') == 10){
+                                    validate_text_field('id_createStrikeRightAnother', 7);
+                                }
+                                break;
+
+                        }
+                        break;
+
+                    case '3':
+                        validate_selected('id_сonvention98');
+                        switch (get_selected('id_сonvention98')){
+                            case '1':
+                                validate_selected('id_antiTradeUnionDiscrimination');
+                                if (get_selected('id_antiTradeUnionDiscrimination') == 5){
+                                    validate_text_field('id_antiTradeUnionDiscriminationAnother', 7);
+                                }
+                                break;
+                            case '2':
+                                validate_selected('id_conversationRight');
+                                if (get_selected('id_conversationRight') == 8){
+                                    validate_text_field('id_conversationRightAnother', 7);
+                                }
+                                break;
+
+                        }
+                        break;
+                    case '4':
+                        validate_selected('id_сonvention135');
+                        if (get_selected('id_сonvention135') == 4){
+                            validate_text_field('id_сonvention135Another', 7);
+                        }
+                        break;
+                    case '5':
+                        validate_selected('id_consultationRight');
+                        if (get_selected('id_consultationRight') == 4){
+                            validate_text_field('id_consultationRightAnother', 7);
+                        }
+                        break;
+                    case '6':
+                        validate_selected('id_principleOfNonDiscrimination');
+                        switch (get_selected('id_principleOfNonDiscrimination')) {
+                            case '1':
+                                validate_selected('id_discriminatiOnVariousGrounds');
+                                break;
+                            case '2':
+                                validate_selected('id_discriminationInVariousAreas');
+                                if(get_selected('id_discriminationInVariousAreas') == 10){
+                                    validate_text_field('id_discriminationInVariousAreasAnother', 7);
+                                }
+                                break;
+                            case '3':
+                                validate_selected('id_publicPolicyDiscrimination');
+                                break;
+
+
+                        }
+                        break;
+                    case '7':
+                        validate_selected('id_childLabor');
+                        if (get_selected('id_childLabor') == 1){
+                            validate_selected('id_сonvention138');
+                        }else{
+                            validate_selected('id_convention182');
+                        }
+                        break;
+                    case '8':
+                        validate_selected('id_prohibitionOfForcedLabor');
+                        break;
+
+
+
+                }
 
                 if (has_error == false) {
-                    document.querySelector('#btnNextFromInitiator').click();
+                    document.querySelector('#btnStrikeNextFromStrikeGeneral').click();
                 }
             }
 

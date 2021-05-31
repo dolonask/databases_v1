@@ -94,7 +94,7 @@ class Education(models.Model):
         verbose_name = "Образование"
         verbose_name_plural = "Образования"
 
-class Country(models.Model):
+class IndividualCountry(models.Model):
     name = models.CharField("Название", max_length=150, help_text='Название страны')
     active = models.BooleanField("Активна", default=True)
 
@@ -206,6 +206,32 @@ class WayOfGettingSalary(models.Model):
         verbose_name_plural = "Способы получения зарплаты"
 
 
+
+class Country(models.Model):
+    name = models.CharField("Название", max_length=255)
+    active = models.BooleanField("Активен", default=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Страна"
+        verbose_name_plural = "Страны"
+
+
+class Region(models.Model):
+    name = models.CharField("Название", max_length=255, blank=False)
+    active = models.BooleanField("Активен", default=True)
+    country = models.ForeignKey(Country, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Регион"
+        verbose_name_plural = "Регионы"
+
+
 class IndividualInfo(models.Model):
     is_anonim = models.CharField("Аноним?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     name = models.CharField("ФИО", max_length=100, help_text='ФИО')
@@ -217,7 +243,7 @@ class IndividualInfo(models.Model):
     contacts = models.CharField("Контактные данные (телефон/адрес) ", max_length=500,
                                 help_text='Контактные данные (телефон/адрес) ', )
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
-    country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна пребывания пострадавшего")
+    individual_country = models.ForeignKey(IndividualCountry, on_delete=models.DO_NOTHING, verbose_name="Страна пребывания пострадавшего")
     countryAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                             blank=True, )
     city_name = models.CharField("Город пребывания пострадавшего", max_length=100, null=True)
@@ -532,6 +558,8 @@ class Case(models.Model):
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
 
     case_name = models.CharField("Название (описание) карточки", max_length=30, help_text='Название (описание) карточки', )
+    country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
+    region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
     victim_status = models.ForeignKey(VictimStatus, on_delete=models.DO_NOTHING, verbose_name="Статус пострадавшего/ей")
     banOnEntry = models.ForeignKey(BanOnEntry, on_delete=models.DO_NOTHING, verbose_name="Запрет на въезд", null=False)
     banOnEntryAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,

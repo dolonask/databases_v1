@@ -142,3 +142,9 @@ def multistep(request):
 def download(request, case_id):
     pass
 
+
+def load_regions(request):
+    country_id = request.GET.get('country_id')
+    regions = Region.objects.filter(country=country_id).all()
+    return render(request,'migrant/region_dropdown.html',{'regions':regions})
+

@@ -32,6 +32,8 @@ class CaseForm(forms.ModelForm):
 
         widgets = {
             'case_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'country': forms.Select(attrs={'class': 'form-control'}),
+            'region': forms.Select(attrs={'class': 'form-control'}),
             'victim_status': forms.Select(attrs={'class': 'form-control'}),
             'banOnEntry': forms.Select(attrs={'class': 'form-control', 'onchange': "onBanChanged(this.value);"}),
             'banOnEntryAnother': forms.TextInput(attrs={'class': 'form-control'}),
@@ -103,7 +105,7 @@ class IndividualForm(forms.ModelForm):
             'contacts': forms.TextInput(attrs={'class': 'form-control'}),
             'education': forms.Select(attrs={'class': 'form-control'}),
             'individual_age': forms.TextInput(attrs={'class': 'form-control'}),
-            'country': forms.Select(attrs={'class': 'form-control', 'onchange': "onCountryChanged(this.value);"}),
+            'individual_country': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndividual_countryChanged(this.value);"}),
             'countryAnother': forms.TextInput(attrs={'class': 'form-control'}),
             'city_name': forms.TextInput(attrs={'class': 'form-control'}),
             'countryFrom': forms.Select(attrs={'class': 'form-control', 'onchange': "onCountryFromChanged(this.value);"}),
