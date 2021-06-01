@@ -169,10 +169,20 @@ function onGroupCharacterChanged(value){
 
 
 function onIndividualAnonimChanged(value){
-    if (get_selected('id_is_anonim') == 'NO'){
-        showTandem("id_individual_name");
-    }else {
-        hideTandem("id_individual_name");
+    // if (get_selected('id_is_anonim') == 'NO'){
+    //     showTandem("id_individual_name");
+    // }else {
+    //     hideTandem("id_individual_name");
+    // }
+    for (i = 0; i < 10; i++) {
+      var el = document.getElementById('id_form-'+i+'-is_anonim')
+        if (el){
+            if (el.value == 'NO'){
+                showTandem("id_form-"+i+"-individual_name");
+            }else {
+                hideTandem("id_form-"+i+"-individual_name");
+            }
+        }
     }
 }
 

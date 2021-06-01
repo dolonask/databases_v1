@@ -269,17 +269,20 @@ function onVictimChanged(value) {
 }
 
 function onAgreementChanged(value) {
-    if (get_selected('id_hasAgreement') == 'YES') {
-        // document.getElementById("id_source_url").readOnly=true;
-        showTandem("id_agreementDetailYes")
-        hideTandem("id_agreementDetailNo")
-        // showTandem("id_agreementLang")
-        // showTandem("id_understoodTheContents")
-    } else {
-        hideTandem("id_agreementDetailYes")
-        showTandem("id_agreementDetailNo")
-        // hideTandem("id_agreementLang")
-        // hideTandem("id_understoodTheContents")
+
+    switch (get_selected('id_hasAgreement')){
+        case 'YES':
+           showTandem("id_agreementDetailYes");
+           hideTandem("id_agreementDetailNo");
+           break;
+        case 'NO':
+            hideTandem("id_agreementDetailYes");
+            showTandem("id_agreementDetailNo");
+            break;
+        default:
+            hideTandem("id_agreementDetailYes");
+            hideTandem("id_agreementDetailNo");
+            break;
     }
 }
 function onEntrepreneurAnonimChanged(value) {

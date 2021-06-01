@@ -51,6 +51,8 @@
                     <h2 class="fs-title">Общая информация</h2>
                     <br>
                     {#                <h3 class="fs-subtitle">Tell us something more about you</h3>#}
+
+
                     <div class="form-group">
                         {{ form.case_name.label_tag }}{{ form.case_name }}
                         {% if form.case_name.errors %}
@@ -1300,8 +1302,8 @@
                 has_error = false;
                 clear_errors();
 
-                validate_files_uploaded('id_photo');
-                validate_files_uploaded('id_file');
+                {#validate_files_uploaded('id_photo');#}
+                {#validate_files_uploaded('id_file');#}
                 {#validate_text_field('id_case_additional_info', 7);#}
 
                 if (has_error == false) {

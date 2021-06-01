@@ -102,19 +102,33 @@
                             {% endfor %}
                         </div>
                     </div>
+                    {#                    <div class="panel panel-default" id="idIndividualFormDiv">#}
+                    {#                        <div class="panel-heading">Физическое лицо</div>#}
+                    {#                        <div class="panel-body">#}
+                    {#                            {% for field in individualForm %}#}
+                    {#                                <div class="form-group">#}
+                    {#                                    {{ field.label_tag }}#}
+                    {#                                    {{ field }}#}
+                    {#                                    <div class="invalid_feedback">#}
+                    {#                                        {{ field.errors }}#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            {% endfor %}#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="panel panel-default" id="idIndividualFormDiv">
                         <div class="panel-heading">Физическое лицо</div>
-                        <div class="panel-body">
-                            {% for field in individualForm %}
-                                <div class="form-group">
-                                    {{ field.label_tag }}
-                                    {{ field }}
-                                    <div class="invalid_feedback">
-                                        {{ field.errors }}
+                        <div class="panel-body" id = "form-container">
+                            {{individualFormSet.management_form}}
+                            {% for indForm in individualFormSet %}
+                                    <div class="bird-form">
+                                        {{indForm.as_p}}
                                     </div>
-                                </div>
                             {% endfor %}
+                            <button id="add-form" type="button" class="btn btn-primary">Добавить ФЛ</button>
+                            <button id="del-form" type="button" class="btn btn-danger">Удалить ФЛ</button>
                         </div>
+
                     </div>
                     <div class="panel panel-default" id="idPersonGroupFormDiv">
                         <div class="panel-heading">Группа лиц (работников)</div>
@@ -371,7 +385,7 @@
                     validate_text_field('id_company_experience', 3);
                     validate_text_field('id_branch', 3);
                     validate_selected('id_emp_count');
-                    validate_text_field('id_additional',7);
+                    {#validate_text_field('id_additional',7);#}
                 }
 
                 if (is_checked('id_intruder_5')){
@@ -398,19 +412,25 @@
                         validate_text_field('id_contacts', 7);
                         break;
                     case '2':
-                        validate_selected('id_is_anonim');
-                        if (get_selected('id_is_anonim') == 'NO'){
-                            validate_text_field('id_name', 7);
+
+                        for (i = 0; i < 10; i++) {
+                            var el = document.getElementById('id_form-'+i+'-is_anonim')
+                            if (el){
+                                validate_selected('id_form-'+i+'-is_anonim');
+                                if (el.value == 'NO'){
+                                    validate_text_field("id_form-"+i+"-name", 7);
+                                }
+                                validate_selected("id_form-"+i+"-member_of_tradeunion");
+                                validate_selected("id_form-"+i+"-gender");
+                                validate_text_field("id_form-"+i+"-age", 0);
+                                validate_selected("id_form-"+i+"-education");
+                                validate_selected("id_form-"+i+"-marital_status");
+                                validate_text_field("id_form-"+i+"-position", 3);
+                                validate_text_field("id_form-"+i+"-experience", 0);
+                                validate_selected("id_form-"+i+"-is_official");
+                                validate_selected("id_form-"+i+"-has_agreement");
+                            }
                         }
-                        validate_selected('id_member_of_tradeunion');
-                        validate_selected('id_gender');
-                        validate_text_field('id_age', 0);
-                        validate_selected('id_education');
-                        validate_selected('id_marital_status');
-                        validate_text_field('id_position', 3);
-                        validate_text_field('id_experience', 0);
-                        validate_selected('id_is_official');
-                        validate_selected('id_has_agreement');
                         break;
                     case '3':
                         validate_text_field('id_amount',0);
@@ -430,22 +450,19 @@
             function checkWorkDescriptionTab(){
                 has_error = false;
                 clear_errors();
-                validate_text_field('id_exact_data',7);
-                validate_text_field('id_case_description',7);
-                validate_selected('id_violation_nature');
-                validate_selected('id_rights_state');
-                if (get_selected('id_rights_state') == 4){
-                    validate_text_field('id_rights_state_another',7);
-                }
-                validate_selected('id_victim_situation');
-                if (get_selected('id_victim_situation') == 7){
-                    validate_text_field('id_victim_situation_another',7);
-                }
-                validate_selected('id_tradeUnionSituation');
-                if (get_selected('id_tradeUnionSituation') == 4){
-                    validate_text_field('id_tradeUnionSituation_another', 7);
-                }
-                validate_selected('id_tradeUnionCount');
+                {#validate_text_field('id_exact_data',7);#}
+                {#validate_text_field('id_case_description',7);#}
+                {#validate_selected('id_violation_nature');#}
+                {#validate_selected('id_rights_state');#}
+                {#if (get_selected('id_rights_state') == 4){#}
+                {#    validate_text_field('id_rights_state_another',7);}#}
+                {#validate_selected('id_victim_situation');#}
+                {#if (get_selected('id_victim_situation') == 7){#}
+                {#    validate_text_field('id_victim_situation_another',7);}#}
+                {#validate_selected('id_tradeUnionSituation');#}
+                {#if (get_selected('id_tradeUnionSituation') == 4){#}
+                {#    validate_text_field('id_tradeUnionSituation_another', 7);}#}
+                {#validate_selected('id_tradeUnionCount');#}
 
 
                 if (has_error == false) {
@@ -699,6 +716,40 @@
                 });
 
             });
+        </script>
+
+        <script>
+            let birdForm = document.querySelectorAll(".bird-form")
+            let container = document.querySelector("#form-container")
+            let addButton = document.querySelector("#add-form")
+            let delButton = document.querySelector("#del-form")
+            let totalForms = document.querySelector("#id_form-TOTAL_FORMS")
+
+            let formNum = birdForm.length-1
+            addButton.addEventListener('click', addForm)
+            delButton.addEventListener('click', delForm)
+
+            function addForm(e){
+                e.preventDefault()
+
+                let newForm = birdForm[0].cloneNode(true)
+                let formRegex = RegExp(`form-(\\d){1}-`,'g')
+
+                formNum++
+
+                if (formNum >= 10){
+                    return;
+                }
+                newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`)
+                container.insertBefore(newForm, addButton)
+
+                totalForms.setAttribute('value', `${formNum+1}`)
+            }
+            function delForm(e){
+                e.preventDefault()
+
+                $("#formNum").remove();
+            }
         </script>
 
     {% endblock %}

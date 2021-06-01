@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 from .filters import WorkFilter
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
-    CaseFileForm
+    CaseFileForm, IndividualFormSet
 from .models import *
 
 # Create your views here.
@@ -77,8 +77,8 @@ intruder_tab_fields = [
 description_tab_fields = [
     'exact_data',
     'case_description',
-    'actions',
-    'result',
+    'tradeunion_actions',
+    'case_result',
     'violation_nature',
     'rights_state',
     'rights_state_another',
@@ -97,43 +97,55 @@ def add_case(request):
     if request.method=='POST':
         form = CaseForm(request.POST)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
-        individualForm = IndividualForm(request.POST)
+        # individualForm = IndividualForm(request.POST)
+        individualFormSet = IndividualFormSet(data=request.POST)
         personGroupForm = PersonGroupForm(request.POST)
         companyInfoForm = CompanyInfoForm(request.POST)
         casePhotoForm = CasePhotoForm(request.POST)
         caseFileForm = CaseFileForm(request.POST)
 
         if form.is_valid():
-            form = form.save(commit=False)
+            case = form.save(commit=False)
+
+
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.case = case
 
             if tradeUnionForm.is_valid():
-                form.tradeUnionInfo = tradeUnionForm.save()
+                case.tradeUnionInfo = tradeUnionForm.save()
             if personGroupForm.is_valid():
-                form.groupOfPersons = personGroupForm.save()
+                case.groupOfPersons = personGroupForm.save()
             if companyInfoForm.is_valid():
-                form.company = companyInfoForm.save()
+                case.company = companyInfoForm.save()
 
-            form.user = request.user
-            form.save()
 
-            if individualForm.is_valid():
-                individualForm = individualForm.save(commit=False)
-                individualForm.card = form
-                individualForm.save()
+            case.user = request.user
+            case.active = True
+            case.save()
+
+            if individualFormSet.is_valid():
+                individualFormSet.save()
+
+            form.save_m2m()
+
+
             # if casePhotoForm.is_valid():
-                for f in request.FILES.getlist('photo'):
-                    photo = CasePhoto(photo=f, card=form)
-                    photo.save()
-            # if caseFileForm.is_valid():
-                for f in request.FILES.getlist('file'):
-                    file = CaseFile(file=f, card=form)
-                    file.save()
+            for f in request.FILES.getlist('photo'):
+                photo = CasePhoto(photo=f, card=case)
+                photo.save()
+             # if caseFileForm.is_valid():
+            for f in request.FILES.getlist('file'):
+                file = CaseFile(file=f, card=case)
+                file.save()
 
             return redirect('work_case')
     else:
         form = CaseForm
         tradeUnionForm = TradeUnionInfoForm
         individualForm = IndividualForm
+        individualFormSet = IndividualFormSet(queryset=IndividualInfo.objects.none())
         personGroupForm = PersonGroupForm
         companyInfoForm = CompanyInfoForm
         casePhotoForm = CasePhotoForm
@@ -142,7 +154,7 @@ def add_case(request):
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
-        'individualForm':individualForm,
+        'individualFormSet':individualFormSet,
         'personGroupForm':personGroupForm,
         'companyInfoForm':companyInfoForm,
         'caseFileForm':caseFileForm,

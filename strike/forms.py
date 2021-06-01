@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django import forms
+from django.forms import modelformset_factory
 
 from .models import Card, TradeunionData, Individual, Employer, CardFile, CardPhoto, Region, PersonGroupInfo
 
@@ -31,6 +32,23 @@ class EmployerForm(forms.ModelForm):
             'emp_name': forms.TextInput(attrs={'class': 'form-control'}),
             'emp_contacts': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+
+IndividualFormSet = modelformset_factory(
+    Individual,
+    fields=('__all__'),
+    exclude = ['card', 'id'],
+    widgets={
+        'is_anonim':forms.Select(attrs={'class': 'form-control', 'onchange': "onIndividualAnonimChanged(this.value);"}),
+        'individual_name':forms.TextInput(attrs={'class': 'form-control'}),
+        'gender':forms.Select(attrs={'class': 'form-control'}),
+        'age':forms.Select(attrs={'class': 'form-control'}),
+        'profession':forms.TextInput(attrs={'class': 'form-control'}),
+    },
+    extra=1,
+    absolute_max=10,
+    max_num= 10
+)
 
 class IndividualForm(forms.ModelForm):
     class Meta:
@@ -77,7 +95,7 @@ class CardForm(forms.ModelForm):
         #           ]
 
         fields = '__all__'
-        exclude = ['added_by', 'is_active', 'tradeunion_data', 'employear']
+        exclude = ['added_by', 'is_active', 'tradeunion_data', 'employear', 'comment']
         # region = forms.ModelChoiceField(queryset=Region.objects.all().filter(country=), to_field_name='region_name')
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),

@@ -189,10 +189,10 @@ class Individual(models.Model):
         ("FEMALE", "Женский")
     ]
     is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    individual_name = models.CharField("ФИО", max_length=150, help_text='ФИО')
+    individual_name = models.CharField("ФИО", max_length=150)
     gender = models.CharField("Пол", choices=genders, max_length=20)
     age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст")
-    profession = models.CharField("Профессия", max_length=100, help_text='Профессия')
+    profession = models.CharField("Профессия", max_length=100,)
     card = models.ForeignKey("Card", on_delete=models.DO_NOTHING)
 
     class Meta:
@@ -358,6 +358,7 @@ class Card(models.Model):
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
     date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
     active = models.BooleanField("Активен", default=True)
+    comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)
 
     THE_NATURE_OF_THE_GROUP = [
         ('Б/ПГ', 'Бригада или производственная группа'),

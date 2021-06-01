@@ -6,7 +6,7 @@ from django.db import models
 
 
 class Country(models.Model):
-    name = models.CharField("Название", max_length=150, help_text='Название страны')
+    name = models.CharField("Название", max_length=150)
     active = models.BooleanField("Активна", default=True)
 
     def __str__(self):
@@ -93,8 +93,11 @@ class Victim(models.Model):
 
 
 class TradeUnionInfo(models.Model):
-    tradeunion_name = models.CharField("Укажите объединение (название федерации, конфедерации профсоюзов) ", max_length=500)
-    branch_name = models.CharField("Название отраслевой профсоюзной организации", max_length=500)
+    tradeunion_name = models.CharField("Укажите объединение (название федерации, конфедерации профсоюзов) "
+                                       , max_length=500,
+                                       null=True,blank=True)
+    branch_name = models.CharField("Название отраслевой профсоюзной организации", max_length=500,
+                                   null=True,blank=True)
     victim_name = models.CharField("Название организации, права которой были нарушены (федерация, отраслевое объединение, первичная организация) ", max_length=500,
                         )
     contacts = models.CharField("Контактные данные этой организации (электронная почта, адрес\телефон) ", max_length=500,
@@ -158,14 +161,14 @@ class AgreementDetail(models.Model):
 
 class IndividualInfo(models.Model):
     is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    name = models.CharField("ФИО", max_length=100, help_text='ФИО',blank=True, null = True)
+    name = models.CharField("ФИО", max_length=100,blank=True, null = True)
     member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
-    age = models.CharField("Возраст пострадавшего", max_length=50, help_text='Возраст пострадавшего')
+    age = models.CharField("Возраст пострадавшего", max_length=50,)
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
     marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке")
-    position = models.CharField("Должность в организации", max_length=50, help_text='Должность в организации')
-    experience = models.CharField("Стаж работы в организации", max_length=50, help_text='Стаж работы в организации')
+    position = models.CharField("Должность в организации", max_length=50, )
+    experience = models.CharField("Стаж работы в организации", max_length=50,)
     is_official = models.CharField("Было ли официальное трудоустройство?", choices=[('YES', 'Да'), ('NO', 'Нет'), ],
                                    max_length=20)
     has_agreement = models.CharField("Был ли подписан трудовой договор?", choices=[('YES', 'Да'), ('NO', 'Нет'), ],
@@ -333,7 +336,7 @@ class Company(models.Model):
     company_experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
     branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
-    additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=500, help_text='Иная важная информация ')
+    additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=500)
 
     def __str__(self):
         return self.name
@@ -824,34 +827,34 @@ class Case(models.Model):
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True, blank=True)
 
     exact_data = models.CharField("Укажите точные имена, даты, места событий", max_length=200, blank=True, null=True)
-    case_description = models.CharField(
-        "Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений)",
-        max_length=1800, blank=False, null=True)
-    actions = models.CharField(
-        "Опишите, какие действия предприняты профсоюзом/правозащитной организацией. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ",
-        max_length=1800,
-        blank=False, null=True),
-
-    result = models.CharField("Чем завершилась ситуация (если завершилась) или состояние в текущий момент",
-                              max_length=1800, blank=False, null=True),
+    case_description = models.TextField("Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. "
+                                        "Параллельно указывайте, чем подтверждаются эти факты "
+                                        "(если есть приложения, укажите сразу номера и названия соответствующих приложений)",
+        max_length=1800, blank=True, null=True)
+    tradeunion_actions = models.TextField("Опишите, какие действия предприняты профсоюзом/правозащитной организацией. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений)",
+        max_length=1800, blank=True, null=True)
+    case_result = models.TextField("Чем завершилась ситуация (если завершилась) или состояние в текущий момент", max_length=1800, blank=True, null=True)
 
     violation_nature = models.ForeignKey(NatureViolation, on_delete=models.DO_NOTHING,
-                                         verbose_name="Характер нарушения", null=True)
+                                         verbose_name="Характер нарушения", null=True, blank=True)
     rights_state = models.ForeignKey(RightsState, on_delete=models.DO_NOTHING, verbose_name="Ситуация с правами",
-                                     null=True)
+                                     null=True, blank=True)
     rights_state_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                             blank=True)
     victim_situation = models.ForeignKey(VictimSituation, on_delete=models.DO_NOTHING,
-                                         verbose_name="Ситуация с потерпевшим(и)", null=True)
+                                         verbose_name="Ситуация с потерпевшим(и)", null=True, blank=True)
     victim_situation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                                 blank=True)
     tradeUnionSituation = models.ForeignKey(TradeUnionSituation, on_delete=models.DO_NOTHING,
-                                            verbose_name="Профсоюз на месте работы после произошедшего", null=True)
+                                            verbose_name="Профсоюз на месте работы после произошедшего",
+                                            null=True, blank=True)
     tradeUnionSituation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                                    blank=True)
     tradeUnionCount = models.ForeignKey(TradeUnionCount, on_delete=models.DO_NOTHING,
-                                        verbose_name="Численность профсоюза после произошедшего", null=True)
+                                        verbose_name="Численность профсоюза после произошедшего",
+                                        null=True, blank=True)
 
     case_text = models.TextField("Кейсы, связанные с данной ситуацией", max_length=1800, null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
                              verbose_name="Монитор", related_name="strike_users", blank=True)
+    comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)

@@ -135,6 +135,8 @@ def load_migrants(apps, schema_editor):
     agreementDetailYes.save()
     agreementDetailYes = AgreementDetailYes(id=3, name="Договор подписывал, но он остался у посредника", active=True)
     agreementDetailYes.save()
+    # agreementDetailYes = AgreementDetailYes(id=4, name="Подписан трудовой договор", active=True)
+    # agreementDetailYes.save()
 
     print('AgreementDetailNo')
     AgreementDetailNo = apps.get_model("migrant", "AgreementDetailNo")

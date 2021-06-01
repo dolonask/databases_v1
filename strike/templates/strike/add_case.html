@@ -47,7 +47,10 @@
                 <!-- fieldsets -->
                 <fieldset id='id_general_info_fieldset'>
                     <h2 class="fs-title">Общая информация</h2>
+
                     <br>
+
+
                     {% for field in form %}
                         {% if field.name in general_tabs_fields %}
                             <div class="form-group">
@@ -107,19 +110,30 @@
                             {% endfor %}
                         </div>
                     </div>
+
+                    {#                                                                    {% for field in individualForm %}#}
+                    {#                                                                        <div class="form-group">#}
+                    {#                                                                            {{ field.label_tag }}#}
+                    {#                                                                            {{ field }}#}
+                    {#                                                                            <div class="invalid_feedback">#}
+                    {#                                                                                {{ field.errors }}#}
+                    {#                                                                            </div>#}
+                    {#                                                                        </div>#}
+                    {#                                                                    {% endfor %}#}
+
                     <div class="panel panel-default" id="idIndividualFormDiv">
                         <div class="panel-heading">Физическое лицо</div>
-                        <div class="panel-body">
-                            {% for field in individualForm %}
-                                <div class="form-group">
-                                    {{ field.label_tag }}
-                                    {{ field }}
-                                    <div class="invalid_feedback">
-                                        {{ field.errors }}
+                        <div class="panel-body" id = "form-container">
+                            {{individualFormSet.management_form}}
+                            {% for indForm in individualFormSet %}
+                                    <div class="bird-form">
+                                        {{indForm.as_p}}
                                     </div>
-                                </div>
                             {% endfor %}
+                            <button id="add-form" type="button" class="btn btn-primary">Добавить ФЛ</button>
+                            <button id="del-form" type="button" class="btn btn-danger">Удалить ФЛ</button>
                         </div>
+
                     </div>
                     <div class="panel panel-default" id="idEmployerFormDiv">
                         <div class="panel-heading">Работодатель</div>
@@ -385,12 +399,25 @@
                     }
                     validate_selected('id_tradeUnionMembership');
                 }else if(selectedValue==3){
-                    if (get_selected('id_is_anonim')=='NO') {
-                        validate_text_field('id_individual_name', 7);
+
+                    for (i = 0; i < 10; i++) {
+                        var el = document.getElementById('id_form-'+i+'-is_anonim')
+                        if (el){
+                            validate_selected('id_form-'+i+'-is_anonim');
+                            if (el.value == 'NO'){
+                                validate_text_field("id_form-"+i+"-individual_name", 7);
+                            }
+                            validate_selected("id_form-"+i+"-gender");
+                            validate_selected("id_form-"+i+"-age");
+                            validate_text_field("id_form-"+i+"-profession",7);
+                        }
                     }
-                    validate_selected('id_gender');
-                    validate_selected('id_age');
-                    validate_text_field('id_profession',7);
+
+                    {#if (get_selected('id_is_anonim')=='NO') {#}
+                    {#    validate_text_field('id_individual_name', 7);}#}
+                    {#validate_selected('id_gender');#}
+                    {#validate_selected('id_age');#}
+                    {#validate_text_field('id_profession',7);#}
                 }else if(selectedValue==4){
                     validate_text_field('id_emp_name',7);
                     validate_text_field('id_emp_contacts',7);
@@ -433,8 +460,8 @@
                 has_error = false;
                 clear_errors();
 
-                validate_files_uploaded('id_photo');
-                validate_files_uploaded('id_file');
+                {#validate_files_uploaded('id_photo');#}
+                {#validate_files_uploaded('id_file');#}
                 {#validate_text_field('id_case_text', 7);#}
 
                 if (has_error == false) {
@@ -449,7 +476,7 @@
 
 
 
-{#        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>#}
+        {#        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>#}
         <script>
             $("#id_country").change(function () {
                 const url = $("#msform").attr("regions-url");  // get the url of the `load_cities` view
@@ -474,6 +501,40 @@
                 });
 
             });
+        </script>
+
+        <script>
+            let birdForm = document.querySelectorAll(".bird-form")
+            let container = document.querySelector("#form-container")
+            let addButton = document.querySelector("#add-form")
+            let delButton = document.querySelector("#del-form")
+            let totalForms = document.querySelector("#id_form-TOTAL_FORMS")
+
+            let formNum = birdForm.length-1
+            addButton.addEventListener('click', addForm)
+            delButton.addEventListener('click', delForm)
+
+            function addForm(e){
+                e.preventDefault()
+
+                let newForm = birdForm[0].cloneNode(true)
+                let formRegex = RegExp(`form-(\\d){1}-`,'g')
+
+                formNum++
+
+                if (formNum >= 10){
+                    return;
+                }
+                newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`)
+                container.insertBefore(newForm, addButton)
+
+                totalForms.setAttribute('value', `${formNum+1}`)
+            }
+            function delForm(e){
+                e.preventDefault()
+
+                $("#formNum").remove();
+            }
         </script>
 
     {% endblock %}

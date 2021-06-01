@@ -627,6 +627,7 @@ class Case(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING,
                                  verbose_name="Монитор")
     active = models.BooleanField("Активен", default=True)
+    comment = models.TextField('Комментарии для монитора',max_length=500, blank= True, null= True)
 
 
 def files_location(instance, filename):

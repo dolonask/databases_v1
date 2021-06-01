@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from django import forms
+from django.forms import modelformset_factory
+
 from .models import Case, IndividualInfo, GroupOfPersons, TradeUnionInfo, Company, CaseFile, CasePhoto, Region
 
 
@@ -58,6 +60,7 @@ class CaseForm(forms.ModelForm):
     class Meta:
         model = Case
         fields = '__all__'
+        exclude = ['comment']
 
         widgets = {
             'case_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -132,7 +135,6 @@ class CaseForm(forms.ModelForm):
             'governmentCoercion': forms.Select(attrs={'class': 'form-control'}),
             'violationsUsingCompulsoryLabor': forms.Select(attrs={'class': 'form-control'}),
             'failureSystemicMeasures': forms.Select(attrs={'class': 'form-control'}),
-            'failureSystemicMeasures': forms.Select(attrs={'class': 'form-control'}),
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
             'start_date': forms.DateInput(
                 attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
@@ -148,8 +150,8 @@ class CaseForm(forms.ModelForm):
             # 'control_agency_name': forms.TextInput(attrs={'class': 'form-control'}),
             'exact_data': forms.Textarea(attrs={'class': 'form-control'}),
             'case_description': forms.Textarea(attrs={'class': 'form-control'}),
-            'actions': forms.Textarea(attrs={'class': 'form-control'}),
-            'result': forms.Textarea(attrs={'class': 'form-control'}),
+            'tradeunion_actions': forms.Textarea(attrs={'class': 'form-control'}),
+            'case_result': forms.Textarea(attrs={'class': 'form-control'}),
             'violation_nature': forms.Select(attrs={'class': 'form-control'}),
             'rights_state': forms.Select(
                 attrs={'class': 'form-control', 'onchange': "onRights_stateChanged(this.value);"}),
@@ -167,9 +169,9 @@ class CaseForm(forms.ModelForm):
 
         }
 
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.fields['region'].queryset = Region.objects.none()
+        # def __init__(self, *args, **kwargs):
+        #     super().__init__(*args, **kwargs)
+        #     self.fields['region'].queryset = Region.objects.none()
 
             # if 'country' in self.data:
             #     try:
@@ -185,6 +187,30 @@ class VictimForm(forms.ModelForm):
     class Meta:
         model = IndividualInfo
         fields = '__all__'
+
+
+IndividualFormSet = modelformset_factory(
+    IndividualInfo,
+    fields=('__all__'),
+    exclude = ['case'],
+    widgets={
+        'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
+        'name': forms.TextInput(attrs={'class': 'form-control'}),
+        'member_of_tradeunion': forms.Select(
+            attrs={'class': 'form-control', 'onchange': "onIndTradeUnionMemberChanged(this.value);"}),
+        'gender': forms.Select(attrs={'class': 'form-control'}),
+        'age': forms.TextInput(attrs={'class': 'form-control'}),
+        'education': forms.Select(attrs={'class': 'form-control'}),
+        'marital_status': forms.Select(attrs={'class': 'form-control'}),
+        'position': forms.TextInput(attrs={'class': 'form-control'}),
+        'experience': forms.TextInput(attrs={'class': 'form-control'}),
+        'is_official': forms.Select(attrs={'class': 'form-control'}),
+        'has_agreement': forms.Select(
+            attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
+        'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
+    },
+    extra=1,
+)
 
 
 class IndividualForm(forms.ModelForm):

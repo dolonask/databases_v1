@@ -53,31 +53,53 @@ def add_case(request):
         form = CardForm(request.POST)
         tradeUnionForm = TradeunionForm(request.POST)
         personGroupInfoForm = PersonGroupInfoForm(request.POST)
-        individualForm = IndividualForm(request.POST)
+        # individualForm = IndividualForm(request.POST)
+
+        individualFormSet = IndividualFormSet(data = request.POST)
+
+
         employerForm = EmployerForm(request.POST)
         photoForm = CardPhotoForm(request.POST)
         fileForm = CardFileForm(request.POST)
 
         if form.is_valid():
-            form = form.save(commit=False)
+            case = form.save(commit=False)
 
             if tradeUnionForm.is_valid():
-                form.company = tradeUnionForm.save()
+                case.tradeunion_data = tradeUnionForm.save()
             if personGroupInfoForm.is_valid():
-                form.personGroupInfo = personGroupInfoForm.save()
-            if individualForm.is_valid():
-                individualForm = individualForm.save(commit=False)
+                case.personGroupInfo = personGroupInfoForm.save()
+            # if individualFormSet.is_valid():
+            #     for individualForm in individualFormSet.forms:
+            #         ind = individualForm.save(commit = False)
+            #         ind.card = case
+            #         ind.save()
+
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.card = case
+               # individualFormSet.save()
             if employerForm.is_valid():
-                form.employear = employerForm.save()
+                case.employear = employerForm.save()
 
-            form.added_by = request.user
-            form.active = True
-            form.save()
 
-            if individualForm.is_valid():
-                individualForm = individualForm.save(commit=False)
-                individualForm.card = form
-                individualForm.save()
+            case.added_by = request.user
+            case.active = True
+            case.save()
+
+            if individualFormSet.is_valid():
+                individualFormSet.save()
+
+            form.save_m2m()
+
+
+
+
+            # if individualForm.is_valid():
+            #     individualForm = individualForm.save(commit=False)
+            #     individualForm.card = form
+            #     individualForm.save()
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
                     photo = CardPhoto(photo=f, card=form)
@@ -92,7 +114,7 @@ def add_case(request):
         form = CardForm
         tradeUnionForm = TradeunionForm
         personGroupInfoForm = PersonGroupInfoForm
-        individualForm = IndividualForm
+        individualFormSet = IndividualFormSet(queryset=Individual.objects.none())
         employerForm = EmployerForm
         photoForm = CardPhotoForm
         fileForm = CardFileForm
@@ -101,7 +123,7 @@ def add_case(request):
         'form':form,
         'tradeUnionForm':tradeUnionForm,
         'personGroupInfoForm':personGroupInfoForm,
-        'individualForm':individualForm,
+        'individualFormSet':individualFormSet,
         'employerForm':employerForm,
         'photoForm':photoForm,
         'fileForm':fileForm,

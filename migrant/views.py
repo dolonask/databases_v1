@@ -23,32 +23,37 @@ def append_case(request):
         if form.is_valid():
 
             # cleaned_data = form.cleaned_data;
-            form = form.save(commit=False)
+            # if request.user.is_authenticated():
+            #     form.instance.user = request.user
             # if cleaned_data['source']:
             #     for item in cleaned_data['source']:
             #         if item.id == 5:
             #             pass
-            if companyForm.is_valid():
-                form.company = companyForm.save()
-            if individualForm.is_valid():
-                form.individualInfo = individualForm.save()
-            if victimForm.is_valid():
-                form.victim = victimForm.save()
-            if groupForm.is_valid():
-                form.personGroupInfo = groupForm.save()
-            if entrepreneurForm.is_valid():
-                form.entrepreneur = entrepreneurForm.save()
+            case = form.save(commit=False)
 
-            form.user = request.user
-            form.save()
+
+            if companyForm.is_valid():
+                case.company = companyForm.save()
+            if individualForm.is_valid():
+                case.individualInfo = individualForm.save()
+            if victimForm.is_valid():
+                case.victim = victimForm.save()
+            if groupForm.is_valid():
+                case.personGroupInfo = groupForm.save()
+            if entrepreneurForm.is_valid():
+                case.entrepreneur = entrepreneurForm.save()
+
+            case.user = request.user
+            case.save()
+            form.save_m2m()
 
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
-                    photo = CasePhoto(photo=f, card=form)
+                    photo = CasePhoto(photo=f, card=case)
                     photo.save()
             if fileForm.is_valid():
                 for f in request.FILES.getlist('file'):
-                    file = CaseFile(file=f, card=form)
+                    file = CaseFile(file=f, card=case)
                     file.save()
 
             return redirect('migrant_case')

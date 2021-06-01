@@ -384,14 +384,19 @@ function onAntiTradeUnionDiscriminationChanged(value){
     }
 }
 function onIndAnonimChanged(value){
-    switch (get_selected('id_is_anonim')){
-        case 'YES':
-            hideTandem('id_name');
-            break;
-        case 'NO':
-            showTandem('id_name');
-            break;
+    for (i = 0; i < 10; i++) {
+        var el = document.getElementById('id_form-'+i+'-is_anonim')
+        if (el){
+            if (el.value == 'NO'){
+                showTandem("id_form-"+i+"-name");
+            }else {
+                hideTandem("id_form-"+i+"-name");
+            }
+        }
     }
+}
+function onIndTradeUnionMemberChanged(value){
+
 }
 function onTnkChanged(value){
     switch (get_selected('id_is_tnk_member')){
@@ -404,10 +409,21 @@ function onTnkChanged(value){
     }
 }
 function onHasAgreementChanged(value){
-    if (get_selected('id_has_agreement') == 'NO'){
-        hideTandem('id_agreementDetail');
-    }else{
-        showTandem('id_agreementDetail');
+    // if (get_selected('id_has_agreement') == 'NO'){
+    //     hideTandem('id_agreementDetail');
+    // }else{
+    //     showTandem('id_agreementDetail');
+    // }
+
+    for (i = 0; i < 10; i++) {
+        var el = document.getElementById('id_form-'+i+'-has_agreement')
+        if (el){
+            if (el.value == 'YES'){
+                showTandem("id_form-"+i+"-agreementDetail");
+            }else {
+                hideTandem("id_form-"+i+"-agreementDetail");
+            }
+        }
     }
 }
 function onDiscriminationInVariousAreasChanged(value){
