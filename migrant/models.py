@@ -265,9 +265,9 @@ class IndividualInfo(models.Model):
     hasAgreement = models.CharField("Был ли подписан трудовой договор?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     agreementDetailYes = models.ForeignKey(AgreementDetailYes, on_delete=models.DO_NOTHING,
-                                         verbose_name="Уточнение, если договор есть", null=True)
+                                         verbose_name="Уточнение, если договор есть", null=True, blank=True)
     agreementDetailNo = models.ForeignKey(AgreementDetailNo, on_delete=models.DO_NOTHING,
-                                         verbose_name="Уточнение, если договора нет", null=True)
+                                         verbose_name="Уточнение, если договора нет", null=True, blank=True)
     agreementLang = models.CharField("На каком языке был подписан договор?", max_length=50, help_text='На каком языке был подписан договор?', )
     understoodTheContents = models.CharField("Вы поняли содержание договора?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
@@ -575,9 +575,9 @@ class Case(models.Model):
                                          blank=True, )
     case_date = models.DateTimeField("Дата создания", auto_now_add=True)
     start_date = models.DateTimeField("Дата начала нарушения")
-    end_date = models.DateTimeField("Дата конца нарушения")
+    end_date = models.DateTimeField("Дата конца нарушения", null=True, blank=True)
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение")
-    individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True)
+    individualInfo= models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True)
     personGroupInfo = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
     intruder = models.ManyToManyField(Intruder, verbose_name="Кем было совершено нарушение", null=False)
     government_agency_name = models.CharField("Название государственного органа", max_length=200, null=True,blank=True)
@@ -608,11 +608,11 @@ class Case(models.Model):
                                             verbose_name="Численность профсоюза после произошедшего", blank=True, null=True)
     case_additional_info = models.CharField("Информация", max_length=5000, null=True, blank=True, )
     frequent_problems = models.TextField('С какими на ваш взгляд проблемами чаще всего сталкиваются мигранты и почему?',
-                             max_length=1800)
+                             max_length=1800, blank=True, null=True)
     decision = models.TextField('Какие по вашему мнению есть пути решения этих проблем?',
-                             max_length=1800)
+                             max_length=1800, blank=True, null=True)
     advice = models.TextField('Какая помощь на ваш взгляд необходима мигрантам?',
-                             max_length=1800)
+                             max_length=1800, blank=True, null=True)
 
     has_violation_in_covid = models.CharField("Были ли нарушены Ваши трудовые права во время пандемии?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)

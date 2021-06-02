@@ -50,6 +50,16 @@
                     <br>
                     {% for field in form %}
                         {% if field.name in general_tabs_fields %}
+
+                            {% if field.name == 'start_date' %}
+                                <div class="form-group">
+                                    <label>Дата нарушения</label> <br>
+                                    <label for="exact"> Точная <input id="exact" onchange="checkIntrud(this)" type="radio"
+                                                                      name="intrud" value="1"></label>
+                                    <label for="interval"> Интервал <input id="interval" onchange="checkIntrud(this)" type="radio"
+                                                                           name="intrud" value="2" checked></label>
+                                </div>
+                            {% endif %}
                             {% if field.name == "card_demand_categories" %}
                                 <div class="form-group">
                                     {{ field.label_tag }}
@@ -58,7 +68,9 @@
                                         {{ field.errors }}
                                     </div>
                                 </div>
+
                             {% else %}
+
                                 <div class="form-group">
                                     {{ field.label_tag }}
                                     {{ field }}
@@ -121,9 +133,9 @@
                         <div class="panel-body" id = "form-container">
                             {{individualFormSet.management_form}}
                             {% for indForm in individualFormSet %}
-                                    <div class="bird-form">
-                                        {{indForm.as_p}}
-                                    </div>
+                                <div class="bird-form">
+                                    {{indForm.as_p}}
+                                </div>
                             {% endfor %}
                             <button id="add-form" type="button" class="btn btn-primary">Добавить ФЛ</button>
                             <button id="del-form" type="button" class="btn btn-danger">Удалить ФЛ</button>
@@ -685,7 +697,20 @@
 
             }
 
+            function checkIntrud(e) {
+                if (e.value === '1') {
+                    document.querySelector('#id_end_date').style.display = 'none';
+                    document.querySelector('label[for=id_end_date]').style.display = 'none';
+                    document.querySelector('label[for=id_start_date]').style.display = 'none';
+                    document.querySelector('#id_end_date').value = '';
+                } else if (e.value === '2') {
+                    document.querySelector('label[for=id_start_date]').style.display = 'block';
+                    document.querySelector('label[for=id_end_date]').style.display = 'block';
+                    document.querySelector('#id_end_date').style.display = 'block';
+                    document.querySelector('#id_end_date').value = document.querySelector('#id_start_date').value;
+                }
 
+            }
 
 
         </script>

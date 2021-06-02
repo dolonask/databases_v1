@@ -34,7 +34,8 @@
 {% block content %}
     <div class="row">
         <div>
-            <form id="msform" method="post" enctype="multipart/form-data" regions-url="{% url 'migrant_regions_list' %}" novalidate>
+            <form id="msform" method="post" enctype="multipart/form-data" regions-url="{% url 'migrant_regions_list' %}"
+                  novalidate>
                 {% csrf_token %}
                 <!-- progressbar -->
                 <ul id="progressbar">
@@ -154,6 +155,15 @@
                             {{ form.violatedRightAnother.errors }}
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label>Дата нарушения</label> <br>
+                        <label for="exact"> Точная <input id="exact" onchange="checkIntrud(this)" type="radio"
+                                                          name="intrud" value="1"></label>
+                        <label for="interval"> Интервал <input id="interval" onchange="checkIntrud(this)" type="radio"
+                                                               name="intrud" value="2" checked></label>
+                    </div>
+
                     <div class="form-group">
                         {{ form.start_date.label_tag }}
                         {{ form.start_date }}
@@ -173,7 +183,7 @@
                     <input type="button" onclick="validate('id_general_info')" class="action-button" value="Следующий"/>
                     <input type="button" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
-                <fieldset id = 'id_victim_fieldset'>
+                <fieldset id='id_victim_fieldset'>
                     <h2 class="fs-title">Информация о пострадавшем/ей (пострадавших)</h2>
                     <br>
                     {#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
@@ -431,9 +441,10 @@
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
                     <input type="button" onclick="validate('id_victim_tab')" class="action-button" value="Следующий"/>
-                    <input type="button" id="btnNextFromVictim" name="next" class="next action-button d-none" value="Следующий"/>
+                    <input type="button" id="btnNextFromVictim" name="next" class="next action-button d-none"
+                           value="Следующий"/>
                 </fieldset>
-                <fieldset id = 'id_intruder_fieldset'>
+                <fieldset id='id_intruder_fieldset'>
                     <h2 class="fs-title">Кем нарушены права</h2>
                     <br>
                     {#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
@@ -651,9 +662,10 @@
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
                     <input type="button" onclick="validate('id_intruder_tab')" class="action-button" value="Следующий"/>
-                    <input type="button" id="btnNextFromIntruder" name="next" class="next action-button d-none" value="Следующий"/>
+                    <input type="button" id="btnNextFromIntruder" name="next" class="next action-button d-none"
+                           value="Следующий"/>
                 </fieldset>
-                <fieldset id = 'id_case_desc_fieldset'>
+                <fieldset id='id_case_desc_fieldset'>
                     <h2 class="fs-title">Описание кейса</h2>
                     <br>
                     {#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
@@ -744,10 +756,12 @@
 
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
-                    <input type="button" onclick="validate('id_case_description_tab')" class="action-button" value="Следующий"/>
-                    <input type="button" id="btnNextFromCaseDesc" name="next" class="next action-button d-none" value="Следующий"/>
+                    <input type="button" onclick="validate('id_case_description_tab')" class="action-button"
+                           value="Следующий"/>
+                    <input type="button" id="btnNextFromCaseDesc" name="next" class="next action-button d-none"
+                           value="Следующий"/>
                 </fieldset>
-                <fieldset id = 'id_files_fieldset'>
+                <fieldset id='id_files_fieldset'>
                     <h2 class="fs-title">Кейсы, связанные с данной ситуацией</h2>
                     <br>
                     {#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
@@ -781,10 +795,11 @@
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     <input type="button" onclick="validate('id_documents')" class="action-button" value="Следующий"/>
-                    <input type="button" id="btnNextFromFileTab" name="next" class="next action-button d-none" value="Следующий"/>
+                    <input type="button" id="btnNextFromFileTab" name="next" class="next action-button d-none"
+                           value="Следующий"/>
 
                 </fieldset>
-                <fieldset id = 'id_collect_info_fieldset'>
+                <fieldset id='id_collect_info_fieldset'>
                     <h2 class="fs-title">Вопросы для сбора информации</h2>
                     <br>
                     {#                <h3 class="fs-subtitle">Your presence on the social network</h3>#}
@@ -811,8 +826,10 @@
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     {#                    <input type="button" name="next" class="next action-button" value="Следующий"/>#}
-                    <input type="button" onclick="validate('id_collect_info_tab')" class="action-button" value="Следующий"/>
-                    <input type="button" id="btnNextFromCollectInfo" name="next" class="next action-button d-none" value="Следующий"/>
+                    <input type="button" onclick="validate('id_collect_info_tab')" class="action-button"
+                           value="Следующий"/>
+                    <input type="button" id="btnNextFromCollectInfo" name="next" class="next action-button d-none"
+                           value="Следующий"/>
                 </fieldset>
                 <fieldset id="id_covid_fieldset">
                     <h2 class="fs-title">Нарушения связанные с COVID-19</h2>
@@ -855,7 +872,8 @@
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     <input type="button" onclick="validate('id_covid_tab')" class="action-button" value="Сохранить"/>
-                    <input type="submit" id="btnSaveForm" name="submit" class="btn btn-primary action-button d-none" value="Сохранить"/>
+                    <input type="submit" id="btnSaveForm" name="submit" class="btn btn-primary action-button d-none"
+                           value="Сохранить"/>
 
 
                     {#                    <input type="button" id="btnSaveForm" name="next" class="next action-button d-none" value="Следующий"/>#}
@@ -901,21 +919,22 @@
                 }
             }
 
-            function validate_files_uploaded(id){
+            function validate_files_uploaded(id) {
                 let field = document.querySelector('#%'.replace('%', id));
 
-                if (field.files.length == 0){
+                if (field.files.length == 0) {
                     set_error(field, 'files')
                 }
             }
+
             function set_error(field, type = 'empty', amount = 7) {
-                if (has_error === false){
+                if (has_error === false) {
                     field.focus();
                 }
                 let err;
-                switch (type){
+                switch (type) {
                     case 'length':
-                        err = errorMessage('Значение должно состоять как минимум из amount символов!'.replace('amount',amount));
+                        err = errorMessage('Значение должно состоять как минимум из amount символов!'.replace('amount', amount));
                         break;
                     case 'select':
                         err = errorMessage('Необходимо выбрать значение!');
@@ -935,28 +954,28 @@
                 has_error = true
             }
 
-            function is_checked(id){
-                return document.querySelector('#%'.replace('%',id)).checked;
+            function is_checked(id) {
+                return document.querySelector('#%'.replace('%', id)).checked;
             }
 
-            function get_selected(id){
+            function get_selected(id) {
                 return document.querySelector('#%'.replace('%', id)).value;
             }
 
-            function validate_text_field(id, length=0){
-                let field = document.querySelector('#%'.replace('%',id));
+            function validate_text_field(id, length = 0) {
+                let field = document.querySelector('#%'.replace('%', id));
                 if (length > 0) {
                     if (field.value.length < length) {
                         set_error(field, 'length', length);
                     }
-                }else{
+                } else {
                     if (field.value === '') {
                         set_error(field, 'empty');
                     }
                 }
             }
 
-            function validate_selected(id){
+            function validate_selected(id) {
                 let field = document.querySelector('#%'.replace('%', id));
                 if (field.value === '') {
                     set_error(field, 'select');
@@ -967,8 +986,8 @@
                 document.querySelectorAll(".err").forEach(el => el.remove());
             }
 
-            function checkedAny(checkBoxList){
-                for(let i = 0; i < checkBoxList.length; i++) {
+            function checkedAny(checkBoxList) {
+                for (let i = 0; i < checkBoxList.length; i++) {
                     if (checkBoxList[i].checked) {
                         return true;
                     }
@@ -976,9 +995,9 @@
                 return false;
             }
 
-            function validate_checkbox_list(classname, id){
+            function validate_checkbox_list(classname, id) {
                 let list = document.querySelectorAll('input[name=%]'.replace('%', classname));
-                if (!checkedAny(list)){
+                if (!checkedAny(list)) {
                     set_error(document.querySelector('#%'.replace('%', id)), 'select');
                 }
             }
@@ -989,7 +1008,7 @@
 
                 let id_case_name = document.querySelector('#id_case_name');
                 if (id_case_name.value.length < 3) {
-                    set_error(id_case_name,'length',3);
+                    set_error(id_case_name, 'length', 3);
                 }
 
                 let id_victim_status = document.querySelector('#id_victim_status');
@@ -1000,9 +1019,9 @@
 
                 validate_selected('id_banOnEntry');
 
-                switch (get_selected('id_banOnEntry')){
+                switch (get_selected('id_banOnEntry')) {
                     case '1':
-                        validate_text_field('id_banned_country',3);
+                        validate_text_field('id_banned_country', 3);
                         break;
                     case '4':
                         validate_text_field('id_banOnEntryAnother', 7);
@@ -1011,26 +1030,26 @@
 
                 let id_source = document.querySelectorAll('input[name=source]');
 
-                if (!checkedAny(id_source)){
+                if (!checkedAny(id_source)) {
                     set_error(document.querySelector('#id_source'), 'select');
                 }
 
-                if (document.querySelector('#id_source_1').checked){
+                if (document.querySelector('#id_source_1').checked) {
                     let id_source_url = document.querySelector('#id_source_url');
                     let id_source_content = document.querySelector('#id_source_content');
 
-                    if (id_source_url.value === '' && id_source_content.value === ''){
+                    if (id_source_url.value === '' && id_source_content.value === '') {
                         set_error(id_source_content, 'any');
                     }
 
                 }
 
                 let id_violated_right = document.querySelectorAll('input[name=violated_right]');
-                if (!checkedAny(id_violated_right)){
+                if (!checkedAny(id_violated_right)) {
                     set_error(document.querySelector('#id_violated_right'), 'select');
                 }
 
-                if (document.querySelector('#id_violated_right_13').checked){
+                if (document.querySelector('#id_violated_right_13').checked) {
                     let id_violatedRightAnother = document.querySelector('#id_violatedRightAnother');
                     if (id_violatedRightAnother.value.length < 3) {
                         set_error(id_violatedRightAnother, 'length', 3);
@@ -1041,7 +1060,8 @@
                     document.querySelector('.next').click();
                 }
             }
-            function checkVictimTab(){
+
+            function checkVictimTab() {
                 has_error = false;
                 clear_errors();
 
@@ -1050,7 +1070,7 @@
                     set_error(id_victim, 'select');
                 }
 
-                if (id_victim.value == 2){
+                if (id_victim.value == 2) {
                     let id_amount = document.querySelector('#id_amount');
                     if (id_amount.value === '') {
                         set_error(id_amount, 'empty');
@@ -1067,12 +1087,12 @@
                     if (id_membership.value === '') {
                         set_error(id_membership, 'select');
                     }
-                }else if (id_victim.value == 1){
+                } else if (id_victim.value == 1) {
                     let id_is_anonim = document.querySelector('#id_is_anonim');
                     if (id_is_anonim.value === '') {
                         set_error(id_is_anonim, 'select');
                     }
-                    if (id_is_anonim.value=='NO'){
+                    if (id_is_anonim.value == 'NO') {
                         let id_name = document.querySelector('#id_name');
                         if (id_name.value.length < 7) {
                             set_error(id_name, 'length', 7);
@@ -1082,7 +1102,7 @@
                     if (id_gender.value === '') {
                         set_error(id_gender, 'select');
                     }
-                    if (id_gender.value==3){
+                    if (id_gender.value == 3) {
                         let id_gender_another = document.querySelector('#id_gender_another');
                         if (id_gender_another.value.length < 3) {
                             set_error(id_gender_another, 'length', 3);
@@ -1101,7 +1121,7 @@
                     if (id_country.value === '') {
                         set_error(id_country, 'select');
                     }
-                    if (id_country.value==4){
+                    if (id_country.value == 4) {
                         let id_countryFromAnother = document.querySelector('#id_countryFromAnother');
                         if (id_countryFromAnother.value.length < 3) {
                             set_error(id_countryFromAnother, 'length', 3);
@@ -1115,7 +1135,7 @@
                     if (id_countryFrom.value === '') {
                         set_error(id_countryFrom, 'select');
                     }
-                    if (id_countryFrom.value==4){
+                    if (id_countryFrom.value == 4) {
                         let id_countryFromAnother = document.querySelector('#id_countryFromAnother');
                         if (id_countryFromAnother.value.length < 3) {
                             set_error(id_countryFromAnother, 'length', 3);
@@ -1129,7 +1149,7 @@
                     if (id_wayOfArrival.value === '') {
                         set_error(id_wayOfArrival, 'select');
                     }
-                    if (id_wayOfArrival.value==5){
+                    if (id_wayOfArrival.value == 5) {
                         let id_wayOfArrivalAnother = document.querySelector('#id_wayOfArrivalAnother');
                         if (id_wayOfArrivalAnother.value.length < 7) {
                             set_error(id_wayOfArrivalAnother, 'length', 7);
@@ -1139,7 +1159,7 @@
                     if (id_wayOfFindingWork.value === '') {
                         set_error(id_wayOfFindingWork, 'select');
                     }
-                    if (id_wayOfFindingWork.value==8){
+                    if (id_wayOfFindingWork.value == 8) {
                         let id_wayOfFindingWorkAnother = document.querySelector('#id_wayOfFindingWorkAnother');
                         if (id_wayOfFindingWorkAnother.value.length < 7) {
                             set_error(id_wayOfFindingWorkAnother, 'length', 7);
@@ -1161,12 +1181,12 @@
                     if (id_hasAgreement.value === '') {
                         set_error(id_hasAgreement, 'select');
                     }
-                    if (id_hasAgreement.value =='YES'){
+                    if (id_hasAgreement.value == 'YES') {
                         let id_agreementDetailYes = document.querySelector('#id_agreementDetailYes');
                         if (id_agreementDetailYes.value === '') {
                             set_error(id_agreementDetailYes, 'select');
                         }
-                    }else if (id_hasAgreement.value =='NO'){
+                    } else if (id_hasAgreement.value == 'NO') {
                         let id_agreementDetailNo = document.querySelector('#id_agreementDetailNo');
                         if (id_agreementDetailNo.value === '') {
                             set_error(id_agreementDetailNo, 'select');
@@ -1204,55 +1224,55 @@
                 }
             }
 
-            function checkIntruderTab(){
+            function checkIntruderTab() {
                 has_error = false;
                 clear_errors();
-                validate_checkbox_list('intruder','id_intruder');
+                validate_checkbox_list('intruder', 'id_intruder');
 
-                if(is_checked('id_intruder_0')){
-                    validate_text_field('id_government_agency_name',0);
+                if (is_checked('id_intruder_0')) {
+                    validate_text_field('id_government_agency_name', 0);
                 }
-                if(is_checked('id_intruder_1')){
-                    validate_text_field('id_local_agency_name',0);
+                if (is_checked('id_intruder_1')) {
+                    validate_text_field('id_local_agency_name', 0);
                 }
-                if(is_checked('id_intruder_2')){
-                    validate_text_field('id_police_agency_name',0);
+                if (is_checked('id_intruder_2')) {
+                    validate_text_field('id_police_agency_name', 0);
                 }
-                if(is_checked('id_intruder_3')){
-                    validate_text_field('id_control_agency_name',0);
+                if (is_checked('id_intruder_3')) {
+                    validate_text_field('id_control_agency_name', 0);
                 }
-                if(is_checked('id_intruder_4')){
-                    validate_text_field('id_company_name',7);
-                    validate_text_field('id_address',7);
+                if (is_checked('id_intruder_4')) {
+                    validate_text_field('id_company_name', 7);
+                    validate_text_field('id_address', 7);
                     validate_selected('id_ownership');
-                    validate_text_field('id_branch',7);
-                    validate_text_field('id_product_type',7);
-                    validate_text_field('id_product_type',7);
-                    validate_text_field('id_company_experience',0);
+                    validate_text_field('id_branch', 7);
+                    validate_text_field('id_product_type', 7);
+                    validate_text_field('id_product_type', 7);
+                    validate_text_field('id_company_experience', 0);
                     validate_selected('id_emp_count');
                     validate_text_field('id_country_from', 3);
                     validate_text_field('id_additional', 7);
                     validate_selected('id_is_tnk_member');
                     is_tnk = get_selected('id_is_tnk_member');
-                    if (is_tnk =='YES'){
-                        validate_text_field('id_tnk_name',7);
+                    if (is_tnk == 'YES') {
+                        validate_text_field('id_tnk_name', 7);
                     }
 
                 }
-                if(is_checked('id_intruder_5')){
+                if (is_checked('id_intruder_5')) {
                     validate_selected('id_entrepreneur_is_anonim');
-                    if (get_selected('id_entrepreneur_is_anonim')=='NO'){
-                        validate_text_field('id_entrepreneur_name',7);
+                    if (get_selected('id_entrepreneur_is_anonim') == 'NO') {
+                        validate_text_field('id_entrepreneur_name', 7);
                     }
                     validate_selected('id_entrepreneur_age');
                     validate_selected('id_entrepreneur_gender');
-                    validate_text_field('id_entrepreneur_address',7);
-                    validate_checkbox_list('entrepreneur_workPurpose','id_entrepreneur_workPurpose');
+                    validate_text_field('id_entrepreneur_address', 7);
+                    validate_checkbox_list('entrepreneur_workPurpose', 'id_entrepreneur_workPurpose');
                     validate_selected('id_entrepreneur_emp_count');
                     validate_selected('id_entrepreneur_doAgreement');
                     validate_selected('id_entrepreneur_payWay');
-                    validate_checkbox_list('entrepreneur_hireWay','id_entrepreneur_hireWay');
-                    if (get_selected('id_entrepreneur_hireWay_6') == 6){
+                    validate_checkbox_list('entrepreneur_hireWay', 'id_entrepreneur_hireWay');
+                    if (get_selected('id_entrepreneur_hireWay_6') == 6) {
                         validate_text_field('id_entrepreneur_hireWayAnother', 7)
                     }
                 }
@@ -1291,6 +1311,7 @@
                     document.querySelector('#btnNextFromCaseDesc').click();
                 }
             }
+
             function errorMessage(txt) {
                 let p = document.createElement('p');
                 p.style.color = 'red';
@@ -1298,7 +1319,8 @@
                 p.innerHTML = txt;
                 return p;
             }
-            function checkFilesTab(){
+
+            function checkFilesTab() {
                 has_error = false;
                 clear_errors();
 
@@ -1312,7 +1334,7 @@
 
             }
 
-            function checkCollectInfoTab(){
+            function checkCollectInfoTab() {
                 has_error = false;
                 clear_errors();
 
@@ -1326,18 +1348,18 @@
                 }
             }
 
-            function checkCovidForm(){
+            function checkCovidForm() {
                 has_error = false;
                 clear_errors();
 
                 validate_selected('id_has_violation_in_covid');
                 validate_selected('id_violationType');
-                if (get_selected('id_violationType') == 7){
-                    validate_text_field('id_violationType_another',7);
+                if (get_selected('id_violationType') == 7) {
+                    validate_text_field('id_violationType_another', 7);
                 }
                 validate_selected('id_changesInSalary');
-                if (get_selected('id_changesInSalary') == 5){
-                    validate_text_field('id_changesInSalary_another',7)
+                if (get_selected('id_changesInSalary') == 5) {
+                    validate_text_field('id_changesInSalary_another', 7)
                 }
 
                 if (has_error == false) {
@@ -1345,6 +1367,20 @@
                 }
             }
 
+            function checkIntrud(e) {
+                if (e.value === '1') {
+                    document.querySelector('#id_end_date').style.display = 'none';
+                    document.querySelector('label[for=id_end_date]').style.display = 'none';
+                    document.querySelector('label[for=id_start_date]').style.display = 'none';
+                    document.querySelector('#id_end_date').value = '';
+                } else if (e.value === '2') {
+                    document.querySelector('label[for=id_start_date]').style.display = 'block';
+                    document.querySelector('label[for=id_end_date]').style.display = 'block';
+                    document.querySelector('#id_end_date').style.display = 'block';
+                    document.querySelector('#id_end_date').value = document.querySelector('#id_start_date').value;
+                }
+
+            }
         </script>
 
         <script>

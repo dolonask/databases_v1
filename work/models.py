@@ -805,7 +805,7 @@ class Case(models.Model):
                                                 null=True, blank=True)
 
     start_date = models.DateTimeField("Дата начала")
-    end_date = models.DateTimeField("Дата завершения")
+    end_date = models.DateTimeField("Дата завершения", null = True, blank=True)
 
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING,
                                verbose_name="В отношении кого совершено нарушение:", null=True, blank=True)

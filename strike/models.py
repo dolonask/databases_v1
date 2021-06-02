@@ -349,7 +349,7 @@ class Card(models.Model):
     combo_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
 
     start_date = models.DateTimeField("Дата начало проведения забастовки/акции")
-    end_date = models.DateTimeField("Дата конца проведения забастовки/акции")
+    end_date = models.DateTimeField("Дата конца проведения забастовки/акции", null = True, blank=True)
     tradeunionChoice = models.ForeignKey(TradeunionChoice, on_delete=models.DO_NOTHING,
                                          verbose_name="Есть ли на предприятии профсоюз")
     tradeunionChoiceAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,

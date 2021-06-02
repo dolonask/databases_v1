@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from .forms import CaseForm, CompanyForm, IndividualForm, VictimForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm
+from .forms import CaseForm, CompanyForm, IndividualForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm
 from .filters import MigrantFilter
 
 # Create your views here.
@@ -14,7 +14,6 @@ def append_case(request):
         form = CaseForm(request.POST)
         companyForm = CompanyForm(request.POST)
         individualForm = IndividualForm(request.POST)
-        victimForm = VictimForm(request.POST)
         groupForm = GroupForm(request.POST)
         entrepreneurForm = EntrepreneurForm(request.POST)
         photoForm = PhotoForm(request.POST, request.FILES)
@@ -36,8 +35,10 @@ def append_case(request):
                 case.company = companyForm.save()
             if individualForm.is_valid():
                 case.individualInfo = individualForm.save()
-            if victimForm.is_valid():
-                case.victim = victimForm.save()
+            # if victimForm.is_valid():
+            #     victim = victimForm.save(commit=False)
+            #     case.victim = victim
+            #     victim.save()
             if groupForm.is_valid():
                 case.personGroupInfo = groupForm.save()
             if entrepreneurForm.is_valid():
@@ -62,7 +63,6 @@ def append_case(request):
         form = CaseForm
         companyForm = CompanyForm
         individualForm = IndividualForm
-        victimForm = VictimForm
         groupForm = GroupForm
         entrepreneurForm = EntrepreneurForm
         photoForm = PhotoForm
@@ -74,7 +74,6 @@ def append_case(request):
                       'form': form,
                       'companyForm': companyForm,
                       'individualForm': individualForm,
-                      'victimForm': victimForm,
                       'groupForm': groupForm,
                       'entrepreneurForm': entrepreneurForm,
                       'photoForm': photoForm,

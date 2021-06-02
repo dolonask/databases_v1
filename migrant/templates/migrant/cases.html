@@ -1,29 +1,59 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{#{% load bootstrap %}#}
+{% load bootstrap %}
 {#{% load crispy_forms_tags %}#}
 {% block content %}
     <br>
     <br>
     <div class="row">
         <div class="col">
-            <div id = "msform" class="card card-body" regions-url="{% url 'migrant_regions_list' %}">
+            <div id="msform" class="card card-body" regions-url="{% url 'migrant_regions_list' %}">
 
                 <form method="get">
-                    {{myFilter.form}}
 
-{#                    {{ myFilter.form.case_name|as_crispy_field }}#}
-{#                    <div class="row">#}
-{#                        <div class="col-6">#}
-{#                            {{ myFilter.form.country|as_crispy_field }}#}
-{#                        </div>#}
-{#                        <div class="col-6">#}
-{#                            {{ myFilter.form.region|as_crispy_field }}#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    {{ myFilter.form.case_name|as_crispy_field }}#}
-{#                    {{ form.bio|as_crispy_field }}#}
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{ myFilter.form.case_name.label }}
+                            {{ myFilter.form.case_name }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.individualInfo_name.label }}
+                            {{ myFilter.form.individualInfo_name }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.country.label }}
+                            {{ myFilter.form.country}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{ myFilter.form.region.label }}
+                            {{ myFilter.form.region}}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.start_date.label }}
+                            {{ myFilter.form.start_date }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.end_date.label }}
+                            {{ myFilter.form.end_date }}
+                        </div>
+                    </div>
+
+                    {#                    {{myFilter.form|bootstrap }}#}
+                    {##}
+                    {#                    {{ myFilter.form.case_name|as_crispy_field }}#}
+                    {#                    <div class="row">#}
+                    {#                        <div class="col-6">#}
+                    {#                            {{ myFilter.form.country|as_crispy_field }}#}
+                    {#                        </div>#}
+                    {#                        <div class="col-6">#}
+                    {#                            {{ myFilter.form.region|as_crispy_field }}#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    {#                    {{ myFilter.form.case_name|as_crispy_field }}#}
+                    {#                    {{ form.bio|as_crispy_field }}#}
 
                     <button class="btn btn-primary" type="submit">Найти</button>
                 </form>
@@ -51,15 +81,16 @@
                     {% for card in cards %}
 
                         <tr>
-                            <td>{{card.id}}</td>
-                            <td>{{card.user}}</td>
-                            <td>{{card.case_name}}</td>
-                            <td>{{card.region}}</td>
-                            <td>{{card.date_create | date:"d.m.Y H:i"}}</td>
-                            <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
+                            <td>{{ card.id }}</td>
+                            <td>{{ card.user }}</td>
+                            <td>{{ card.case_name }}</td>
+                            <td>{{ card.region }}</td>
+                            <td>{{ card.date_create | date:"d.m.Y H:i" }}</td>
+                            <td>{{ card.date_update | date:"d.m.Y H:i" }}</td>
                             <td>
                                 <a class="btn btn-sm btn-info" href="{% url 'migrant_case_update' card.id %}">Update</a>
-                                <a class="btn btn-sm btn-danger" href="{% url 'migrant_case_delete' card.id %}">Delete</a>
+                                <a class="btn btn-sm btn-danger"
+                                   href="{% url 'migrant_case_delete' card.id %}">Delete</a>
                             </td>
 
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}

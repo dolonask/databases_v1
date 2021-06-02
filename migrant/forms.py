@@ -84,14 +84,6 @@ class CaseForm(forms.ModelForm):
 
 
 
-class VictimForm(forms.ModelForm):
-    class Meta:
-        model = IndividualInfo
-        fields = '__all__'
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-        }
-
 
 
 class IndividualForm(forms.ModelForm):

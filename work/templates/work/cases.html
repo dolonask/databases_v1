@@ -9,7 +9,34 @@
 		<div id = "msform" class="card card-body" regions-url="{% url 'works_regions_list' %}">
 
 			<form method="get">
-				{{myFilter.form}}
+				<div class="row">
+                        <div class="col-sm-4">
+                            {{ myFilter.form.name.label }}
+                            {{ myFilter.form.name }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.initiator.label }}
+                            {{ myFilter.form.initiator }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.country.label }}
+                            {{ myFilter.form.country}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{ myFilter.form.region.label }}
+                            {{ myFilter.form.region}}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.start_date.label }}
+                            {{ myFilter.form.start_date }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ myFilter.form.end_date.label }}
+                            {{ myFilter.form.end_date }}
+                        </div>
+                    </div>
 		    <button class="btn btn-primary" type="submit">Найти</button>
 		  </form>
 
