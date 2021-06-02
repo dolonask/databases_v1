@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'work.apps.WorkConfig',
     'migrant.apps.MigrantConfig',
     'strike.apps.StrikeConfig',
+    'bootstrapform'
 
 
 ]

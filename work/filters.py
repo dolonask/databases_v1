@@ -12,5 +12,5 @@ class WorkFilter(django_filters.FilterSet):
 
     class Meta:
         model = Case
-        fields = ['case_name', ]
+        fields = ['case_name', 'country', 'region', ]
         # exclude = ['customer', 'date_created']
