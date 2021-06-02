@@ -857,4 +857,5 @@ class Case(models.Model):
     case_text = models.TextField("Кейсы, связанные с данной ситуацией", max_length=1800, null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
                              verbose_name="Монитор", related_name="strike_users", blank=True)
+    active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)

@@ -212,10 +212,20 @@ def update_case(request,pk):
 
 
 def delete_case(request,pk ):
-    pass
+    case = Case.objects.get(id=pk)
+    case.active = False
+    case.save()
+
+    cases = Case.objects.all().filter(user=request.user, active = True)
+
+    filter = WorkFilter(request.GET, queryset=cases)
+    cards = filter.qs
+    context = {'cards': cards, 'myFilter': filter}
+    return render(request, 'work/cases.html', context)
+
 
 def cases(request):
-    cases = Case.objects.all().filter(user=request.user)
+    cases = Case.objects.all().filter(user=request.user, active = True)
 
     filter = WorkFilter(request.GET, queryset=cases)
     cards = filter.qs

@@ -95,8 +95,8 @@ def load_works(apps, schema_editor):
     agreementDetail.save()
     agreementDetail = AgreementDetail(id=3, name="Договор подписывал, но он остался у посредника", active=True)
     agreementDetail.save()
-    agreementDetail = AgreementDetail(id=4, name="Подписан трудовой договор", active=True)
-    agreementDetail.save()
+    # agreementDetail = AgreementDetail(id=4, name="Подписан трудовой договор", active=True)
+    # agreementDetail.save()
 
     print("Education")
     Education = apps.get_model("work", "Education")
