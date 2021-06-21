@@ -97,7 +97,7 @@ def add_case(request):
     if request.method=='POST':
         form = CaseForm(request.POST)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
-        # individualForm = IndividualForm(request.POST)
+        individualForm = IndividualForm(request.POST)
         individualFormSet = IndividualFormSet(data=request.POST)
         personGroupForm = PersonGroupForm(request.POST)
         companyInfoForm = CompanyInfoForm(request.POST)
@@ -150,7 +150,6 @@ def add_case(request):
         companyInfoForm = CompanyInfoForm
         casePhotoForm = CasePhotoForm
         caseFileForm = CaseFileForm
-
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
@@ -164,6 +163,7 @@ def add_case(request):
         'intruder_tab_fields':intruder_tab_fields,
         'description_tab_fields':description_tab_fields,
         'files_tab_fields':files_tab_fields,
+        'individualForm': individualForm,
     })
 
 
@@ -211,12 +211,12 @@ def update_case(request,pk):
                         })
 
 
-def delete_case(request,pk ):
+def delete_case(request, pk):
     case = Case.objects.get(id=pk)
     case.active = False
     case.save()
 
-    cases = Case.objects.all().filter(user=request.user, active = True)
+    cases = Case.objects.filter(user=request.user, active=True)
 
     filter = WorkFilter(request.GET, queryset=cases)
     cards = filter.qs
@@ -225,7 +225,7 @@ def delete_case(request,pk ):
 
 
 def cases(request):
-    cases = Case.objects.all().filter(user=request.user, active = True)
+    cases = Case.objects.filter(user=request.user, active = True)
 
     filter = WorkFilter(request.GET, queryset=cases)
     cards = filter.qs

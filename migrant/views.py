@@ -95,35 +95,70 @@ def delete_case(request, pk):
 
 @login_required()
 def update_case(request,pk):
-
     case = Case.objects.get(id=pk)
 
-    form = CaseForm(instance=case)
+    if request.method == 'POST':
+        form = CaseForm(request.POST, instance=case)
+        companyForm = CompanyForm(request.POST)
+        individualForm = IndividualForm(request.POST)
+        groupForm = GroupForm(request.POST)
+        entrepreneurForm = EntrepreneurForm(request.POST)
+        photoForm = PhotoForm(request.POST, request.FILES)
+        fileForm = FileForm(request.POST, request.FILES)
 
-    companyForm = CompanyForm()
-    if case.company is not None:
-        companyForm = CompanyForm(instance=Company.objects.get(id=case.company))
+        if form.is_valid():
+            form.save(commit=False)
 
-    individualForm = IndividualForm
-    if case.individualInfo is not None:
-        individualForm = IndividualForm(instance=IndividualInfo.objects.get(id = case.individualInfo_id))
+        if companyForm.is_valid():
+            case.company = companyForm.save()
+        if individualForm.is_valid():
+            case.individualInfo = individualForm.save()
+        if groupForm.is_valid():
+            case.personGroupInfo = groupForm.save()
+        if entrepreneurForm.is_valid():
+            case.entrepreneur = entrepreneurForm.save()
 
-    victimForm = VictimForm
-    if case.victim is not None:
-        victimForm = VictimForm(instance=Victim.objects.get(id=case.victim_id))
+        case.user = request.user
+        case.save()
+        form.save_m2m()
 
-    groupForm = GroupForm()
-    if case.personGroupInfo is not None:
-        groupForm = GroupForm(instance=PersonGroup.objects.get(id = case.personGroupInfo_id))
+        if photoForm.is_valid():
+            for f in request.FILES.getlist('photo'):
+                photo = CasePhoto(photo=f, card=case)
+                photo.save()
+        if fileForm.is_valid():
+            for f in request.FILES.getlist('file'):
+                file = CaseFile(file=f, card=case)
+                file.save()
 
-    entrepreneurForm = EntrepreneurForm
-    if case.entrepreneur is not None:
-        entrepreneurForm = EntrepreneurForm(instance = Entrepreneur.objects.get(id = case.entrepreneur_id))
-    #
-    # photos = CasePhoto.objects.get(card = case.id)
-    # print(photos)
-    photoForm = PhotoForm
-    fileForm = FileForm
+        return redirect('migrants_list')
+    else:
+        form = CaseForm(instance=case)
+
+        companyForm = CompanyForm()
+        if case.company is not None:
+            companyForm = CompanyForm(instance=Company.objects.get(id=case.company))
+
+        individualForm = IndividualForm
+        if case.individualInfo is not None:
+            individualForm = IndividualForm(instance=IndividualInfo.objects.get(id = case.individualInfo_id))
+
+        # victimForm = VictimForm
+        # if case.victim is not None:
+        #     victimForm = VictimForm(instance=Victim.objects.get(id=case.victim_id))
+
+        groupForm = GroupForm()
+        if case.personGroupInfo is not None:
+            groupForm = GroupForm(instance=PersonGroup.objects.get(id = case.personGroupInfo_id))
+
+        entrepreneurForm = EntrepreneurForm
+        if case.entrepreneur is not None:
+            entrepreneurForm = EntrepreneurForm(instance = Entrepreneur.objects.get(id = case.entrepreneur_id))
+        #
+        # photos = CasePhoto.objects.get(card = case.id)
+        # print(photos)
+        photoForm = PhotoForm
+        fileForm = FileForm
 
     return render(request,
                   'migrant/add_case.html',
@@ -131,7 +166,7 @@ def update_case(request,pk):
                       'form': form,
                       'companyForm': companyForm,
                       'individualForm': individualForm,
-                      'victimForm': victimForm,
+                      # 'victimForm': victimForm,
                       'groupForm': groupForm,
                       'entrepreneurForm': entrepreneurForm,
                       'photoForm': photoForm,
@@ -161,6 +196,6 @@ def download(request, case_id):
 
 def load_regions(request):
     country_id = request.GET.get('country_id')
-    regions = Region.objects.filter(country=country_id).all()
+    regions = Region.objects.filter(country=country_id)
     return render(request,'migrant/region_dropdown.html',{'regions':regions})
 

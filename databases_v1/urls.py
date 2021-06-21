@@ -18,7 +18,8 @@ from django.urls import path, include, re_path
 from django.views.static import serve
 
 from databases_v1 import settings
-
+import debug_toolbar
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('work/', include('work.urls')),
     path('migrant/', include('migrant.urls')),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
