@@ -169,9 +169,54 @@ def add_case(request):
 
 @login_required()
 def update_case(request,pk):
-
     case = Case.objects.get(id=pk)
+    if request.method=='POST':
+        form = CaseForm(request.POST, instance=case)
+        tradeUnionForm = TradeUnionInfoForm(request.POST)
+        individualForm = IndividualForm(request.POST)
+        individualFormSet = IndividualFormSet(data=request.POST)
+        personGroupForm = PersonGroupForm(request.POST)
+        companyInfoForm = CompanyInfoForm(request.POST)
+        casePhotoForm = CasePhotoForm(request.POST)
+        caseFileForm = CaseFileForm(request.POST)
 
+        if form.is_valid():
+            form.save(commit=False)
+
+
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.case = case
+
+            if tradeUnionForm.is_valid():
+                case.tradeUnionInfo = tradeUnionForm.save()
+            if personGroupForm.is_valid():
+                case.groupOfPersons = personGroupForm.save()
+            if companyInfoForm.is_valid():
+                case.company = companyInfoForm.save()
+
+
+            case.user = request.user
+            case.active = True
+            case.save()
+
+            if individualFormSet.is_valid():
+                individualFormSet.save()
+
+            form.save_m2m()
+
+
+            # if casePhotoForm.is_valid():
+            for f in request.FILES.getlist('photo'):
+                photo = CasePhoto(photo=f, card=case)
+                photo.save()
+             # if caseFileForm.is_valid():
+            for f in request.FILES.getlist('file'):
+                file = CaseFile(file=f, card=case)
+                file.save()
+
+            return redirect('works_list')
     form = CaseForm(instance=case)
 
 

@@ -55,7 +55,7 @@ def add_case(request):
         personGroupInfoForm = PersonGroupInfoForm(request.POST)
         # individualForm = IndividualForm(request.POST)
 
-        individualFormSet = IndividualFormSet(data = request.POST)
+        individualFormSet = IndividualFormSet(data=request.POST)
 
 
         employerForm = EmployerForm(request.POST)
@@ -202,27 +202,88 @@ def update_case(request,pk):
                               'additional_information',
 
                               ]
+    if request.method == "POST":
+        form = CardForm(request.POST, instance=case)
+        tradeUnionForm = TradeunionForm(request.POST)
+        personGroupInfoForm = PersonGroupInfoForm(request.POST)
+        # individualForm = IndividualForm(request.POST)
 
-    form = CardForm(instance=case)
+        individualFormSet = IndividualFormSet(data = request.POST)
 
-    tradeUnionForm = TradeunionForm
-    if case.tradeunion_data is not None:
-        tradeUnionForm = TradeunionForm(instance=TradeunionData.objects.get(pk = case.tradeunion_data_id))
 
-    personGroupInfoForm = PersonGroupInfoForm
-    if case.personGroupInfo is not None:
-        personGroupInfoForm = PersonGroupInfoForm(instance=PersonGroupInfo.objects.get(pk=case.personGroupInfo_id))
+        employerForm = EmployerForm(request.POST)
+        photoForm = CardPhotoForm(request.POST)
+        fileForm = CardFileForm(request.POST)
 
-    individualForm = IndividualForm
-    # if Individual.objects.exists(card=case.pk):
-    #     individualForm = IndividualForm(instance=Individual.objects.get(card=case.pk))
+        if form.is_valid():
+            form.save(commit=False)
 
-    employerForm = EmployerForm
-    if case.employear is not None:
-        employerForm = EmployerForm(instance=Employer.objects.get(pk=case.employear_id))
+            if tradeUnionForm.is_valid():
+                case.tradeunion_data = tradeUnionForm.save()
+            if personGroupInfoForm.is_valid():
+                case.personGroupInfo = personGroupInfoForm.save()
+            # if individualFormSet.is_valid():
+            #     for individualForm in individualFormSet.forms:
+            #         ind = individualForm.save(commit = False)
+            #         ind.card = case
+            #         ind.save()
 
-    photoForm = CardPhotoForm
-    fileForm = CardFileForm
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.card = case
+               # individualFormSet.save()
+            if employerForm.is_valid():
+                case.employear = employerForm.save()
+
+
+            case.added_by = request.user
+            case.active = True
+            case.save()
+
+            if individualFormSet.is_valid():
+                individualFormSet.save()
+
+            form.save_m2m()
+
+
+
+
+            # if individualForm.is_valid():
+            #     individualForm = individualForm.save(commit=False)
+            #     individualForm.card = form
+            #     individualForm.save()
+            if photoForm.is_valid():
+                for f in request.FILES.getlist('photo'):
+                    photo = CardPhoto(photo=f, card=form)
+                    photo.save()
+            if fileForm.is_valid():
+                for f in request.FILES.getlist('file'):
+                    file = CardFile(file=f, card=form)
+                    file.save()
+
+            return redirect('strikes_list')
+    else:
+        form = CardForm(instance=case)
+
+        tradeUnionForm = TradeunionForm
+        if case.tradeunion_data is not None:
+            tradeUnionForm = TradeunionForm(instance=TradeunionData.objects.get(pk = case.tradeunion_data_id))
+
+        personGroupInfoForm = PersonGroupInfoForm
+        if case.personGroupInfo is not None:
+            personGroupInfoForm = PersonGroupInfoForm(instance=PersonGroupInfo.objects.get(pk=case.personGroupInfo_id))
+
+        individualForm = IndividualForm
+        # if Individual.objects.exists(card=case.pk):
+        #     individualForm = IndividualForm(instance=Individual.objects.get(card=case.pk))
+
+        employerForm = EmployerForm
+        if case.employear is not None:
+            employerForm = EmployerForm(instance=Employer.objects.get(pk=case.employear_id))
+
+        photoForm = CardPhotoForm
+        fileForm = CardFileForm
 
     return render(request, 'strike/add_case.html', context={
         'form': form,
