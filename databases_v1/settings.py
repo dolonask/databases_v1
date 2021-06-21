@@ -24,7 +24,7 @@ LOGOUT_REDIRECT_URL = '/'
 SECRET_KEY = 'django-insecure-ob%ss046omcoy+aeh=chw2sh9$dsq4g*ho$winqx)a5v1c@(cn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','databasesv1.herokuapp.com']
 
@@ -167,5 +167,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     # ...
     '127.0.0.1',
+    # 'databasesv1.herokuapp.com',
     # ...
 ]
