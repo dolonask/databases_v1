@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from .forms import CaseForm, CompanyForm, IndividualForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm
+from .forms import CaseForm, CompanyForm, IndividualForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm, CaseCommentForm
 from .filters import MigrantFilter
 
 # Create your views here.
@@ -199,3 +199,29 @@ def load_regions(request):
     regions = Region.objects.filter(country=country_id)
     return render(request,'migrant/region_dropdown.html',{'regions':regions})
 
+
+def add_comment(request, pk):
+    case = Case.objects.get(id=pk)
+    if request.method == 'POST':
+        data = request.POST
+        data._mutable = True
+        data['case'] = case.id
+        form = CaseCommentForm(data)
+        if form.is_valid():
+            form.save()
+            return redirect('migrants_list')
+    else:
+        form = CaseCommentForm()
+    return render(request, 'migrant/add_comment.html', {'form': form, 'case': case})
+
+
+def show_comments(request, pk):
+    comments = CaseComment.objects.filter(case_id=pk, active=True)
+    return render(request, 'migrant/show_comments.html', {'comments': comments})
+
+
+def delete_comment(request, pk):
+    case_comment = CaseComment.objects.get(id=pk)
+    case_comment.active = False
+    case_comment.save()
+    return redirect('migrant_case_show_comments', case_comment.case_id)

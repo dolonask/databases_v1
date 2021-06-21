@@ -62,6 +62,7 @@
                         <th>Дата создания</th>
                         <th>Дата последних изменений</th>
                         <th>Редактировать</th>
+                        <th>Коментарий</th>
                     </tr>
 
                     {% for card in cards %}
@@ -74,11 +75,13 @@
                             <td>{{card.date_create | date:"d.m.Y H:i"}}</td>
                             <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
                             <td>
-
                                 <a class="btn btn-sm btn-info" href="{% url 'strike_case_update' card.id %}">Edit</a>
                                 <a class="btn btn-sm btn-danger" href="{% url 'strike_case_delete' card.id%}">Delete</a>
                             </td>
-
+                            <td>
+                                <a class="btn btn-sm btn-info" href="{% url 'strike_card_add_comment' card.id %}">Добавить коментарий</a>
+                                <a class="btn btn-sm btn-info" href="{% url 'strike_card_show_comments' card.id %}">Посмотреть коментарии</a>
+                            </td>
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
                         </tr>
                     {% endfor %}

@@ -3,7 +3,7 @@ from datetime import datetime
 from django import forms
 from django.forms import modelformset_factory
 
-from .models import Case, IndividualInfo, GroupOfPersons, TradeUnionInfo, Company, CaseFile, CasePhoto, Region
+from .models import Case, IndividualInfo, GroupOfPersons, TradeUnionInfo, Company, CaseFile, CasePhoto, Region, CaseComment
 
 
 class CaseFileForm(forms.ModelForm):
@@ -246,4 +246,12 @@ class PersonGroupForm(forms.ModelForm):
             'membership': forms.Select(
                 attrs={'class': 'form-control', 'onchange': "onGroupMembershipChanged(this.value);"}),
             'membership_another': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+class CaseCommentForm(forms.ModelForm):
+    class Meta:
+        model = CaseComment
+        fields = ['comment', 'case']
+        widgets = {
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
         }

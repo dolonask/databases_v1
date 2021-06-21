@@ -6,12 +6,8 @@ from .forms import *
 from .models import *
 
 
-
-
-
 @login_required()
 def add_case(request):
-
     general_tabs_fields = ['name',
                            'card_sources',
                            'source_url',
@@ -298,3 +294,29 @@ def update_case(request,pk):
         'description_tab_fields': description_tab_fields,
     })
 
+
+def add_comment(request, pk):
+    card = Card.objects.get(id=pk)
+    if request.method == 'POST':
+        data = request.POST
+        data._mutable = True
+        data['card'] = card.id
+        form = CardCommentForm(data)
+        if form.is_valid():
+            form.save()
+            return redirect('strikes_list')
+    else:
+        form = CardCommentForm()
+    return render(request, 'strike/add_comment.html', {'form': form, 'card': card})
+
+
+def show_comments(request, pk):
+    comments = CardComment.objects.filter(card_id=pk, active=True)
+    return render(request, 'strike/show_comments.html', {'comments': comments})
+
+
+def delete_comment(request, pk):
+    card_comment = CardComment.objects.get(id=pk)
+    card_comment.active = False
+    card_comment.save()
+    return redirect('strike_card_show_comments', card_comment.card_id)

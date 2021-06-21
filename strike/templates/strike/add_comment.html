@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block toggle %}
+    {{ block.super }}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'strikes_list' %}">Список забастовок</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h1>Добавление коментария к {{ card.card_name }}</h1>
+    <form method="post" action="{% url 'strike_card_add_comment' card.id %}">
+        {% csrf_token %}
+        {{ form.comment.label }}
+        {{ form.comment }}
+        <br>
+        <button class="btn btn-primary btn-block">Добавить коментарий</button>
+    </form>
+{% endblock content %}

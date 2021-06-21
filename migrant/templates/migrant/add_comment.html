@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block toggle %}
+    {{ block.super }}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'migrants_list' %}">Список мигрантов</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h1>Добавление коментария к {{ case.case_name }}</h1>
+    <form method="post" action="{% url 'migrant_case_add_comment' case.id %}">
+        {% csrf_token %}
+        {{ form.comment.label }}
+        {{ form.comment }}
+        <br>
+        <button class="btn btn-primary btn-block">Добавить коментарий</button>
+    </form>
+{% endblock content %}

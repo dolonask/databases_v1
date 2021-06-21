@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django import forms
 
-from .models import Case, IndividualInfo, PersonGroup, Company, Entrepreneur, CasePhoto, CaseFile
+from .models import Case, IndividualInfo, PersonGroup, Company, Entrepreneur, CasePhoto, CaseFile, CaseComment
 
 
 class PhotoForm(forms.ModelForm):
@@ -182,3 +182,11 @@ class EntrepreneurForm(forms.ModelForm):
             'entrepreneur_hireWayAnother': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+
+class CaseCommentForm(forms.ModelForm):
+    class Meta:
+        model = CaseComment
+        fields = ['comment', 'case']
+        widgets = {
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+        }

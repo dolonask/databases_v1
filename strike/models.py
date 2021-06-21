@@ -425,3 +425,14 @@ class Card(models.Model):
     class Meta:
         verbose_name = "Карточка"
         verbose_name_plural = "Карточки"
+
+
+class CardComment(models.Model):
+    comment = models.TextField("Коментрий")
+    active = models.BooleanField("Активен", default=True)
+    date_create = models.DateTimeField("Дата создания", auto_now_add=True)
+    card = models.ForeignKey(Card, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        verbose_name = "Коментарий к забастовке"
+        verbose_name_plural = "Коментарии к забастовкам"

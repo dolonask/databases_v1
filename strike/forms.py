@@ -3,7 +3,7 @@ from datetime import datetime
 from django import forms
 from django.forms import modelformset_factory
 
-from .models import Card, TradeunionData, Individual, Employer, CardFile, CardPhoto, Region, PersonGroupInfo
+from .models import Card, TradeunionData, Individual, Employer, CardFile, CardPhoto, Region, PersonGroupInfo, CardComment
 
 
 class CardFileForm(forms.ModelForm):
@@ -177,3 +177,12 @@ class CardForm(forms.ModelForm):
             #         pass  # invalid input from the client; ignore and fallback to empty City queryset
             # elif self.instance.pk:
             #     self.fields['region'].queryset = self.instance.country.region_set.order_by('name')
+
+
+class CardCommentForm(forms.ModelForm):
+    class Meta:
+        model = CardComment
+        fields = ['comment', 'card']
+        widgets = {
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+        }

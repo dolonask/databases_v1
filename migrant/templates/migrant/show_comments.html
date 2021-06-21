@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block toggle %}
+    {{ block.super }}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'migrants_list' %}">Список мигрантов</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h1>Получение коментариев к {{ case.case_name }}</h1>
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>№</th>
+                        <th>Коментарий</th>
+                        <th>Дата создания</th>
+                        <th>Редактировать</th>
+                    </tr>
+
+                    {% for comment in comments %}
+
+                        <tr>
+                            <td>{{ comment.id }}</td>
+                            <td>{{ comment.comment }}</td>
+                            <td>{{ comment.date_create | date:"d.m.Y H:i" }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-danger"
+                                   href="{% url 'migrant_case_delete_comment' comment.id %}">Delete</a>
+                            </td>
+                            {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

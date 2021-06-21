@@ -76,6 +76,7 @@
                         <th>Дата создания</th>
                         <th>Дата последних изменений</th>
                         <th>Редактировать</th>
+                        <th>Коментарий</th>
                     </tr>
 
                     {% for card in cards %}
@@ -91,6 +92,10 @@
                                 <a class="btn btn-sm btn-info" href="{% url 'migrant_case_update' card.id %}">Update</a>
                                 <a class="btn btn-sm btn-danger"
                                    href="{% url 'migrant_case_delete' card.id %}">Delete</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-info" href="{% url 'migrant_case_add_comment' card.id %}">Добавить коментарий</a>
+                                <a class="btn btn-sm btn-info" href="{% url 'migrant_case_show_comments' card.id %}">Посмотреть коментарии</a>
                             </td>
 
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}

@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 from .filters import WorkFilter
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
-    CaseFileForm, IndividualFormSet
+    CaseFileForm, IndividualFormSet, CaseCommentForm
 from .models import *
 
 # Create your views here.
@@ -285,3 +285,30 @@ def load_regions(request):
     country_id = request.GET.get('country_id')
     regions = Region.objects.filter(country=country_id).all()
     return render(request,'work/region_dropdown.html',{'regions':regions})
+
+
+def add_comment(request, pk):
+    case = Case.objects.get(id=pk)
+    if request.method == 'POST':
+        data = request.POST
+        data._mutable = True
+        data['case'] = case.id
+        form = CaseCommentForm(data)
+        if form.is_valid():
+            form.save()
+            return redirect('works_list')
+    else:
+        form = CaseCommentForm()
+    return render(request, 'work/add_comment.html', {'form': form, 'case': case})
+
+
+def show_comments(request, pk):
+    comments = CaseComment.objects.filter(case_id=pk, active=True)
+    return render(request, 'work/show_comments.html', {'comments': comments})
+
+
+def delete_comment(request, pk):
+    case_comment = CaseComment.objects.get(id=pk)
+    case_comment.active = False
+    case_comment.save()
+    return redirect('work_case_show_comments', case_comment.case_id)

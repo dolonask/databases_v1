@@ -550,10 +550,6 @@ class TradeUnionCount(models.Model):
         verbose_name_plural = "Численность профсоюза после произошедшего"
 
 
-
-
-
-
 # Create your models here.
 class Case(models.Model):
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
@@ -662,3 +658,14 @@ class CaseFile(models.Model):
     class Meta:
         verbose_name = "Кейсы, связанные с забастовкой"
         verbose_name_plural = "Кейсы, связанные с забастовкой"
+
+
+class CaseComment(models.Model):
+    comment = models.TextField("Коментрий")
+    active = models.BooleanField("Активен", default=True)
+    date_create = models.DateTimeField("Дата создания", auto_now_add=True)
+    case = models.ForeignKey(Case, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        verbose_name = "Коментарий к мигранту"
+        verbose_name_plural = "Коментарии к мигрантам"
