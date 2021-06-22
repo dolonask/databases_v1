@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% load static %}
 {% block content %}
     <br>
 
@@ -75,12 +75,14 @@
                             <td>{{card.date_create | date:"d.m.Y H:i"}}</td>
                             <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
                             <td>
-                                <a class="btn btn-sm btn-info" href="{% url 'strike_case_update' card.id %}">Edit</a>
-                                <a class="btn btn-sm btn-danger" href="{% url 'strike_case_delete' card.id%}">Delete</a>
+                                <a href="{% url 'strike_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить"></a>
+                                <a href="{% url 'strike_case_delete' card.id%}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
+{#                                <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>#}
+{#                                <a href="{% url 'strike_case_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>#}
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-info" href="{% url 'strike_card_add_comment' card.id %}">Добавить коментарий</a>
-                                <a class="btn btn-sm btn-info" href="{% url 'strike_card_show_comments' card.id %}">Посмотреть коментарии</a>
+                                <a href="{% url 'strike_card_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>
+                                <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
                             </td>
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
                         </tr>

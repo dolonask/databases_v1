@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block toggle %}
     {{ block.super }}
     <ul class="nav navbar-nav navbar-right">
@@ -27,8 +27,7 @@
                             <td>{{ comment.comment }}</td>
                             <td>{{ comment.date_create | date:"d.m.Y H:i" }}</td>
                             <td>
-                                <a class="btn btn-sm btn-danger"
-                                   href="{% url 'migrant_case_delete_comment' comment.id %}">Delete</a>
+                                <a href="{% url 'migrant_case_delete_comment' comment.id %}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
                             </td>
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
                         </tr>

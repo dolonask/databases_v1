@@ -1,0 +1,363 @@
+{% load migrant_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ case.case_name }}</title>
+    <style>
+        @font-face {
+            font-family: MyRightToLeftFont;
+            src: url('../static/font/DejaVuSansMono.ttf')
+        }
+
+        body {
+            font-family: MyRightToLeftFont
+        }
+        tr {
+            text-align: center;
+            height: 50px;
+        }
+        td {
+            font-family: MyRightToLeftFont;
+            text-align: center;
+        }
+        .counter {
+            width: 30px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table style="border: 1px solid black;" class="table table-sm">
+                <tr style="height: 30px;">
+                    <th class="counter">1.1</th>
+                <th>{{ case|var_verbose_name:'id' }}</th>
+                    <td>{{ case.id }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.2</th>
+                <th>{{ case|var_verbose_name:'case_name' }}</th>
+                    <td>{{ case.case_name }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.3</th>
+                <th>{{ case|var_verbose_name:'date_create' }}</th>
+                    <td>{{ case.date_create|date:"d.m.Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.4</th>
+                <th>{{ case|var_verbose_name:'date_update' }}</th>
+                    <td>{{ case.date_update|date:"d.m.Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.5</th>
+                <th>{{ case|var_verbose_name:'country' }}</th>
+                    <td>{{ case.country }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.6</th>
+                <th>{{ case|var_verbose_name:'region' }}</th>
+                    <td>{{ case.region }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.7</th>
+                <th>{{ case|var_verbose_name:'victim_status' }}</th>
+                    <td>{{ case.victim_status }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.8</th>
+                <th>{{ case|var_verbose_name:'banOnEntry' }}</th>
+                    <td>{{ case.banOnEntry }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">1.9</th>
+                <th>{{ case|var_verbose_name:'banned_country' }}</th>
+                    <td>{{ case.banned_country }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.0</th>
+                <th>{{ case|var_verbose_name:'banOnEntryAnother' }}</th>
+                    <td>{{ case.banOnEntryAnother }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.1</th>
+                <th>{{ case|var_verbose_name:'source' }}</th>
+                    <td>{{ case.source }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.2</th>
+                <th>{{ case|var_verbose_name:'source_url' }}</th>
+                    <td>{{ case.source_url }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.3</th>
+                <th>{{ case|var_verbose_name:'source_content' }}</th>
+                    <td>{{ case.source_content|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.4</th>
+                <th>{{ case|var_verbose_name:'violated_right' }}</th>
+                    <td>{{ case.violated_right }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.5</th>
+                <th>{{ case|var_verbose_name:'violatedRightAnother' }}</th>
+                    <td>{{ case.violatedRightAnother }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.6</th>
+                <th>{{ case|var_verbose_name:'case_date' }}</th>
+                    <td>{{ case.case_date|date:"d.m.Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.7</th>
+                <th>{{ case|var_verbose_name:'start_date' }}</th>
+                    <td>{{ case.start_date|date:"d.m.Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.8</th>
+                <th>{{ case|var_verbose_name:'end_date' }}</th>
+                    <td>{{ case.end_date|date:"d.m.Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">2.9</th>
+                <th>{{ case|var_verbose_name:'victim' }}</th>
+                    <td>{{ case.victim }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.0</th>
+                <th>{{ case|var_verbose_name:'individualInfo' }}</th>
+                    <td>{{ case.individualInfo }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.1</th>
+                <th>{{ case|var_verbose_name:'personGroupInfo' }}</th>
+                    <td>{{ case.personGroupInfo }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.2</th>
+                <th>{{ case|var_verbose_name:'intruder' }}</th>
+                    <td>{{ case.intruder }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.3</th>
+                <th>{{ case|var_verbose_name:'government_agency_name' }}</th>
+                    <td>{{ case.government_agency_name }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.4</th>
+                <th>{{ case|var_verbose_name:'local_agency_name' }}</th>
+                    <td>{{ case.local_agency_name }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.5</th>
+                <th>{{ case|var_verbose_name:'police_agency_name' }}</th>
+                    <td>{{ case.police_agency_name }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.6</th>
+                <th>{{ case|var_verbose_name:'control_agency_name' }}</th>
+                    <td>{{ case.control_agency_name }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.7</th>
+                <th>{{ case|var_verbose_name:'company' }}</th>
+                    <td>{{ case.company }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.8</th>
+                <th>{{ case|var_verbose_name:'entrepreneur' }}</th>
+                    <td>{{ case.entrepreneur }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">3.9</th>
+                <th>{{ case|var_verbose_name:'case_additional' }}</th>
+                    <td>{{ case.case_additional }}</td>
+                </tr>
+                {% if case.story|length < 250 %}
+                    <tr style="height: 50px">
+                        {% elif case.story|length < 500 %}
+                    <tr style="height: 200px">
+                        {% elif case.story|length < 1000 %}
+                    <tr style="height: 350px">
+                        {% else %}
+                    <tr style="height: 500px">
+                {% endif %}
+                <th class="counter">4.0</th>
+                <th>{{ case|var_verbose_name:'story' }}</th>
+                <td>{{ case.story|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.1</th>
+                <th>{{ case|var_verbose_name:'actions' }}</th>
+                    <td>{{ case.actions }}</td>
+                </tr>
+                {% if case.final|length < 250 %}
+                    <tr style="height: 50px">
+                        {% elif case.final|length < 500 %}
+                    <tr style="height: 200px">
+                        {% elif case.final|length < 1000 %}
+                    <tr style="height: 350px">
+                        {% else %}
+                    <tr style="height: 500px">
+                {% endif %}
+                <th class="counter">4.2</th>
+                <th>{{ case|var_verbose_name:'final' }}</th>
+                <td>{{ case.final|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.3</th>
+                    <th>{{ case|var_verbose_name:'violation_nature' }}</th>
+                    <td>{{ case.violation_nature }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.4</th>
+                    <th>{{ case|var_verbose_name:'rights_state' }}</th>
+                    <td>{{ case.rights_state }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.5</th>
+                    <th>{{ case|var_verbose_name:'rights_state_another' }}</th>
+                    <td>{{ case.rights_state_another }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.6</th>
+                    <th>{{ case|var_verbose_name:'victim_situation' }}</th>
+                    <td>{{ case.victim_situation }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.7</th>
+                    <th>{{ case|var_verbose_name:'victim_situation_another' }}</th>
+                    <td>{{ case.victim_situation_another }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.8</th>
+                    <th>{{ case|var_verbose_name:'tradeUnionSituation' }}</th>
+                    <td>{{ case.tradeUnionSituation }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">4.9</th>
+                    <th>{{ case|var_verbose_name:'tradeUnionSituation_another' }}</th>
+                    <td>{{ case.tradeUnionSituation_another }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.0</th>
+                    <th>{{ case|var_verbose_name:'tradeUnionCount' }}</th>
+                    <td>{{ case.tradeUnionCount }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.1</th>
+                    <th>{{ case|var_verbose_name:'case_additional_info' }}</th>
+                    <td>{{ case.case_additional_info }}</td>
+                </tr>
+                {% if case.frequent_problems|length < 250 %}
+                    <tr style="height: 50px">
+                        {% elif case.frequent_problems|length < 500 %}
+                    <tr style="height: 200px">
+                        {% elif case.frequent_problems|length < 1000 %}
+                    <tr style="height: 350px">
+                        {% else %}
+                    <tr style="height: 500px">
+                {% endif %}
+                <th class="counter">5.2</th>
+                <th>{{ case|var_verbose_name:'frequent_problems' }}</th>
+                <td>{{ case.frequent_problems }}</td>
+                </tr>
+                {% if case.decision|length < 250 %}
+                    <tr style="height: 50px">
+                        {% elif case.decision|length < 500 %}
+                    <tr style="height: 200px">
+                        {% elif case.decision|length < 1000 %}
+                    <tr style="height: 350px">
+                        {% else %}
+                    <tr style="height: 500px">
+                {% endif %}
+                <th class="counter">5.3</th>
+                <th>{{ case|var_verbose_name:'decision' }}</th>
+                <td>{{ case.decision }}</td>
+                </tr>
+                {% if case.advice|length < 250 %}
+                    <tr style="height: 50px">
+                        {% elif case.advice|length < 500 %}
+                    <tr style="height: 200px">
+                        {% elif case.advice|length < 1000 %}
+                    <tr style="height: 350px">
+                        {% else %}
+                    <tr style="height: 500px">
+                {% endif %}
+                <th class="counter">5.4</th>
+                <th>{{ case|var_verbose_name:'advice' }}</th>
+                <td>{{ case.advice }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.5</th>
+                    <th>{{ case|var_verbose_name:'has_violation_in_covid' }}</th>
+                    <td>{{ case.has_violation_in_covid }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.6</th>
+                    <th>{{ case|var_verbose_name:'violationType' }}</th>
+                    <td>{{ case.violationType }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.7</th>
+                    <th>{{ case|var_verbose_name:'violationType_another' }}</th>
+                    <td>{{ case.violationType_another }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.8</th>
+                    <th>{{ case|var_verbose_name:'changesInSalary' }}</th>
+                    <td>{{ case.changesInSalary }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">5.9</th>
+                    <th>{{ case|var_verbose_name:'changesInSalary_another' }}</th>
+                    <td>{{ case.changesInSalary_another }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">6.0</th>
+                    <th>{{ case|var_verbose_name:'user' }}</th>
+                    <td>{{ case.user }}</td>
+                </tr>
+                <tr>
+                    <th class="counter">6.1</th>
+                    {#                    <th>{{ Комментарии для монитора}}</th>#}
+                    <th>{{ case|var_verbose_name:'comment' }}</th>
+                    <td>{{ case.comment }}</td>
+                </tr>
+
+
+                {#                <tr>#}
+                {#                {% for comment in comments %}#}
+                {#                    <th></th>#}
+                {#                    <th>Коментарий</th>#}
+                {#                    <td>{{ comment.comment }}</td>#}
+                {#                </tr>#}
+                {#                {% endfor %}#}
+
+                {#                <tr>#}
+                {#                    <th>№</th>#}
+                {#                    <th>Монитор</th>#}
+                {#                    <th>Название</th>#}
+                {#                    <th>Регион</th>#}
+                {#                    <th>Дата создания</th>#}
+                {#                    <th>Дата последних изменений</th>#}
+                {#                </tr>#}
+                {##}
+                {#                <tr>#}
+                {#                    <td>{{ case.id }}</td>#}
+                {#                    <td>{{ case.user }}</td>#}
+                {#                    <td>{{ case.case_name }}</td>#}
+                {#                    <td style="padding: 10px; width: 50%">{{ case.region }}</td>#}
+                {#                    <td>{{ case.date_create | date:"d.m.Y H:i" }}</td>#}
+                {#                    <td>{{ case.date_update | date:"d.m.Y H:i" }}</td>#}
+                {#                </tr>#}
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

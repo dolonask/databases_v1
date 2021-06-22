@@ -560,12 +560,12 @@ class Case(models.Model):
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
     victim_status = models.ForeignKey(VictimStatus, on_delete=models.DO_NOTHING, verbose_name="Статус пострадавшего/ей")
     banOnEntry = models.ForeignKey(BanOnEntry, on_delete=models.DO_NOTHING, verbose_name="Есть ли у вас запрет на въезд?", null=False)
-    banned_country = models.CharField("В какую страну?", max_length=50, null=True, blank=True )
+    banned_country = models.CharField("В какую страну?", max_length=50, null=True, blank=True)
     banOnEntryAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                          blank=True, )
     source = models.ManyToManyField(InfoSource, verbose_name="Источник информации о нарушении")
     source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True, )
-    source_content = models.TextField("Текст статьи/сообщения ", null=True, blank=True)
+    source_content = models.TextField("Текст статьи/сообщения", null=True, blank=True)
     violated_right = models.ManyToManyField(Right,verbose_name="Какое право нарушено?")
     violatedRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                          blank=True, )
@@ -573,7 +573,7 @@ class Case(models.Model):
     start_date = models.DateTimeField("Дата начала нарушения")
     end_date = models.DateTimeField("Дата конца нарушения", null=True, blank=True)
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение")
-    individualInfo= models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True)
+    individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True)
     personGroupInfo = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
     intruder = models.ManyToManyField(Intruder, verbose_name="Кем было совершено нарушение", null=False)
     government_agency_name = models.CharField("Название государственного органа", max_length=200, null=True,blank=True)
@@ -592,13 +592,13 @@ class Case(models.Model):
                                          verbose_name="Характер нарушения", null=True)
     rights_state = models.ForeignKey(RightsState, on_delete=models.DO_NOTHING, verbose_name="Ситуация с правами",
                                      null=True)
-    rights_state_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+    rights_state_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                               blank=True, )
-    victim_situation=models.ForeignKey(VictimSituation,on_delete=models.DO_NOTHING, verbose_name="Ситуация с потерпевшим(и)", null=True)
-    victim_situation_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+    victim_situation = models.ForeignKey(VictimSituation,on_delete=models.DO_NOTHING, verbose_name="Ситуация с потерпевшим(и)", null=True)
+    victim_situation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                               blank=True, )
-    tradeUnionSituation=models.ForeignKey(TradeUnionSituation,on_delete=models.DO_NOTHING, verbose_name="Профсоюз на месте работы после произошедшего ", blank=True, null=True)
-    tradeUnionSituation_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+    tradeUnionSituation = models.ForeignKey(TradeUnionSituation,on_delete=models.DO_NOTHING, verbose_name="Профсоюз на месте работы после произошедшего", blank=True, null=True)
+    tradeUnionSituation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                               blank=True)
     tradeUnionCount = models.ForeignKey(TradeUnionCount, on_delete=models.DO_NOTHING,
                                             verbose_name="Численность профсоюза после произошедшего", blank=True, null=True)
@@ -612,18 +612,19 @@ class Case(models.Model):
 
     has_violation_in_covid = models.CharField("Были ли нарушены Ваши трудовые права во время пандемии?",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    violationType=models.ForeignKey(ViolationType,on_delete=models.DO_NOTHING, verbose_name="С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?", null=True)
-    violationType_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+    violationType = models.ForeignKey(ViolationType,on_delete=models.DO_NOTHING, verbose_name="С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?", null=True)
+    violationType_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                               blank=True, )
 
-    changesInSalary=models.ForeignKey(ChangesInSalary,on_delete=models.DO_NOTHING, verbose_name="Как изменились Ваши доходы из-за COVID-19?", null=True)
-    changesInSalary_another=models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
+    changesInSalary = models.ForeignKey(ChangesInSalary,on_delete=models.DO_NOTHING, verbose_name="Как изменились Ваши доходы из-за COVID-19?", null=True)
+    changesInSalary_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                               blank=True, )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING,
                                  verbose_name="Монитор")
     active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора',max_length=500, blank= True, null= True)
+
 
 
 def files_location(instance, filename):
