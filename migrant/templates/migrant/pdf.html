@@ -75,17 +75,29 @@
                 <tr>
                     <th class="counter">1.9</th>
                 <th>{{ case|var_verbose_name:'banned_country' }}</th>
-                    <td>{{ case.banned_country }}</td>
+                    {% if case.banned_country|check_model_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.banned_country }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">2.0</th>
                 <th>{{ case|var_verbose_name:'banOnEntryAnother' }}</th>
-                    <td>{{ case.banOnEntryAnother }}</td>
+                    {% if case.banOnEntryAnother|check_model_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.banOnEntryAnother }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">2.1</th>
                 <th>{{ case|var_verbose_name:'source' }}</th>
-                    <td>{{ case.source }}</td>
+                     {% if case.source.InfoSource|check_model_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.source }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">2.2</th>

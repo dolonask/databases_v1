@@ -75,8 +75,7 @@
                         <th>Регион</th>
                         <th>Дата создания</th>
                         <th>Дата последних изменений</th>
-                        <th>Редактировать</th>
-                        <th>Коментарий</th>
+                        <th>...</th>
                     </tr>
 
                     {% for card in cards %}
@@ -93,11 +92,13 @@
                                 <a href="{% url 'migrant_case_delete' card.id %}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
                                 <a href="{% url 'migrant_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>
                                 <a href="{% url 'migrant_case_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>
-                            </td>
-                            <td>
-                                <a href="{% url 'migrant_case_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>
                                 <a href="{% url 'migrant_case_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
+
                             </td>
+                            {#                            <td>#}
+                            {#                                <a href="{% url 'migrant_case_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>#}
+                            {#                                <a href="{% url 'migrant_case_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>#}
+                            {#                            </td>#}
 
                         </tr>
                     {% endfor %}

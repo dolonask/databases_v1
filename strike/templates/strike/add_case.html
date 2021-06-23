@@ -442,15 +442,15 @@
                 has_error = false;
                 clear_errors();
 
-                validate_selected('id_duration');
-                validate_selected('id_meeting_requirements');
-                validate_text_field('id_story',7);
-                validate_text_field('id_reasons_for_strike',7);
-                validate_text_field('id_change_number_participants',7);
-                validate_text_field('id_initiators_and_participants',7);
-                validate_text_field('id_state_position',7);
-                validate_text_field('id_results_so_far',7);
-                validate_text_field('id_additional_information',7);
+                {#validate_selected('id_duration');#}
+                {#validate_selected('id_meeting_requirements');#}
+                {#validate_text_field('id_story',7);#}
+                {#validate_text_field('id_reasons_for_strike',7);#}
+                {#validate_text_field('id_change_number_participants',7);#}
+                {#validate_text_field('id_initiators_and_participants',7);#}
+                {#validate_text_field('id_state_position',7);#}
+                {#validate_text_field('id_results_so_far',7);#}
+                {#validate_text_field('id_additional_information',7);#}
 
                 if (has_error == false) {
                     document.querySelector('#btnNextFromCaseDesc').click();

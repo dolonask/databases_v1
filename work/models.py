@@ -104,7 +104,7 @@ class TradeUnionInfo(models.Model):
                                 help_text='электронная почта, адрес\телефон')
 
     def __str__(self):
-        return self.name
+        return self.tradeunion_name
 
     class Meta:
         verbose_name = "Профсоюзная организация"
@@ -339,7 +339,7 @@ class Company(models.Model):
     additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=500)
 
     def __str__(self):
-        return self.name
+        return self.company_name
 
     class Meta:
         verbose_name = "Работодатель (компания)"
@@ -631,7 +631,7 @@ def photos_location(instance, filename):
 
 
 class CasePhoto(models.Model):
-    photo = models.FileField("Фото/видео/документы", upload_to=photos_location)
+    photo = models.FileField("Фото/видео/документы", upload_to=photos_location, null=True)
     card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
@@ -643,7 +643,7 @@ class CasePhoto(models.Model):
 
 
 class CaseFile(models.Model):
-    file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location)
+    file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location, null=True)
     card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
@@ -826,14 +826,16 @@ class Case(models.Model):
     # control_agency_name = models.CharField("Название контролирующего органа", max_length=500, null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True, blank=True)
 
-    exact_data = models.CharField("Укажите точные имена, даты, места событий", max_length=200, blank=True, null=True)
+    exact_data = models.TextField("Укажите точные имена, даты, места событий", blank=True, null=True, max_length=1000)
     case_description = models.TextField("Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. "
                                         "Параллельно указывайте, чем подтверждаются эти факты "
                                         "(если есть приложения, укажите сразу номера и названия соответствующих приложений)",
         max_length=1800, blank=True, null=True)
-    tradeunion_actions = models.TextField("Опишите, какие действия предприняты профсоюзом/правозащитной организацией. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений)",
-        max_length=1800, blank=True, null=True)
-    case_result = models.TextField("Чем завершилась ситуация (если завершилась) или состояние в текущий момент", max_length=1800, blank=True, null=True)
+    tradeunion_actions = models.TextField("Опишите, какие действия предприняты профсоюзом/правозащитной организацией."
+                                          " Параллельно указывайте, чем подтверждаются эти факты (если есть приложения,"
+                                          " укажите сразу номера и названия соответствующих приложений)",
+        max_length=2000, blank=True, null=True)
+    case_result = models.TextField("Чем завершилась ситуация (если завершилась) или состояние в текущий момент", max_length=2000, blank=True, null=True)
 
     violation_nature = models.ForeignKey(NatureViolation, on_delete=models.DO_NOTHING,
                                          verbose_name="Характер нарушения", null=True, blank=True)

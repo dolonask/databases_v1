@@ -485,11 +485,11 @@
             function checkWorkFilesTab(){
                 has_error = false;
                 clear_errors();
+                {##}
+                {#validate_files_uploaded('id_photo');#}
+                {#validate_files_uploaded('id_file');#}
 
-                validate_files_uploaded('id_photo');
-                validate_files_uploaded('id_file');
-
-                if (has_error == false) {
+                if (has_error === false) {
                     document.querySelector('#btnWorkSaveForm').click();
                 }
             }

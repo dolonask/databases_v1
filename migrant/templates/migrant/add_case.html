@@ -782,16 +782,16 @@
                     <div class="form-group">
                         {{ form.case_additional_info.file.label_tag }}
                         {{ form.case_additional_info.file }}
-                        <div class="invalid_feedback">
-                            {{ form.case_additional_info.file.errors }}
-                        </div>
+{#                        <div class="invalid_feedback">#}
+{#                            {{ form.case_additional_info.file.errors }}#}
+{#                        </div>#}
                     </div>
                     <div class="form-group">
                         {{ form.case_additional_info.label_tag }}
                         {{ form.case_additional_info }}
-                        <div class="invalid_feedback">
-                            {{ form.case_additional_info.errors }}
-                        </div>
+{#                        <div class="invalid_feedback">#}
+{#                            {{ form.case_additional_info.errors }}#}
+{#                        </div>#}
                     </div>
                     <input type="button" name="previous" class="previous action-button-previous" value="Предыдущий"/>
                     <input type="button" onclick="validate('id_documents')" class="action-button" value="Следующий"/>
@@ -1251,7 +1251,7 @@
                     validate_text_field('id_company_experience', 0);
                     validate_selected('id_emp_count');
                     validate_text_field('id_country_from', 3);
-                    validate_text_field('id_additional', 7);
+                    {#validate_text_field('id_additional', 7);#}
                     validate_selected('id_is_tnk_member');
                     is_tnk = get_selected('id_is_tnk_member');
                     if (is_tnk == 'YES') {

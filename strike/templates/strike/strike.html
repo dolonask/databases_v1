@@ -12,7 +12,7 @@
             <div id = "msform" class="card card-body" regions-url="{% url 'strike_regions_list' %}">
 
                 <form method="get">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-sm-4">
                             {{ myFilter.form.name.label }}
                             {{ myFilter.form.name }}
@@ -40,7 +40,7 @@
                             {{ myFilter.form.end_date }}
                         </div>
                     </div>
-
+                    <br>
                     <button class="btn btn-primary" type="submit">Найти</button>
                 </form>
 
@@ -61,8 +61,7 @@
                         <th>Регион</th>
                         <th>Дата создания</th>
                         <th>Дата последних изменений</th>
-                        <th>Редактировать</th>
-                        <th>Коментарий</th>
+                        <th>...</th>
                     </tr>
 
                     {% for card in cards %}
@@ -77,13 +76,15 @@
                             <td>
                                 <a href="{% url 'strike_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить"></a>
                                 <a href="{% url 'strike_case_delete' card.id%}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
-{#                                <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>#}
-{#                                <a href="{% url 'strike_case_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>#}
-                            </td>
-                            <td>
-                                <a href="{% url 'strike_card_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>
                                 <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
+
+                                {#                                <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>#}
+                                {#                                <a href="{% url 'strike_case_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>#}
                             </td>
+                            {#                            <td>#}
+                            {#                                <a href="{% url 'strike_card_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>#}
+                            {#                                <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>#}
+                            {#                            </td>#}
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
                         </tr>
                     {% endfor %}
@@ -119,5 +120,5 @@
 
             });
         </script>
-        {% endblock %}
+    {% endblock %}
 {% endblock %}

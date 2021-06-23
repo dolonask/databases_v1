@@ -7,6 +7,8 @@ from .models import Case, IndividualInfo, GroupOfPersons, TradeUnionInfo, Compan
 
 
 class CaseFileForm(forms.ModelForm):
+    # file = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'form-control', 'multiple': 'True'}))
+
     class Meta:
         model = CaseFile
         fields = ['file']
