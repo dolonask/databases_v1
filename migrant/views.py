@@ -87,10 +87,8 @@ def append_case(request):
                   })
 @login_required()
 def delete_case(request, pk):
-    case = Case.objects.get(id=pk)
-    case.active = False
-    case.save()
-    cases = Case.objects.filter(user=request.user, active = True)
+    case = Case.objects.get(id=pk).delete()
+    cases = Case.objects.filter(user=request.user, active=True)
 
     filter = MigrantFilter(request.GET,queryset=cases)
     cards = filter.qs
@@ -181,7 +179,7 @@ def update_case(request,pk):
 
 def cases(request):
 
-    cases = Case.objects.filter(user=request.user, active = True)
+    cases = Case.objects.filter(user=request.user, active=True)
 
     filter = MigrantFilter(request.GET,queryset=cases)
     cards = filter.qs
@@ -227,8 +225,7 @@ def show_comments(request, pk):
 
 
 def delete_comment(request, pk):
-    case_comment = CaseComment.objects.get(id=pk)
-    case_comment.active = False
+    case_comment = CaseComment.objects.get(id=pk).delete()
     case_comment.save()
     return redirect('migrant_case_show_comments', case_comment.case_id)
 
@@ -237,7 +234,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
     comments = CaseComment.objects.filter(case_id=pk)
-    template_path = 'migrant/pdf.html'
+    template_path = 'migrant/migrant_pdf.html'
     context = {'case': case, 'comments': comments}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
@@ -257,7 +254,7 @@ def case_render_pdf_view(request, *args, **kwargs):
 def case_download_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
-    template_path = 'migrant/pdf.html'
+    template_path = 'migrant/migrant_pdf.html'
     context = {'case': case}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
@@ -276,4 +273,5 @@ def case_download_pdf_view(request, *args, **kwargs):
 
 def test(request, pk):
     case = Case.objects.get(pk=pk)
-    return render(request, 'migrant/pdf.html', {'case': case})
+    photos = CasePhoto.objects.filter(card_id=pk)
+    return render(request, 'migrant/migrant_pdf.html', {'case': case, 'photos': photos})

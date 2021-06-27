@@ -316,7 +316,6 @@ def show_comments(request, pk):
 
 
 def delete_comment(request, pk):
-    card_comment = CardComment.objects.get(id=pk)
-    card_comment.active = False
+    card_comment = CardComment.objects.get(id=pk).delete()
     card_comment.save()
     return redirect('strike_card_show_comments', card_comment.card_id)

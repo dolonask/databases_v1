@@ -596,16 +596,16 @@ class Case(models.Model):
     start_date = models.DateTimeField("Дата начала нарушения")
     end_date = models.DateTimeField("Дата конца нарушения", null=True, blank=True)
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение")
-    individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True)
+    individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True, blank=True)
     personGroupInfo = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
     intruder = models.ManyToManyField(Intruder, verbose_name="Кем было совершено нарушение", null=False)
     government_agency_name = models.CharField("Название государственного органа", max_length=200, null=True, blank=True)
     local_agency_name = models.CharField("Название органа местного самоуправления", max_length=500, null=True, blank=True)
     police_agency_name = models.CharField("Название правоохранительного органа", max_length=500, null=True, blank=True)
     control_agency_name = models.CharField("Название контролирующего органа", max_length=500, null=True, blank=True)
-    company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True)
+    company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="Работодатель(компания)", null=True, blank=True)
     entrepreneur = models.ForeignKey(Entrepreneur, on_delete=models.DO_NOTHING,
-                                     verbose_name="Работодатель(Частное лицо)", null=True)
+                                     verbose_name="Работодатель(Частное лицо)", null=True, blank=True)
     case_additional = models.TextField('Укажите точные имена, даты, места событий', max_length=200)
     story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, '
                              'чем подтверждаются эти факты (если есть приложения, укажите сразу '
@@ -660,10 +660,10 @@ def photos_location(instance, filename):
 
 class CasePhoto(models.Model):
     card = models.ForeignKey(Case, on_delete=models.DO_NOTHING, null=True)
-    photo = models.FileField("Фото/видео/документы",upload_to=photos_location)
+    photo = models.FileField("Фото/видео/документы", upload_to='photos/%Y/%m/%d/')
 
     def __str__(self):
-        return self.photo
+        return str(self.photo)
 
     class Meta:
         verbose_name = "Фото/видео/документы "
