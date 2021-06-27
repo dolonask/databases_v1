@@ -115,14 +115,14 @@
                             <td>{{ card.date_update | date:"d.m.Y H:i" }}</td>
                             <td>
                                 <a href="{% url 'migrant_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить"></a>
-                                <a id="myBtn"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
-                                <div id="myModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close">&times;</span>
-                                        <p>Вы уверенны что хотите удалить?</p>
-                                        <a href="{% url 'migrant_case_delete' card.id %}"><button>Да</button></a>
-                                    </div>
-                                </div>
+                                <a href="{% url 'migrant_case_delete' card.id %}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
+{#                                <div id="myModal" class="modal">#}
+{#                                    <div class="modal-content">#}
+{#                                        <span class="close">&times;</span>#}
+{#                                        <p>Вы уверенны что хотите удалить?</p>#}
+{#                                        <a href="{% url 'migrant_case_delete' card.id %}"><button class="btn btn-primary btn-block">Да</button></a>#}
+{#                                    </div>#}
+{#                                </div>#}
                                 <a href="{% url 'migrant_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>
                                 <a href="{% url 'migrant_case_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>
                                 <a href="{% url 'migrant_case_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
