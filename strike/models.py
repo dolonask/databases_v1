@@ -146,7 +146,7 @@ class PersonGroupInfo(models.Model):
         verbose_name_plural = "Группы лиц"
 
     def __str__(self):
-        return self.groupCharacter
+        return str(self.groupCharacter)
 
 
 class TradeunionData(models.Model):

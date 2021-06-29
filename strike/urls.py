@@ -10,4 +10,6 @@ urlpatterns = [
     path('show-comments/<int:pk>', views.show_comments, name="strike_card_show_comments"),
     path('delete-comments/<int:pk>', views.delete_comment, name="strike_card_delete_comment"),
     path('dict/regions', views.load_regions, name='strike_regions_list'),
+    path('download-pdf/<int:pk>', views.case_download_pdf_view, name="strike_case_download_pdf"),
+    path('get-pdf/<int:pk>', views.case_render_pdf_view, name="strike_case_get_pdf"),
 ]

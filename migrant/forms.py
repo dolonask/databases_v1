@@ -28,7 +28,7 @@ class CaseForm(forms.ModelForm):
     class Meta:
         model = Case
         fields = '__all__'
-        exclude =['active', 'user','personGroupInfo','individualInfo', 'company', 'entrepreneur', 'comment']
+        exclude =['active', 'user', 'personGroupInfo', 'individualInfo', 'company', 'entrepreneur', 'comment']
 
         widgets = {
             'case_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -68,8 +68,8 @@ class CaseForm(forms.ModelForm):
             'victim_situation': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictim_SituationChanged(this.value);"}),
             'victim_situation_another': forms.TextInput(attrs={'class': 'form-control'}),
             'tradeUnionSituation': forms.Select(attrs={'class': 'form-control', 'onchange': "onTradeUnionSituationChanged(this.value);"}),
-            'tradeUnionSituation_another': forms.TextInput(attrs={'class': 'form-control'}),
-            'tradeUnionCount': forms.Select(attrs={'class': 'form-control'}),
+            'tradeUnionSituation_another': forms.TextInput(attrs={'class': 'form-control', 'style': 'display:block'}),
+            'tradeUnionCount': forms.Select(attrs={'class': 'form-control', 'style': 'display:block'}),
             'case_additional_info': forms.Textarea(attrs={'class': 'form-control'}),
             'frequent_problems': forms.Textarea(attrs={'class': 'form-control'}),
             'decision': forms.Textarea(attrs={'class': 'form-control'}),

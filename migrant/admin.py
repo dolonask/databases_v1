@@ -14,7 +14,14 @@ class CaseAdmin(admin.ModelAdmin):
     search_fields = ('case_name',)
     list_display = ('id', 'case_name', 'date_create', 'date_update')
     list_display_links = ('id', 'case_name')
-    list_filter = ('date_create', 'date_update', 'company', 'country')
+    list_filter = ('date_create', 'date_update', 'company', 'country', 'region', 'victim_status', 'banOnEntry',
+                   'banned_country', 'banOnEntryAnother', 'source', 'source_url', 'source_content', 'violated_right',
+                   'violatedRightAnother', 'case_date', 'start_date', 'end_date', 'victim', 'individualInfo', 'personGroupInfo',
+                   'intruder', 'government_agency_name', 'local_agency_name', 'police_agency_name', 'control_agency_name',
+                   'company', 'entrepreneur', 'case_additional', 'story', 'actions', 'final', 'violation_nature', 'rights_state',
+                   'rights_state_another', 'victim_situation', 'victim_situation_another', 'tradeUnionSituation', 'tradeUnionSituation_another',
+                   'tradeUnionCount', 'case_additional_info', 'frequent_problems', 'decision', 'advice', 'has_violation_in_covid',
+                   'violationType', 'violationType_another', 'changesInSalary', 'changesInSalary_another', 'user')
     readonly_fields = ('get_photo', )
     inlines = [CasePhotoInline]
     # show_full_result_count = True

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Employee(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    country = models.ForeignKey("Country",on_delete=models.DO_NOTHING, verbose_name="Страна пользователя")
+    country = models.ForeignKey("Country", on_delete=models.DO_NOTHING, verbose_name="Страна пользователя")
 
     def __str__(self):
         return self.user.first_name
@@ -686,7 +686,7 @@ class CaseComment(models.Model):
     comment = models.TextField("Комментарий")
     active = models.BooleanField("Активен", default=True)
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    case = models.ForeignKey(Case, on_delete=models.DO_NOTHING)
+    case = models.ForeignKey(Case, on_delete=models.DO_NOTHING, null=True)
 
     class Meta:
         verbose_name = "Комментарий к мигранту"

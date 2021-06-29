@@ -88,14 +88,7 @@ def append_case(request):
 @login_required()
 def delete_case(request, pk):
     case = Case.objects.get(id=pk).delete()
-    cases = Case.objects.filter(user=request.user, active=True)
-
-    filter = MigrantFilter(request.GET,queryset=cases)
-    cards = filter.qs
-
-    context = {'cards':cards, 'myFilter':filter}
-
-    return render(request, 'migrant/cases.html', context)
+    return redirect('migrants_list')
 
 @login_required()
 def update_case(request,pk):
@@ -179,9 +172,9 @@ def update_case(request,pk):
 
 def cases(request):
 
-    cases = Case.objects.filter(user=request.user, active=True)
+    cases = Case.objects.filter(user=request.user)
 
-    filter = MigrantFilter(request.GET,queryset=cases)
+    filter = MigrantFilter(request.GET, queryset=cases)
     cards = filter.qs
 
     context = {'cards':cards, 'myFilter':filter}
@@ -250,6 +243,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
+
 
 def case_download_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')

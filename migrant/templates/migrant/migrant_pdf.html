@@ -35,42 +35,74 @@
                 <tr style="height: 30px;">
                     <th class="counter">1.1</th>
                     <th>{{ case|var_verbose_name:'id' }}</th>
-                    <td>{{ case.id }}</td>
+                    {% if case.id|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.id }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.2</th>
                     <th>{{ case|var_verbose_name:'case_name' }}</th>
-                    <td>{{ case.case_name }}</td>
+                    {% if case.case_name|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.case_name }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.3</th>
                     <th>{{ case|var_verbose_name:'date_create' }}</th>
-                    <td>{{ case.date_create|date:"d.m.Y H:i" }}</td>
+                    {% if case.date_create|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.date_create|date:"d.m.Y H:i" }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.4</th>
                     <th>{{ case|var_verbose_name:'date_update' }}</th>
-                    <td>{{ case.date_update|date:"d.m.Y H:i" }}</td>
+                    {% if case.date_update|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.date_update|date:"d.m.Y H:i" }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.5</th>
                     <th>{{ case|var_verbose_name:'country' }}</th>
-                    <td>{{ case.country }}</td>
+                    {% if case.country|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.country }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.6</th>
                     <th>{{ case|var_verbose_name:'region' }}</th>
-                    <td>{{ case.region }}</td>
+                    {% if case.region|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.region }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.7</th>
                     <th>{{ case|var_verbose_name:'victim_status' }}</th>
-                    <td>{{ case.victim_status }}</td>
+                    {% if case.victim_status|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.victim_status }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.8</th>
                     <th>{{ case|var_verbose_name:'banOnEntry' }}</th>
-                    <td>{{ case.banOnEntry }}</td>
+                    {% if case.banOnEntry|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.banOnEntry }}</td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <th class="counter">1.9</th>
