@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from .models import Case, Employee, CasePhoto, CaseFile
-
+from django.contrib.auth.models import Group, User
 
 class CasePhotoInline(admin.StackedInline):
     model = CasePhoto
@@ -55,18 +55,13 @@ class CaseAdmin(admin.ModelAdmin):
     get_photo.short_description = 'Файлы'
 
 
+# @admin.register(Employee)
+# class EmployeeAdmin(admin.ModelAdmin):
+#     search_fields = ('user', 'country')
+#     list_display = ('id', 'user', 'country')
+#     list_display_links = ('id', 'user')
+#     list_filter = ('country',)
 
-@admin.register(Employee)
-class EmployeeAdmin(admin.ModelAdmin):
-    search_fields = ('user', 'country')
-    list_display = ('id', 'user', 'country')
-    list_display_links = ('id', 'user')
-    list_filter = ('country',)
 
-
-    # list_display = ('id', 'card_id', 'card_case_name')
-    # fields = ('photo', 'card')
-    # list_filter = ('card',)
-    # search_fields = ('card.name', )
-# admin.site.register(Case)
-# admin.site.register(CasePhoto)
+admin.site.unregister(Group)
+admin.site.unregister(User)

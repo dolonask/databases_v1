@@ -1,12 +1,9 @@
 from django.contrib import admin
-from .models import Source, Country, Region, OwnerShipType, EmployeesCount, ParticipantsCount, DemandCategory
+from .models import Card
 
-
-admin.site.register(Source)
-admin.site.register(Country)
-admin.site.register(Region)
-admin.site.register(OwnerShipType)
-admin.site.register(EmployeesCount)
-admin.site.register(ParticipantsCount)
-admin.site.register(DemandCategory)
+# @admin.register(Card)
+# class CaseAdmin(admin.ModelAdmin):
+#     search_fields = ('name',)
+#     list_display = ('id', 'name', 'date_create', 'date_update')
+#     list_display_links = ('id', 'name')
 # Register your models here.
