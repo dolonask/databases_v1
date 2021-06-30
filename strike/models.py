@@ -218,8 +218,8 @@ def photos_location(instance, filename):
 
 
 class CardPhoto(models.Model):
-    photo = models.FileField("Фото/видео/документы", upload_to=photos_location)
-    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True)
+    photo = models.ImageField("Фото/видео/документы", upload_to="photos/%Y/%m/%d/")
+    card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.photo.path
@@ -231,7 +231,7 @@ class CardPhoto(models.Model):
 
 class CardFile(models.Model):
     file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location)
-    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True)
+    card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.file
@@ -423,7 +423,7 @@ class CardComment(models.Model):
     comment = models.TextField("Коментрий")
     active = models.BooleanField("Активен", default=True)
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    card = models.ForeignKey(Card, on_delete=models.DO_NOTHING)
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Коментарий к забастовке"

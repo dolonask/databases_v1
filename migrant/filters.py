@@ -11,9 +11,13 @@ def countries(request):
 
 class MigrantFilter(django_filters.FilterSet):
     # start_date = DateFilter(field_name="date_create", lookup_expr='gte')
-    start_date = DateFilter(field_name="date_create", lookup_expr='gte', label='с',
+    start_date = DateFilter(field_name="date_create", lookup_expr='gte', label='Создан с',
                             widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
-    end_date = DateFilter(field_name="date_create", lookup_expr='lte', label='по',
+    end_date = DateFilter(field_name="date_create", lookup_expr='lte', label='Создан по',
+                          widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
+    date_update = DateFilter(field_name="date_update", lookup_expr='gte', label='Обновлен с',
+                            widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
+    end_update = DateFilter(field_name="date_update", lookup_expr='lte', label='Обновлен по',
                           widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
     # case_name = CharFilter(field_name="case_name", lookup_expr='icontains', label='Название/описание карточки', widget=forms.TextInput(attrs={'class': 'form-control'})),
     case_name = CharFilter(field_name="case_name", lookup_expr='icontains',

@@ -659,11 +659,11 @@ def photos_location(instance, filename):
 
 
 class CasePhoto(models.Model):
-    card = models.ForeignKey(Case, on_delete=models.DO_NOTHING, null=True)
-    photo = models.FileField("Фото/видео/документы", upload_to='photos/%Y/%m/%d/')
+    card = models.ForeignKey(Case, on_delete=models.CASCADE, null=True)
+    photo = models.ImageField("Фото/видео/документы", upload_to='photos/%Y/%m/%d/')
 
     def __str__(self):
-        return str(self.photo)
+        return self.photo.url
 
     class Meta:
         verbose_name = "Фото/видео/документы "
@@ -671,11 +671,14 @@ class CasePhoto(models.Model):
 
 
 class CaseFile(models.Model):
-    card = models.ForeignKey(Case, on_delete=models.DO_NOTHING, null=True)
+    card = models.ForeignKey(Case, on_delete=models.CASCADE, null=True)
     file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location)
 
     def __str__(self):
-        return self.file
+        return self.file.url
+
+    def get_absolute_url(self):
+        return
 
     class Meta:
         verbose_name = "Кейсы, связанные с забастовкой"
@@ -686,7 +689,7 @@ class CaseComment(models.Model):
     comment = models.TextField("Комментарий")
     active = models.BooleanField("Активен", default=True)
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    case = models.ForeignKey(Case, on_delete=models.DO_NOTHING, null=True)
+    case = models.ForeignKey(Case, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = "Комментарий к мигранту"

@@ -248,7 +248,15 @@
                         <td>{{ case.local_agency_name }}</td>
                     {% endif %}
                 </tr>
-                <tr>
+                {% if case.police_agency_name|length < 250 %}
+                    <tr style="height: 50px">
+                        {% elif case.police_agency_name|length < 500 %}
+                    <tr style="height: 200px">
+                        {% elif case.police_agency_name|length < 1000 %}
+                    <tr style="height: 350px">
+                        {% else %}
+                    <tr style="height: 500px">
+                {% endif %}
                     <th class="counter">3.5</th>
                     <th>{{ case|var_verbose_name:'police_agency_name' }}</th>
                     {% if case.police_agency_name|check_arg_is_none %}
@@ -524,7 +532,6 @@
                 </tr>
                 <tr>
                     <th class="counter">6.1</th>
-                    {#                    <th>{{ Комментарии для монитора}}</th>#}
                     <th>{{ case|var_verbose_name:'comment' }}</th>
                     {% if case.comment|check_arg_is_none %}
                         <td></td>
@@ -532,39 +539,6 @@
                         <td>{{ case.comment }}</td>
                     {% endif %}
                 </tr>
-                {#                {% for item in photos %}#}
-                {#                    <tr>#}
-                {#                        <th class="counter">7</th>#}
-                {#                        <th>Изображение</th>#}
-                {#                        <td><img src="{{ item.photo.url }}" alt="image" width=250></td>#}
-                {#                    </tr>#}
-                {#                {% endfor %}#}
-
-                {#                <tr>#}
-                {#                {% for comment in comments %}#}
-                {#                    <th></th>#}
-                {#                    <th>Коментарий</th>#}
-                {#                    <td>{{ comment.comment }}</td>#}
-                {#                </tr>#}
-                {#                {% endfor %}#}
-
-                {#                <tr>#}
-                {#                    <th>№</th>#}
-                {#                    <th>Монитор</th>#}
-                {#                    <th>Название</th>#}
-                {#                    <th>Регион</th>#}
-                {#                    <th>Дата создания</th>#}
-                {#                    <th>Дата последних изменений</th>#}
-                {#                </tr>#}
-                {##}
-                {#                <tr>#}
-                {#                    <td>{{ case.id }}</td>#}
-                {#                    <td>{{ case.user }}</td>#}
-                {#                    <td>{{ case.case_name }}</td>#}
-                {#                    <td style="padding: 10px; width: 50%">{{ case.region }}</td>#}
-                {#                    <td>{{ case.date_create | date:"d.m.Y H:i" }}</td>#}
-                {#                    <td>{{ case.date_update | date:"d.m.Y H:i" }}</td>#}
-                {#                </tr>#}
             </table>
         </div>
     </div>

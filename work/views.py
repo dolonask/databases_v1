@@ -1,5 +1,9 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from io import BytesIO
 
 from .filters import WorkFilter
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
@@ -257,17 +261,8 @@ def update_case(request,pk):
 
 
 def delete_case(request, pk):
-    case = Case.objects.get(id=pk)
-    case.active = False
-    case.save()
-
-    cases = Case.objects.filter(user=request.user, active=True)
-
-    filter = WorkFilter(request.GET, queryset=cases)
-    cards = filter.qs
-    context = {'cards': cards, 'myFilter': filter}
-    return render(request, 'work/cases.html', context)
-
+    case = Case.objects.get(id=pk).delete()
+    return redirect('works_list')
 
 def cases(request):
     cases = Case.objects.filter(user=request.user, active = True)
@@ -308,7 +303,47 @@ def show_comments(request, pk):
 
 
 def delete_comment(request, pk):
-    case_comment = CaseComment.objects.get(id=pk)
-    case_comment.active = False
-    case_comment.save()
+    case_comment = CaseComment.objects.get(id=pk).delete()
     return redirect('work_case_show_comments', case_comment.case_id)
+
+
+def case_render_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    case = get_object_or_404(Case, pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
+    template_path = 'work/work_pdf.html'
+    context = {'case': case, 'comments': comments}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        BytesIO(html.encode('UTF-8')), dest=response, encoding='utf-8')
+        # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
+    # if error then show some funy view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
+def case_download_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    case = get_object_or_404(Case, pk=pk)
+    template_path = 'work/work_pdf.html'
+    context = {'case': case}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        BytesIO(html.encode('UTF-8')), dest=response, encoding='utf-8')
+    # if error then show some funy view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'debug_toolbar',
+    'debug_toolbar',
     'main.apps.MainConfig',
     'crispy_forms',
     'django_tables2',
@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'databases_v1.urls'
@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'databases_v1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db-crm-3.sqlite3',
+        'NAME': BASE_DIR / 'db-crm-4.sqlite3',
     }
 }
 
@@ -169,9 +169,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# INTERNAL_IPS = [
-    # ...
-    # '127.0.0.1',
-    # 'databasesv1.herokuapp.com',
-    # ...
-# ]
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'databasesv1.herokuapp.com',
+]

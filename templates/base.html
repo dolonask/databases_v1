@@ -251,26 +251,21 @@
         </div>
     </div>
 </nav>
-
 <div class="container">
     <div class="row">
         {% block content %}{% endblock %}
     </div>
 </div>
-
 {#    <script src="{% static 'js/index.js' %}"> </script>#}
 {#    <script src="{% static 'js/script.js' %}"> </script>#}
 
-{% block scripts %}
     {#        <script src="{% static 'strike/js/script.js' %}"> </script>#}
     {#        <script src="{% static 'strike/js/tabs.js' %}"> </script>#}
     {#        <script src="{% static 'js/tabs.js' %}"> </script>#}
     <!--- some scripts that apply to all pages -->
 
 
-
-
-    <script>
+<script>
         //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate
@@ -352,11 +347,7 @@
         $(".submit").click(function(){
             return false;
         })
-
     </script>
-{% endblock %}
-<br>
-<br>
-<br>
+{% block scripts %} {% endblock scripts %}
 </body>
 </html>

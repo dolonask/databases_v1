@@ -631,8 +631,8 @@ def photos_location(instance, filename):
 
 
 class CasePhoto(models.Model):
-    photo = models.FileField("Фото/видео/документы", upload_to=photos_location, null=True)
-    card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
+    photo = models.ImageField("Фото/видео/документы", upload_to="photos/%Y/%m/%d/", null=True)
+    card = models.ForeignKey("Case", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.photo
@@ -644,7 +644,7 @@ class CasePhoto(models.Model):
 
 class CaseFile(models.Model):
     file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location, null=True)
-    card = models.ForeignKey("Case", on_delete=models.DO_NOTHING, null=True)
+    card = models.ForeignKey("Case", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.file
@@ -805,7 +805,7 @@ class Case(models.Model):
                                                 null=True, blank=True)
 
     start_date = models.DateTimeField("Дата начала")
-    end_date = models.DateTimeField("Дата завершения", null = True, blank=True)
+    end_date = models.DateTimeField("Дата завершения", null=True, blank=True)
 
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING,
                                verbose_name="В отношении кого совершено нарушение:", null=True, blank=True)

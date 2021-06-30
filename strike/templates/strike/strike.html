@@ -1,11 +1,38 @@
 {% extends 'base.html' %}
 
 {% load static %}
+
+{% block style %}
+    body{
+    text-align: center;
+    }
+    .modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    }
+    .close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+{% endblock style %}
 {% block content %}
     <br>
-
-
-
     <br>
     <div class="row">
         <div class="col">
@@ -42,6 +69,7 @@
                     </div>
                     <br>
                     <button class="btn btn-primary" type="submit">Найти</button>
+                    <a href="{% url 'strikes_list' %}"><button class="btn btn-primary" type="button">Показать все</button></a>
                 </form>
 
             </div>
@@ -75,19 +103,19 @@
                             <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
                             <td>
                                 <a href="{% url 'strike_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить"></a>
-                                <a href="{% url 'strike_case_delete' card.id%}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
+                                <img data-id="{{ card.id }}" class="delete-btn" src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить">
+                                <div id="myModal{{ card.id }}" class="modal">
+                                    <div class="modal-content">
+                                        <span  data-id="{{ card.id }}" class="close">&times;</span>
+                                        <p>Вы уверенны что хотите удалить?</p>
+                                        <a href="{% url 'strike_case_delete' card.pk %}"><button class="btn btn-primary">Да</button></a>
+                                        <a href="{% url 'strikes_list' %}"><button class="btn btn-primary">Нет</button></a>
+                                    </div>
+                                </div>
                                 <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>
                                 <a href="{% url 'strike_case_get_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>
                                 <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
-
-                                {#                                <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>#}
-                                {#                                <a href="{% url 'strike_case_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>#}
                             </td>
-                            {#                            <td>#}
-                            {#                                <a href="{% url 'strike_card_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>#}
-                            {#                                <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>#}
-                            {#                            </td>#}
-                            {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
                         </tr>
                     {% endfor %}
 
@@ -95,32 +123,53 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $("#id_country").change(function () {
+            const url = $("#msform").attr("regions-url");  // get the url of the `load_cities` view
+            const countryId = $(this).val();  // get the selected country ID from the HTML input
 
-    {% block scripts %}
-        <script>
-            $("#id_country").change(function () {
-                const url = $("#msform").attr("regions-url");  // get the url of the `load_cities` view
-                const countryId = $(this).val();  // get the selected country ID from the HTML input
-
-                $.ajax({                       // initialize an AJAX request
-                    url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
-                    data: {
-                        'country_id': countryId       // add the country id to the GET parameters
-                    },
-                    success: function (data) {   // `data` is the return of the `load_cities` view function
-                        $("#id_region").html(data);  // replace the contents of the city input with the data that came from the server
-                        /*
-                        let html_data = '<option value="">---------</option>';
-                        data.forEach(function (city) {
-                            html_data += `<option value="${city.id}">${city.name}</option>`
-                        });
-                        console.log(html_data);
-                        $("#id_city").html(html_data);
-                        */
-                    }
-                });
-
+            $.ajax({                       // initialize an AJAX request
+                url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+                data: {
+                    'country_id': countryId       // add the country id to the GET parameters
+                },
+                success: function (data) {   // `data` is the return of the `load_cities` view function
+                    $("#id_region").html(data);  // replace the contents of the city input with the data that came from the server
+                    /*
+                    let html_data = '<option value="">---------</option>';
+                    data.forEach(function (city) {
+                        html_data += `<option value="${city.id}">${city.name}</option>`
+                    });
+                    console.log(html_data);
+                    $("#id_city").html(html_data);
+                    */
+                }
             });
-        </script>
-    {% endblock %}
+        });
+        let deleteBtns = document.querySelectorAll('.delete-btn');
+        let closeBtns = document.querySelectorAll('.close');
+
+        deleteBtns.forEach(item => {
+            item.onclick = showDeleteModal;
+        });
+        closeBtns.forEach(item => {
+            item.onclick = closeDeleteModal;
+        })
+
+        function showDeleteModal(e){
+            let id = e.target.dataset.id;
+            let modal = `#myModal${id}`;
+            modal = document.querySelector(modal)
+            modal.style.display = "block";
+        }
+
+        function closeDeleteModal(e){
+            let id = e.target.dataset.id;
+            let modal = `#myModal${id}`;
+            modal = document.querySelector(modal)
+            modal.style.display = "none";
+        }
+    </script>
 {% endblock %}

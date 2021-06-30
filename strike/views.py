@@ -149,15 +149,8 @@ def cases(request):
 
 @login_required()
 def delete_case(request, pk):
-    case = Card.objects.get(id=pk)
-    case.active = False
-    case.save()
-    cases = Card.objects.filter(added_by=request.user, active=True)
-
-    filter = CardFilter(request.GET,queryset=cases)
-    cards = filter.qs
-    context = {'cards':cards, 'myFilter':filter}
-    return render(request, 'strike/strike.html', context)
+    case = Card.objects.get(id=pk).delete()
+    return redirect('strikes_list')
 
 @login_required()
 def update_case(request,pk):
