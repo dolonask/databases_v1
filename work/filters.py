@@ -14,6 +14,10 @@ class WorkFilter(django_filters.FilterSet):
                             widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
     end_date = DateFilter(field_name="date_create", lookup_expr='lte', label='по',
                           widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
+    date_update = DateFilter(field_name="date_update", lookup_expr='gte', label='Обновлен с',
+                            widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
+    end_update = DateFilter(field_name="date_update", lookup_expr='lte', label='Обновлен по',
+                          widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
     # case_name = CharFilter(field_name="case_name", lookup_expr='icontains', label='Название/описание карточки', widget=forms.TextInput(attrs={'class': 'form-control'})),
     name = CharFilter(field_name="name", lookup_expr='icontains',
                            label='Название/описание карточки',

@@ -9,6 +9,10 @@ def countries(request):
     return Country.objects.filter(active=True).all()
 
 
+# def users(request):
+#     return User.objects.filter().all()
+
+
 class MigrantFilter(django_filters.FilterSet):
     # start_date = DateFilter(field_name="date_create", lookup_expr='gte')
     start_date = DateFilter(field_name="date_create", lookup_expr='gte', label='Создан с',
@@ -19,6 +23,7 @@ class MigrantFilter(django_filters.FilterSet):
                             widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
     end_update = DateFilter(field_name="date_update", lookup_expr='lte', label='Обновлен по',
                           widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}))
+    # user = ModelChoiceFilter(queryset='user', label='Монитор', widget=forms.Select(attrs={'class': 'form-control'}))
     # case_name = CharFilter(field_name="case_name", lookup_expr='icontains', label='Название/описание карточки', widget=forms.TextInput(attrs={'class': 'form-control'})),
     case_name = CharFilter(field_name="case_name", lookup_expr='icontains',
                            label='Название/описание карточки',

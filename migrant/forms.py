@@ -14,6 +14,7 @@ class PhotoForm(forms.ModelForm):
             'photo': forms.ClearableFileInput(attrs={'class': 'form-control', 'multiple':'True'}),
         }
 
+
 class FileForm(forms.ModelForm):
 
     class Meta:
@@ -82,10 +83,6 @@ class CaseForm(forms.ModelForm):
         }
 
 
-
-
-
-
 class IndividualForm(forms.ModelForm):
     class Meta:
         model = IndividualInfo
@@ -125,7 +122,6 @@ class IndividualForm(forms.ModelForm):
         }
 
 
-
 class GroupForm(forms.ModelForm):
     class Meta:
         model = PersonGroup
@@ -137,9 +133,6 @@ class GroupForm(forms.ModelForm):
             'workDescription': forms.TextInput(attrs={'class': 'form-control'}),
             'membership': forms.Select(attrs={'class': 'form-control', 'onchange': "onPersonGroupUnionMembershipChanged(this.value);"}),
         }
-
-
-
 
 
 class CompanyForm(forms.ModelForm):
