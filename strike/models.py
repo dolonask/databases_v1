@@ -186,11 +186,11 @@ class Individual(models.Model):
         ("MALE", "Мужской"),
         ("FEMALE", "Женский")
     ]
-    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    individual_name = models.CharField("ФИО", max_length=150)
-    gender = models.CharField("Пол", choices=genders, max_length=20)
-    age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст")
-    profession = models.CharField("Профессия", max_length=100,)
+    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
+    individual_name = models.CharField("ФИО", max_length=150, blank=True)
+    gender = models.CharField("Пол", choices=genders, max_length=20, blank=True)
+    age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст", blank=True)
+    profession = models.CharField("Профессия", max_length=100, blank=True)
     card = models.ForeignKey("Card", on_delete=models.DO_NOTHING)
 
     class Meta:
@@ -218,7 +218,7 @@ def photos_location(instance, filename):
 
 
 class CardPhoto(models.Model):
-    photo = models.ImageField("Фото/видео/документы", upload_to="photos/%Y/%m/%d/")
+    photo = models.ImageField("Фото/видео/документы", upload_to="photos/%Y/%m/%d/", blank=True)
     card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
@@ -230,7 +230,7 @@ class CardPhoto(models.Model):
 
 
 class CardFile(models.Model):
-    file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location)
+    file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location, blank=True)
     card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
@@ -397,16 +397,16 @@ class Card(models.Model):
         ('+-', 'удовлетворены частично')
     ]
     duration = models.ForeignKey(StrikeCharacter, on_delete=models.DO_NOTHING,
-                                 verbose_name='Характер забастовки/акции - сколько длилась', null=True)
+                                 verbose_name='Характер забастовки/акции - сколько длилась', null=True, blank=True)
     meeting_requirements = models.ForeignKey(MeetingRequirment, on_delete=models.DO_NOTHING,
-                                             verbose_name='Удовлетворение требований', null=True)
+                                             verbose_name='Удовлетворение требований', null=True, blank=True)
 
-    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ',max_length=1800)
-    reasons_for_strike = models.TextField('Опишите причины начала забастовки (например: условия труда на предприятии, продолжительность рабочего времени, безопасность и т.д. время, связанное с работой)',max_length=1800)
-    change_number_participants = models.TextField('Опишите как менялось количество участников забастовки во время проведения и что на это влияло?', max_length=1800)
-    initiators_and_participants = models.TextField('Ситуация с инициаторами и участниками забастовки/акции (продолжают ли они работать, применялись ли к ним административные меры со стороны предприятия). ', max_length=1800)
-    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", max_length=1800)
-    results_so_far = models.TextField('Опишите, с какими итогами закончилась забастовка, если еще не закончилась, то какие итоги на данный момент.', max_length=1800)
+    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ', max_length=1800, blank=True)
+    reasons_for_strike = models.TextField('Опишите причины начала забастовки (например: условия труда на предприятии, продолжительность рабочего времени, безопасность и т.д. время, связанное с работой)',max_length=1800, blank=True)
+    change_number_participants = models.TextField('Опишите как менялось количество участников забастовки во время проведения и что на это влияло?', max_length=1800, blank=True)
+    initiators_and_participants = models.TextField('Ситуация с инициаторами и участниками забастовки/акции (продолжают ли они работать, применялись ли к ним административные меры со стороны предприятия). ', max_length=1800, blank=True)
+    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", max_length=1800, blank=True)
+    results_so_far = models.TextField('Опишите, с какими итогами закончилась забастовка, если еще не закончилась, то какие итоги на данный момент.', max_length=1800, blank=True)
     additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True)
 
     case_text = models.TextField("Окно для внесения информации", max_length=1800, null=True, blank=True)
