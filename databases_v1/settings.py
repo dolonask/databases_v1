@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'debug_toolbar',
+    'rest_framework',
+    'djoser',
+    'rest_framework.authtoken',
+    'debug_toolbar',
     'main.apps.MainConfig',
     'crispy_forms',
     'django_tables2',
@@ -57,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'databases_v1.urls'
@@ -167,7 +170,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# INTERNAL_IPS = [
-#     '127.0.0.1',
-#     'databasesv1.herokuapp.com',
-# ]
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'databasesv1.herokuapp.com',
+]

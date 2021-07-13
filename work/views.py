@@ -2,8 +2,18 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import get_template
+from rest_framework.views import APIView
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from .serializers import *
+from django.core import serializers
 from xhtml2pdf import pisa
 from io import BytesIO
+from django.contrib.auth.models import User
+import json
+from django.db import connection
+
 
 from .filters import WorkFilter
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
@@ -347,3 +357,185 @@ def case_download_pdf_view(request, *args, **kwargs):
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
+
+
+class DataAPIView(APIView):
+    def get(self, request):
+        source = SourceSerializers(Source.objects.all(), many=True)
+        country = CountrySerializers(Country.objects.all(), many=True)
+        region = RegionSerializers(Region.objects.all(), many=True)
+        groupOfRights = GroupOfRightsSerializers(GroupOfRights.objects.all(), many=True)
+        tradeUnionRight = TradeUnionRightSerializers(TradeUnionRight.objects.all(), many=True)
+        tradeUnionCrime = TradeUnionCrimeSerializers(TradeUnionCrime.objects.all(), many=True)
+        meetingsRight = MeetingsRightSerializers(MeetingsRight.objects.all(), many=True)
+        сonvention87 = Сonvention87Serializers(Сonvention87.objects.all(), many=True)
+        tradeUnionBuildingsRight = TradeUnionBuildingsRightSerializers(TradeUnionBuildingsRight.objects.all(), many=True)
+        createOrganizationRight = CreateOrganizationRightSerializers(CreateOrganizationRight.objects.all(), many=True)
+        createTradeUnionRight  = CreateTradeUnionRightSerializers(CreateTradeUnionRight.objects.all(), many=True)
+        electionsRight = ElectionsRightSerializers(ElectionsRight.objects.all(), many=True)
+        tradeUnionActivityRight = TradeUnionActivityRightSerializers(TradeUnionActivityRight.objects.all(), many=True)
+        createStrikeRight = CreateStrikeRightSerializers(CreateStrikeRight.objects.all(), many=True)
+        сonvention98 = Сonvention98Serializers(Сonvention98.objects.all(), many=True)
+        antiTradeUnionDiscrimination = AntiTradeUnionDiscriminationSerializers(AntiTradeUnionDiscrimination.objects.all(), many=True)
+        conversationRight = СonversationRightSerializers(СonversationRight.objects.all(), many=True)
+        сonvention135 = Сonvention135Serializers(Сonvention135.objects.all(), many=True)
+        consultationRight = ConsultationRightSerializers(ConsultationRight.objects.all(), many=True)
+        principleOfNonDiscrimination = PrincipleOfNonDiscriminationSerializers(PrincipleOfNonDiscrimination.objects.all(), many=True)
+        discriminatiOnVariousGrounds = DiscriminatiOnVariousGroundsSerializers(DiscriminatiOnVariousGrounds.objects.all(), many=True)
+        discriminationInVariousAreas = DiscriminationInVariousAreasSerializers(DiscriminationInVariousAreas.objects.all(), many=True)
+        publicPolicyDiscrimination  = PublicPolicyDiscriminationSerializers(PublicPolicyDiscrimination.objects.all(), many=True)
+        childLabor = ChildLaborSerializers(ChildLabor.objects.all(), many=True)
+        сonvention138 = Сonvention138Serializers(Сonvention138.objects.all(), many=True)
+        convention182 = Сonvention182Serializers(Сonvention182.objects.all(), many=True)
+        prohibitionOfForcedLabor = ProhibitionOfForcedLaborSerializers(ProhibitionOfForcedLabor.objects.all(), many=True)
+        useOfForcedLabor = UseOfForcedLaborSerializers(UseOfForcedLabor.objects.all(), many=True)
+        governmentCoercion = GovernmentCoercionSerializers(GovernmentCoercion.objects.all(), many=True)
+        violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLaborSerializer(ViolationsUsingCompulsoryLabor.objects.all(), many=True)
+        failureSystemicMeasures = FailureSystemicMeasuresSerializers(FailureSystemicMeasures.objects.all(), many=True)
+        victim = VictimSerializers(Victim.objects.all(), many=True)
+        intruder = IntruderSerializers(Intruder.objects.all(), many=True)
+        violation_nature = NatureViolationSerializers(NatureViolation.objects.all(), many=True)
+        rights_state = RightsStateSerializers(RightsState.objects.all(), many=True)
+        victim_situation = VictimSituationSerializers(VictimSituation.objects.all(), many=True)
+        tradeUnionSituation = TradeUnionSituationSerializers(TradeUnionSituation.objects.all(), many=True)
+        user = UserSerializers(User.objects.all(), many=True)
+        # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
+        # company = CompanySerializers(Company.objects.all(), many=True)
+        # tradeUnionInfo = TradeUnionInfoSerializers(TradeUnionInfo.objects.all(), many=True)
+        # groupOfPersons = GroupOfPersonsSerializers(GroupOfPersons.objects.all(), many=True)
+        return Response([
+            {'id': 'source', 'name': 'Источник информации', 'item': source.data},
+            {'id': 'country', 'name': 'Страна', 'item': country.data},
+            {'id': 'region', 'name': 'Регион', 'item': region.data},
+            {'id': 'groupOfRights', 'name': 'Группа прав', 'item': groupOfRights.data},
+            {'id': 'tradeUnionRight', 'name': 'Нарушение в сфере профсоюзных прав и гражданских свобод',
+             'item': tradeUnionRight.data},
+            {'id': 'tradeUnionCrime', 'name': 'Обвинения в преступном поведении в связи с профсоюзной деятельностью',
+             'item': tradeUnionCrime.data},
+            {'id': 'meetingsRight', 'name': 'Нарушения права на проведение собраний и демонстраций',
+             'item': meetingsRight.data},
+            {'id': 'сonvention87', 'name': 'Нарушения положений Конвенции МОТ №87', 'item': сonvention87.data},
+            {'id': 'tradeUnionBuildingsRight', 'name': 'Защита профсоюзных помещений и имущества профсоюзов',
+             'item': tradeUnionBuildingsRight.data},
+            {'id': 'createOrganizationRight', 'name': 'Создание организации без предварительного разрешения',
+             'item': createOrganizationRight.data},
+            {'id': 'createTradeUnionRight', 'name': 'Создание профсоюзов и вступление в профсоюзы',
+             'item': createTradeUnionRight.data},
+            {'id': 'electionsRight', 'name': 'Нарушение права свободно выбирать своих представителей',
+             'item': electionsRight.data},
+            {'id': 'tradeUnionActivityRight',
+             'name': 'Нарушения права профсоюза организовывать деятельность своего аппарата',
+             'item': tradeUnionActivityRight.data},
+            {'id': 'createStrikeRight', 'name': 'Нарушение права на забастовку', 'item': createStrikeRight.data},
+            {'id': 'сonvention98', 'name': 'Нарушения положений Конвенции МОТ №98', 'item': сonvention98.data},
+            {'id': 'antiTradeUnionDiscrimination', 'name': 'Антипрофсоюзная дискриминация',
+             'item': antiTradeUnionDiscrimination.data},
+            {'id': 'conversationRight', 'name': 'Нарушения права на проведение коллективных переговоров',
+             'item': conversationRight.data},
+            {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'item': сonvention135.data},
+            {'id': 'consultationRight', 'name': 'Проведение консультаций', 'item': consultationRight.data},
+            {'id': 'principleOfNonDiscrimination', 'name': 'Принцип запрещения дискриминации',
+             'item': principleOfNonDiscrimination.data},
+            {'id': 'discriminatiOnVariousGrounds', 'name': 'Дискриминация по различным основаниям',
+             'item': discriminatiOnVariousGrounds.data},
+            {'id': 'discriminationInVariousAreas', 'name': 'Дискриминация в различных сферах трудовых отношений',
+             'item': discriminationInVariousAreas.data},
+            {'id': 'publicPolicyDiscrimination',
+             'name': 'Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей',
+             'item': publicPolicyDiscrimination.data},
+            {'id': 'childLabor', 'name': 'Дискриминация в различных сферах трудовых отношений',
+             'item': childLabor.data},
+            {'id': 'сonvention138', 'name': 'О минимальном возрасте для приема на работу', 'item': сonvention138.data},
+            {'id': 'convention182',
+             'name': 'О запрещении и немедленных мерах по искоренению наихудших форм детского труда',
+             'item': convention182.data},
+            {'id': 'prohibitionOfForcedLabor', 'name': 'Запрет принудительного труда',
+             'item': prohibitionOfForcedLabor.data},
+            {'id': 'useOfForcedLabor', 'name': 'Использование принудительного труда', 'item': useOfForcedLabor.data},
+            {'id': 'governmentCoercion', 'name': 'Косвенное принуждение государством к труду',
+             'item': governmentCoercion.data},
+            {'id': 'violationsUsingCompulsoryLabor',
+             'name': 'Нарушения при использовании принудительного (обязательного) труда в допустимых случаях',
+             'item': violationsUsingCompulsoryLabor.data},
+            {'id': 'failureSystemicMeasures', 'name': 'Нарушения, связанные с непринятием государством системных мер',
+             'item': failureSystemicMeasures.data},
+            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+            {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
+            {'id': 'violation_nature', 'name': 'Характер нарушения', 'item': violation_nature.data},
+            {'id': 'rights_state', 'name': 'Ситуация с правами', 'item': rights_state.data},
+            {'id': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
+            {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
+             'item': tradeUnionSituation.data},
+            {'id': 'user', 'name': 'Монитор', 'item': user.data},
+        ])
+            # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
+            # {'company': {'Работодатель(компания)': company.data}}, #Можно удалить
+            # {'tradeUnionInfo': {'Профсоюзная организация': tradeUnionInfo.data}}, #Можно удалить
+            # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
+
+def unpucking(li):
+    res = ','.join(li)
+    return res
+
+
+class TestAPI(APIView):
+    def get(self, request):
+        my_list = []
+        print(request.data)
+        for item in request.data:
+            if item['checked'] == 1:
+                my_list.append(f"work_{item['id']}.name")
+        fields = unpucking(my_list)
+        # print(my_list)
+        case_count = Case.objects.count()
+        sql_query = f"SELECT {fields}, count(*), round(count (*) * 100 /{case_count}, 2) percent FROM work_case"
+        where_query = "where "
+        where_list = []
+        where_query_list = []
+        group_by_query = f"group by {fields}"
+        for item in request.data:
+            if item['id'] in fields:
+                id = item['id']
+                if id == "country":
+                    for i in item['item']:
+                        where_list.append(i['id'])
+                    where_query_list.append(f"work_case.country_id in {tuple(where_list)} ")
+                    where_list.clear()
+                    sql_query = sql_query + " join work_country on work_country.id = work_case.country_id "
+                elif id == "source":
+                    for i in item['item']:
+                        where_list.append(i['id'])
+                    where_query_list.append(f"work_case_source.source_id in {tuple(where_list)} ")
+                    where_list.clear()
+                    sql_query = sql_query + " join work_case_source on work_case.id = work_case_source.case_id join work_source on work_case_source.source_id = work_source.id "
+                # elif id == ""
+            else:
+                continue
+        where_query_list = 'and '.join(where_query_list)
+        where_query += where_query_list
+        # print(where_query)
+        # print(sql_query + where_query + group_by_query)
+        with connection.cursor() as cursor:
+            cursor.execute(
+                sql_query + where_query + group_by_query
+            )
+            row = cursor.fetchall()
+
+            fields_list = []
+            for i in request.data:
+                if i['checked'] == 1:
+                    fields_list.append(i['id'])
+            fields_list.append('count')
+            fields_list.append('percent')
+            response_list = []
+
+            for i in range(len(row)):
+                response_body = dict()
+                for j in range(len(fields_list)):
+                    response_body[fields_list[j]] = row[i][j]
+                response_list.append(response_body)
+
+
+            # json_data = json.dumps(response_list, ensure_ascii=False)
+            # print(json_data)
+        return Response(response_list)

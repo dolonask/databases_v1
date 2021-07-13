@@ -13,4 +13,5 @@ urlpatterns = [
     path('get-pdf/<int:pk>', views.case_render_pdf_view, name="migrant_case_get_pdf"),
     path('dict/regions', views.load_regions, name='migrant_regions_list'),
     path('test/<int:pk>', views.test, name='test'),
+    path('data/', views.DataAPIView.as_view(), name='migrant_data')
 ]

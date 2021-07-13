@@ -6,10 +6,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .forms import CaseForm, CompanyForm, IndividualForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm, CaseCommentForm
 from .filters import MigrantFilter
-
+from .serializers import *
 # Create your views here.
 from .models import *
 
@@ -269,3 +270,52 @@ def test(request, pk):
     case = Case.objects.get(pk=pk)
     photos = CasePhoto.objects.filter(card_id=pk)
     return render(request, 'migrant/migrant_pdf.html', {'case': case, 'photos': photos})
+
+
+class DataAPIView(APIView):
+    def get(self, request):
+        country = CountrySerializers(Country.objects.all(), many=True)
+        region = RegionSerializers(Region.objects.all(), many=True)
+        victim = VictimSerializers(Victim.objects.all(), many=True)
+        banOnEntry = BanOnEntrySerializers(BanOnEntry.objects.all(), many=True)
+        source = InfoSourceSerializers(InfoSource.objects.all(), many=True)
+        violated_right = RightSerializers(Right.objects.all(), many=True)
+        victim = VictimSerializers(Victim.objects.all(), many=True)
+        individualInfo = IndividualInfoSerializers(IndividualInfo.objects.all(), many=True)
+        intruder = IntruderSerializers(Intruder.objects.all(), many=True)
+        violation_nature = NatureViolationSerializers(NatureViolation.objects.all(), many=True)
+        # personGroupInfo = PersonGroupSerializers(PersonGroup.objects.all(), many=True)
+        entrepreneur = EntrepreneurSerializers(Entrepreneur.objects.all(), many=True)
+        rights_state = RightsStateSerializers(RightsState.objects.all(), many=True)
+        victim_situation = VictimSituationSerializers(VictimSituation.objects.all(), many=True)
+        tradeUnionSituation = TradeUnionSituationSerializers(TradeUnionSituation.objects.all(), many=True)
+        violationType = ViolationTypeSerializers(ViolationType.objects.all(), many=True)
+        changesInSalary = ChangesInSalarySerializers(ChangesInSalary.objects.all(), many=True)
+        user = UserSerializers(User.objects.all(), many=True)
+        # company = CompanySerializers(Company.objects.all(), many=True)
+        # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
+        return Response([
+            {'id': 'country', 'name': 'Страна', 'item': country.data},
+            {'id': 'region', 'name': 'Регион', 'item': region.data},
+            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+            {'id': 'banOnEntry', 'name': 'Есть ли у вас запрет на въезд?', 'item': banOnEntry.data},
+            {'id': 'source', 'name': 'Источник информации о нарушении', 'item': source.data},
+            {'id': 'violated_right', 'name': 'Какое право нарушено?', 'item': violated_right.data},
+            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+            {'id': 'individualInfo', 'name': 'физическое лицо', 'item': individualInfo.data},
+            # {'id': 'personGroupInfo', 'name': 'Группа лиц', 'item': personGroupInfo.data},
+            {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+            {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
+            {'id': 'violation_nature', 'name': 'Характер нарушения', 'item': violation_nature.data},
+            {'id': 'rights_state', 'name': 'Ситуация с правами', 'item': rights_state.data},
+            {'id': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
+            {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
+             'item': tradeUnionSituation.data},
+            {'id': 'violationType', 'name': 'С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?',
+             'item': violationType.data},
+            {'id': 'changesInSalary', 'name': 'Как изменились Ваши доходы из-за COVID-19?', 'item': changesInSalary.data},
+            {'id': 'user', 'name': 'Монитор', 'item': user.data},
+        ])
+        # {'id': 'company', 'name': 'Работодатель(компания)', 'item': company.data},  # Можно удалить
+        # {'id': 'tradeUnionCount', 'name': 'Численность профсоюза после произошедшего',
+        #  'item': tradeUnionCount.data},  # Можно удалить

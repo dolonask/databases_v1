@@ -774,7 +774,8 @@ class Case(models.Model):
                                                            null=True,
                                                            blank=True)
     publicPolicyDiscrimination = models.ForeignKey(PublicPolicyDiscrimination, on_delete=models.DO_NOTHING,
-                                                   verbose_name="Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей	",
+                                                   verbose_name="Нарушения в области проведения государственной политики "
+                                                                "по искоренению дискриминации и поощрению равенства прав и возможностей",
                                                    null=True, blank=True)
     childLabor = models.ForeignKey(ChildLabor, on_delete=models.DO_NOTHING,
                                    verbose_name="Использование детского труда",
@@ -794,7 +795,7 @@ class Case(models.Model):
                                          verbose_name="Использование принудительного труда",
                                          null=True, blank=True)
     governmentCoercion = models.ForeignKey(GovernmentCoercion, on_delete=models.DO_NOTHING,
-                                           verbose_name="Косвенное принуждение государством к труду ",
+                                           verbose_name="Косвенное принуждение государством к труду",
                                            null=True, blank=True)
     violationsUsingCompulsoryLabor = models.ForeignKey(ViolationsUsingCompulsoryLabor, on_delete=models.DO_NOTHING,
                                                        verbose_name="Нарушения при использовании принудительного (обязательного) труда в допустимых случаях",

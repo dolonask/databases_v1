@@ -1,4 +1,5 @@
 
+
 function get_selected(id){
     return document.querySelector('#%'.replace('%', id)).value;
 }
