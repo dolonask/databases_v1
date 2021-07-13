@@ -404,69 +404,69 @@ class DataAPIView(APIView):
         # tradeUnionInfo = TradeUnionInfoSerializers(TradeUnionInfo.objects.all(), many=True)
         # groupOfPersons = GroupOfPersonsSerializers(GroupOfPersons.objects.all(), many=True)
         return Response([
-            {'id': 'source', 'name': 'Источник информации', 'checked': 0, 'item': source.data},
-            {'id': 'country', 'name': 'Страна', 'checked': 0, 'item': country.data},
-            {'id': 'region', 'name': 'Регион', 'checked': 0, 'item': region.data},
-            {'id': 'groupofrights', 'name': 'Группа прав', 'checked': 0, 'item': groupOfRights.data},
+            {'id': 'source', 'name': 'Источник информации', 'item': source.data},
+            {'id': 'country', 'name': 'Страна', 'item': country.data},
+            {'id': 'region', 'name': 'Регион', 'item': region.data},
+            {'id': 'groupofrights', 'name': 'Группа прав', 'item': groupOfRights.data},
             {'id': 'tradeunionright', 'name': 'Нарушение в сфере профсоюзных прав и гражданских свобод',
-             'checked': 0,'item': tradeUnionRight.data},
+             'item': tradeUnionRight.data},
             {'id': 'tradeunioncrime', 'name': 'Обвинения в преступном поведении в связи с профсоюзной деятельностью',
-             'checked': 0,'item': tradeUnionCrime.data},
+             'item': tradeUnionCrime.data},
             {'id': 'meetingsRight', 'name': 'Нарушения права на проведение собраний и демонстраций',
-             'checked': 0, 'item': meetingsRight.data},
-            {'id': 'сonvention87', 'name': 'Нарушения положений Конвенции МОТ №87', 'checked': 0, 'item': сonvention87.data},
+            'item': meetingsRight.data},
+            {'id': 'сonvention87', 'name': 'Нарушения положений Конвенции МОТ №87', 'item': сonvention87.data},
             {'id': 'tradeUnionBuildingsRight', 'name': 'Защита профсоюзных помещений и имущества профсоюзов',
-             'checked': 0, 'item': tradeUnionBuildingsRight.data},
+            'item': tradeUnionBuildingsRight.data},
             {'id': 'createOrganizationRight', 'name': 'Создание организации без предварительного разрешения',
-             'checked': 0, 'item': createOrganizationRight.data},
+            'item': createOrganizationRight.data},
             {'id': 'createTradeUnionRight', 'name': 'Создание профсоюзов и вступление в профсоюзы',
-             'checked': 0, 'item': createTradeUnionRight.data},
+            'item': createTradeUnionRight.data},
             {'id': 'electionsRight', 'name': 'Нарушение права свободно выбирать своих представителей',
-             'checked': 0, 'item': electionsRight.data},
+            'item': electionsRight.data},
             {'id': 'tradeUnionActivityRight',
              'name': 'Нарушения права профсоюза организовывать деятельность своего аппарата',
-             'checked': 0, 'item': tradeUnionActivityRight.data},
-            {'id': 'createStrikeRight', 'name': 'Нарушение права на забастовку', 'checked': 0, 'item': createStrikeRight.data},
-            {'id': 'сonvention98', 'name': 'Нарушения положений Конвенции МОТ №98', 'checked': 0, 'item': сonvention98.data},
+            'item': tradeUnionActivityRight.data},
+            {'id': 'createStrikeRight', 'name': 'Нарушение права на забастовку', 'item': createStrikeRight.data},
+            {'id': 'сonvention98', 'name': 'Нарушения положений Конвенции МОТ №98', 'item': сonvention98.data},
             {'id': 'antiTradeUnionDiscrimination', 'name': 'Антипрофсоюзная дискриминация',
-             'checked': 0, 'item': antiTradeUnionDiscrimination.data},
+            'item': antiTradeUnionDiscrimination.data},
             {'id': 'conversationRight', 'name': 'Нарушения права на проведение коллективных переговоров',
-             'checked': 0, 'item': conversationRight.data},
-            {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'checked': 0, 'item': сonvention135.data},
-            {'id': 'consultationRight', 'name': 'Проведение консультаций', 'checked': 0, 'item': consultationRight.data},
+            'item': conversationRight.data},
+            {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'item': сonvention135.data},
+            {'id': 'consultationRight', 'name': 'Проведение консультаций', 'item': consultationRight.data},
             {'id': 'principleOfNonDiscrimination', 'name': 'Принцип запрещения дискриминации',
-             'checked': 0, 'item': principleOfNonDiscrimination.data},
+            'item': principleOfNonDiscrimination.data},
             {'id': 'discriminatiOnVariousGrounds', 'name': 'Дискриминация по различным основаниям',
-             'checked': 0, 'item': discriminatiOnVariousGrounds.data},
+            'item': discriminatiOnVariousGrounds.data},
             {'id': 'discriminationInVariousAreas', 'name': 'Дискриминация в различных сферах трудовых отношений',
-             'checked': 0, 'item': discriminationInVariousAreas.data},
+            'item': discriminationInVariousAreas.data},
             {'id': 'publicPolicyDiscrimination',
              'name': 'Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей',
-             'checked': 0, 'item': publicPolicyDiscrimination.data},
+            'item': publicPolicyDiscrimination.data},
             {'id': 'childLabor', 'name': 'Дискриминация в различных сферах трудовых отношений',
-             'checked': 0, 'item': childLabor.data},
-            {'id': 'сonvention138', 'name': 'О минимальном возрасте для приема на работу', 'checked': 0, 'item': сonvention138.data},
+            'item': childLabor.data},
+            {'id': 'сonvention138', 'name': 'О минимальном возрасте для приема на работу', 'item': сonvention138.data},
             {'id': 'convention182',
              'name': 'О запрещении и немедленных мерах по искоренению наихудших форм детского труда',
-             'checked': 0, 'item': convention182.data},
+            'item': convention182.data},
             {'id': 'prohibitionOfForcedLabor', 'name': 'Запрет принудительного труда',
-             'checked': 0, 'item': prohibitionOfForcedLabor.data},
-            {'id': 'useOfForcedLabor', 'name': 'Использование принудительного труда', 'checked': 0, 'item': useOfForcedLabor.data},
+            'item': prohibitionOfForcedLabor.data},
+            {'id': 'useOfForcedLabor', 'name': 'Использование принудительного труда', 'item': useOfForcedLabor.data},
             {'id': 'governmentCoercion', 'name': 'Косвенное принуждение государством к труду',
-             'checked': 0, 'item': governmentCoercion.data},
+            'item': governmentCoercion.data},
             {'id': 'violationsUsingCompulsoryLabor',
              'name': 'Нарушения при использовании принудительного (обязательного) труда в допустимых случаях',
-             'checked': 0, 'item': violationsUsingCompulsoryLabor.data},
+            'item': violationsUsingCompulsoryLabor.data},
             {'id': 'failureSystemicMeasures', 'name': 'Нарушения, связанные с непринятием государством системных мер',
-             'checked': 0, 'item': failureSystemicMeasures.data},
-            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'checked': 0, 'item': victim.data},
-            {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'checked': 0, 'item': intruder.data},
-            {'id': 'violation_nature', 'name': 'Характер нарушения', 'checked': 0, 'item': violation_nature.data},
-            {'id': 'rights_state', 'name': 'Ситуация с правами', 'checked': 0, 'item': rights_state.data},
-            {'id': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)', 'checked': 0, 'item': victim_situation.data},
+            'item': failureSystemicMeasures.data},
+            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+            {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
+            {'id': 'violation_nature', 'name': 'Характер нарушения', 'item': violation_nature.data},
+            {'id': 'rights_state', 'name': 'Ситуация с правами', 'item': rights_state.data},
+            {'id': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
             {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
-             'checked': 0, 'item': tradeUnionSituation.data},
-            {'id': 'user', 'name': 'Монитор', 'checked': 0, 'item': user.data},
+            'item': tradeUnionSituation.data},
+            {'id': 'user', 'name': 'Монитор', 'item': user.data},
         ])
             # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
             # {'company': {'Работодатель(компания)': company.data}}, #Можно удалить
@@ -483,8 +483,7 @@ class TestAPI(APIView):
         my_list = []
         print(request.data)
         for item in request.data:
-            if item['checked'] == 1:
-                my_list.append(f"work_{item['id']}.name")
+            my_list.append(f"work_{item['id']}.name")
         fields = unpucking(my_list)
         # print(my_list)
         case_count = Case.objects.count()
@@ -577,8 +576,7 @@ class TestAPI(APIView):
             print(row)
             fields_list = []
             for i in request.data:
-                if i['checked'] == 1:
-                    fields_list.append(i['id'])
+                fields_list.append(i['id'])
             fields_list.append('count')
             fields_list.append('percent')
             response_list = []
