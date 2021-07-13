@@ -412,26 +412,26 @@ class DataAPIView(APIView):
              'item': tradeUnionRight.data},
             {'id': 'tradeunioncrime', 'name': 'Обвинения в преступном поведении в связи с профсоюзной деятельностью',
              'item': tradeUnionCrime.data},
-            {'id': 'meetingsRight', 'name': 'Нарушения права на проведение собраний и демонстраций',
-            'item': meetingsRight.data},
+            {'id': 'meetingsright', 'name': 'Нарушения права на проведение собраний и демонстраций',
+             'item': meetingsRight.data},
             {'id': 'сonvention87', 'name': 'Нарушения положений Конвенции МОТ №87', 'item': сonvention87.data},
-            {'id': 'tradeUnionBuildingsRight', 'name': 'Защита профсоюзных помещений и имущества профсоюзов',
-            'item': tradeUnionBuildingsRight.data},
-            {'id': 'createOrganizationRight', 'name': 'Создание организации без предварительного разрешения',
-            'item': createOrganizationRight.data},
+            {'id': 'tradeunionbuildingsright', 'name': 'Защита профсоюзных помещений и имущества профсоюзов',
+             'item': tradeUnionBuildingsRight.data},
+            {'id': 'createorganizationright', 'name': 'Создание организации без предварительного разрешения',
+             'item': createOrganizationRight.data},
             {'id': 'createTradeUnionRight', 'name': 'Создание профсоюзов и вступление в профсоюзы',
-            'item': createTradeUnionRight.data},
+             'item': createTradeUnionRight.data},
             {'id': 'electionsRight', 'name': 'Нарушение права свободно выбирать своих представителей',
-            'item': electionsRight.data},
+             'item': electionsRight.data},
             {'id': 'tradeUnionActivityRight',
              'name': 'Нарушения права профсоюза организовывать деятельность своего аппарата',
-            'item': tradeUnionActivityRight.data},
+             'item': tradeUnionActivityRight.data},
             {'id': 'createStrikeRight', 'name': 'Нарушение права на забастовку', 'item': createStrikeRight.data},
             {'id': 'сonvention98', 'name': 'Нарушения положений Конвенции МОТ №98', 'item': сonvention98.data},
             {'id': 'antiTradeUnionDiscrimination', 'name': 'Антипрофсоюзная дискриминация',
-            'item': antiTradeUnionDiscrimination.data},
+             'item': antiTradeUnionDiscrimination.data},
             {'id': 'conversationRight', 'name': 'Нарушения права на проведение коллективных переговоров',
-            'item': conversationRight.data},
+             'item': conversationRight.data},
             {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'item': сonvention135.data},
             {'id': 'consultationRight', 'name': 'Проведение консультаций', 'item': consultationRight.data},
             {'id': 'principleOfNonDiscrimination', 'name': 'Принцип запрещения дискриминации',
@@ -461,9 +461,9 @@ class DataAPIView(APIView):
             'item': failureSystemicMeasures.data},
             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
             {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
-            {'id': 'violation_nature', 'name': 'Характер нарушения', 'item': violation_nature.data},
-            {'id': 'rights_state', 'name': 'Ситуация с правами', 'item': rights_state.data},
-            {'id': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
+            {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
+            {'id': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
+            {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
             {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
             'item': tradeUnionSituation.data},
             {'id': 'user', 'name': 'Монитор', 'item': user.data},
@@ -478,12 +478,15 @@ def unpucking(li):
     return res
 
 
-class TestAPI(APIView):
+class DataFilterAPI(APIView):
     def get(self, request):
         my_list = []
         print(request.data)
         for item in request.data:
-            my_list.append(f"work_{item['id']}.name")
+            if item['id'] == 'user':
+                my_list.append(f"auth_user.username")
+            else:
+                my_list.append(f"work_{item['id']}.name")
         fields = unpucking(my_list)
         # print(my_list)
         case_count = Case.objects.count()
@@ -496,7 +499,6 @@ class TestAPI(APIView):
             if data['id'] in fields:
                 id = data['id']
                 item = data['item']
-
                 if id == "country":
                     where_sql_query = "work_case.country_id in "
                     for i in item:
@@ -552,6 +554,361 @@ class TestAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_tradeunioncrime on work_tradeunioncrime.id = work_case.tradeunioncrime_id "
 
+                elif id == "meetingsright":
+                    where_sql_query = "work_case.meetingsright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_meetingsright on work_meetingsright.id = work_case.meetingsright_id "
+
+                elif id == "сonvention87":
+                    where_sql_query = "work_case.сonvention87_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_сonvention87 on work_сonvention87.id = work_case.сonvention87_id "
+
+                elif id == "tradeunionbuildingsright":
+                    where_sql_query = "work_case.tradeunionbuildingsright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_tradeunionbuildingsright on work_tradeunionbuildingsright.id = work_case.tradeunionbuildingsright_id "
+
+                elif id == "createorganizationright":
+                    where_sql_query = "work_case.createorganizationright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_createorganizationright on work_createorganizationright.id = work_case.createorganizationright_id "
+
+                elif id == "createtradeunionright":
+                    where_sql_query = "work_case.createtradeunionright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_createtradeunionright on work_createtradeunionright.id = work_case.createtradeunionright_id "
+
+                elif id == "electionsright":
+                    where_sql_query = "work_case.electionsright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_electionsright on work_electionsright.id = work_case.electionsright_id "
+
+                elif id == "tradeunionactivityright":
+                    where_sql_query = "work_case.tradeunionactivityright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_tradeunionactivityright on work_tradeunionactivityright.id = work_case.tradeunionactivityright_id "
+
+                elif id == "createstrikeright":
+                    where_sql_query = "work_case.createstrikeright_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_createstrikeright on work_createstrikeright.id = work_case.createstrikeright_id "
+
+                elif id == "сonvention98":
+                    where_sql_query = "work_case.сonvention98_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_сonvention98 on work_сonvention98.id = work_case.сonvention98_id "
+
+                elif id == "antitradeuniondiscrimination":
+                    where_sql_query = "work_case.antitradeuniondiscrimination_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_antitradeuniondiscrimination on work_antitradeuniondiscrimination.id = work_case.antitradeuniondiscrimination_id "
+
+                elif id == "сonversationright":
+                    where_sql_query = "work_case.conversationRight_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_сonversationright on work_сonversationright.id = work_case.conversationRight_id "
+
+                elif id == "сonvention135":
+                    where_sql_query = "work_case.сonvention135_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_сonvention135 on work_сonvention135.id = work_case.сonvention135_id "
+
+                elif id == "consultationright":
+                    where_sql_query = "work_case.consultationRight_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_consultationright on work_consultationright.id = work_case.consultationRight_id "
+
+                elif id == "principleofnondiscrimination":
+                    where_sql_query = "work_case.principleofnondiscrimination_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_principleofnondiscrimination on work_principleofnondiscrimination.id = work_case.principleofnondiscrimination_id "
+
+                elif id == "discriminationvariousgrounds":
+                    where_sql_query = "work_case.discriminationvariousgrounds_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_discriminationvariousgrounds on work_discriminationvariousgrounds.id = work_case.discriminationvariousgrounds_id "
+
+                elif id == "discriminationinvariousareas":
+                    where_sql_query = "work_case.discriminationinvariousareas_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_discriminationinvariousareas on work_discriminationinvariousareas.id = work_case.discriminationinvariousareas_id "
+
+                elif id == "publicpolicydiscrimination":
+                    where_sql_query = "work_case.publicpolicydiscrimination_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_publicpolicydiscrimination on work_publicpolicydiscrimination.id = work_case.publicpolicydiscrimination_id "
+
+                elif id == "childlabor":
+                    where_sql_query = "work_case.childlabor_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_childlabor on work_childlabor.id = work_case.childlabor_id "
+
+                elif id == "сonvention138":
+                    where_sql_query = "work_case.сonvention138_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_сonvention138 on work_сonvention138.id = work_case.сonvention138_id "
+
+                elif id == "convention182":
+                    where_sql_query = "work_case.convention182_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_convention182 on work_convention182.id = work_case.convention182_id "
+
+                elif id == "prohibitionofforcedlabor":
+                    where_sql_query = "work_case.prohibitionofforcedlabor_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_prohibitionofforcedlabor on work_prohibitionofforcedlabor.id = work_case.prohibitionofforcedlabor_id "
+
+                elif id == "useofforcedlabor":
+                    where_sql_query = "work_case.useofforcedlabor_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_useofforcedlabor on work_useofforcedlabor.id = work_case.useofforcedlabor_id "
+
+                elif id == "governmentcoercion":
+                    where_sql_query = "work_case.governmentcoercion_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_governmentcoercion on work_governmentcoercion.id = work_case.governmentcoercion_id "
+
+                elif id == "violationsusingcompulsorylabor":
+                    where_sql_query = "work_case.violationsusingcompulsorylabor_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_violationsusingcompulsorylabor on work_violationsusingcompulsorylabor.id = work_case.violationsusingcompulsorylabor_id "
+
+                elif id == "failuresystemicmeasures":
+                    where_sql_query = "work_case.failuresystemicmeasures_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_failuresystemicmeasures on work_failuresystemicmeasures.id = work_case.failuresystemicmeasures_id "
+
+                elif id == "victim":
+                    where_sql_query = "work_case.victim_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_victim on work_victim.id = work_case.victim_id "
+
+                elif id == "natureviolation":
+                    where_sql_query = "work_case.violation_nature_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_natureviolation on work_natureviolation.id = work_case.violation_nature_id "
+
+                elif id == "rightsstate":
+                    where_sql_query = "work_case.rights_state_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_rightsstate on work_rightsstate.id = work_case.rights_state_id "
+
+                elif id == "victimsituation":
+                    where_sql_query = "work_case.victim_situation_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_victimsituation on work_victimsituation.id = work_case.victim_situation_id "
+
+                elif id == "tradeunionsituation":
+                    where_sql_query = "work_case.tradeunionsituation_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_tradeunionsituation on work_tradeunionsituation.id = work_case.tradeunionsituation_id "
+
+                elif id == "user":
+                    where_sql_query = "work_case.user_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join auth_user on auth_user.id = work_case.user_id "
+
+
+                # elif id == "": # Экземпляр
+                #     where_sql_query = "work_case._id in "
+                #     for i in item:
+                #         where_list.append(i['id'])
+                #     if len(where_list) > 1:
+                #         where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                #     else:
+                #         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                #     where_list.clear()
+                #     sql_query += " join work_ on work_.id = work_case._id "
+
+
+                # Ниже представлены ManyToMany связи!
                 elif id == "source":
                     where_sql_query = "work_case_source.source_id in"
                     for i in item:
@@ -562,6 +919,16 @@ class TestAPI(APIView):
                         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
                     where_list.clear()
                     sql_query += " join work_case_source on work_case.id = work_case_source.case_id join work_source on work_case_source.source_id = work_source.id "
+                elif id == "intruder":
+                    where_sql_query = "work_case_intruder.intruder_id in"
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_case_intruder on work_case.id = work_case_intruder.case_id join work_intruder on work_case_intruder.intruder_id = work_intruder.id "
             else:
                 continue
         where_query_list = 'and '.join(where_query_list)
