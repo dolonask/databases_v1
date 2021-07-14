@@ -12,6 +12,6 @@ urlpatterns = [
     path('show-comments/<int:pk>/', views.show_comments, name="work_case_show_comments"),
     path('delete-comments/<int:pk>/', views.delete_comment, name="work_case_delete_comment"),
     path('dict/regions/', views.load_regions, name='works_regions_list'),
-    path('data/', views.DataAPIView.as_view(), name='data'),
-    path('data/get/', views.DataFilterAPI.as_view(), name='data_get')
+    path('data/', views.DataAPIView.as_view(), name='work_data'),
+    path('data/get/', views.DataFilterAPI.as_view(), name='work_data_get')
 ]

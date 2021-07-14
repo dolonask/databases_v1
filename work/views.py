@@ -13,6 +13,7 @@ from io import BytesIO
 from django.contrib.auth.models import User
 import json
 from django.db import connection
+from main.service import unpucking
 
 
 from .filters import WorkFilter
@@ -473,10 +474,6 @@ class DataAPIView(APIView):
             # {'tradeUnionInfo': {'Профсоюзная организация': tradeUnionInfo.data}}, #Можно удалить
             # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
 
-def unpucking(li):
-    res = ','.join(li)
-    return res
-
 
 class DataFilterAPI(APIView):
     def get(self, request):
@@ -936,9 +933,7 @@ class DataFilterAPI(APIView):
         # print(where_query)
         print(sql_query + where_query + group_by_query)
         with connection.cursor() as cursor:
-            cursor.execute(
-                sql_query + where_query + group_by_query
-            )
+            cursor.execute(sql_query + where_query + group_by_query)
             row = cursor.fetchall()
             print(row)
             fields_list = []
@@ -953,7 +948,4 @@ class DataFilterAPI(APIView):
                 for j in range(len(fields_list)):
                     response_body[fields_list[j]] = row[i][j]
                 response_list.append(response_body)
-
-            # json_data = json.dumps(response_list, ensure_ascii=False)
-            # print(json_data)
         return Response(response_list)

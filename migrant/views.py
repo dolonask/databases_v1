@@ -13,6 +13,8 @@ from .filters import MigrantFilter
 from .serializers import *
 # Create your views here.
 from .models import *
+from main.service import unpucking
+from django.db import connection
 
 
 @login_required
@@ -298,24 +300,262 @@ class DataAPIView(APIView):
             {'id': 'country', 'name': 'Страна', 'item': country.data},
             {'id': 'region', 'name': 'Регион', 'item': region.data},
             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
-            {'id': 'banOnEntry', 'name': 'Есть ли у вас запрет на въезд?', 'item': banOnEntry.data},
-            {'id': 'source', 'name': 'Источник информации о нарушении', 'item': source.data},
-            {'id': 'violated_right', 'name': 'Какое право нарушено?', 'item': violated_right.data},
-            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
-            {'id': 'individualInfo', 'name': 'физическое лицо', 'item': individualInfo.data},
+            {'id': 'banonentry', 'name': 'Есть ли у вас запрет на въезд?', 'item': banOnEntry.data},
+            {'id': 'infosource', 'name': 'Источник информации о нарушении', 'item': source.data},
+            {'id': 'right', 'name': 'Какое право нарушено?', 'item': violated_right.data},
+            {'id': 'individualinfo', 'name': 'физическое лицо', 'item': individualInfo.data}, #50 % 50
             # {'id': 'personGroupInfo', 'name': 'Группа лиц', 'item': personGroupInfo.data},
             {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
             {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
-            {'id': 'violation_nature', 'name': 'Характер нарушения', 'item': violation_nature.data},
-            {'id': 'rights_state', 'name': 'Ситуация с правами', 'item': rights_state.data},
-            {'id': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
-            {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
+            {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
+            {'id': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
+            {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
+            {'id': 'tradeunionsituation', 'name': 'Профсоюз на месте работы после произошедшего',
              'item': tradeUnionSituation.data},
-            {'id': 'violationType', 'name': 'С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?',
+            {'id': 'violationtype', 'name': 'С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?',
              'item': violationType.data},
-            {'id': 'changesInSalary', 'name': 'Как изменились Ваши доходы из-за COVID-19?', 'item': changesInSalary.data},
+            {'id': 'changesinsalary', 'name': 'Как изменились Ваши доходы из-за COVID-19?', 'item': changesInSalary.data},
             {'id': 'user', 'name': 'Монитор', 'item': user.data},
         ])
         # {'id': 'company', 'name': 'Работодатель(компания)', 'item': company.data},  # Можно удалить
         # {'id': 'tradeUnionCount', 'name': 'Численность профсоюза после произошедшего',
         #  'item': tradeUnionCount.data},  # Можно удалить
+
+class DataFilterAPI(APIView):
+    def get(self, request):
+        my_list = []
+        print(request.data)
+        for item in request.data:
+            if item['id'] == 'user':
+                my_list.append(f"auth_user.username")
+            elif item['id'] == 'entrepreneur':
+                my_list.append(f"migrant_entrepreneur.entrepreneur_name")
+            else:
+                my_list.append(f"migrant_{item['id']}.name")
+        fields = unpucking(my_list)
+        # print(my_list)
+        case_count = Case.objects.count()
+        sql_query = f"SELECT {fields}, count(*), round(count (*) * 100 /{case_count}, 2) percent FROM migrant_case"
+        where_query = "where "
+        where_list = []
+        where_query_list = []
+        group_by_query = f"group by {fields}"
+        for data in request.data:
+            if data['id'] in fields:
+                id = data['id']
+                item = data['item']
+                if id == "country":
+                    where_sql_query = "migrant_case.country_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_country on migrant_country.id = migrant_case.country_id "
+
+                elif id == "region":
+                    where_sql_query = "migrant_case.region_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_region on migrant_region.id = migrant_case.region_id "
+
+                elif id == "banonentry":
+                    where_sql_query = "migrant_case.banonentry_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_banonentry on migrant_banonentry.id = migrant_case.banonentry_id "
+
+                elif id == "individualinfo":
+                    where_sql_query = "migrant_case.individualinfo_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_individualinfo on migrant_individualinfo.id = migrant_case.individualinfo_id "
+
+                elif id == "entrepreneur":
+                    where_sql_query = "migrant_case.entrepreneur_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_entrepreneur on migrant_entrepreneur.id = migrant_case.entrepreneur_id "
+
+                elif id == "violationtype":
+                    where_sql_query = "migrant_case.violationtype_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_violationtype on migrant_violationtype.id = migrant_case.violationtype_id "
+
+                elif id == "changesinsalary":
+                    where_sql_query = "migrant_case.changesinsalary_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_changesinsalary on migrant_changesinsalary.id = migrant_case.changesinsalary_id "
+
+                elif id == "victim":
+                    where_sql_query = "migrant_case.victim_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_victim on migrant_victim.id = migrant_case.victim_id "
+
+                elif id == "natureviolation":
+                    where_sql_query = "migrant_case.violation_nature_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_natureviolation on migrant_natureviolation.id = migrant_case.violation_nature_id "
+
+                elif id == "rightsstate":
+                    where_sql_query = "migrant_case.rights_state_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_rightsstate on migrant_rightsstate.id = migrant_case.rights_state_id "
+
+                elif id == "victimsituation":
+                    where_sql_query = "migrant_case.victim_situation_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_victimsituation on migrant_victimsituation.id = migrant_case.victim_situation_id "
+
+                elif id == "tradeunionsituation":
+                    where_sql_query = "migrant_case.tradeunionsituation_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_tradeunionsituation on migrant_tradeunionsituation.id = migrant_case.tradeunionsituation_id "
+
+                elif id == "user":
+                    where_sql_query = "migrant_case.user_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join auth_user on auth_user.id = migrant_case.user_id "
+
+
+                # elif id == "": # Экземпляр
+                #     where_sql_query = "migrant_case._id in "
+                #     for i in item:
+                #         where_list.append(i['id'])
+                #     if len(where_list) > 1:
+                #         where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                #     else:
+                #         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                #     where_list.clear()
+                #     sql_query += " join migrant_ on migrant_.id = migrant_case._id "
+
+
+                # Ниже представлены ManyToMany связи!
+                elif id == "infosource":
+                    where_sql_query = "migrant_case_source.infosource_id in"
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_case_source on migrant_case.id = migrant_case_source.case_id join migrant_infosource on migrant_case_source.infosource_id = migrant_infosource.id "
+
+                elif id == "intruder":
+                    where_sql_query = "migrant_case_intruder.intruder_id in"
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_case_intruder on migrant_case.id = migrant_case_intruder.case_id join migrant_intruder on migrant_case_intruder.intruder_id = migrant_intruder.id "
+
+                elif id == "right":
+                    where_sql_query = "migrant_case_violated_right.right_id in"
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join migrant_case_violated_right on migrant_case.id = migrant_case_violated_right.case_id join migrant_right on migrant_case_violated_right.right_id = migrant_right.id "
+            else:
+                continue
+        where_query_list = 'and '.join(where_query_list)
+        where_query += where_query_list
+        # print(where_query)
+        print(sql_query + where_query + group_by_query)
+        with connection.cursor() as cursor:
+            cursor.execute(
+                sql_query + where_query + group_by_query
+            )
+            row = cursor.fetchall()
+            print(row)
+            fields_list = []
+            for i in request.data:
+                fields_list.append(i['id'])
+            fields_list.append('count')
+            fields_list.append('percent')
+            response_list = []
+
+            for i in range(len(row)):
+                response_body = dict()
+                for j in range(len(fields_list)):
+                    response_body[fields_list[j]] = row[i][j]
+                response_list.append(response_body)
+
+        return Response(response_list)
