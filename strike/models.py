@@ -324,7 +324,7 @@ class Card(models.Model):
     city_name = models.CharField("Название города", max_length=100, null=True, blank=False)
     company_name = models.CharField("Название предприятия (юридического лица)", max_length=100, blank=False)
     company_ownership_type = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING, null=True, blank=True,
-                                               verbose_name="Форма собственности компании", )
+                                               verbose_name="Форма собственности компании")
     company_country_name = models.CharField("Страна происхождения компании", max_length=100, blank=True)
     company_is_tnk_member = models.CharField("Является ли эта кампания частью ТНК (Транснациональная компания)",
                                              choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, null=True, blank=True)

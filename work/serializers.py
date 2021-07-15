@@ -2,10 +2,12 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import *
 
+
 class SourceSerializers(serializers.ModelSerializer):
     class Meta:
         model = Source
         fields = ('id', 'name')
+
 
 class CaseSer(serializers.Serializer):
     class Meta:
