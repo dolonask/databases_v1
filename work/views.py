@@ -487,7 +487,7 @@ class DataFilterAPI(APIView):
         fields = unpucking(my_list)
         # print(my_list)
         case_count = Case.objects.count()
-        sql_query = f"SELECT {fields}, count(*), round(count (*) * 100 /{case_count}, 2) percent FROM work_case"
+        sql_query = f"SELECT {fields}, count(*), round(count (*) * 100.0 /{case_count}, 2) percent FROM work_case"
         where_query = "where "
         where_list = []
         where_query_list = []

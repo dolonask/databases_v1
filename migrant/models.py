@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Employee(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     country = models.ForeignKey("Country", on_delete=models.DO_NOTHING, verbose_name="Страна пользователя")
 
     def __str__(self):
