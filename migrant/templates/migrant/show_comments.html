@@ -27,7 +27,9 @@
                             <td>{{ comment.comment }}</td>
                             <td>{{ comment.date_create | date:"d.m.Y H:i" }}</td>
                             <td>
+                                {% if request.user.position.role_id == 1 or request.user.position.role_id == 2 %}
                                 <a href="{% url 'migrant_case_delete_comment' comment.id %}"><img src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить"></a>
+                                {% endif %}
                             </td>
                             {#					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>#}
                         </tr>

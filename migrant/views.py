@@ -15,6 +15,7 @@ from .serializers import *
 from .models import *
 from main.service import unpucking
 from django.db import connection
+from django.http import Http404
 
 
 @login_required
@@ -173,18 +174,28 @@ def update_case(request,pk):
                       'fileForm': fileForm,
                   })
 
+
 def cases(request):
-
-    cases = Case.objects.filter(user=request.user)
-
-    filter = MigrantFilter(request.GET, queryset=cases)
-    cards = filter.qs
-
-    context = {'cards':cards, 'myFilter':filter}
-
-    return render(request, 'migrant/cases.html', context)
-
-
+    if request.user.position.role_id == 1:
+        cases = Case.objects.all()
+        filter = MigrantFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'migrant/cases.html', context)
+    elif request.user.position.role_id == 2:
+        cases = Case.objects.filter(country_id=request.user.country.country_id)
+        filter = MigrantFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'migrant/cases.html', context)
+    elif request.user.position.role_id == 3:
+        cases = Case.objects.filter(country_id=request.user.country.country_id)
+        filter = MigrantFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'migrant/cases.html', context)
+    else:
+        raise Http404('Недостаточно прав!')
 
 def multistep(request):
     return render(request, 'migrant/add_case.html')
