@@ -476,7 +476,8 @@ class DataAPIView(APIView):
 
 
 class DataFilterAPI(APIView):
-    def get(self, request):
+    authentication_classes = []
+    def post(self, request):
         my_list = []
         print(request.data)
         for item in request.data:

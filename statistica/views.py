@@ -16,6 +16,7 @@ def migrant_analytic(request):
     else:
         raise Http404('Недостаточно прав!')
 
+
 def strike_analytic(request):
     if request.user.position.role_id == 1 or request.user.position.role_id == 2:
         return render(request, 'statistica/strike_search.html', {})
