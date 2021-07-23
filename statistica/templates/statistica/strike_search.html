@@ -1,0 +1,13 @@
+{% extends 'statistica/base_search.html' %}
+{% load static %}
+{% block title %}
+    Статистика забастовок
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active" aria-current="page">Забастовка</li>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'statistica/js/strike_search.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'statistica/base_search.html' %}
+{% load static %}
+{% block title %}
+    Статистика трудовых мигрантов
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active" aria-current="page">Трудовые мигранты</li>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'statistica/js/work_search.js' %}"></script>
+{% endblock %}
