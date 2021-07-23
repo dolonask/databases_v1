@@ -4,7 +4,10 @@ from io import BytesIO, StringIO
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.template import RequestContext
 from django.template.loader import get_template
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.permissions import IsAuthenticated
 from xhtml2pdf import pisa
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -16,7 +19,7 @@ from .models import *
 from main.service import unpucking
 from django.db import connection
 from django.http import Http404
-
+from django.utils.decorators import method_decorator
 
 @login_required
 def append_case(request):
@@ -333,7 +336,8 @@ class DataAPIView(APIView):
         #  'item': tradeUnionCount.data},  # Можно удалить
 
 class DataFilterAPI(APIView):
-    def get(self, request):
+    authentication_classes = []
+    def post(self, request):
         my_list = []
         print(request.data)
         for item in request.data:

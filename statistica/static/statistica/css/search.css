@@ -1,0 +1,15 @@
+.b{
+    background: #afafaf47;
+    border-radius: 20px;
+}
+.item{
+    border-bottom: 1px solid black;
+}
+.item-header{
+    padding: 7px;
+}
+
+#right-block{
+    height: 100vh;
+    overflow: auto;
+}
