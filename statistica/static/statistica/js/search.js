@@ -25,7 +25,7 @@ searchBtn.onclick = function () {
 function getResult(data){
     document.querySelector('.loading').classList.remove('d-none');
 
-    const url = 'http://127.0.0.1:8000/migrant/data/get/';
+    const url = 'http://databasesv1.herokuapp.com//migrant/data/get/';
     let options = {
         method:'POST',
         headers:{
@@ -61,7 +61,7 @@ function showResult(data) {
 }
 
 function getRight(){
-    const url = 'http://127.0.0.1:8000/migrant/data/'
+    const url = 'http://databasesv1.herokuapp.com//migrant/data/'
     fetch(url)
         .then(response => response.json())
         .then(data => showRight(data))
