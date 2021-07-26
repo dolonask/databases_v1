@@ -185,13 +185,7 @@ def cases(request):
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'migrant/cases.html', context)
-    elif request.user.position.role_id == 2:
-        cases = Case.objects.filter(country_id=request.user.country.country_id)
-        filter = MigrantFilter(request.GET, queryset=cases)
-        cards = filter.qs
-        context = {'cards': cards, 'myFilter': filter}
-        return render(request, 'migrant/cases.html', context)
-    elif request.user.position.role_id == 3:
+    elif request.user.position.role_id == 2 or request.user.position.role_id == 3:
         cases = Case.objects.filter(country_id=request.user.country.country_id)
         filter = MigrantFilter(request.GET, queryset=cases)
         cards = filter.qs
@@ -285,6 +279,9 @@ def case_download_pdf_view(request, *args, **kwargs):
 def test(request, pk):
     case = Case.objects.get(pk=pk)
     photos = CasePhoto.objects.filter(card_id=pk)
+    print(photos)
+    for i in photos:
+        print(i)
     return render(request, 'migrant/migrant_pdf.html', {'case': case, 'photos': photos})
 
 
