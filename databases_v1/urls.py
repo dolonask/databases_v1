@@ -33,7 +33,7 @@ urlpatterns = [
     path('migrant/', include('migrant.urls')),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     path('__debug__/', include(debug_toolbar.urls)),
-    path('analytyc/', include('statistica.urls'))
+    path('analytic/', include('statistica.urls'))
 ]
 
 if settings.DEBUG:

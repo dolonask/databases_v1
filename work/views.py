@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -276,15 +276,20 @@ def delete_case(request, pk):
     return redirect('works_list')
 
 def cases(request):
-    cases = Case.objects.filter(user=request.user, active = True)
-
-    filter = WorkFilter(request.GET, queryset=cases)
-    cards = filter.qs
-
-    context = {'cards': cards, 'myFilter': filter}
-
-    return render(request, 'work/cases.html', context)
-
+    if request.user.position.role_id == 1:
+        cases = Case.objects.all()
+        filter = WorkFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'work/cases.html', context)
+    elif request.user.position.role_id == 2 or request.user.position.role_id == 3:
+        cases = Case.objects.filter(country_id=request.user.country.country_id)
+        filter = WorkFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'work/cases.html', context)
+    else:
+        raise Http404('Недостаточно прав!')
 
 
 def load_regions(request):
