@@ -60,9 +60,11 @@ function showResult(data) {
 
 }
 
+
 function getRight(){
     const url = 'https://databasesv1.herokuapp.com/work/data/'
-
+    const apsolute_url = window.location.href
+    console.log(apsolute_url)
     fetch(url)
         .then(response => response.json())
         .then(data => showRight(data))
