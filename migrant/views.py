@@ -20,6 +20,8 @@ from main.service import unpucking
 from django.db import connection
 from django.http import Http404
 from django.utils.decorators import method_decorator
+from docxtpl import DocxTemplate
+
 
 @login_required
 def append_case(request):
@@ -578,3 +580,59 @@ def case_files_download(request, pk):
     images = CasePhoto.objects.filter(card_id=case.id)
     files = CaseFile.objects.filter(card_id=case.id)
     return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+
+# from docx import *
+# from docx.shared import Inches
+#
+# def document_test(request):
+#
+#     document = Document()
+#     docx_title="TEST_DOCUMENT.docx"
+#     # ---- Cover Letter ----
+#     # document.add_picture((r'%s/static/images/my-header.png' % (settings.PROJECT_PATH)), width=Inches(4))
+#     # document.add_paragraph()
+#     # document.add_paragraph("%s" % date.today().strftime('%B %d, %Y'))
+#
+#     document.add_paragraph('Dear Sir or Madam:')
+#     document.add_paragraph('We are pleased to help you with your widgets.')
+#     document.add_paragraph('Please feel free to contact me for any additional information.')
+#     document.add_paragraph('I look forward to assisting you in this project.')
+#
+#     document.add_paragraph()
+#     document.add_paragraph('Best regards,')
+#     document.add_paragraph('Acme Specialist 1]')
+#     document.add_page_break()
+#
+#     # Prepare document for download
+#     # -----------------------------
+#     f = StringIO()
+#     document.save(f)
+#     length = f.tell()
+#     f.seek(0)
+#     response = HttpResponse(
+#         f.getvalue(),
+#         content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+#     )
+#     response['Content-Disposition'] = 'attachment; filename=' + docx_title
+#     response['Content-Length'] = length
+#     return response
+import jinja2
+from .templatetags.migrant_tags import var_verbose_name_for_word
+
+def generate_case(request, pk):
+    case = Case.objects.get(pk=pk)
+    base_dir = str(settings.BASE_DIR)
+    base_dir += "\\migrant\\static\\word\\migrant\\"
+    tpl = DocxTemplate(base_dir + 'template.docx')
+    content = {'case': case}
+    jinja_env = jinja2.Environment()
+    jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
+    tpl.render(content, jinja_env=jinja_env)
+    save_path = base_dir + 'test.docx'
+    tpl.save(save_path)
+    if os.path.exists(save_path):
+        with open(save_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
+            return response
+    return HttpResponse('<h1>Скачивание идет!/h1>')

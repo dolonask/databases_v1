@@ -141,6 +141,7 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                <a href="{% url 'migrant_case_word' card.id %}"><img src="{% static 'icon/word.svg' %}" height="20px" alt="Скачать word файл"></a>
                                 <a href="{% url 'migrant_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>
                                 <a href="{% url 'migrant_case_get_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>
                                 <a href="{% url 'migrant_case_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
