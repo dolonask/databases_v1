@@ -622,7 +622,7 @@ from .templatetags.migrant_tags import var_verbose_name_for_word
 def generate_case(request, pk):
     case = Case.objects.get(pk=pk)
     base_dir = str(settings.BASE_DIR)
-    base_dir += "\\migrant\\static\\word\\migrant\\"
+    base_dir += "/migrant/static/word/migrant/"
     tpl = DocxTemplate(base_dir + 'template.docx')
     content = {'case': case}
     jinja_env = jinja2.Environment()
@@ -635,4 +635,4 @@ def generate_case(request, pk):
             response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
             return response
-    return HttpResponse('<h1>Скачивание идет!/h1>')
+    return Http404()
