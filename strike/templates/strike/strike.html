@@ -110,9 +110,10 @@
                             <td>{{card.date_create | date:"d.m.Y H:i"}}</td>
                             <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
                             <td>
-                                {% if card.user == request.user or request.user.position.role_id == 1 or request.user.position.role_id == 2%}
+                                {% if card.added_by == request.user or request.user.position.role_id == 1 or request.user.position.role_id == 2%}
                                     <a href="{% url 'strike_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить"></a>
                                     <img data-id="{{ card.id }}" class="delete-btn" src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить">
+                                    <a href="{% url 'strike_card_files_download' card.id %}"><img src="{% static 'icon/image_file.svg' %}" height="20px" alt="Скачать файлы и изображения"></a>
                                     <div id="myModal{{ card.id }}" class="modal">
                                         <div class="modal-content">
                                             <span  data-id="{{ card.id }}" class="close">&times;</span>

@@ -70,7 +70,7 @@ def append_case(request):
                     file = CaseFile(file=f, card=case)
                     file.save()
 
-            return redirect('migrant_case')
+            return redirect('migrants_list')
 
     else:
         form = CaseForm
@@ -249,7 +249,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     # create a pdf
     pisa_status = pisa.CreatePDF(
         BytesIO(html.encode('UTF-8')), dest=response, encoding='utf-8')
-        # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
+    # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
     # if error then show some funy view
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
@@ -571,3 +571,10 @@ class DataFilterAPI(APIView):
                 response_list.append(response_body)
 
         return Response(response_list)
+
+
+def case_files_download(request, pk):
+    case = Case.objects.get(user=request.user, pk=pk)
+    images = CasePhoto.objects.filter(card_id=case.id)
+    files = CaseFile.objects.filter(card_id=case.id)
+    return render(request, 'migrant/files_download.html', {'images': images, 'files': files})

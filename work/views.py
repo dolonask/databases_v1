@@ -155,7 +155,7 @@ def add_case(request):
                 file = CaseFile(file=f, card=case)
                 file.save()
 
-            return redirect('work_case')
+            return redirect('works_list')
     else:
         form = CaseForm
         tradeUnionForm = TradeUnionInfoForm
@@ -955,3 +955,10 @@ class DataFilterAPI(APIView):
                     response_body[fields_list[j]] = row[i][j]
                 response_list.append(response_body)
         return Response(response_list)
+
+
+def case_files_download(request, pk):
+    case = Case.objects.get(user=request.user, pk=pk)
+    images = CasePhoto.objects.filter(card_id=case.id)
+    files = CaseFile.objects.filter(card_id=case.id)
+    return render(request, 'migrant/files_download.html', {'images': images, 'files': files})

@@ -13,5 +13,6 @@ urlpatterns = [
     path('download-pdf/<int:pk>', views.case_download_pdf_view, name="strike_case_download_pdf"),
     path('get-pdf/<int:pk>', views.case_render_pdf_view, name="strike_case_get_pdf"),
     path('data/', views.DataAPIView.as_view(), name="strike_data_api"),
-    path('data/get/', views.DataFilterAPI.as_view(), name="strike_filter_data_api")
+    path('data/get/', views.DataFilterAPI.as_view(), name="strike_filter_data_api"),
+    path('card_files_download/<int:pk>/', views.card_files_download, name='strike_card_files_download')
 ]

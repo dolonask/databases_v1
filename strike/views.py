@@ -106,14 +106,14 @@ def add_case(request):
             #     individualForm.save()
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
-                    photo = CardPhoto(photo=f, card=form)
+                    photo = CardPhoto(photo=f, card=case)
                     photo.save()
             if fileForm.is_valid():
                 for f in request.FILES.getlist('file'):
-                    file = CardFile(file=f, card=form)
+                    file = CardFile(file=f, card=case)
                     file.save()
 
-            return redirect('strike_card')
+            return redirect('strikes_list')
     else:
         form = CardForm
         tradeUnionForm = TradeunionForm
@@ -164,11 +164,8 @@ def delete_case(request, pk):
     return redirect('strikes_list')
 
 @login_required()
-def update_case(request,pk):
-
+def update_case(request, pk):
     case = Card.objects.get(id=pk)
-
-
     general_tabs_fields = ['name',
                            'card_sources',
                            'source_url',
@@ -680,3 +677,10 @@ class DataFilterAPI(APIView):
 
         # return Response(status=401)
         return Response(response_list)
+
+
+def card_files_download(request, pk):
+    case = Card.objects.get(added_by=request.user, pk=pk)
+    images = CardPhoto.objects.filter(card_id=case.id)
+    files = CardFile.objects.filter(card_id=case.id)
+    return render(request, 'migrant/files_download.html', {'images': images, 'files': files})

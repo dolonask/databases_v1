@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Файлы и изображения</title>
+</head>
+<body>
+{% for item in images %}
+    <tr>
+        <th><a href="{{ item.photo.url }}">Изображение скачать</a></th>
+        <td><a href="{{ item.photo.url }}"><img src="{{ item.photo.url }}" alt="image" width=250></a></td>
+    </tr>
+    <br>
+{% empty %}
+    <h1>Изображений связанных с этой карточкой нет!</h1>
+{% endfor %}
+{% for item in files %}
+    <tr>
+        <th>Файл</th>
+        <a href="{{ item.file.url }}">Скачать</a>
+    </tr>
+    <br>
+{% empty %}
+    <h1>Файлы связанных с этой карточкой нет!</h1>
+{% endfor %}
+</body>
+</html>

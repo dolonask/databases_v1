@@ -14,5 +14,6 @@ urlpatterns = [
     path('dict/regions', views.load_regions, name='migrant_regions_list'),
     path('test/<int:pk>', views.test, name='test'),
     path('data/', views.DataAPIView.as_view(), name='migrant_data'),
-    path('data/get/', views.DataFilterAPI.as_view(), name='migrant_data_get')
+    path('data/get/', views.DataFilterAPI.as_view(), name='migrant_data_get'),
+    path('case_files_download/<int:pk>/', views.case_files_download, name='migrant_case_files_download')
 ]
