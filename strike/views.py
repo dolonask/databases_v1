@@ -145,6 +145,7 @@ def load_regions(request):
     regions = Region.objects.filter(country=country_id).all()
     return render(request,'strike/region_dropdown.html',{'regions':regions})
 
+
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
@@ -332,9 +333,22 @@ def delete_comment(request, pk):
 def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     card = get_object_or_404(Card, pk=pk)
+    card_sources = Source.objects.filter(card__pk=pk)
+    card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
+    economic_demands = EconomicDemand.objects.filter(card__pk=pk)
+    politic_demands = PoliticDemand.objects.filter(card__pk=pk)
+    combo_demands = ComboDemand.objects.filter(card__pk=pk)
     comments = CardComment.objects.filter(card_id=pk)
     template_path = 'strike/strike_pdf.html'
-    context = {'card': card, 'comments': comments}
+    context = {
+        'card': card,
+        'card_sources': card_sources,
+        'card_demand_categories': card_demand_categories,
+        'economic_demands': economic_demands,
+        'politic_demands': politic_demands,
+        'combo_demands': combo_demands,
+        'comments': comments,
+    }
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="report.pdf"'
@@ -354,8 +368,22 @@ def case_render_pdf_view(request, *args, **kwargs):
 def case_download_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     card = get_object_or_404(Card, pk=pk)
+    card_sources = Source.objects.filter(card__pk=pk)
+    card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
+    economic_demands = EconomicDemand.objects.filter(card__pk=pk)
+    politic_demands = PoliticDemand.objects.filter(card__pk=pk)
+    combo_demands = ComboDemand.objects.filter(card__pk=pk)
+    comments = CardComment.objects.filter(card_id=pk)
     template_path = 'strike/strike_pdf.html'
-    context = {'card': card}
+    context = {
+        'card': card,
+        'card_sources': card_sources,
+        'card_demand_categories': card_demand_categories,
+        'economic_demands': economic_demands,
+        'politic_demands': politic_demands,
+        'combo_demands': combo_demands,
+        'comments': comments,
+    }
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="report.pdf"'
@@ -1030,21 +1058,35 @@ class DataFilterAPI(APIView):
 
 
 def card_files_download(request, pk):
-    case = Card.objects.get(added_by=request.user, pk=pk)
+    case = Card.objects.get(added_by=request.user, id=pk)
     images = CardPhoto.objects.filter(card_id=case.id)
     files = CardFile.objects.filter(card_id=case.id)
     return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
 def generate_card_word(request, pk):
-    card = Card.objects.get(pk=pk)
+    card = Card.objects.get(id=pk)
+    card_sources = Source.objects.filter(card__pk=pk)
+    card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
+    economic_demands = EconomicDemand.objects.filter(card__pk=pk)
+    politic_demands = PoliticDemand.objects.filter(card__pk=pk)
+    combo_demands = ComboDemand.objects.filter(card__pk=pk)
+    comments = CardComment.objects.filter(card_id=pk)
     base_dir = str(settings.BASE_DIR)
     base_dir += "/strike/static/word/strike/"
     tpl = DocxTemplate(base_dir + 'template.docx')
-    content = {'card': card}
+    context = {
+        'card': card,
+        'card_sources': card_sources,
+        'card_demand_categories': card_demand_categories,
+        'economic_demands': economic_demands,
+        'politic_demands': politic_demands,
+        'combo_demands': combo_demands,
+        'comments': comments,
+    }
     jinja_env = jinja2.Environment()
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
-    tpl.render(content, jinja_env=jinja_env)
+    tpl.render(context, jinja_env=jinja_env)
     save_path = base_dir + 'test.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):

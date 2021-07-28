@@ -86,15 +86,19 @@
                         <td>{{ card.region }}</td>
                     {% endif %}
                 </tr>
-                <tr>
-                    <th class="counter">1.7</th>
-                    <th>{{ card|var_verbose_name:'card_sources' }}</th>
-                    {% if card.card_sources.name|check_arg_is_none %}
+                {% for item in card_sources %}
+                    <tr>
+                        <th class="counter">1.7</th>
+                        <th>{{ card|var_verbose_name:'card_sources' }}</th>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">1.7</th>
+                        <th>{{ card|var_verbose_name:'card_sources' }}</th>
                         <td></td>
-                    {% else %}
-                        <td>{{ card.card_sources }}</td>
-                    {% endif %}
-                </tr>
+                    </tr>
+                {% endfor %}
                 <tr>
                     <th class="counter">1.8</th>
                     <th>{{ card|var_verbose_name:'source_url' }}</th>
@@ -211,24 +215,32 @@
                         <td>{{ card.count_strike_participants }}</td>
                     {% endif %}
                 </tr>
-                <tr>
-                    <th class="counter">3.0</th>
-                    <th>{{ card|var_verbose_name:'card_demand_categories' }}</th>
-                    {% if card.card_demand_categories.demand_cat_name|check_arg_is_none %}
+                {% for item in card_demand_categories %}
+                    <tr>
+                        <th class="counter">3.0</th>
+                        <th>{{ card|var_verbose_name:'card_demand_categories' }}</th>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">3.0</th>
+                        <th>{{ card|var_verbose_name:'card_demand_categories' }}</th>
                         <td></td>
-                    {% else %}
-                        <td>{{ card.card_demand_categories }}</td>
-                    {% endif %}
-                </tr>
-                <tr>
-                    <th class="counter">3.1</th>
-                    <th>{{ card|var_verbose_name:'economic_demands' }}</th>
-                    {% if card.economic_demands.name|check_arg_is_none %}
+                    </tr>
+                {% endfor %}
+                {% for item in economic_demands %}
+                    <tr>
+                        <th class="counter">3.1</th>
+                        <th>{{ card|var_verbose_name:'economic_demands' }}</th>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">3.1</th>
+                        <th>{{ card|var_verbose_name:'economic_demands' }}</th>
                         <td></td>
-                    {% else %}
-                        <td>{{ card.economic_demands }}</td>
-                    {% endif %}
-                </tr>
+                    </tr>
+                {% endfor %}
                 <tr>
                     <th class="counter">3.2</th>
                     <th>{{ card|var_verbose_name:'economic_another' }}</th>
@@ -238,15 +250,19 @@
                         <td>{{ card.economic_another }}</td>
                     {% endif %}
                 </tr>
-                <tr>
-                    <th class="counter">3.3</th>
-                    <th>{{ card|var_verbose_name:'politic_demands' }}</th>
-                    {% if card.politic_demands.name|check_arg_is_none %}
+                {% for item in politic_demands %}
+                    <tr>
+                        <th class="counter">3.3</th>
+                        <th>{{ card|var_verbose_name:'politic_demands' }}</th>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">3.3</th>
+                        <th>{{ card|var_verbose_name:'politic_demands' }}</th>
                         <td></td>
-                    {% else %}
-                        <td>{{ card.politic_demands }}</td>
-                    {% endif %}
-                </tr>
+                    </tr>
+                {% endfor %}
                 <tr>
                     <th class="counter">3.4</th>
                     <th>{{ card|var_verbose_name:'politic_another' }}</th>
@@ -256,15 +272,19 @@
                         <td>{{ card.politic_another }}</td>
                     {% endif %}
                 </tr>
-                <tr>
-                    <th class="counter">3.5</th>
-                    <th>{{ card|var_verbose_name:'combo_demands' }}</th>
-                    {% if card.combo_demands.name|check_arg_is_none %}
+                {% for item in combo_demands %}
+                    <tr>
+                        <th class="counter">3.5</th>
+                        <th>{{ card|var_verbose_name:'combo_demands' }}</th>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">3.5</th>
+                        <th>{{ card|var_verbose_name:'combo_demands' }}</th>
                         <td></td>
-                    {% else %}
-                        <td>{{ card.combo_demands }}</td>
-                    {% endif %}
-                </tr>
+                    </tr>
+                {% endfor %}
                 <tr>
                     <th class="counter">3.6</th>
                     <th>{{ card|var_verbose_name:'combo_another' }}</th>
@@ -509,6 +529,19 @@
                     <td>{{ card.case_text|linebreaks }}</td>
                 {% endif %}
                 </tr>
+                {% for item in comments %}
+                    <tr>
+                        <th class="counter">5.7</th>
+                        <th>Комментарий</th>
+                        <td>{{ item.comment }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">5.7</th>
+                        <th>Комментарий</th>
+                        <td></td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
