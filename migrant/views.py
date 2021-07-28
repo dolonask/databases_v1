@@ -21,6 +21,9 @@ from django.db import connection
 from django.http import Http404
 from django.utils.decorators import method_decorator
 from docxtpl import DocxTemplate
+import jinja2
+from .templatetags.migrant_tags import var_verbose_name_for_word, check_arg_is_none
+
 
 
 @login_required
@@ -239,9 +242,18 @@ def delete_comment(request, pk):
 def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
+    source = InfoSource.objects.filter(case__pk=pk)
+    right = Right.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
     comments = CaseComment.objects.filter(case_id=pk)
     template_path = 'migrant/migrant_pdf.html'
-    context = {'case': case, 'comments': comments}
+    context = {
+        'case': case,
+        'source': source,
+        'right': right,
+        'intruder': intruder,
+        'comments': comments
+    }
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="report.pdf"'
@@ -261,8 +273,18 @@ def case_render_pdf_view(request, *args, **kwargs):
 def case_download_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
+    source = InfoSource.objects.filter(case__pk=pk)
+    right = Right.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
     template_path = 'migrant/migrant_pdf.html'
-    context = {'case': case}
+    context = {
+        'case': case,
+        'source': source,
+        'right': right,
+        'intruder': intruder,
+        'comments': comments
+    }
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="report.pdf"'
@@ -929,19 +951,26 @@ def case_files_download(request, pk):
     return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
-import jinja2
-from .templatetags.migrant_tags import var_verbose_name_for_word
-
-
-def generate_case(request, pk):
+def generate_case_word(request, pk):
     case = Case.objects.get(pk=pk)
+    source = InfoSource.objects.filter(case__pk=pk)
+    right = Right.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
     base_dir = str(settings.BASE_DIR)
     base_dir += "/migrant/static/word/migrant/"
     tpl = DocxTemplate(base_dir + 'template.docx')
-    content = {'case': case}
+    context = {
+        'case': case,
+        'source': source,
+        'right': right,
+        'intruder': intruder,
+        'comments': comments
+    }
     jinja_env = jinja2.Environment()
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
-    tpl.render(content, jinja_env=jinja_env)
+    jinja_env.filters['check_arg_is_none'] = check_arg_is_none
+    tpl.render(context, jinja_env=jinja_env)
     save_path = base_dir + 'test.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):

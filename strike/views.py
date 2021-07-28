@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from io import BytesIO, StringIO
 from django.template.loader import get_template
 from xhtml2pdf import pisa
@@ -12,7 +12,10 @@ from .filters import CardFilter
 from django.db import connection
 from .forms import *
 from .models import *
-
+from docxtpl import DocxTemplate
+from migrant.templatetags.migrant_tags import var_verbose_name_for_word
+import jinja2
+import os
 
 @login_required()
 def add_case(request):
@@ -1031,3 +1034,22 @@ def card_files_download(request, pk):
     images = CardPhoto.objects.filter(card_id=case.id)
     files = CardFile.objects.filter(card_id=case.id)
     return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+
+
+def generate_card_word(request, pk):
+    card = Card.objects.get(pk=pk)
+    base_dir = str(settings.BASE_DIR)
+    base_dir += "/strike/static/word/strike/"
+    tpl = DocxTemplate(base_dir + 'template.docx')
+    content = {'card': card}
+    jinja_env = jinja2.Environment()
+    jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
+    tpl.render(content, jinja_env=jinja_env)
+    save_path = base_dir + 'test.docx'
+    tpl.save(save_path)
+    if os.path.exists(save_path):
+        with open(save_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
+            return response
+    return Http404()

@@ -14,12 +14,14 @@ from django.contrib.auth.models import User
 import json
 from django.db import connection
 from main.service import unpucking
-
-
 from .filters import WorkFilter
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
     CaseFileForm, IndividualFormSet, CaseCommentForm
 from .models import *
+from docxtpl import DocxTemplate
+from migrant.templatetags.migrant_tags import var_verbose_name_for_word
+import jinja2
+import os
 
 # Create your views here.
 
@@ -1309,3 +1311,22 @@ def case_files_download(request, pk):
     images = CasePhoto.objects.filter(card_id=case.id)
     files = CaseFile.objects.filter(card_id=case.id)
     return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+
+
+def generate_case_word(request, pk):
+    case = Case.objects.get(pk=pk)
+    base_dir = str(settings.BASE_DIR)
+    base_dir += "/work/static/word/work/"
+    tpl = DocxTemplate(base_dir + 'template.docx')
+    content = {'case': case}
+    jinja_env = jinja2.Environment()
+    jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
+    tpl.render(content, jinja_env=jinja_env)
+    save_path = base_dir + 'test.docx'
+    tpl.save(save_path)
+    if os.path.exists(save_path):
+        with open(save_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
+            return response
+    return Http404()

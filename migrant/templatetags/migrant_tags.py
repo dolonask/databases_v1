@@ -16,8 +16,16 @@ def check_arg_is_none(arg):
     else:
         return False
 
+
 def var_verbose_name_for_word(model, arg):
     try:
         return model._meta.get_field(arg).verbose_name
     except Exception:
         return 'Error'
+
+
+def check_arg_is_none(arg):
+    if arg is None:
+        return True
+    else:
+        return False
