@@ -296,7 +296,7 @@ class DataAPIView(APIView):
         source = InfoSourceSerializers(InfoSource.objects.all(), many=True)
         violated_right = RightSerializers(Right.objects.all(), many=True)
         victim = VictimSerializers(Victim.objects.all(), many=True)
-        individualInfo = IndividualInfoSerializers(IndividualInfo.objects.all(), many=True)
+        # individualInfo = IndividualInfoSerializers(IndividualInfo.objects.all(), many=True)
         intruder = IntruderSerializers(Intruder.objects.all(), many=True)
         violation_nature = NatureViolationSerializers(NatureViolation.objects.all(), many=True)
         # personGroupInfo = PersonGroupSerializers(PersonGroup.objects.all(), many=True)
@@ -311,12 +311,359 @@ class DataAPIView(APIView):
         # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
         return Response([
             {'id': 'country', 'name': 'Страна', 'item': country.data},
-            {'id': 'region', 'name': 'Регион', 'item': region.data},
+            {'id': 'region', 'name': 'Регион', 'item': {1: [
+                {
+                    "id": 1,
+                    "name": "г.Москва"
+                },
+                {
+                    "id": 2,
+                    "name": "Амурскаяобласть(Благовещенск)"
+                },
+                {
+                    "id": 3,
+                    "name": "Архангельскаяобласть(Архангельск)"
+                },
+                {
+                    "id": 4,
+                    "name": "Астраханскаяобласть(Астрахань)"
+                },
+                {
+                    "id": 5,
+                    "name": "Белгородскаяобласть(Белгород)"
+                },
+                {
+                    "id": 6,
+                    "name": "Брянскаяобласть(Брянск)"
+                },
+                {
+                    "id": 7,
+                    "name": "Челябинскаяобласть(Челябинск)"
+                },
+                {
+                    "id": 8,
+                    "name": "Иркутскаяобласть(Иркутск)"
+                },
+                {
+                    "id": 9,
+                    "name": "Ивановскаяобласть(Иваново)"
+                },
+                {
+                    "id": 10,
+                    "name": "Калининградскаяобласть(Калининград)"
+                },
+                {
+                    "id": 11,
+                    "name": "Калужскаяобласть(Калуга)"
+                },
+                {
+                    "id": 12,
+                    "name": "Кемеровскаяобласть—Кузбасс(Кемерово)"
+                },
+                {
+                    "id": 13,
+                    "name": "Кировскаяобласть(Киров)"
+                },
+                {
+                    "id": 14,
+                    "name": "Костромскаяобласть(Кострома)"
+                },
+                {
+                    "id": 15,
+                    "name": "Курганскаяобласть(Курган)"
+                },
+                {
+                    "id": 16,
+                    "name": "Курскаяобласть(Курск)"
+                },
+                {
+                    "id": 17,
+                    "name": "Ленинградскаяобласть(Санкт Петербург)"
+                },
+                {
+                    "id": 19,
+                    "name": "Липецкаяобласть(Липецк)"
+                },
+                {
+                    "id": 20,
+                    "name": "Магаданскаяобласть(Магадан)"
+                },
+                {
+                    "id": 21,
+                    "name": "Московскаяобласть(Москва)"
+                },
+                {
+                    "id": 22,
+                    "name": "Мурманскаяобласть(Мурманск)"
+                },
+                {
+                    "id": 23,
+                    "name": "Нижегородскаяобласть(НижнийНовгород)"
+                },
+                {
+                    "id": 24,
+                    "name": "Новгородскаяобласть(ВеликийНовгород)"
+                },
+                {
+                    "id": 25,
+                    "name": "Новосибирскаяобласть(Новосибирск)"
+                },
+                {
+                    "id": 26,
+                    "name": "Омскаяобласть(Омск)"
+                },
+                {
+                    "id": 27,
+                    "name": "Оренбургскаяобласть(Оренбург)"
+                },
+                {
+                    "id": 28,
+                    "name": "Орловскаяобласть(Орёл)"
+                },
+                {
+                    "id": 29,
+                    "name": "Пензенскаяобласть(Пенза)"
+                },
+                {
+                    "id": 30,
+                    "name": "Псковскаяобласть(Псков)"
+                },
+                {
+                    "id": 31,
+                    "name": "Ростовскаяобласть(Ростов на Дону)"
+                },
+                {
+                    "id": 32,
+                    "name": "Рязанскаяобласть(Рязань)"
+                },
+                {
+                    "id": 33,
+                    "name": "Сахалинскаяобласть(Южно Сахалинск)"
+                },
+                {
+                    "id": 34,
+                    "name": "Самарскаяобласть(Самара)"
+                },
+                {
+                    "id": 35,
+                    "name": "Саратовскаяобласть(Саратов)"
+                },
+                {
+                    "id": 36,
+                    "name": "Смоленскаяобласть(Смоленск)"
+                },
+                {
+                    "id": 37,
+                    "name": "Свердловскаяобласть(Екатеринбург)"
+                },
+                {
+                    "id": 38,
+                    "name": "Тамбовскаяобласть(Тамбов)"
+                },
+                {
+                    "id": 39,
+                    "name": "Томскаяобласть(Томск)"
+                },
+                {
+                    "id": 40,
+                    "name": "Тверскаяобласть(Тверь)"
+                },
+                {
+                    "id": 41,
+                    "name": "Тульскаяобласть(Тула)"
+                },
+                {
+                    "id": 42,
+                    "name": "Тюменскаяобласть(Тюмень)"
+                },
+                {
+                    "id": 43,
+                    "name": "Ульяновскаяобласть(Ульяновск)"
+                },
+                {
+                    "id": 44,
+                    "name": "Владимирскаяобласть(Владимир)"
+                },
+                {
+                    "id": 45,
+                    "name": "Волгоградскаяобласть(Волгоград)"
+                },
+                {
+                    "id": 46,
+                    "name": "Вологодскаяобласть(Вологда)"
+                },
+                {
+                    "id": 47,
+                    "name": "Воронежскаяобласть(Воронеж)"
+                },
+                {
+                    "id": 48,
+                    "name": "Ярославскаяобласть(Ярославль)"
+                }
+            ],
+                2: [
+                    {
+                        "id": 49,
+                        "name": "г. Бишкек"
+                    },
+                    {
+                        "id": 50,
+                        "name": "г. Ош"
+                    },
+                    {
+                        "id": 51,
+                        "name": "Баткенская область"
+                    },
+                    {
+                        "id": 52,
+                        "name": "Джалал-Абадская область"
+                    },
+                    {
+                        "id": 53,
+                        "name": "Иссык-Кульская область"
+                    },
+                    {
+                        "id": 54,
+                        "name": "Нарынская область"
+                    },
+                    {
+                        "id": 55,
+                        "name": "Ошская область"
+                    },
+                    {
+                        "id": 56,
+                        "name": "Таласская область"
+                    },
+                    {
+                        "id": 57,
+                        "name": "Чуйская область"
+                    }],
+                3: [
+                    {
+                        "id": 58,
+                        "name": "Нур-Султан (Астана)"
+                    },
+                    {
+                        "id": 59,
+                        "name": "Алматы"
+                    },
+                    {
+                        "id": 60,
+                        "name": "Шымкент"
+                    },
+                    {
+                        "id": 61,
+                        "name": "Байконыр"
+                    },
+                    {
+                        "id": 62,
+                        "name": "Акмолинская область"
+                    },
+                    {
+                        "id": 63,
+                        "name": "Актюбинская область"
+                    },
+                    {
+                        "id": 64,
+                        "name": "Алматинская область"
+                    },
+                    {
+                        "id": 65,
+                        "name": "Атырауская область"
+                    },
+                    {
+                        "id": 66,
+                        "name": "Восточно-Казахстанская область"
+                    },
+                    {
+                        "id": 67,
+                        "name": "Жамбылская область"
+                    },
+                    {
+                        "id": 68,
+                        "name": "Западно-Казахстанская область"
+                    },
+                    {
+                        "id": 69,
+                        "name": "Карагандинская область"
+                    },
+                    {
+                        "id": 70,
+                        "name": "Костанайская область"
+                    },
+                    {
+                        "id": 71,
+                        "name": "Кызылординская область"
+                    },
+                    {
+                        "id": 72,
+                        "name": "Мангистауская область"
+                    },
+                    {
+                        "id": 73,
+                        "name": "Павлодарская область"
+                    },
+                    {
+                        "id": 74,
+                        "name": "Севрено-Казахстанская область"
+                    },
+                    {
+                        "id": 75,
+                        "name": "Туркестанская область"
+                    }],
+                4: [
+                    {
+                        "id": 76,
+                        "name": "г. Душанбе"
+                    },
+                    {
+                        "id": 77,
+                        "name": "Горно - Бажахшанская область"
+                    },
+                    {
+                        "id": 78,
+                        "name": "Согдийская область"
+                    },
+                    {
+                        "id": 79,
+                        "name": "Хатлонская область"
+                    },
+                    {
+                        "id": 80,
+                        "name": "Районы республиканского подчинения"
+                    }],
+                5: [
+                    {
+                        "id": 81,
+                        "name": "г. Ашхабад"
+                    },
+                    {
+                        "id": 82,
+                        "name": "Ахалский велаят"
+                    },
+                    {
+                        "id": 83,
+                        "name": "Балканский велаят"
+                    },
+                    {
+                        "id": 84,
+                        "name": "Дашогузский велаят"
+                    },
+                    {
+                        "id": 85,
+                        "name": "Лебапский велаят"
+                    },
+                    {
+                        "id": 86,
+                        "name": "Марыйский велаят"
+                    }
+                ]
+            }},
             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
             {'id': 'banonentry', 'name': 'Есть ли у вас запрет на въезд?', 'item': banOnEntry.data},
             {'id': 'infosource', 'name': 'Источник информации о нарушении', 'item': source.data},
             {'id': 'right', 'name': 'Какое право нарушено?', 'item': violated_right.data},
-            {'id': 'individualinfo', 'name': 'физическое лицо', 'item': individualInfo.data}, #50 % 50
+            # {'id': 'individualinfo', 'name': 'физическое лицо', 'item': individualInfo.data}, #50 % 50
             # {'id': 'personGroupInfo', 'name': 'Группа лиц', 'item': personGroupInfo.data},
             {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
             {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
@@ -581,43 +928,10 @@ def case_files_download(request, pk):
     files = CaseFile.objects.filter(card_id=case.id)
     return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
-# from docx import *
-# from docx.shared import Inches
-#
-# def document_test(request):
-#
-#     document = Document()
-#     docx_title="TEST_DOCUMENT.docx"
-#     # ---- Cover Letter ----
-#     # document.add_picture((r'%s/static/images/my-header.png' % (settings.PROJECT_PATH)), width=Inches(4))
-#     # document.add_paragraph()
-#     # document.add_paragraph("%s" % date.today().strftime('%B %d, %Y'))
-#
-#     document.add_paragraph('Dear Sir or Madam:')
-#     document.add_paragraph('We are pleased to help you with your widgets.')
-#     document.add_paragraph('Please feel free to contact me for any additional information.')
-#     document.add_paragraph('I look forward to assisting you in this project.')
-#
-#     document.add_paragraph()
-#     document.add_paragraph('Best regards,')
-#     document.add_paragraph('Acme Specialist 1]')
-#     document.add_page_break()
-#
-#     # Prepare document for download
-#     # -----------------------------
-#     f = StringIO()
-#     document.save(f)
-#     length = f.tell()
-#     f.seek(0)
-#     response = HttpResponse(
-#         f.getvalue(),
-#         content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-#     )
-#     response['Content-Disposition'] = 'attachment; filename=' + docx_title
-#     response['Content-Length'] = length
-#     return response
+
 import jinja2
 from .templatetags.migrant_tags import var_verbose_name_for_word
+
 
 def generate_case(request, pk):
     case = Case.objects.get(pk=pk)
