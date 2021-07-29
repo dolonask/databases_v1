@@ -91,27 +91,32 @@ function showRight(data) {
         s.onchange = showItems;
     });
 
-    // document.querySelector('#region').onclick = function(e){
-    //    let regions;
-    //    if(e.target.checked){
-    //         let select = document.querySelector('[data-id="country"]');
-    //         let selected = [...select.selectedOptions].map(option => {
-    //             return option.value;
-    //         });
-    //
-    //         data.forEach(i => {
-    //             if(i.id === 'region') regions = i;
-    //         });
-    //
-    //         let regions2 = [];
-    //         selected.forEach(item => {
-    //             console.log(regions.item[item])
-    //             regions2 = [ ...regions.item[item] ];
-    //         })
-    //
-    //        console.log(regions2);
-    //    }
-    // }
+    document.querySelector('#region').onclick = function(e){
+       let regions;
+       if(e.target.checked){
+            let select = document.querySelector('[data-id="country"]');
+            let selected = [...select.selectedOptions].map(option => {
+                return option.value;
+            }); //айдишники стран
+
+
+            data.forEach(i => {
+                if(i.id === 'region') regions = i;
+            }); //получаю регионы
+
+            let regions2 = [];
+            selected.forEach(item => {
+                regions2.push(regions.item[item]);
+            })
+
+           let regionOptions;
+           regions2.flat().forEach(i => {
+               regionOptions += `<option value="${i.id}">${i.name}</option>`;
+           })
+
+           document.querySelector('[data-id="region"]').innerHTML = regionOptions;
+       }
+    }
 }
 
 /** Выводит блок для выпадающего списка
@@ -152,11 +157,6 @@ function createRightElems(name, item, id) {
 
 }
 
-function getItems(e) {
-    let value = e.target.value;
-
-    console.log(value);
-}
 // let searchBtn = document.querySelector('#search-btn');
 //
 // getRight();
