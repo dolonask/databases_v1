@@ -26,8 +26,8 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     document.querySelector('.loading').classList.remove('d-none');
-    // const url = 'https://databasesv1.herokuapp.com/strike/data/get/';
-    const url = 'http://localhost:8000/strike/data/get/';
+    const url = 'https://databasesv1.herokuapp.com/strike/data/get/';
+    // const url = 'http://localhost:8000/strike/data/get/';
 
     let options = {
         method: 'POST',
@@ -64,8 +64,8 @@ function showResult(data) {
 }
 
 function getRight() {
-    // const url = 'https://databasesv1.herokuapp.com/strike/data/'
-    const url = 'http://127.0.0.1:8000/strike/data/';
+    const url = 'https://databasesv1.herokuapp.com/strike/data/'
+    // const url = 'http://127.0.0.1:8000/strike/data/';
     fetch(url)
         .then(response => response.json())
         .then(data => {
