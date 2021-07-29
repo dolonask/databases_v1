@@ -1329,14 +1329,22 @@ def case_files_download(request, pk):
 
 
 def generate_case_word(request, pk):
-    case = Case.objects.get(pk=pk)
+    case = get_object_or_404(Case, pk=pk)
+    source = Source.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
     base_dir = str(settings.BASE_DIR)
     base_dir += "/work/static/word/work/"
     tpl = DocxTemplate(base_dir + 'template.docx')
-    content = {'case': case}
+    context = {
+        'case': case,
+        'source': source,
+        'intruder': intruder,
+        'comments': comments
+    }
     jinja_env = jinja2.Environment()
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
-    tpl.render(content, jinja_env=jinja_env)
+    tpl.render(context, jinja_env=jinja_env)
     save_path = base_dir + 'test.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):
