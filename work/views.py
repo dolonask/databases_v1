@@ -328,9 +328,16 @@ def delete_comment(request, pk):
 def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
+    source = Source.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
     comments = CaseComment.objects.filter(case_id=pk)
     template_path = 'work/work_pdf.html'
-    context = {'case': case, 'comments': comments}
+    context = {
+        'case': case,
+        'source': source,
+        'intruder': intruder,
+        'comments': comments
+    }
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="report.pdf"'
@@ -350,8 +357,16 @@ def case_render_pdf_view(request, *args, **kwargs):
 def case_download_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
+    source = Source.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
     template_path = 'work/work_pdf.html'
-    context = {'case': case}
+    context = {
+        'case': case,
+        'source': source,
+        'intruder': intruder,
+        'comments': comments
+    }
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="report.pdf"'
