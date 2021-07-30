@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Dolon\orders\databases_v1\db-crm-10.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="db-crm-4" uuid="0aa49d1e-304a-4afd-afd2-661109a2097d">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\db-crm-4.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
