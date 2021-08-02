@@ -747,6 +747,28 @@
                 </tr>
                 {% for item in comments %}
                     <tr>
+                        <th class="counter">8.9</th>
+                        <th>{{ case|var_verbose_name:'trade_union_activities' }}</th>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th class="counter">8.9</th>
+                        <th>{{ case|var_verbose_name:'trade_union_activities' }}</th>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th class="counter">8.9.1</th>
+                    <th>{{ case|var_verbose_name:'trade_union_activities_another' }}</th>
+                    {% if case.trade_union_activities_another|check_arg_is_none %}
+                        <td></td>
+                    {% else %}
+                        <td>{{ case.trade_union_activities_another }}</td>
+                    {% endif %}
+                </tr>
+                {% for item in comments %}
+                    <tr>
                         <th class="counter">9</th>
                         <th>{{ case|var_verbose_name:'comment' }}</th>
                         <td>{{ item.comment }}</td>

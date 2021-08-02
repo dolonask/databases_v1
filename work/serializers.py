@@ -260,3 +260,8 @@ class UserSerializers(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username')
 
+
+class TradeUnionActivitiesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = TradeUnionActivities
+        fields = ('id', 'name')

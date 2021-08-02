@@ -332,12 +332,14 @@ def case_render_pdf_view(request, *args, **kwargs):
     case = get_object_or_404(Case, pk=pk)
     source = Source.objects.filter(case__pk=pk)
     intruder = Intruder.objects.filter(case__pk=pk)
+    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     comments = CaseComment.objects.filter(case_id=pk)
     template_path = 'work/work_pdf.html'
     context = {
         'case': case,
         'source': source,
         'intruder': intruder,
+        'trade_union_activities': trade_union_activities,
         'comments': comments
     }
     # Create a Django response object, and specify content_type as pdf
@@ -361,12 +363,14 @@ def case_download_pdf_view(request, *args, **kwargs):
     case = get_object_or_404(Case, pk=pk)
     source = Source.objects.filter(case__pk=pk)
     intruder = Intruder.objects.filter(case__pk=pk)
+    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     comments = CaseComment.objects.filter(case_id=pk)
     template_path = 'work/work_pdf.html'
     context = {
         'case': case,
         'source': source,
         'intruder': intruder,
+        'trade_union_activities': trade_union_activities,
         'comments': comments
     }
     # Create a Django response object, and specify content_type as pdf
@@ -423,6 +427,7 @@ class DataAPIView(APIView):
         rights_state = RightsStateSerializers(RightsState.objects.all(), many=True)
         victim_situation = VictimSituationSerializers(VictimSituation.objects.all(), many=True)
         tradeUnionSituation = TradeUnionSituationSerializers(TradeUnionSituation.objects.all(), many=True)
+        trade_union_activities = TradeUnionActivitiesSerializers(TradeUnionActivities.objects.all(), many=True)
         user = UserSerializers(User.objects.all(), many=True)
         # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
         # company = CompanySerializers(Company.objects.all(), many=True)
@@ -838,6 +843,7 @@ class DataAPIView(APIView):
             {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
             {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
             'item': tradeUnionSituation.data},
+            {'id': 'trade_union_activities', 'name': 'Отрасль деятельности профсоюза', 'item': trade_union_activities.data},
             {'id': 'user', 'name': 'Монитор', 'item': user.data},
         ])
             # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
@@ -1253,6 +1259,17 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_tradeunionsituation on work_tradeunionsituation.id = work_case.tradeunionsituation_id "
 
+                elif id == "trade_union_activities":
+                    where_sql_query = "work_case.trade_union_activities_id in "
+                    for i in item:
+                        where_list.append(i['id'])
+                    if len(where_list) > 1:
+                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
+                    else:
+                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+                    where_list.clear()
+                    sql_query += " join work_tradeunionactivities on work_tradeunionactivities.id = work_case.trade_union_activities_id "
+
                 elif id == "user":
                     where_sql_query = "work_case.user_id in "
                     for i in item:
@@ -1335,6 +1352,7 @@ def generate_case_word(request, pk):
     source = Source.objects.filter(case__pk=pk)
     intruder = Intruder.objects.filter(case__pk=pk)
     comments = CaseComment.objects.filter(case_id=pk)
+    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     base_dir = str(settings.BASE_DIR)
     base_dir += "/work/static/word/work/"
     tpl = DocxTemplate(base_dir + 'template.docx')
@@ -1342,6 +1360,7 @@ def generate_case_word(request, pk):
         'case': case,
         'source': source,
         'intruder': intruder,
+        'trade_union_activities': trade_union_activities,
         'comments': comments
     }
     jinja_env = jinja2.Environment()
