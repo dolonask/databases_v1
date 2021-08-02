@@ -531,6 +531,14 @@ function onTradeUnionSituationChanged(value){
     }
 }
 
+function onTradeUnionActivitiesChanged(value){
+    if (get_selected('id_trade_union_activities') == 19){
+        showTandem('id_trade_union_activities_another');
+    }else{
+        hideTandem('id_trade_union_activities_another');
+    }
+}
+
 
 function hideRights(){
     for (key in fields){
@@ -601,6 +609,7 @@ var fields = ['tradeUnionRight',
 onIndAnonimChanged();
 onTnkChanged();
 onGroupOfRightsChanged();
+onTradeUnionActivitiesChanged();
 onTradeUnionRightChanged();
 onConvention87Changed();
 onConvention98Changed();

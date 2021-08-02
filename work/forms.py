@@ -70,11 +70,14 @@ class CaseForm(forms.ModelForm):
                 attrs={'class': 'checkbox-list-none', 'onchange': "onSourceChanged(this.value);"}),
             'source_another': forms.TextInput(attrs={'class': 'form-control'}),
             'source_url': forms.URLInput(attrs={'class': 'form-control'}),
-
             'source_content': forms.Textarea(attrs={'class': 'form-control'}),
             'country': forms.Select(attrs={'class': 'form-control'}),
             'region': forms.Select(attrs={'class': 'form-control'}),
             'city_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'trade_union_activities': forms.Select(attrs={'class': 'form-control',
+                                                          'onchange': "onTradeUnionActivitiesChanged(this.value)"}),
+            'trade_union_activities_another': forms.TextInput(attrs={'class': 'form-control'}),
+
             'case_company_name': forms.TextInput(attrs={'class': 'form-control'}),
             'groupOfRights': forms.Select(
                 attrs={'class': 'form-control', 'onchange': "onGroupOfRightsChanged(this.value);"}),
@@ -139,9 +142,9 @@ class CaseForm(forms.ModelForm):
             'failureSystemicMeasures': forms.Select(attrs={'class': 'form-control'}),
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
             'start_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y.%m.%d %H:%M"), 'type': 'datetime'}),
             'end_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y.%m.%d %H:%M"), 'type': 'datetime'}),
 
             'intruder': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onIntruderChanged(this.value);"}),
@@ -175,14 +178,14 @@ class CaseForm(forms.ModelForm):
         #     super().__init__(*args, **kwargs)
         #     self.fields['region'].queryset = Region.objects.none()
 
-            # if 'country' in self.data:
-            #     try:
-            #         country_id = int(self.data.get('country'))
-            #         self.fields['region'].queryset = Region.objects.filter(country_id=country_id).order_by('name')
-            #     except (ValueError, TypeError):
-            #         pass  # invalid input from the client; ignore and fallback to empty City queryset
-            # elif self.instance.pk:
-            #     self.fields['region'].queryset = self.instance.country.region_set.order_by('name')
+        # if 'country' in self.data:
+        #     try:
+        #         country_id = int(self.data.get('country'))
+        #         self.fields['region'].queryset = Region.objects.filter(country_id=country_id).order_by('name')
+        #     except (ValueError, TypeError):
+        #         pass  # invalid input from the client; ignore and fallback to empty City queryset
+        # elif self.instance.pk:
+        #     self.fields['region'].queryset = self.instance.country.region_set.order_by('name')
 
 
 class VictimForm(forms.ModelForm):

@@ -997,3 +997,5 @@ def load_works(apps, schema_editor):
     trade_union_activities.save()
     trade_union_activities = TradeUnionActivities(id=18, name="культура")
     trade_union_activities.save()
+    trade_union_activities = TradeUnionActivities(id=19, name="Другое")
+    trade_union_activities.save()
