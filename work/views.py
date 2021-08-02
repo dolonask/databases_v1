@@ -279,6 +279,7 @@ def delete_case(request, pk):
     case = Case.objects.get(id=pk).delete()
     return redirect('works_list')
 
+@login_required()
 def cases(request):
     if request.user.position.role_id == 1:
         cases = Case.objects.all()
@@ -301,7 +302,7 @@ def load_regions(request):
     regions = Region.objects.filter(country=country_id).all()
     return render(request,'work/region_dropdown.html',{'regions':regions})
 
-
+@login_required()
 def add_comment(request, pk):
     case = Case.objects.get(id=pk)
     if request.method == 'POST':

@@ -182,7 +182,7 @@ def update_case(request,pk):
                       'fileForm': fileForm,
                   })
 
-
+@login_required()
 def cases(request):
     if request.user.position.role_id == 1:
         cases = Case.objects.all()
@@ -212,7 +212,7 @@ def load_regions(request):
     regions = Region.objects.filter(country=country_id)
     return render(request,'migrant/region_dropdown.html',{'regions':regions})
 
-
+@login_required()
 def add_comment(request, pk):
     case = Case.objects.get(id=pk)
     if request.method == 'POST':

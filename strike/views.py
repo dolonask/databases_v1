@@ -303,7 +303,7 @@ def update_case(request, pk):
         'description_tab_fields': description_tab_fields,
     })
 
-
+@login_required()
 def add_comment(request, pk):
     card = Card.objects.get(id=pk)
     if request.method == 'POST':
