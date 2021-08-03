@@ -9,6 +9,7 @@ urlpatterns = [
     path('add-comment/<int:pk>/', views.add_comment, name="work_case_add_comment"),
     path('download-pdf/<int:pk>/', views.case_download_pdf_view, name="work_case_download_pdf"),
     path('get-pdf/<int:pk>/', views.case_render_pdf_view, name="work_case_get_pdf"),
+    path('pdf/<int:pk>/', views.work_pdf_in_html_page, name="work_pdf_in_html_page"),
     path('show-comments/<int:pk>/', views.show_comments, name="work_case_show_comments"),
     path('delete-comments/<int:pk>/', views.delete_comment, name="work_case_delete_comment"),
     path('dict/regions/', views.load_regions, name='works_regions_list'),

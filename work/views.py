@@ -1375,3 +1375,19 @@ def generate_case_word(request, pk):
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
             return response
     return Http404()
+
+
+def work_pdf_in_html_page(request, pk):
+    case = get_object_or_404(Case, pk=pk)
+    source = Source.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
+    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
+    context = {
+        'case': case,
+        'source': source,
+        'intruder': intruder,
+        'trade_union_activities': trade_union_activities,
+        'comments': comments
+    }
+    return render(request, 'work/work_pdf.html', context)
