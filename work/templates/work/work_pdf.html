@@ -8,12 +8,8 @@
     <style>
         @font-face {
             font-family: MyRightToLeftFont;
-            src: url('{% static 'font/DejaVuSansMono.ttf' %}')
-        }
-
-        @font-face {
-            font-family: "Roboto Thin";
-            src: url("{% static 'font/Roboto-Thin.ttf' %}");
+            {#src: url('../static/font/DejaVuSansMono.ttf')#}
+            src: url('../{% static "font/DejaVuSansMono.ttf" %}')
         }
 
         body {
