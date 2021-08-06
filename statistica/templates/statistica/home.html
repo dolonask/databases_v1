@@ -3,14 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Аналитика</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+        html {
+            height: 100%;
+            background: #f6f5fa; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #e7dddd, #f6f2f2); /* Chrome 10-25, Safari 5.1-6 */
+        }
+
+        body {
+            font-family: montserrat, arial, verdana;
+            background: transparent !important;
+        }
+
+    </style>
 </head>
 <body>
-<div class="row">
-    <a href="https://databasesv1.herokuapp.com{% url 'migrant_analytic' %}" class="btn btn-primary">Мигранты</a>
-    <a href="https://databasesv1.herokuapp.com{% url 'strike_analytic' %}" class="btn btn-primary">Забастовка</a>
-    <a href="https://databasesv1.herokuapp.com{% url 'work_analytic' %}" class="btn btn-primary">трудовые нарушения</a>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Система регистрации нарушений</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <a class="btn btn-block btn-lg btn-primary"
+               href="https://databasesv1.herokuapp.com{% url 'migrant_analytic' %}" role="button">Мигранты</a>
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-block btn-lg btn-primary"
+               href="https://databasesv1.herokuapp.com{% url 'strike_analytic' %}" role="button">Забастовка</a>
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-block btn-lg btn-primary"
+               href="https://databasesv1.herokuapp.com{% url 'work_analytic' %}" role="button">Трудовые
+                нарушения</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>
