@@ -38,7 +38,14 @@ function getResult(data) {
     }
 
     fetch(url, options)
-        .then(response => response.json())
+        .then(response => {
+               if(response.ok){
+                return response.json();
+            } else {
+                alert('Произошла ошибка. Статус ошибки: '+response.status);
+                document.querySelector('.loading').classList.add('d-none');
+            }
+        })
         .then(data => showResult(data))
 }
 
@@ -67,7 +74,13 @@ function getRight() {
     const url = 'https://databasesv1.herokuapp.com/strike/data/'
     // const url = 'http://127.0.0.1:8000/strike/data/';
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok){
+                return response.json();
+            } else {
+                alert('Произошла ошибка. Статус ошибки: '+response.status);
+            }
+        })
         .then(data => {
             datas = data;
             showRight(data)

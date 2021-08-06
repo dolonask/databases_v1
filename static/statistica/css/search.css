@@ -1,6 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html {
+    height: 100%;
+    background: #f6f5fa; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #e7dddd, #f6f2f2); /* Chrome 10-25, Safari 5.1-6 */
+}
+body {
+    font-family: montserrat, arial, verdana;
+    background: transparent !important;
+}
 .b{
-    background: #afafaf47;
-    border-radius: 20px;
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
 }
 .item{
     border-bottom: 1px solid black;
@@ -11,5 +25,9 @@
 
 #right-block{
     height: 100vh;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#search-btn{
+    margin: 15px 0px;
 }
