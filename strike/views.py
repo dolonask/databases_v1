@@ -1058,10 +1058,16 @@ class DataFilterAPI(APIView):
 
 
 def card_files_download(request, pk):
-    case = Card.objects.get(added_by=request.user, id=pk)
-    images = CardPhoto.objects.filter(card_id=case.id)
-    files = CardFile.objects.filter(card_id=case.id)
-    return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+    if request.user.position.role_id == 3:
+        case = Card.objects.get(added_by=request.user, id=pk)
+        images = CardPhoto.objects.filter(card_id=case.id)
+        files = CardFile.objects.filter(card_id=case.id)
+        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+    else:
+        case = Card.objects.get(id=pk)
+        images = CardPhoto.objects.filter(card_id=case.id)
+        files = CardFile.objects.filter(card_id=case.id)
+        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
 def generate_card_word(request, pk):

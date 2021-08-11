@@ -1342,10 +1342,16 @@ class DataFilterAPI(APIView):
 
 
 def case_files_download(request, pk):
-    case = Case.objects.get(user=request.user, pk=pk)
-    images = CasePhoto.objects.filter(card_id=case.id)
-    files = CaseFile.objects.filter(card_id=case.id)
-    return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+    if request.user.position.role_id == 3:
+        case = Case.objects.get(user=request.user, pk=pk)
+        images = CasePhoto.objects.filter(card_id=case.id)
+        files = CaseFile.objects.filter(card_id=case.id)
+        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+    else:
+        case = Case.objects.get(pk=pk)
+        images = CasePhoto.objects.filter(card_id=case.id)
+        files = CaseFile.objects.filter(card_id=case.id)
+        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
 def generate_case_word(request, pk):

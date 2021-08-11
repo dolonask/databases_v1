@@ -7,8 +7,8 @@
 <body>
 {% for item in images %}
     <tr>
-        <th><a href="{{ item.photo.url }}">Изображение скачать</a></th>
-        <td><a href="{{ item.photo.url }}"><img src="{{ item.photo.url }}" alt="image" width=250></a></td>
+        <th><a href="{{ item.photo.url }}" download>Изображение скачать</a></th>
+        <td><a href="{{ item.photo.url }}" download><img src="{{ item.photo.url }}" alt="image" width=250></a></td>
     </tr>
     <br>
 {% empty %}
@@ -17,7 +17,7 @@
 {% for item in files %}
     <tr>
         <th>Файл</th>
-        <a href="{{ item.file.url }}">Скачать</a>
+        <a href="{{ item.file.url }}" download>Скачать</a>
     </tr>
     <br>
 {% empty %}
