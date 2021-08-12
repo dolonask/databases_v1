@@ -24,7 +24,7 @@ LOGOUT_REDIRECT_URL = '/'
 SECRET_KEY = 'django-insecure-ob%ss046omcoy+aeh=chw2sh9$dsq4g*ho$winqx)a5v1c@(cn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'databasesv1.herokuapp.com']
 
@@ -42,13 +42,13 @@ INSTALLED_APPS = [
     'djoser',
     'rest_framework.authtoken',
     # 'debug_toolbar',
+    'migrant.apps.MigrantConfig',
     'main.apps.MainConfig',
+    'work.apps.WorkConfig',
+    'strike.apps.StrikeConfig',
     'crispy_forms',
     'django_tables2',
     'django_filters',
-    'work.apps.WorkConfig',
-    'migrant.apps.MigrantConfig',
-    'strike.apps.StrikeConfig',
     'bootstrapform',
     'statistica.apps.StatisticaConfig'
 ]
@@ -88,23 +88,23 @@ WSGI_APPLICATION = 'databases_v1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'databases-crm-1',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-# }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db-crm-4.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'databases-crm-1',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db-crm-4.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -132,6 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'ru'
 
 #TIME_ZONE = 'UTC'
+
 TIME_ZONE = 'Asia/Almaty'
 
 USE_I18N = True

@@ -154,7 +154,7 @@ def add_case(request):
             for f in request.FILES.getlist('photo'):
                 photo = CasePhoto(photo=f, card=case)
                 photo.save()
-             # if caseFileForm.is_valid():
+            # if caseFileForm.is_valid():
             for f in request.FILES.getlist('file'):
                 file = CaseFile(file=f, card=case)
                 file.save()
@@ -230,7 +230,7 @@ def update_case(request,pk):
             for f in request.FILES.getlist('photo'):
                 photo = CasePhoto(photo=f, card=case)
                 photo.save()
-             # if caseFileForm.is_valid():
+            # if caseFileForm.is_valid():
             for f in request.FILES.getlist('file'):
                 file = CaseFile(file=f, card=case)
                 file.save()
@@ -260,19 +260,19 @@ def update_case(request,pk):
     caseFileForm = CaseFileForm()
 
     return render(request, 'work/add_case.html', context={
-                            'form':form,
-                            'tradeUnionForm':tradeUnionForm,
-                            'individualForm':individualForm,
-                            'personGroupForm':personGroupForm,
-                            'companyInfoForm':companyInfoForm,
-                            'caseFileForm':caseFileForm,
-                            'casePhotoForm':casePhotoForm,
-                            'general_tabs_fields':general_tabs_fields,
-                            'initiator_tab_fields':initiator_tab_fields,
-                            'intruder_tab_fields':intruder_tab_fields,
-                            'description_tab_fields':description_tab_fields,
-                            'files_tab_fields':files_tab_fields,
-                        })
+        'form':form,
+        'tradeUnionForm':tradeUnionForm,
+        'individualForm':individualForm,
+        'personGroupForm':personGroupForm,
+        'companyInfoForm':companyInfoForm,
+        'caseFileForm':caseFileForm,
+        'casePhotoForm':casePhotoForm,
+        'general_tabs_fields':general_tabs_fields,
+        'initiator_tab_fields':initiator_tab_fields,
+        'intruder_tab_fields':intruder_tab_fields,
+        'description_tab_fields':description_tab_fields,
+        'files_tab_fields':files_tab_fields,
+    })
 
 
 def delete_case(request, pk):
@@ -352,7 +352,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     # create a pdf
     pisa_status = pisa.CreatePDF(
         BytesIO(html.encode('UTF-8')), dest=response, encoding='utf-8')
-        # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
+    # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
     # if error then show some funy view
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
@@ -393,7 +393,7 @@ class DataAPIView(APIView):
     def get(self, request):
         source = SourceSerializers(Source.objects.all(), many=True)
         country = CountrySerializers(Country.objects.all(), many=True)
-        region = RegionSerializers(Region.objects.all(), many=True)
+        # region = RegionSerializers(Region.objects.all(), many=True)
         groupOfRights = GroupOfRightsSerializers(GroupOfRights.objects.all(), many=True)
         tradeUnionRight = TradeUnionRightSerializers(TradeUnionRight.objects.all(), many=True)
         tradeUnionCrime = TradeUnionCrimeSerializers(TradeUnionCrime.objects.all(), many=True)
@@ -434,6 +434,7 @@ class DataAPIView(APIView):
         # company = CompanySerializers(Company.objects.all(), many=True)
         # tradeUnionInfo = TradeUnionInfoSerializers(TradeUnionInfo.objects.all(), many=True)
         # groupOfPersons = GroupOfPersonsSerializers(GroupOfPersons.objects.all(), many=True)
+        # russian_regions = Region.objects.filter()
         return Response([
             {'id': 'source', 'name': 'Источник информации', 'item': source.data},
             {'id': 'country', 'name': 'Страна', 'item': country.data},
@@ -813,44 +814,44 @@ class DataAPIView(APIView):
             {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'item': сonvention135.data},
             {'id': 'consultationRight', 'name': 'Проведение консультаций', 'item': consultationRight.data},
             {'id': 'principleOfNonDiscrimination', 'name': 'Принцип запрещения дискриминации',
-            'item': principleOfNonDiscrimination.data},
+             'item': principleOfNonDiscrimination.data},
             {'id': 'discriminatiOnVariousGrounds', 'name': 'Дискриминация по различным основаниям',
-            'item': discriminatiOnVariousGrounds.data},
+             'item': discriminatiOnVariousGrounds.data},
             {'id': 'discriminationInVariousAreas', 'name': 'Дискриминация в различных сферах трудовых отношений',
-            'item': discriminationInVariousAreas.data},
+             'item': discriminationInVariousAreas.data},
             {'id': 'publicPolicyDiscrimination',
              'name': 'Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей',
-            'item': publicPolicyDiscrimination.data},
+             'item': publicPolicyDiscrimination.data},
             {'id': 'childLabor', 'name': 'Дискриминация в различных сферах трудовых отношений',
-            'item': childLabor.data},
+             'item': childLabor.data},
             {'id': 'сonvention138', 'name': 'О минимальном возрасте для приема на работу', 'item': сonvention138.data},
             {'id': 'convention182',
              'name': 'О запрещении и немедленных мерах по искоренению наихудших форм детского труда',
-            'item': convention182.data},
+             'item': convention182.data},
             {'id': 'prohibitionOfForcedLabor', 'name': 'Запрет принудительного труда',
-            'item': prohibitionOfForcedLabor.data},
+             'item': prohibitionOfForcedLabor.data},
             {'id': 'useOfForcedLabor', 'name': 'Использование принудительного труда', 'item': useOfForcedLabor.data},
             {'id': 'governmentCoercion', 'name': 'Косвенное принуждение государством к труду',
-            'item': governmentCoercion.data},
+             'item': governmentCoercion.data},
             {'id': 'violationsUsingCompulsoryLabor',
              'name': 'Нарушения при использовании принудительного (обязательного) труда в допустимых случаях',
-            'item': violationsUsingCompulsoryLabor.data},
+             'item': violationsUsingCompulsoryLabor.data},
             {'id': 'failureSystemicMeasures', 'name': 'Нарушения, связанные с непринятием государством системных мер',
-            'item': failureSystemicMeasures.data},
+             'item': failureSystemicMeasures.data},
             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
             {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
             {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
             {'id': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
             {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
             {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
-            'item': tradeUnionSituation.data},
+             'item': tradeUnionSituation.data},
             {'id': 'trade_union_activities', 'name': 'Отрасль деятельности профсоюза', 'item': trade_union_activities.data},
             {'id': 'user', 'name': 'Монитор', 'item': user.data},
         ])
-            # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
-            # {'company': {'Работодатель(компания)': company.data}}, #Можно удалить
-            # {'tradeUnionInfo': {'Профсоюзная организация': tradeUnionInfo.data}}, #Можно удалить
-            # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
+        # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
+        # {'company': {'Работодатель(компания)': company.data}}, #Можно удалить
+        # {'tradeUnionInfo': {'Профсоюзная организация': tradeUnionInfo.data}}, #Можно удалить
+        # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
 
 
 class DataFilterAPI(APIView):
