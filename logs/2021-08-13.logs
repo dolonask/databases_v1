@@ -1,0 +1,10 @@
+ERROR django.request Internal Server Error: /migrant/delete-comments/1 2021-08-13 14:59:16,793
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 238, in delete_comment
+    case_comment.save()
+AttributeError: 'tuple' object has no attribute 'save'
+ERROR django.server "GET /migrant/delete-comments/1 HTTP/1.1" 500 68685 2021-08-13 14:59:16,794

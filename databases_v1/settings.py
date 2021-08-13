@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import os
+import os, datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,6 +28,39 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'databasesv1.herokuapp.com']
 
+# Log
+datee = datetime.datetime.today()
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'django_all': {
+            # 'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': './logs/'+str(datee.date())+'.logs',
+            # 'filename': f'./logs/a/loggs.logs',
+            'formatter': 'main',
+        },
+    },
+    'loggers': {
+        # для логгирования http запросов с 4хх по 5xy статусом
+        'django.request': {
+            'handlers': ['django_all'],
+            'level': 'INFO',
+        },
+        # для логгирования в среде разработчика
+        'django.server': {
+            'handlers': ['django_all'],
+            'level': 'WARNING',
+        },
+
+    },
+    'formatters': {
+        'main': {
+            'format': '%(levelname)s %(name)s %(message)s %(asctime)s'
+        }
+    }
+}
 
 # Application definition
 

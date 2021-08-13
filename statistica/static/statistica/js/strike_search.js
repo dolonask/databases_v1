@@ -285,5 +285,5 @@ function createRightElems(name, item, id) {
 // function getItems(e) {
 //     let value = e.target.value;
 //
-//     console.log(value);
+//     console.logs(value);
 // }
