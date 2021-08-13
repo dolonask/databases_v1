@@ -64,7 +64,7 @@ def append_case(request):
 
             case.user = request.user
             case.save()
-            form.save_m2m()
+            form._save_m2m()
 
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
@@ -129,7 +129,7 @@ def update_case(request,pk):
 
         case.user = request.user
         case.save()
-        form.save_m2m()
+        form._save_m2m()
 
         if photoForm.is_valid():
             for f in request.FILES.getlist('photo'):

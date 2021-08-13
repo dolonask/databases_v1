@@ -98,7 +98,7 @@ def add_case(request):
             if individualFormSet.is_valid():
                 individualFormSet.save()
 
-            form.save_m2m()
+            form._save_m2m()
 
 
 
@@ -249,7 +249,7 @@ def update_case(request, pk):
             if individualFormSet.is_valid():
                 individualFormSet.save()
 
-            form.save_m2m()
+            form._save_m2m()
 
 
 
