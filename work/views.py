@@ -324,8 +324,8 @@ def show_comments(request, pk):
 
 
 def delete_comment(request, pk):
-    case_comment = CaseComment.objects.get(id=pk).delete()
-    return redirect('work_case_show_comments', case_comment.case_id)
+    CaseComment.objects.get(id=pk).delete()
+    return redirect('works_list')
 
 
 def case_render_pdf_view(request, *args, **kwargs):

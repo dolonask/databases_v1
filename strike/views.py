@@ -325,9 +325,8 @@ def show_comments(request, pk):
 
 
 def delete_comment(request, pk):
-    card_comment = CardComment.objects.get(id=pk).delete()
-    card_comment.save()
-    return redirect('strike_card_show_comments', card_comment.card_id)
+    CardComment.objects.get(id=pk).delete()
+    return redirect('strikes_list')
 
 
 def case_render_pdf_view(request, *args, **kwargs):

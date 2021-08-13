@@ -234,9 +234,8 @@ def show_comments(request, pk):
 
 
 def delete_comment(request, pk):
-    case_comment = CaseComment.objects.get(id=pk).delete()
-    case_comment.save()
-    return redirect('migrant_case_show_comments', case_comment.case_id)
+    CaseComment.objects.get(id=pk).delete()
+    return redirect('migrants_list')
 
 
 def case_render_pdf_view(request, *args, **kwargs):
