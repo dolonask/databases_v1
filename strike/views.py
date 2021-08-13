@@ -477,8 +477,8 @@ class DataFilterAPI(APIView):
             else:
                 my_list.append(f"strike_{item['id']}.name")
         fields = unpucking(my_list)
-        case_count = Card.objects.count()
-        sql_query = f"SELECT {fields}, count(*), round(count (*) * 100.0 /{case_count}, 2) percent FROM strike_card"
+        # case_count = Card.objects.count()
+        sql_query = f"SELECT {fields}, count(*), round(100 / count (*)) percent FROM strike_card"
         where_query = "where "
         where_list = []
         where_query_list = []
