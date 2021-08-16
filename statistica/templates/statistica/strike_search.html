@@ -9,5 +9,7 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'statistica/js/strike_search.js' %}"></script>
+    <a id='strike_data_get' style="display: none">{{ url }}{% url 'strike_filter_data_api' %}</a>
+    <a id='strike_data' style="display: none">{{ url }}{% url 'strike_data_api' %}</a>
+    <script src="{% static 'statistica/js/strike_search.js' %}"></script>
 {% endblock %}

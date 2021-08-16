@@ -7,7 +7,6 @@ from django.shortcuts import render
 @login_required()
 def home(request):
     if request.user.position.role_id == 1 or request.user.position.role_id == 2:
-        print(request.META)
         scheme = request.scheme
         url = request.META.get("HTTP_HOST")
         return render(request, 'statistica/home.html', {'url': f'{scheme}://{url}'})
@@ -18,7 +17,9 @@ def home(request):
 @login_required()
 def migrant_analytic(request):
     if request.user.position.role_id == 1 or request.user.position.role_id == 2:
-        return render(request, 'statistica/migrant_search.html', {})
+        scheme = request.scheme
+        url = request.META.get("HTTP_HOST")
+        return render(request, 'statistica/migrant_search.html', {'url': f'{scheme}://{url}'})
     else:
         raise Http404('Недостаточно прав!')
 
@@ -26,7 +27,9 @@ def migrant_analytic(request):
 @login_required()
 def strike_analytic(request):
     if request.user.position.role_id == 1 or request.user.position.role_id == 2:
-        return render(request, 'statistica/strike_search.html', {})
+        scheme = request.scheme
+        url = request.META.get("HTTP_HOST")
+        return render(request, 'statistica/strike_search.html', {'url': f'{scheme}://{url}'})
     else:
         raise Http404('Недостаточно прав!')
 
@@ -34,6 +37,8 @@ def strike_analytic(request):
 @login_required()
 def work_analytic(request):
     if request.user.position.role_id == 1 or request.user.position.role_id == 2:
-        return render(request, 'statistica/work_search.html', {})
+        scheme = request.scheme
+        url = request.META.get("HTTP_HOST")
+        return render(request, 'statistica/work_search.html', {'url': f'{scheme}://{url}'})
     else:
         raise Http404('Недостаточно прав!')
