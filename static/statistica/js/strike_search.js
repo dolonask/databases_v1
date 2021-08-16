@@ -26,7 +26,8 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     document.querySelector('.loading').classList.remove('d-none');
-    const url = 'https://databasesv1.herokuapp.com/strike/data/get/';
+    let url = document.getElementById('strike_data_get').textContent;
+    // const url = 'https://databasesv1.herokuapp.com/strike/data/get/';
     // const url = 'http://localhost:8000/strike/data/get/';
 
     let options = {
@@ -38,14 +39,7 @@ function getResult(data) {
     }
 
     fetch(url, options)
-        .then(response => {
-               if(response.ok){
-                return response.json();
-            } else {
-                alert('Произошла ошибка. Статус ошибки: '+response.status);
-                document.querySelector('.loading').classList.add('d-none');
-            }
-        })
+        .then(response => response.json())
         .then(data => showResult(data))
 }
 
@@ -71,16 +65,11 @@ function showResult(data) {
 }
 
 function getRight() {
-    const url = 'https://databasesv1.herokuapp.com/strike/data/'
+    let url = document.getElementById('strike_data').textContent;
+    // const url = 'https://databasesv1.herokuapp.com/strike/data/'
     // const url = 'http://127.0.0.1:8000/strike/data/';
     fetch(url)
-        .then(response => {
-            if(response.ok){
-                return response.json();
-            } else {
-                alert('Произошла ошибка. Статус ошибки: '+response.status);
-            }
-        })
+        .then(response => response.json())
         .then(data => {
             datas = data;
             showRight(data)

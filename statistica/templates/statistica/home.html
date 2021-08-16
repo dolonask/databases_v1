@@ -46,18 +46,24 @@
     <div class="row">
         <div class="col-sm-4">
             <a class="btn btn-block btn-lg btn-primary"
-               href="https://databasesv1.herokuapp.com{% url 'migrant_analytic' %}" role="button">Мигранты</a>
+               href="{{ url }}{% url 'migrant_analytic' %}" role="button">Мигранты</a>
         </div>
         <div class="col-sm-4">
             <a class="btn btn-block btn-lg btn-primary"
-               href="https://databasesv1.herokuapp.com{% url 'strike_analytic' %}" role="button">Забастовка</a>
+               href="{{ url }}{% url 'strike_analytic' %}" role="button">Забастовка</a>
         </div>
         <div class="col-sm-4">
             <a class="btn btn-block btn-lg btn-primary"
-               href="https://databasesv1.herokuapp.com{% url 'work_analytic' %}" role="button">Трудовые
+               href="{{ url }}{% url 'work_analytic' %}" role="button">Трудовые
                 нарушения</a>
         </div>
     </div>
+    <span id='migrant_data_get' style="display: none">{{ url }}{% url 'migrant_data_get' %}</span>
+    <span id='migrant_data' style="display: none">{{ url }}{% url 'migrant_data' %}</span>
+    <span id='strike_data_get' style="display: none">{{ url }}{% url 'strike_filter_data_api' %}</span>
+    <span id='strike_data' style="display: none">{{ url }}{% url 'strike_data_api' %}</span>
+    <span id='work_data_get' style="display: none">{{ url }}{% url 'work_data_get' %}</span>
+    <span id='work_data' style="display: none">{{ url }}{% url 'work_data' %}</span>
 </div>
 </body>
 </html>

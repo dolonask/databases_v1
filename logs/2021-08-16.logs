@@ -284,3 +284,37 @@ Traceback (most recent call last):
     print(request.META.HTTP_HOST)
 AttributeError: 'dict' object has no attribute 'HTTP_HOST'
 ERROR django.server "GET / HTTP/1.1" 500 72442 2021-08-16 05:22:02,817
+WARNING django.request Not Found: /favicon.ico 2021-08-16 14:02:10,120
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 14:02:10,121
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:13:45,151
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:13:45,153
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:13:45,155
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:13:45,156
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:13:45,173
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:13:45,174
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:14:04,837
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:14:04,839
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:14:04,843
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:14:04,844
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:14:04,857
+ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+ 2021-08-16 14:14:04,859
+WARNING django.request Method Not Allowed: /migrant/data/get/ 2021-08-16 14:19:43,826
+WARNING django.server "GET /migrant/data/get/ HTTP/1.1" 405 5849 2021-08-16 14:19:43,828
+WARNING django.request Not Found: /favicon.ico 2021-08-16 14:34:25,863
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 14:34:25,864
+WARNING django.request Not Found: /admin/strike/groupcharacter/ 2021-08-16 14:41:57,954
+WARNING django.server "GET /admin/strike/groupcharacter/ HTTP/1.1" 404 5077 2021-08-16 14:41:57,955
+WARNING django.request Not Found: /admin/strike/groupcharacter/3/change/ 2021-08-16 14:41:59,498
+WARNING django.server "GET /admin/strike/groupcharacter/3/change/ HTTP/1.1" 404 5104 2021-08-16 14:41:59,499

@@ -26,7 +26,8 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     document.querySelector('.loading').classList.remove('d-none');
-    const url = 'https://databasesv1.herokuapp.com/migrant/data/get/';
+    let url = document.getElementById('migrant_data_get').textContent;
+    // const url = 'https://databasesv1.herokuapp.com/migrant/data/get/';
     // const url = 'http://localhost:8000/migrant/data/get/';
 
     let options = {
@@ -64,7 +65,8 @@ function showResult(data) {
 }
 
 function getRight() {
-    const url = 'https://databasesv1.herokuapp.com/migrant/data/'
+    let url = document.getElementById('migrant_data').textContent;
+    // const url = 'https://databasesv1.herokuapp.com/migrant/data/'
     // const url = 'http://127.0.0.1:8000/migrant/data/';
     fetch(url)
         .then(response => response.json())

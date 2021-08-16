@@ -7,9 +7,10 @@ from django.shortcuts import render
 @login_required()
 def home(request):
     if request.user.position.role_id == 1 or request.user.position.role_id == 2:
+        print(request.META)
         scheme = request.scheme
-        url = request.META.get("SERVER_PROTOCOL")
-        return render(request, 'statistica/home.html', {'url': f'{scheme}/{url}'})
+        url = request.META.get("HTTP_HOST")
+        return render(request, 'statistica/home.html', {'url': f'{scheme}://{url}'})
     else:
         raise Http404('Недостаточно прав!')
 

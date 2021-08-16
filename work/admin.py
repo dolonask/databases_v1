@@ -4,6 +4,7 @@ from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from import_export import resources, fields
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
+from django.contrib.auth.models import User
 
 from .models import *
 
@@ -165,13 +166,11 @@ class CaseResource(resources.ModelResource):
                                           attribute='trade_union_activities', widget=ForeignKeyWidget(TradeUnionActivities, field='name'))
     trade_union_activities_another = fields.Field(column_name=Case._meta.get_field('trade_union_activities_another').verbose_name,
                                                   attribute='trade_union_activities_another')
-    user = fields.Field(column_name=Case._meta.get_field('user').verbose_name, attribute='user')
-    # comment = fields.Field(column_name=Case._meta.get_field('comment').verbose_name, attribute='comment',
-    #                        widget=ForeignKeyWidget(CaseComment, 'comment'))
+    user = fields.Field(column_name=Case._meta.get_field('user').verbose_name, attribute='user',
+                        widget=ForeignKeyWidget(User, field='username'))
 
     class Meta:
         model = Case
-        # fields = ('case_name', 'source', 'country')
         exclude = ('id',
                    'active',
                    'comment')
@@ -179,6 +178,7 @@ class CaseResource(resources.ModelResource):
 
 class CaseAdmin(ImportExportModelAdmin):
     resource_class = CaseResource
+    list_display = ('case_name', 'user', 'date_create', 'date_update')
 
 
 admin.site.register(Case, CaseAdmin)

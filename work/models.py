@@ -693,7 +693,7 @@ class Case(models.Model):
                                         verbose_name="Обвинения в преступном поведении в связи с профсоюзной деятельностью",
                                         null=True, blank=True)
     tradeUnionCrimeAnother = models.CharField("Другое", max_length=50, help_text='Введите значение',
-                                              null=True,blank=True)
+                                              null=True, blank=True)
 
     meetingsRight = models.ForeignKey(MeetingsRight, on_delete=models.DO_NOTHING,
                                       verbose_name="Нарушения права на проведение собраний и демонстраций",
@@ -864,6 +864,10 @@ class Case(models.Model):
                              verbose_name="Монитор", related_name="strike_users", blank=True)
     active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Кейс трудовые нарушения'
+        verbose_name_plural = 'Кейсы трудовых нарушений'
 
 
 class CaseComment(models.Model):

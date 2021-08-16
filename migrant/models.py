@@ -597,7 +597,7 @@ class Case(models.Model):
     end_date = models.DateTimeField("Дата конца нарушения", null=True, blank=True)
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение")
     individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True, blank=True)
-    personGroupInfo = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True)
+    personGroupInfo = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True, blank=True)
     intruder = models.ManyToManyField(Intruder, verbose_name="Кем было совершено нарушение", null=False)
     government_agency_name = models.CharField("Название государственного органа", max_length=200, null=True, blank=True)
     local_agency_name = models.CharField("Название органа местного самоуправления", max_length=500, null=True, blank=True)
@@ -617,10 +617,10 @@ class Case(models.Model):
     violation_nature = models.ForeignKey(NatureViolation, on_delete=models.DO_NOTHING, verbose_name="Характер нарушения", null=True)
     rights_state = models.ForeignKey(RightsState, on_delete=models.DO_NOTHING, verbose_name="Ситуация с правами", null=True)
     rights_state_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    victim_situation = models.ForeignKey(VictimSituation,on_delete=models.DO_NOTHING,
+    victim_situation = models.ForeignKey(VictimSituation, on_delete=models.DO_NOTHING,
                                          verbose_name="Ситуация с потерпевшим(и)", null=True)
     victim_situation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    tradeUnionSituation = models.ForeignKey(TradeUnionSituation,on_delete=models.DO_NOTHING,
+    tradeUnionSituation = models.ForeignKey(TradeUnionSituation, on_delete=models.DO_NOTHING,
                                             verbose_name="Профсоюз на месте работы после произошедшего", blank=True, null=True)
     tradeUnionSituation_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
     tradeUnionCount = models.ForeignKey(TradeUnionCount, on_delete=models.DO_NOTHING,
@@ -635,7 +635,7 @@ class Case(models.Model):
     violationType = models.ForeignKey(ViolationType, on_delete=models.DO_NOTHING,
                                       verbose_name="С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?", null=True)
     violationType_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    changesInSalary = models.ForeignKey(ChangesInSalary,on_delete=models.DO_NOTHING,
+    changesInSalary = models.ForeignKey(ChangesInSalary, on_delete=models.DO_NOTHING,
                                         verbose_name="Как изменились Ваши доходы из-за COVID-19?", null=True)
     changesInSalary_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, verbose_name="Монитор")
