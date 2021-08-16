@@ -676,7 +676,7 @@ class Case(models.Model):
     source = models.ManyToManyField(Source, verbose_name="Источник информации о нарушении")
     source_another = models.CharField("Другое", max_length=50, null=True, blank=True)
     source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True)
-    source_content = models.TextField("Текст статьи/сообщения ", null=True, blank=True)
+    source_content = models.TextField("Текст статьи/сообщения", null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
 

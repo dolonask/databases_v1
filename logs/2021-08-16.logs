@@ -1,0 +1,286 @@
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-16 01:05:14,055
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 777, in generate_case_excel
+    writer = csv.writer(response, delimiter='/n')
+TypeError: "delimiter" must be a 1-character string
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 70193 2021-08-16 01:05:14,058
+WARNING django.request Not Found: /favicon.ico 2021-08-16 01:05:14,298
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 01:05:14,299
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-16 01:13:05,908
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 779, in generate_case_excel
+    p.write(csv_title)
+TypeError: write() argument must be str, not list
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 70546 2021-08-16 01:13:05,909
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-16 01:17:50,876
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 779, in generate_case_excel
+    p.write(csv_title)
+TypeError: write() argument must be str, not list
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 70564 2021-08-16 01:17:50,882
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-16 01:18:19,388
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 788, in generate_case_excel
+    return response
+NameError: name 'response' is not defined
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 68980 2021-08-16 01:18:19,390
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-16 01:18:52,826
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 789, in generate_case_excel
+    return response
+NameError: name 'response' is not defined
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 69155 2021-08-16 01:18:52,831
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-16 01:39:45,950
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 790, in generate_case_excel
+    return response
+NameError: name 'response' is not defined
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 69283 2021-08-16 01:39:45,953
+WARNING django.request Not Found: /favicon.ico 2021-08-16 01:39:46,151
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 01:39:46,153
+WARNING django.request Not Found: /strike/admin/ 2021-08-16 02:04:55,271
+WARNING django.server "GET /strike/admin/ HTTP/1.1" 404 6245 2021-08-16 02:04:55,273
+WARNING django.request Not Found: /favicon.ico 2021-08-16 02:30:22,603
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 02:30:22,605
+ERROR django.request Internal Server Error: /admin/work/case/export/ 2021-08-16 03:35:27,940
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 479, in export_action
+    export_data = self.get_export_data(file_format, queryset, request=request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 457, in get_export_data
+    data = resource_class(**self.get_export_resource_kwargs(request)).export(queryset, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 896, in export
+    data.append(self.export_resource(obj))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in export_resource
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in <listcomp>
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 845, in export_field
+    return field.export(obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\fields.py", line 125, in export
+    return self.widget.render(value, obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\widgets.py", line 451, in render
+    ids = [smart_str(getattr(obj, self.field)) for obj in value.all()]
+AttributeError: 'str' object has no attribute 'all'
+ERROR django.server "POST /admin/work/case/export/? HTTP/1.1" 500 120286 2021-08-16 03:35:27,945
+ERROR django.request Internal Server Error: /admin/work/case/export/ 2021-08-16 03:36:37,002
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 479, in export_action
+    export_data = self.get_export_data(file_format, queryset, request=request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 457, in get_export_data
+    data = resource_class(**self.get_export_resource_kwargs(request)).export(queryset, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 896, in export
+    data.append(self.export_resource(obj))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in export_resource
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in <listcomp>
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 845, in export_field
+    return field.export(obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\fields.py", line 125, in export
+    return self.widget.render(value, obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\widgets.py", line 451, in render
+    ids = [smart_str(getattr(obj, self.field)) for obj in value.all()]
+AttributeError: 'str' object has no attribute 'all'
+ERROR django.server "POST /admin/work/case/export/? HTTP/1.1" 500 120286 2021-08-16 03:36:37,012
+ERROR django.request Internal Server Error: /admin/work/case/export/ 2021-08-16 03:38:31,322
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 479, in export_action
+    export_data = self.get_export_data(file_format, queryset, request=request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 457, in get_export_data
+    data = resource_class(**self.get_export_resource_kwargs(request)).export(queryset, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 896, in export
+    data.append(self.export_resource(obj))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in export_resource
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in <listcomp>
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 845, in export_field
+    return field.export(obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\fields.py", line 125, in export
+    return self.widget.render(value, obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\widgets.py", line 451, in render
+    ids = [smart_str(getattr(obj, self.field)) for obj in value.all()]
+AttributeError: 'str' object has no attribute 'all'
+ERROR django.server "POST /admin/work/case/export/? HTTP/1.1" 500 120286 2021-08-16 03:38:31,328
+ERROR django.request Internal Server Error: /admin/work/case/export/ 2021-08-16 03:41:06,447
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 479, in export_action
+    export_data = self.get_export_data(file_format, queryset, request=request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 457, in get_export_data
+    data = resource_class(**self.get_export_resource_kwargs(request)).export(queryset, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 896, in export
+    data.append(self.export_resource(obj))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in export_resource
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in <listcomp>
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 845, in export_field
+    return field.export(obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\fields.py", line 125, in export
+    return self.widget.render(value, obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\widgets.py", line 451, in render
+    ids = [smart_str(getattr(obj, self.field)) for obj in value.all()]
+AttributeError: 'str' object has no attribute 'all'
+ERROR django.server "POST /admin/work/case/export/? HTTP/1.1" 500 120286 2021-08-16 03:41:06,453
+ERROR django.request Internal Server Error: /admin/work/case/export/ 2021-08-16 03:42:00,636
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 479, in export_action
+    export_data = self.get_export_data(file_format, queryset, request=request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 457, in get_export_data
+    data = resource_class(**self.get_export_resource_kwargs(request)).export(queryset, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 896, in export
+    data.append(self.export_resource(obj))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in export_resource
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in <listcomp>
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 845, in export_field
+    return field.export(obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\fields.py", line 125, in export
+    return self.widget.render(value, obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\widgets.py", line 451, in render
+    ids = [smart_str(getattr(obj, self.field)) for obj in value.all()]
+AttributeError: 'str' object has no attribute 'all'
+ERROR django.server "POST /admin/work/case/export/? HTTP/1.1" 500 120286 2021-08-16 03:42:00,640
+WARNING django.request Not Found: /favicon.ico 2021-08-16 03:42:00,931
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 03:42:00,932
+ERROR django.request Internal Server Error: /admin/work/case/export/ 2021-08-16 03:48:50,394
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 479, in export_action
+    export_data = self.get_export_data(file_format, queryset, request=request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\admin.py", line 457, in get_export_data
+    data = resource_class(**self.get_export_resource_kwargs(request)).export(queryset, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 896, in export
+    data.append(self.export_resource(obj))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in export_resource
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 851, in <listcomp>
+    return [self.export_field(field, obj) for field in self.get_export_fields()]
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\resources.py", line 845, in export_field
+    return field.export(obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\fields.py", line 125, in export
+    return self.widget.render(value, obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\import_export\widgets.py", line 451, in render
+    ids = [smart_str(getattr(obj, self.field)) for obj in value.all()]
+AttributeError: 'str' object has no attribute 'all'
+ERROR django.server "POST /admin/work/case/export/? HTTP/1.1" 500 120286 2021-08-16 03:48:50,397
+ERROR django.request Internal Server Error: / 2021-08-16 05:18:15,227
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\main\views.py", line 7, in index
+    print(request.HTTP_HOST)
+AttributeError: 'WSGIRequest' object has no attribute 'HTTP_HOST'
+ERROR django.server "GET / HTTP/1.1" 500 72610 2021-08-16 05:18:15,230
+ERROR django.request Internal Server Error: / 2021-08-16 05:18:34,964
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\main\views.py", line 8, in index
+    print(request.SERVER_PROTOCOL)
+AttributeError: 'WSGIRequest' object has no attribute 'SERVER_PROTOCOL'
+ERROR django.server "GET / HTTP/1.1" 500 72640 2021-08-16 05:18:34,972
+ERROR django.request Internal Server Error: / 2021-08-16 05:22:02,809
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\main\views.py", line 7, in index
+    print(request.META.HTTP_HOST)
+AttributeError: 'dict' object has no attribute 'HTTP_HOST'
+ERROR django.server "GET / HTTP/1.1" 500 72442 2021-08-16 05:22:02,817

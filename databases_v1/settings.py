@@ -83,7 +83,8 @@ INSTALLED_APPS = [
     'django_tables2',
     'django_filters',
     'bootstrapform',
-    'statistica.apps.StatisticaConfig'
+    'statistica.apps.StatisticaConfig',
+    'import_export'
 ]
 
 MIDDLEWARE = [

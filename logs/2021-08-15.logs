@@ -1,0 +1,18 @@
+WARNING django.request Not Found: /favicon.ico 2021-08-15 22:53:57,398
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-15 22:53:57,399
+WARNING django.request Not Found: /favicon.ico 2021-08-15 23:10:53,967
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-15 23:10:53,967
+WARNING django.request Not Found: /strike/file/ 2021-08-15 23:12:43,301
+WARNING django.server "GET /strike/file/ HTTP/1.1" 404 6428 2021-08-15 23:12:43,301
+WARNING django.request Not Found: /strike/excle/ 2021-08-15 23:36:49,040
+WARNING django.server "GET /strike/excle/ HTTP/1.1" 404 6431 2021-08-15 23:36:49,041
+ERROR django.request Internal Server Error: /strike/excel/ 2021-08-15 23:39:05,245
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 777, in generate_case_excel
+    writer = csv.writer(response, fieldnames=csv_title)
+TypeError: 'fieldnames' is an invalid keyword argument for this function
+ERROR django.server "GET /strike/excel/ HTTP/1.1" 500 70160 2021-08-15 23:39:05,246
