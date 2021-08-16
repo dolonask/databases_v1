@@ -318,3 +318,49 @@ WARNING django.request Not Found: /admin/strike/groupcharacter/ 2021-08-16 14:41
 WARNING django.server "GET /admin/strike/groupcharacter/ HTTP/1.1" 404 5077 2021-08-16 14:41:57,955
 WARNING django.request Not Found: /admin/strike/groupcharacter/3/change/ 2021-08-16 14:41:59,498
 WARNING django.server "GET /admin/strike/groupcharacter/3/change/ HTTP/1.1" 404 5104 2021-08-16 14:41:59,499
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:03:19,405
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:03:19,405
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:37,274
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:37,275
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:37,662
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:37,663
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:38,252
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:38,256
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:39,249
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:39,249
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:39,575
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:39,576
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:39,828
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:39,829
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:10:40,223
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:10:40,225
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:11:02,076
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:11:02,077
+WARNING django.server "GET /static/statistica/js/sp_fields.js HTTP/1.1" 404 1938 2021-08-16 15:46:53,108
+WARNING django.server "GET /static/statistica/js/sp_fields.js HTTP/1.1" 404 1938 2021-08-16 15:46:55,568
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:46:55,813
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:46:55,816
+WARNING django.server "GET /static/statistica/js/sp_fields.js HTTP/1.1" 404 1938 2021-08-16 15:47:22,253
+WARNING django.server "GET /static/statistica/js/sp_fields.js HTTP/1.1" 404 1938 2021-08-16 15:47:25,374
+WARNING django.server "GET /static/statistica/js/sp_fields.js HTTP/1.1" 404 1938 2021-08-16 15:47:25,804
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:47:26,018
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:47:26,022
+WARNING django.server "GET /static/statistica/js/sp_fields.js HTTP/1.1" 404 1938 2021-08-16 15:47:47,024
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:55:12,518
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:55:12,519
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:55:24,078
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:55:24,080
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:55:56,842
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:55:56,843
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:57:33,498
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:57:33,500
+WARNING django.request Not Found: /favicon.ico 2021-08-16 15:57:35,175
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 15:57:35,178
+WARNING django.request Not Found: /favicon.ico 2021-08-16 16:01:51,080
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 16:01:51,082
+WARNING django.request Not Found: /favicon.ico 2021-08-16 16:02:02,102
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 16:02:02,105
+WARNING django.request Bad Request: /migrant/data/get/ 2021-08-16 16:02:18,996
+WARNING django.server "OPTIONS /migrant/data/get/ HTTP/1.1" 400 71982 2021-08-16 16:02:18,998
+WARNING django.request Bad Request: /migrant/data/get/ 2021-08-16 16:02:33,903
+WARNING django.server "OPTIONS /migrant/data/get/ HTTP/1.1" 400 71982 2021-08-16 16:02:33,906

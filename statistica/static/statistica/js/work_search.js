@@ -26,7 +26,7 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     document.querySelector('.loading').classList.remove('d-none');
-    let url = document.getElementById('work_data_get').textContent;
+    const url = document.getElementById('work_data_get').textContent;
     // const url = 'https://databasesv1.herokuapp.com/work/data/get/';
     // const url = 'http://localhost:8000/work/data/get/';
 
@@ -65,7 +65,7 @@ function showResult(data) {
 }
 
 function getRight() {
-    let url = document.getElementById('work_data').textContent;
+    const url = document.getElementById('work_data').textContent;
     // const url = 'https://databasesv1.herokuapp.com/work/data/'
     // const url = 'http://127.0.0.1:8000/work/data/';
     fetch(url)
@@ -94,8 +94,8 @@ function showRight(data) {
     });
 
     document.querySelector('#region').onclick = function(e){
-       let regions;
-       if(e.target.checked){
+        let regions;
+        if(e.target.checked){
             let select = document.querySelector('[data-id="country"]');
             let selected = [...select.selectedOptions].map(option => {
                 return option.value;
@@ -111,13 +111,13 @@ function showRight(data) {
                 regions2.push(regions.item[item]);
             })
 
-           let regionOptions;
-           regions2.flat().forEach(i => {
-               regionOptions += `<option value="${i.id}">${i.name}</option>`;
-           })
+            let regionOptions;
+            regions2.flat().forEach(i => {
+                regionOptions += `<option value="${i.id}">${i.name}</option>`;
+            })
 
-           document.querySelector('[data-id="region"]').innerHTML = regionOptions;
-       }
+            document.querySelector('[data-id="region"]').innerHTML = regionOptions;
+        }
     }
 }
 
@@ -287,5 +287,5 @@ function createRightElems(name, item, id) {
 // function getItems(e) {
 //     let value = e.target.value;
 //
-//     console.logs(value);
+//     console.log(value);
 // }

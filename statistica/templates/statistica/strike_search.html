@@ -6,10 +6,10 @@
 
 {% block breadcrumb %}
     <li class="breadcrumb-item active" aria-current="page">Забастовка</li>
+    <a id='strike_data_get' style="display: none">{{ url }}{% url 'strike_filter_data_api' %}</a>
+    <a id='strike_data' style="display: none">{{ url }}{% url 'strike_data_api' %}</a>
 {% endblock %}
 
 {% block scripts %}
-    <a id='strike_data_get' style="display: none">{{ url }}{% url 'strike_filter_data_api' %}</a>
-    <a id='strike_data' style="display: none">{{ url }}{% url 'strike_data_api' %}</a>
     <script src="{% static 'statistica/js/strike_search.js' %}"></script>
 {% endblock %}

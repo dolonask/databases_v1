@@ -509,7 +509,9 @@
                 clear_errors();
 
                 validate_text_field('id_case_name',7);
-                validate_text_field('id_trade_union_activities_another',7);
+                if (get_selected('id_trade_union_activities') == 19) {
+                    validate_text_field('id_trade_union_activities_another', 7);
+                }
                 validate_checkbox_list('source','id_source');
 
                 if (document.querySelector('#id_source_2').checked){

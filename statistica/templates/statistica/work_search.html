@@ -6,10 +6,10 @@
 
 {% block breadcrumb %}
     <li class="breadcrumb-item active" aria-current="page">Трудовые мигранты</li>
+    <a id='work_data_get' style="display: none">{{ url }}{% url 'work_data_get' %}</a>
+    <a id='work_data' style="display: none">{{ url }}{% url 'work_data' %}</a>
 {% endblock %}
 
 {% block scripts %}
-    <a id='work_data_get' style="display: none">{{ url }}{% url 'work_data_get' %}</a>
-    <a id='work_data' style="display: none">{{ url }}{% url 'work_data' %}</a>
     <script src="{% static 'statistica/js/work_search.js' %}"></script>
 {% endblock %}
