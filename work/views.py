@@ -351,7 +351,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     html = template.render(context)
     # create a pdf
     pisa_status = pisa.CreatePDF(
-        BytesIO(html.encode('UTF-8')), dest=response, encoding='utf-8')
+        BytesIO(html.encode('utf-8')), dest=response, encoding='utf-8')
     # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
     # if error then show some funy view
     if pisa_status.err:
@@ -382,7 +382,7 @@ def case_download_pdf_view(request, *args, **kwargs):
     html = template.render(context)
     # create a pdf
     pisa_status = pisa.CreatePDF(
-        BytesIO(html.encode('UTF-8')), dest=response, encoding='utf-8')
+        BytesIO(html.encode('utf-8')), dest=response, encoding='utf-8')
     # if error then show some funy view
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')

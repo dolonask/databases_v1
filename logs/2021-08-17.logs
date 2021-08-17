@@ -46,3 +46,5 @@ Traceback (most recent call last):
     for i in len(response_list):
 TypeError: 'int' object is not iterable
 ERROR django.server "POST /strike/data/get/ HTTP/1.1" 500 99358 2021-08-17 11:32:23,995
+WARNING django.request Not Found: /favicon.ico 2021-08-17 18:52:40,601
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-17 18:52:40,603
