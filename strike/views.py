@@ -693,13 +693,13 @@ class DataFilterAPI(APIView):
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
         # print(where_query)
-        print(sql_query + where_query + group_by_query)
+        # print(sql_query + where_query + group_by_query)
         with connection.cursor() as cursor:
             cursor.execute(
                 sql_query + where_query + group_by_query
             )
             row = cursor.fetchall()
-            print(row)
+            # print(row)
             fields_list = []
             for i in request.data:
                 fields_list.append(i['id'])
@@ -712,7 +712,8 @@ class DataFilterAPI(APIView):
                 for j in range(len(fields_list)):
                     response_body[fields_list[j]] = row[i][j]
                 response_list.append(response_body)
-
+            for i in range(len(response_list)):
+                response_list[i]['percent'] = 100 / len(response_list)
         # return Response(status=401)
         return Response(response_list)
 

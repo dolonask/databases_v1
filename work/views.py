@@ -1000,6 +1000,8 @@ class DataFilterAPI(APIView):
                 for j in range(len(fields_list)):
                     response_body[fields_list[j]] = row[i][j]
                 response_list.append(response_body)
+            for i in range(len(response_list)):
+                response_list[i]['percent'] = 100 / len(response_list)
         return Response(response_list)
 
 

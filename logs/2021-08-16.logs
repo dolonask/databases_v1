@@ -364,3 +364,7 @@ WARNING django.request Bad Request: /migrant/data/get/ 2021-08-16 16:02:18,996
 WARNING django.server "OPTIONS /migrant/data/get/ HTTP/1.1" 400 71982 2021-08-16 16:02:18,998
 WARNING django.request Bad Request: /migrant/data/get/ 2021-08-16 16:02:33,903
 WARNING django.server "OPTIONS /migrant/data/get/ HTTP/1.1" 400 71982 2021-08-16 16:02:33,906
+WARNING django.request Not Found: /favicon.ico 2021-08-16 16:42:05,000
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 16:42:05,001
+WARNING django.request Not Found: /favicon.ico 2021-08-16 16:53:49,159
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-16 16:53:49,161

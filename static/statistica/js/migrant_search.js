@@ -25,7 +25,6 @@ searchBtn.onclick = function () {
  * @param {array} data - тело запроса
  * */
 function getResult(data) {
-    document.querySelector('.loading').classList.remove('d-none');
     const url = document.getElementById('migrant_data_get').textContent;
     // const url = 'https://databasesv1.herokuapp.com/migrant/data/get/';
     // const url = 'http://localhost:8000/migrant/data/get/';
@@ -60,8 +59,6 @@ function showResult(data) {
     });
 
     document.querySelector('#left-result').innerHTML = tr;
-    document.querySelector('.loading').classList.add('d-none');
-
 }
 
 function getRight() {

@@ -1,0 +1,48 @@
+WARNING django.request Not Found: /favicon.ico 2021-08-17 11:19:30,834
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-17 11:19:30,835
+WARNING django.request Not Found: /favicon.ico 2021-08-17 11:20:59,231
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-17 11:20:59,233
+ERROR django.request Internal Server Error: /strike/data/get/ 2021-08-17 11:27:17,729
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 707, in post
+    fields_list['count'] = 100 / len(row)
+TypeError: list indices must be integers or slices, not str
+ERROR django.server "POST /strike/data/get/ HTTP/1.1" 500 98684 2021-08-17 11:27:17,733
+ERROR django.request Internal Server Error: /strike/data/get/ 2021-08-17 11:32:23,992
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 715, in post
+    for i in len(response_list):
+TypeError: 'int' object is not iterable
+ERROR django.server "POST /strike/data/get/ HTTP/1.1" 500 99358 2021-08-17 11:32:23,995

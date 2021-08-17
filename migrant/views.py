@@ -378,7 +378,7 @@ class DataFilterAPI(APIView):
         fields = unpucking(my_list)
         # print(my_list)
         case_count = Case.objects.count()
-        sql_query = f"SELECT {fields}, count(*), round(count (*) * 100.0 /{case_count}, 2) percent FROM migrant_case"
+        sql_query = f"SELECT {fields}, count(*), count(*), 100 / count (*) FROM migrant_case"
         where_query = "where "
         where_list = []
         where_query_list = []
@@ -581,7 +581,7 @@ class DataFilterAPI(APIView):
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
         # print(where_query)
-        print(sql_query + where_query + group_by_query)
+        # print(sql_query + where_query + group_by_query)
         with connection.cursor() as cursor:
             cursor.execute(
                 sql_query + where_query + group_by_query
@@ -600,7 +600,8 @@ class DataFilterAPI(APIView):
                 for j in range(len(fields_list)):
                     response_body[fields_list[j]] = row[i][j]
                 response_list.append(response_body)
-
+            for i in range(len(response_list)):
+                response_list[i]['percent'] = 100 / len(response_list)
         return Response(response_list)
 
 
