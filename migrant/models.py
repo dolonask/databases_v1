@@ -392,10 +392,10 @@ class Company(models.Model):
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
                                 help_text='Название ТНК, в которую входит эта компания', )
     branch = models.CharField("Отрасль деятельности", max_length=200)
-    product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=100,
-                                    help_text='Вид производимой продукции / Предоставляемые услуги ', )
+    product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=200,
+                                    help_text='Вид производимой продукции / Предоставляемые услуги ')
 
-    company_experience = models.CharField("Время работы на рынке (в стране, где произошел случай)", max_length=100)
+    company_experience = models.CharField("Время работы на рынке (в стране, где произошел случай)", max_length=200)
 
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
     additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.) ", max_length=200, help_text='Иная важная информация ', null=True, blank=True)
