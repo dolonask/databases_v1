@@ -391,7 +391,7 @@ class Company(models.Model):
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
                                 help_text='Название ТНК, в которую входит эта компания', )
-    branch = models.CharField("Отрасль деятельности", max_length=50)
+    branch = models.CharField("Отрасль деятельности", max_length=200)
     product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=100,
                                     help_text='Вид производимой продукции / Предоставляемые услуги ', )
 
