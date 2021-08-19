@@ -275,14 +275,20 @@ function onAgreementChanged(value) {
         case 'YES':
            showTandem("id_agreementDetailYes");
            hideTandem("id_agreementDetailNo");
+           showTandem("id_agreementLang");
+           showTandem("id_understoodTheContents");
            break;
         case 'NO':
             hideTandem("id_agreementDetailYes");
             showTandem("id_agreementDetailNo");
+            hideTandem("id_agreementLang");
+            hideTandem("id_understoodTheContents");
             break;
         default:
             hideTandem("id_agreementDetailYes");
             hideTandem("id_agreementDetailNo");
+            hideTandem("id_agreementLang");
+            hideTandem("id_understoodTheContents");
             break;
     }
 }

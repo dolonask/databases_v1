@@ -638,7 +638,7 @@ def generate_case_word(request, pk):
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
     jinja_env.filters['check_arg_is_none'] = check_arg_is_none
     tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + 'test.docx'
+    save_path = base_dir + 'document.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):
         with open(save_path, 'rb') as fh:

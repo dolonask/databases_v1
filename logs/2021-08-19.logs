@@ -1,2 +1,408 @@
 WARNING django.request Not Found: /favicon.ico 2021-08-19 08:30:09,450
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-19 08:30:09,461
+WARNING django.request Not Found: /favicon.ico 2021-08-19 09:28:11,573
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-19 09:28:11,574
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:35:08,070
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149304 2021-08-19 15:35:08,076
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:35:39,220
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149441 2021-08-19 15:35:39,222
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:37:03,636
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149294 2021-08-19 15:37:03,640
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:37:04,569
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149294 2021-08-19 15:37:04,572
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:39:42,708
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149441 2021-08-19 15:39:42,716
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:40:30,841
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149294 2021-08-19 15:40:30,844
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:42:31,467
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149357 2021-08-19 15:42:31,469
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:42:32,466
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149357 2021-08-19 15:42:32,468
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:42:47,434
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149350 2021-08-19 15:42:47,435
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:51:50,298
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:51:50,302
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:51:51,152
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:51:51,153
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:51:51,459
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:51:51,461
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:51:51,781
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:51:51,783
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:53:09,948
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:53:09,950
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:53:51,804
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:53:51,807
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-19 15:53:52,637
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149291 2021-08-19 15:53:52,639
+WARNING django.request Not Found: /favicon.ico 2021-08-19 16:40:01,404
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-19 16:40:01,406
+WARNING django.request Not Found: /favicon.ico 2021-08-19 16:41:51,438
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-19 16:41:51,439
