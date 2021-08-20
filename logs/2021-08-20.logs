@@ -341,3 +341,78 @@ Traceback (most recent call last):
     raise TTFError('Can\'t open file "%s"' % fn)
 reportlab.pdfbase.ttfonts.TTFError: Can't open file "Roboto-Black.ttf"
 ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 150593 2021-08-20 14:33:40,316
+ERROR django.request Internal Server Error: /strike/word/1/ 2021-08-20 15:26:25,120
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 756, in generate_card_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+ERROR django.server "GET /strike/word/1/ HTTP/1.1" 500 151612 2021-08-20 15:26:25,123
+ERROR django.request Internal Server Error: /strike/word/1/ 2021-08-20 15:27:05,949
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 756, in generate_card_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+ERROR django.server "GET /strike/word/1/ HTTP/1.1" 500 151714 2021-08-20 15:27:05,952
+ERROR django.request Internal Server Error: /strike/word/1/ 2021-08-20 15:28:37,762
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 756, in generate_card_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+ERROR django.server "GET /strike/word/1/ HTTP/1.1" 500 151577 2021-08-20 15:28:37,765
