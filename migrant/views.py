@@ -23,7 +23,7 @@ from django.utils.decorators import method_decorator
 from docxtpl import DocxTemplate
 import jinja2
 from .templatetags.migrant_tags import var_verbose_name_for_word, check_arg_is_none
-
+import pdfkit
 
 
 @login_required
@@ -251,21 +251,20 @@ def case_render_pdf_view(request, *args, **kwargs):
         'source': source,
         'right': right,
         'intruder': intruder,
-        'comments': comments
+        'comments': comments,
     }
     # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="report.pdf"'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
+    # print(html)
     # create a pdf
-    pisa_status = pisa.CreatePDF(
-        BytesIO(html.encode('utf-8')), dest=response, encoding='utf-8')
-    # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
+    pdf = pdfkit.from_string(html, False)
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="document.pdf"'
     # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    # if pisa_status.err:
+    #     return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
 
@@ -282,22 +281,21 @@ def case_download_pdf_view(request, *args, **kwargs):
         'source': source,
         'right': right,
         'intruder': intruder,
-        'comments': comments
+        'comments': comments,
     }
     # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf";'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
+    # print(html)
     # create a pdf
-    pisa_status = pisa.CreatePDF(
-        BytesIO(html.encode('utf-8')), dest=response, encoding='utf-8')
+    pdf = pdfkit.from_string(html, False)
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="document.pdf"'
     # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    # if pisa_status.err:
+    #     return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
-
 
 def test(request, pk):
     case = Case.objects.get(pk=pk)

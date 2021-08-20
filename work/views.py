@@ -22,7 +22,7 @@ from docxtpl import DocxTemplate
 from migrant.templatetags.migrant_tags import var_verbose_name_for_word
 import jinja2
 import os
-
+import pdfkit
 # Create your views here.
 
 general_tabs_fields = [
@@ -342,19 +342,13 @@ def case_render_pdf_view(request, *args, **kwargs):
         'trade_union_activities': trade_union_activities,
         'comments': comments
     }
-    # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="report.pdf"'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
-    pisa_status = pisa.CreatePDF(
-        BytesIO(html.encode('utf-8')), dest=response, encoding='utf-8')
-    # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
-    # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    pdf = pdfkit.from_string(html, False)
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="document.pdf"'
     return response
 
 
@@ -373,19 +367,15 @@ def case_download_pdf_view(request, *args, **kwargs):
         'trade_union_activities': trade_union_activities,
         'comments': comments
     }
-    # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
-    pisa_status = pisa.CreatePDF(
-        BytesIO(html.encode('utf-8')), dest=response, encoding='utf-8')
-    # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    pdf = pdfkit.from_string(html, False)
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="document.pdf"'
     return response
+
 
 
 class DataAPIView(APIView):

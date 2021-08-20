@@ -422,3 +422,33 @@ WARNING django.request Not Found: /debug 2021-08-20 16:26:53,894
 WARNING django.server "GET /debug HTTP/1.1" 404 3506 2021-08-20 16:26:53,895
 WARNING django.request Not Found: /__debug__/ 2021-08-20 16:26:59,254
 WARNING django.server "GET /__debug__/ HTTP/1.1" 404 4758 2021-08-20 16:26:59,255
+WARNING django.request Bad Request: / 2021-08-20 18:28:01,777
+WARNING django.server "GET / HTTP/1.1" 400 71786 2021-08-20 18:28:01,778
+WARNING django.request Bad Request: /favicon.ico 2021-08-20 18:28:02,042
+WARNING django.server "GET /favicon.ico HTTP/1.1" 400 71711 2021-08-20 18:28:02,043
+WARNING django.request Not Found: /favicon.ico 2021-08-20 18:28:23,239
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-20 18:28:23,239
+ERROR django.request Internal Server Error: /migrant/get-pdf/1 2021-08-20 18:28:28,686
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 262, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\api.py", line 69, in from_string
+    r = PDFKit(input, 'string', options=options, toc=toc, cover=cover, css=css,
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\pdfkit.py", line 42, in __init__
+    self.configuration = (Configuration() if configuration is None
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b''"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 110133 2021-08-20 18:28:28,688
