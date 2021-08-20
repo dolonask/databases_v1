@@ -1,0 +1,343 @@
+WARNING django.request Not Found: /favicon.ico 2021-08-20 14:29:01,539
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-20 14:29:01,539
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-20 14:31:11,194
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of statement block'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149275 2021-08-20 14:31:11,197
+ERROR django.request Internal Server Error: /migrant/get-pdf/1 2021-08-20 14:32:34,732
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 701, in open_for_read
+    return open_for_read_by_name(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 636, in open_for_read_by_name
+    return open(name,mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 708, in open_for_read
+    return getBytesIO(datareader(name) if name[:5].lower()=='data:' else urlopen(name).read())
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 501, in open
+    req = Request(fullurl, data)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 320, in __init__
+    self.full_url = url
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 346, in full_url
+    self._parse()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 375, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+ValueError: unknown url type: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 155, in TTFOpenFile
+    f = open_for_read(fn,'rb')
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 712, in open_for_read
+    return open_for_read(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 710, in open_for_read
+    raise IOError('Cannot open resource "%s"' % name)
+OSError: Cannot open resource "Roboto-Black.ttf"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 770, in pdf_table_generate
+    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1196, in __init__
+    self.face = TTFontFace(filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1090, in __init__
+    TTFontFile.__init__(self, filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 457, in __init__
+    TTFontParser.__init__(self, file, validate=validate,subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 179, in __init__
+    self.readFile(file)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 255, in readFile
+    self.filename, f = TTFOpenFile(f)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 165, in TTFOpenFile
+    raise TTFError('Can\'t open file "%s"' % fn)
+reportlab.pdfbase.ttfonts.TTFError: Can't open file "Roboto-Black.ttf"
+ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 150593 2021-08-20 14:32:34,736
+ERROR django.request Internal Server Error: /migrant/get-pdf/1 2021-08-20 14:32:55,791
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 701, in open_for_read
+    return open_for_read_by_name(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 636, in open_for_read_by_name
+    return open(name,mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 708, in open_for_read
+    return getBytesIO(datareader(name) if name[:5].lower()=='data:' else urlopen(name).read())
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 501, in open
+    req = Request(fullurl, data)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 320, in __init__
+    self.full_url = url
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 346, in full_url
+    self._parse()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 375, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+ValueError: unknown url type: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 155, in TTFOpenFile
+    f = open_for_read(fn,'rb')
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 712, in open_for_read
+    return open_for_read(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 710, in open_for_read
+    raise IOError('Cannot open resource "%s"' % name)
+OSError: Cannot open resource "Roboto-Black.ttf"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 770, in pdf_table_generate
+    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1196, in __init__
+    self.face = TTFontFace(filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1090, in __init__
+    TTFontFile.__init__(self, filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 457, in __init__
+    TTFontParser.__init__(self, file, validate=validate,subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 179, in __init__
+    self.readFile(file)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 255, in readFile
+    self.filename, f = TTFOpenFile(f)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 165, in TTFOpenFile
+    raise TTFError('Can\'t open file "%s"' % fn)
+reportlab.pdfbase.ttfonts.TTFError: Can't open file "Roboto-Black.ttf"
+ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 150730 2021-08-20 14:32:55,795
+ERROR django.request Internal Server Error: /migrant/get-pdf/1 2021-08-20 14:32:56,039
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 701, in open_for_read
+    return open_for_read_by_name(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 636, in open_for_read_by_name
+    return open(name,mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 708, in open_for_read
+    return getBytesIO(datareader(name) if name[:5].lower()=='data:' else urlopen(name).read())
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 501, in open
+    req = Request(fullurl, data)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 320, in __init__
+    self.full_url = url
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 346, in full_url
+    self._parse()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 375, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+ValueError: unknown url type: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 155, in TTFOpenFile
+    f = open_for_read(fn,'rb')
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 710, in open_for_read
+    raise IOError('Cannot open resource "%s"' % name)
+OSError: Cannot open resource "Roboto-Black.ttf"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 770, in pdf_table_generate
+    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1196, in __init__
+    self.face = TTFontFace(filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1090, in __init__
+    TTFontFile.__init__(self, filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 457, in __init__
+    TTFontParser.__init__(self, file, validate=validate,subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 179, in __init__
+    self.readFile(file)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 255, in readFile
+    self.filename, f = TTFOpenFile(f)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 165, in TTFOpenFile
+    raise TTFError('Can\'t open file "%s"' % fn)
+reportlab.pdfbase.ttfonts.TTFError: Can't open file "Roboto-Black.ttf"
+ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 145153 2021-08-20 14:32:56,042
+ERROR django.request Internal Server Error: /migrant/get-pdf/1 2021-08-20 14:32:56,740
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 701, in open_for_read
+    return open_for_read_by_name(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 636, in open_for_read_by_name
+    return open(name,mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 708, in open_for_read
+    return getBytesIO(datareader(name) if name[:5].lower()=='data:' else urlopen(name).read())
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 501, in open
+    req = Request(fullurl, data)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 320, in __init__
+    self.full_url = url
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 346, in full_url
+    self._parse()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 375, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+ValueError: unknown url type: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 155, in TTFOpenFile
+    f = open_for_read(fn,'rb')
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 710, in open_for_read
+    raise IOError('Cannot open resource "%s"' % name)
+OSError: Cannot open resource "Roboto-Black.ttf"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 770, in pdf_table_generate
+    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1196, in __init__
+    self.face = TTFontFace(filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1090, in __init__
+    TTFontFile.__init__(self, filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 457, in __init__
+    TTFontParser.__init__(self, file, validate=validate,subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 179, in __init__
+    self.readFile(file)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 255, in readFile
+    self.filename, f = TTFOpenFile(f)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 165, in TTFOpenFile
+    raise TTFError('Can\'t open file "%s"' % fn)
+reportlab.pdfbase.ttfonts.TTFError: Can't open file "Roboto-Black.ttf"
+ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 145153 2021-08-20 14:32:56,743
+ERROR django.request Internal Server Error: /migrant/word/1/ 2021-08-20 14:33:18,217
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 640, in generate_case_word
+    tpl.render(context, jinja_env=jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 316, in render
+    xml_src = self.build_xml(context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 271, in build_xml
+    xml = self.render_xml_part(xml, self.docx._part, context, jinja_env)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 226, in render_xml_part
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docxtpl\__init__.py", line 217, in render_xml_part
+    template = jinja_env.from_string(src_xml)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 1092, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<unknown>", line 1, in template
+jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of statement block'
+ERROR django.server "GET /migrant/word/1/ HTTP/1.1" 500 149275 2021-08-20 14:33:18,220
+ERROR django.request Internal Server Error: /migrant/get-pdf/1 2021-08-20 14:33:40,312
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 701, in open_for_read
+    return open_for_read_by_name(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 636, in open_for_read_by_name
+    return open(name,mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 708, in open_for_read
+    return getBytesIO(datareader(name) if name[:5].lower()=='data:' else urlopen(name).read())
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 501, in open
+    req = Request(fullurl, data)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 320, in __init__
+    self.full_url = url
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 346, in full_url
+    self._parse()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python39\lib\urllib\request.py", line 375, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+ValueError: unknown url type: 'Roboto-Black.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 155, in TTFOpenFile
+    f = open_for_read(fn,'rb')
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 712, in open_for_read
+    return open_for_read(name,mode)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\lib\utils.py", line 710, in open_for_read
+    raise IOError('Cannot open resource "%s"' % name)
+OSError: Cannot open resource "Roboto-Black.ttf"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 770, in pdf_table_generate
+    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1196, in __init__
+    self.face = TTFontFace(filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1090, in __init__
+    TTFontFile.__init__(self, filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 457, in __init__
+    TTFontParser.__init__(self, file, validate=validate,subfontIndex=subfontIndex)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 179, in __init__
+    self.readFile(file)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 255, in readFile
+    self.filename, f = TTFOpenFile(f)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\reportlab\pdfbase\ttfonts.py", line 165, in TTFOpenFile
+    raise TTFError('Can\'t open file "%s"' % fn)
+reportlab.pdfbase.ttfonts.TTFError: Can't open file "Roboto-Black.ttf"
+ERROR django.server "GET /migrant/get-pdf/1 HTTP/1.1" 500 150593 2021-08-20 14:33:40,316
