@@ -11,3 +11,6 @@ def load_mains(apps, schema_editor):
     Position = apps.get_model("main", 'Position')
     position = Position(user_id=1, role_id=1)
     position.save()
+    Country = apps.get_model("main", "Country")
+    country = Country(user_id=1, country_id=1)
+    country.save()
