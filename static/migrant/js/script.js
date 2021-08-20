@@ -287,6 +287,8 @@ function onAgreementChanged(value) {
         default:
             hideTandem("id_agreementDetailYes");
             hideTandem("id_agreementDetailNo");
+            hideTandem("id_agreementLang");
+            hideTandem("id_understoodTheContents");
             break;
     }
 }

@@ -416,3 +416,9 @@ Traceback (most recent call last):
   File "<unknown>", line 1, in template
 jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
 ERROR django.server "GET /strike/word/1/ HTTP/1.1" 500 151577 2021-08-20 15:28:37,765
+WARNING django.request Not Found: /favicon.ico 2021-08-20 16:26:35,191
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-20 16:26:35,193
+WARNING django.request Not Found: /debug 2021-08-20 16:26:53,894
+WARNING django.server "GET /debug HTTP/1.1" 404 3506 2021-08-20 16:26:53,895
+WARNING django.request Not Found: /__debug__/ 2021-08-20 16:26:59,254
+WARNING django.server "GET /__debug__/ HTTP/1.1" 404 4758 2021-08-20 16:26:59,255

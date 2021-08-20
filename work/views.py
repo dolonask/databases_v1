@@ -113,7 +113,7 @@ files_tab_fields = [
 
 @login_required()
 def add_case(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         form = CaseForm(request.POST)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
         individualForm = IndividualForm(request.POST)
@@ -148,7 +148,6 @@ def add_case(request):
                 individualFormSet.save()
 
             form._save_m2m()
-
 
             # if casePhotoForm.is_valid():
             for f in request.FILES.getlist('photo'):

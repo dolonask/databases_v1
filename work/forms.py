@@ -142,9 +142,9 @@ class CaseForm(forms.ModelForm):
             'failureSystemicMeasures': forms.Select(attrs={'class': 'form-control'}),
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
             'start_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y.%m.%d %H:%M"), 'type': 'datetime'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
             'end_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y.%m.%d %H:%M"), 'type': 'datetime'}),
+                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
 
             'intruder': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onIntruderChanged(this.value);"}),
