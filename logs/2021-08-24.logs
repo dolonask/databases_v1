@@ -10,3 +10,27 @@ WARNING django.request Not Found: /favicon.ico 2021-08-24 13:32:01,423
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-24 13:32:01,426
 WARNING django.request Not Found: /favicon.ico 2021-08-24 13:35:41,138
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-24 13:35:41,139
+ERROR django.request Internal Server Error: /strike/get-pdf/1 2021-08-24 13:50:01,311
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 356, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\api.py", line 69, in from_string
+    r = PDFKit(input, 'string', options=options, toc=toc, cover=cover, css=css,
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\pdfkit.py", line 42, in __init__
+    self.configuration = (Configuration() if configuration is None
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b''"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+ERROR django.server "GET /strike/get-pdf/1 HTTP/1.1" 500 110579 2021-08-24 13:50:01,313

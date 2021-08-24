@@ -348,7 +348,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     # create a pdf
     pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="document.pdf"'
+    response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     return response
 
 
@@ -373,7 +373,7 @@ def case_download_pdf_view(request, *args, **kwargs):
     # create a pdf
     pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="document.pdf"'
+    response['Content-Disposition'] = f'attachment; filename="card_{case.id}.pdf"'
     return response
 
 
@@ -1026,7 +1026,7 @@ def generate_case_word(request, pk):
     jinja_env = jinja2.Environment()
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
     tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + 'test.docx'
+    save_path = base_dir + f'card_{case.id}.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):
         with open(save_path, 'rb') as fh:

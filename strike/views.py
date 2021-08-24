@@ -355,7 +355,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     # create a pdf
     pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="document.pdf"'
+    response['Content-Disposition'] = f'filename="card_{card.id}.pdf"'
     # StringIO(html.encode("UTF-8")), response, encoding='UTF-8')
     # if error then show some funy view
     return response
@@ -381,15 +381,13 @@ def case_download_pdf_view(request, *args, **kwargs):
         'comments': comments,
     }
     # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
     pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    response['Content-Disposition'] = f'attachment; filename="card_{card.id}.pdf"'
     return response
 
 class DataAPIView(APIView):
@@ -748,7 +746,7 @@ def generate_card_word(request, pk):
     jinja_env = jinja2.Environment()
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
     tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + 'test.docx'
+    save_path = base_dir + f'card_{card.id}.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):
         with open(save_path, 'rb') as fh:

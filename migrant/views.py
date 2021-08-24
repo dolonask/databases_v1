@@ -261,7 +261,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     # create a pdf
     pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="document.pdf"'
+    response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     # if error then show some funy view
     # if pisa_status.err:
     #     return HttpResponse('We had some errors <pre>' + html + '</pre>')
@@ -287,11 +287,10 @@ def case_download_pdf_view(request, *args, **kwargs):
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
-    # print(html)
     # create a pdf
     pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="document.pdf"'
+    response['Content-Disposition'] = f'attachment; filename="card_{case.id}.pdf"'
     # if error then show some funy view
     # if pisa_status.err:
     #     return HttpResponse('We had some errors <pre>' + html + '</pre>')
@@ -636,7 +635,7 @@ def generate_case_word(request, pk):
     jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
     jinja_env.filters['check_arg_is_none'] = check_arg_is_none
     tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + 'document.docx'
+    save_path = base_dir + f'card_{case.id}.docx'
     tpl.save(save_path)
     if os.path.exists(save_path):
         with open(save_path, 'rb') as fh:
@@ -645,192 +644,3 @@ def generate_case_word(request, pk):
             return response
     return Http404()
 
-
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-
-def get_fields_name(model, field):
-    try:
-        return model._meta.get_field(field).verbose_name
-    except Exception:
-        return 'Error'
-
-def pdf_table_download(request, *args, **kwargs):
-    pk = kwargs.get('pk')
-    case = get_object_or_404(Case, pk=pk)
-    source = InfoSource.objects.filter(case__pk=pk)
-    source_len = len(source)
-    right = Right.objects.filter(case__pk=pk)
-    right_len = len(right)
-    intruder = Intruder.objects.filter(case__pk=pk)
-    intruder_len = len(intruder)
-    comments = CaseComment.objects.filter(case_id=pk)
-    comments_len = len(comments)
-    # Create the HttpResponse object
-    response = HttpResponse(content_type='application/pdf')
-    # This line force a download
-    response['Content-Disposition'] = 'attachment; filename="1.pdf"'
-
-    doc = SimpleDocTemplate(response, pagesize=letter)
-    # container for the 'Flowable' objects
-    elements = []
-    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
-
-    data = [[get_fields_name(Case, 'case_name'), case.case_name],
-            [get_fields_name(Case, 'country'), case.country],
-            [get_fields_name(Case, 'region'), case.region],
-            [get_fields_name(Case, 'date_create'), case.date_create.strftime('%Y-%m-%d %H:%M:%S')],
-            [get_fields_name(Case, 'date_update'), case.date_update.strftime('%Y-%m-%d %H:%M:%S')],
-            [get_fields_name(Case, 'victim_status'), case.victim_status],
-            [get_fields_name(Case, 'banOnEntry'), case.banOnEntry],
-            [get_fields_name(Case, 'banned_country'), case.banned_country],
-            [get_fields_name(Case, 'banOnEntryAnother'), case.banOnEntryAnother],
-            [get_fields_name(Case, 'case_date'), case.case_date],
-            [get_fields_name(Case, 'start_date'), case.start_date],
-            [get_fields_name(Case, 'end_date'), case.end_date],
-            [get_fields_name(Case, 'victim'), case.victim],
-            [get_fields_name(Case, 'victim_situation'), case.victim_situation],
-            [get_fields_name(Case, 'victim_situation_another'), case.victim_situation_another],
-            [get_fields_name(Case, 'individualInfo'), case.individualInfo],
-            [get_fields_name(Case, 'personGroupInfo'), case.personGroupInfo],
-            [get_fields_name(Case, 'government_agency_name'), case.government_agency_name],
-            [get_fields_name(Case, 'local_agency_name'), case.local_agency_name],
-            [get_fields_name(Case, 'police_agency_name'), case.police_agency_name],
-            [get_fields_name(Case, 'control_agency_name'), case.control_agency_name],
-            [get_fields_name(Case, 'company'), case.company],
-            [get_fields_name(Case, 'entrepreneur'), case.entrepreneur],
-            [get_fields_name(Case, 'case_additional'), case.case_additional[0:48]],
-            [get_fields_name(Case, 'story')[0:48], case.story[0:48]],
-            [get_fields_name(Case, 'actions')[0:48], case.actions[0:48]],
-            [get_fields_name(Case, 'final')[0:48], case.final[0:48]],
-            [get_fields_name(Case, 'violation_nature'), case.violation_nature],
-            [get_fields_name(Case, 'rights_state'), case.rights_state],
-            [get_fields_name(Case, 'rights_state_another'), case.rights_state_another],
-            [get_fields_name(Case, 'tradeUnionSituation'), case.tradeUnionSituation],
-            [get_fields_name(Case, 'tradeUnionSituation_another'), case.tradeUnionSituation_another],
-            [get_fields_name(Case, 'tradeUnionCount'), case.tradeUnionCount],
-            [get_fields_name(Case, 'case_additional_info'), case.case_additional_info],
-            [get_fields_name(Case, 'frequent_problems')[0:48], case.frequent_problems],
-            [get_fields_name(Case, 'decision')[0:48], case.decision],
-            [get_fields_name(Case, 'advice')[0:48], case.advice],
-
-            [get_fields_name(Case, 'has_violation_in_covid')[0:48], case.has_violation_in_covid],
-            [get_fields_name(Case, 'violationType')[0:48], case.violationType],
-            [get_fields_name(Case, 'violationType_another')[0:48], case.violationType_another],
-            [get_fields_name(Case, 'changesInSalary')[0:48], case.changesInSalary],
-            [get_fields_name(Case, 'changesInSalary_another')[0:48], case.changesInSalary_another],
-            [get_fields_name(Case, 'user'), case.user],
-            ]
-    for i in range(source_len):
-        data.append([get_fields_name(Case, 'source'), source[i].name])
-    data.append([get_fields_name(Case, 'source_url'), case.source_url])
-    data.append([get_fields_name(Case, 'source_content')[0:48], case.source_content[0:48]])
-    for i in range(right_len):
-        data.append([get_fields_name(Case, 'violated_right'), right[i].name])
-    data.append([get_fields_name(Case, 'violatedRightAnother'), case.violatedRightAnother])
-    for i in range(intruder_len):
-        data.append([get_fields_name(Case, 'intruder'), intruder[i].name])
-    for i in range(comments_len):
-        data.append([get_fields_name(Case, 'comment'), comments[i].comment])
-    t = Table(data)
-
-    t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), colors.white),
-                           ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
-                           ('FONTNAME', (0, 0), (-1, -1), 'Roboto')]))
-    elements.append(t)
-    # write the document to disk
-    doc.build(elements)
-
-    return response
-
-def pdf_table_generate(request, *args, **kwargs):
-    pk = kwargs.get('pk')
-    case = get_object_or_404(Case, pk=pk)
-    source = InfoSource.objects.filter(case__pk=pk)
-    source_len = len(source)
-    right = Right.objects.filter(case__pk=pk)
-    right_len = len(right)
-    intruder = Intruder.objects.filter(case__pk=pk)
-    intruder_len = len(intruder)
-    comments = CaseComment.objects.filter(case_id=pk)
-    comments_len = len(comments)
-    # Create the HttpResponse object
-    response = HttpResponse(content_type='application/pdf')
-    # This line force a download
-    response['Content-Disposition'] = 'filename="1.pdf"'
-
-    doc = SimpleDocTemplate(response, pagesize=letter)
-    # container for the 'Flowable' objects
-    elements = []
-    pdfmetrics.registerFont(TTFont('Roboto', 'Roboto-Black.ttf'))
-    data = [[get_fields_name(Case, 'case_name'), case.case_name],
-            [get_fields_name(Case, 'country'), case.country],
-            [get_fields_name(Case, 'region'), case.region],
-            [get_fields_name(Case, 'date_create'), case.date_create.strftime('%Y-%m-%d %H:%M:%S')],
-            [get_fields_name(Case, 'date_update'), case.date_update.strftime('%Y-%m-%d %H:%M:%S')],
-            [get_fields_name(Case, 'victim_status'), case.victim_status],
-            # [get_fields_name(Case, 'banOnEntry'), case.banOnEntry],
-            # [get_fields_name(Case, 'banned_country'), case.banned_country],
-            # [get_fields_name(Case, 'banOnEntryAnother'), case.banOnEntryAnother],
-            # [get_fields_name(Case, 'case_date'), case.case_date],
-            # [get_fields_name(Case, 'start_date'), case.start_date],
-            # [get_fields_name(Case, 'end_date'), case.end_date],
-            # [get_fields_name(Case, 'victim'), case.victim],
-            # [get_fields_name(Case, 'victim_situation'), case.victim_situation],
-            # [get_fields_name(Case, 'victim_situation_another'), case.victim_situation_another],
-            # [get_fields_name(Case, 'individualInfo'), case.individualInfo],
-            # [get_fields_name(Case, 'personGroupInfo'), case.personGroupInfo],
-            # [get_fields_name(Case, 'government_agency_name'), case.government_agency_name],
-            # [get_fields_name(Case, 'local_agency_name'), case.local_agency_name],
-            # [get_fields_name(Case, 'police_agency_name'), case.police_agency_name],
-            # [get_fields_name(Case, 'control_agency_name'), case.control_agency_name],
-            # [get_fields_name(Case, 'company'), case.company],
-            # [get_fields_name(Case, 'entrepreneur'), case.entrepreneur],
-            # [get_fields_name(Case, 'case_additional'), case.case_additional[0:48]],
-            # [get_fields_name(Case, 'story')[0:48]+'\n'+get_fields_name(Case, 'story')[48:96]+'\n'+get_fields_name(Case, 'story')[96:130]+'\n'+get_fields_name(Case, 'story')[130:], case.story[0:48]],
-            # [get_fields_name(Case, 'actions')[0:48], case.actions[0:48]],
-            # [get_fields_name(Case, 'final')[0:48], case.final[0:48]],
-            # [get_fields_name(Case, 'violation_nature'), case.violation_nature],
-            # [get_fields_name(Case, 'rights_state'), case.rights_state],
-            # [get_fields_name(Case, 'rights_state_another'), case.rights_state_another],
-            # [get_fields_name(Case, 'tradeUnionSituation'), case.tradeUnionSituation],
-            # [get_fields_name(Case, 'tradeUnionSituation_another'), case.tradeUnionSituation_another],
-            # [get_fields_name(Case, 'tradeUnionCount'), case.tradeUnionCount],
-            # [get_fields_name(Case, 'case_additional_info'), case.case_additional_info],
-            # [get_fields_name(Case, 'frequent_problems')[0:48], case.frequent_problems],
-            # [get_fields_name(Case, 'decision')[0:48], case.decision],
-            # [get_fields_name(Case, 'advice')[0:48], case.advice],
-            # [get_fields_name(Case, 'has_violation_in_covid')[0:48], case.has_violation_in_covid],
-            # [get_fields_name(Case, 'violationType')[0:48], case.violationType],
-            # [get_fields_name(Case, 'violationType_another')[0:48], case.violationType_another],
-            # [get_fields_name(Case, 'changesInSalary')[0:48], case.changesInSalary],
-            # [get_fields_name(Case, 'changesInSalary_another')[0:48]+'\n'+get_fields_name(Case, 'changesInSalary_another')[48::], case.changesInSalary_another],
-            # [get_fields_name(Case, 'user'), case.user],
-            ['Какая помощь на ваш взгляд необходима мигрантам?\nКакая помощь на ваш взгляд необходима мигрантам?',
-             'Какая помощь на ваш взгляд необходима мигрантам?']
-            ]
-    for i in range(source_len):
-        data.append([get_fields_name(Case, 'source'), source[i].name])
-
-    data.append([get_fields_name(Case, 'source_url'), case.source_url])
-    data.append([get_fields_name(Case, 'source_content')[0:48], case.source_content[0:48]])
-    for i in range(right_len):
-        data.append([get_fields_name(Case, 'violated_right'), right[i].name])
-    data.append([get_fields_name(Case, 'violatedRightAnother'), case.violatedRightAnother])
-    for i in range(intruder_len):
-        data.append([get_fields_name(Case, 'intruder'), intruder[i].name])
-    for i in range(comments_len):
-        data.append([get_fields_name(Case, 'comment'), comments[i].comment])
-    t = Table(data)
-
-    t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), colors.white),
-                           ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
-                           ('FONTNAME', (0, 0), (-1, -1), 'Roboto')]))
-    elements.append(t)
-    # write the document to disk
-    doc.build(elements)
-
-    return response
