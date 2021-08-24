@@ -1129,14 +1129,14 @@
                     if (id_education.value === '') {
                         set_error(id_education, 'select');
                     }
-                    let id_country = document.querySelector('#id_country');
+                    let id_country = document.querySelector('#id_individual_country');
                     if (id_country.value === '') {
                         set_error(id_country, 'select');
                     }
                     if (id_country.value == 4) {
-                        let id_countryFromAnother = document.querySelector('#id_countryFromAnother');
-                        if (id_countryFromAnother.value.length < 3) {
-                            set_error(id_countryFromAnother, 'length', 3);
+                        let id_countryAnother = document.querySelector('#id_countryAnother');
+                        if (id_countryAnother.value.length < 3) {
+                            set_error(id_countryAnother, 'length', 3);
                         }
                     }
                     let id_city_name = document.querySelector('#id_city_name');
@@ -1147,7 +1147,7 @@
                     if (id_countryFrom.value === '') {
                         set_error(id_countryFrom, 'select');
                     }
-                    if (id_countryFrom.value == 4) {
+                    if (id_countryFrom.value == 5) {
                         let id_countryFromAnother = document.querySelector('#id_countryFromAnother');
                         if (id_countryFromAnother.value.length < 3) {
                             set_error(id_countryFromAnother, 'length', 3);
@@ -1312,7 +1312,7 @@
                 if (get_selected('id_victim_situation') == 4) {
                     validate_text_field('id_victim_situation_another', 7);
                 }
-                if (get_selected("id_tradeUnionMembership") == 1 || get_selected('id_membership') != 2) {
+                if (get_selected("id_tradeUnionMembership") == 1 || (get_selected('id_membership') != 2 && get_selected('id_membership') != 0)) {
                     validate_selected('id_tradeUnionSituation');
                     if (get_selected('id_tradeUnionSituation') == 4) {
                         validate_text_field('id_tradeUnionSituation_another', 7);

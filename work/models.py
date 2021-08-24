@@ -160,7 +160,7 @@ class AgreementDetail(models.Model):
 
 
 class IndividualInfo(models.Model):
-    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    is_anonim = models.CharField("Ананимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     name = models.CharField("ФИО", max_length=100,blank=True, null = True)
     member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")

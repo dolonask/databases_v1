@@ -411,7 +411,9 @@ def load_migrants(apps, schema_editor):
     countryFrom.save()
     countryFrom = CountryFrom(id=3, name="Таджикистан", active=True)
     countryFrom.save()
-    countryFrom = CountryFrom(id=4, name="Другое", active=True)
+    countryFrom = CountryFrom(id=4, name="Узбекистан", active=True)
+    countryFrom.save()
+    countryFrom = CountryFrom(id=5, name="Другое", active=True)
     countryFrom.save()
 
 

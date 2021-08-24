@@ -230,15 +230,15 @@ class CardPhoto(models.Model):
 
 
 class CardFile(models.Model):
-    file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location, blank=True)
+    file = models.FileField("Кейсы, связанные с данной ситуацией", upload_to=files_location, blank=True)
     card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.file
 
     class Meta:
-        verbose_name = "Кейсы, связанные с забастовкой"
-        verbose_name_plural = "Кейсы, связанные с забастовкой"
+        verbose_name = "Кейсы, связанные с данной ситуацией"
+        verbose_name_plural = "Кейсы, связанные с данной ситуацией"
 
 
 class TradeunionChoice(models.Model):

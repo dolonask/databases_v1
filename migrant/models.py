@@ -486,7 +486,7 @@ class RightsState(models.Model):
 
 
 class Entrepreneur(models.Model):
-    entrepreneur_is_anonim = models.CharField("Аноним?", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    entrepreneur_is_anonim = models.CharField("Ананимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     entrepreneur_name = models.CharField("ФИО", max_length=50, help_text='ФИО', )
     # entrepreneur_is_anonim = models.BooleanField("Аноним?", default=False)
     # entrepreneur_gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол")

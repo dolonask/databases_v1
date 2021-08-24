@@ -64,7 +64,8 @@ function onIndividual_countryChanged(value) {
 }
 
 function onCountryFromChanged(value) {
-    if (get_selected('id_countryFrom') == 4) {
+    if (get_selected('id_countryFrom') == 5) {
+        console.log('her')
         // document.getElementById("id_source_url").readOnly=true;
         showTandem("id_countryFromAnother");
     } else {
@@ -83,7 +84,7 @@ function onWayArrivalChanged(value) {
 
 function onOwnershipChanged(value) {
     console.log(get_selected('id_ownership') )
-    if (get_selected('id_ownership') == 4) {
+    if (get_selected('id_ownership') == 5) {
         // document.getElementById("id_source_url").readOnly=true;
         showTandem("id_is_tnk_member");
         showTandem("id_country_from");

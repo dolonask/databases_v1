@@ -37,3 +37,4 @@ class Position(models.Model):
     class Meta:
         verbose_name = 'Позиция'
         verbose_name_plural = 'Позиции'
+        
