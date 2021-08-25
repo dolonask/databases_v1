@@ -1,0 +1,108 @@
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:10:33,996
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:10:34,003
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:12:21,159
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13989 2021-08-25 16:12:21,161
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:12:40,245
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualForm,
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 96010 2021-08-25 16:12:40,527
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:16:09,230
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 297, in update_case
+    'individualForm': individualForm,
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 96012 2021-08-25 16:16:09,511
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:16:50,528
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 297, in update_case
+    'individualForm': individualForm,
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 96010 2021-08-25 16:16:50,801
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:20:59,271
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view strike.views.update_case didn't return an HttpResponse object. It returned None instead.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 87526 2021-08-25 16:20:59,532
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:23:52,043
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualForm,
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 85457 2021-08-25 16:23:52,049
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:23:52,399
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:23:52,400
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:24:36,347
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualForm,
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 85339 2021-08-25 16:24:36,351
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:30:37,725
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:30:37,726
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:33:05,300
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:33:05,302
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:36:47,236
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:36:47,238
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:38:21,446
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:38:21,447
+WARNING django.request Not Found: /favicon.ico 2021-08-25 16:47:34,961
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-25 16:47:34,962
+WARNING django.request Not Found: /migrant/update/1/ 2021-08-25 16:55:43,125
+WARNING django.server "GET /migrant/update/1/ HTTP/1.1" 404 6460 2021-08-25 16:55:43,127
+WARNING django.request Not Found: /migrant/update/1/ 2021-08-25 16:55:51,580
+WARNING django.server "GET /migrant/update/1/ HTTP/1.1" 404 6460 2021-08-25 16:55:51,581
+WARNING django.request Not Found: /migrant/ 2021-08-25 16:55:55,482
+WARNING django.server "GET /migrant/ HTTP/1.1" 404 6433 2021-08-25 16:55:55,483
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 16:58:07,393
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 264, in update_case
+    photo = CardPhoto(photo=f, card=form)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardPhoto.card" must be a "Card" instance.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100277 2021-08-25 16:58:07,399

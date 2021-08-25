@@ -34,3 +34,65 @@ Traceback (most recent call last):
 OSError: No wkhtmltopdf executable found: "b''"
 If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
 ERROR django.server "GET /strike/get-pdf/1 HTTP/1.1" 500 110579 2021-08-24 13:50:01,313
+WARNING django.request Not Found: /favicon.ico 2021-08-24 14:08:07,812
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-24 14:08:07,812
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-24 14:08:15,495
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualFormSet,
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /strike/update/1 HTTP/1.1" 500 77428 2021-08-24 14:08:15,498
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-24 14:08:25,619
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualForm,
+NameError: name 'individualForm' is not defined
+ERROR django.server "GET /strike/update/1 HTTP/1.1" 500 77403 2021-08-24 14:08:25,621
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-24 14:08:26,253
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualForm,
+NameError: name 'individualForm' is not defined
+ERROR django.server "GET /strike/update/1 HTTP/1.1" 500 77403 2021-08-24 14:08:26,253
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-24 14:08:46,525
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualForm,
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 85312 2021-08-24 14:08:46,528
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-24 14:09:27,967
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 298, in update_case
+    'individualForm': individualFormSet,
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /strike/update/1 HTTP/1.1" 500 77643 2021-08-24 14:09:27,969

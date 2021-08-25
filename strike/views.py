@@ -214,7 +214,7 @@ def update_case(request, pk):
         personGroupInfoForm = PersonGroupInfoForm(request.POST)
         # individualForm = IndividualForm(request.POST)
 
-        individualFormSet = IndividualFormSet(data = request.POST)
+        individualFormSet = IndividualFormSet(data=request.POST)
 
 
         employerForm = EmployerForm(request.POST)

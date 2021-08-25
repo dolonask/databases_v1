@@ -1027,8 +1027,7 @@
                 if (id_victim_status.value === '') {
                     set_error(id_victim_status, 'select');
                 }
-
-
+                validate_selected('id_start_date');
                 validate_selected('id_banOnEntry');
 
                 switch (get_selected('id_banOnEntry')) {

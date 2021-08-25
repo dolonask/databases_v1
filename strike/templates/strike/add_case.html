@@ -348,6 +348,7 @@
                         set_error(id_source_content, 'any');
                     }
                 }
+                validate_selected('id_start_date');
                 validate_selected('id_country');
                 validate_selected('id_region');
                 validate_text_field('id_city_name',3);
@@ -359,7 +360,6 @@
                         validate_text_field('id_company_tnk_name', 7);
                     }
                 }
-
                 validate_selected('id_company_employees_count');
                 validate_selected('id_count_strike_participants');
                 {#validate_checkbox_list('card_demand_categories', 'card_demands');#}
