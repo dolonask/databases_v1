@@ -106,3 +106,85 @@ Traceback (most recent call last):
     raise ValueError(
 ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardPhoto.card" must be a "Card" instance.
 ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100277 2021-08-25 16:58:07,399
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 18:44:58,707
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 264, in update_case
+    photo = CardPhoto(photo=f, card=form)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardPhoto.card" must be a "Card" instance.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100277 2021-08-25 18:44:58,710
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 18:45:14,071
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 264, in update_case
+    photo = CardPhoto(photo=f, card=form)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardPhoto.card" must be a "Card" instance.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100450 2021-08-25 18:45:14,073
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 18:50:03,236
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 268, in update_case
+    file = CardFile(file=f, card=form)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardFile.card" must be a "Card" instance.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100320 2021-08-25 18:50:03,240
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 18:53:19,511
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 264, in update_case
+    photo = CardPhoto(photo=f, card=form)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardPhoto.card" must be a "Card" instance.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100703 2021-08-25 18:53:19,514
+WARNING django.request Not Found: /strike/update/1/ 2021-08-25 18:55:10,719
+WARNING django.server "GET /strike/update/1/ HTTP/1.1" 404 6254 2021-08-25 18:55:10,719
+ERROR django.request Internal Server Error: /strike/update/1 2021-08-25 18:55:23,356
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 264, in update_case
+    photo = CardPhoto(photo=f, card=form)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CardForm bound=True, valid=True, fields=(name;card_sources;source_url;source_content;country;region;city_name;company_name;company_ownership_type;company_country_name;company_is_tnk_member;company_tnk_name;company_employees_count;count_strike_participants;card_demand_categories;economic_demands;economic_another;politic_demands;politic_another;combo_demands;combo_another;start_date;end_date;tradeunionChoice;tradeunionChoiceAnother;active;initiator;personGroupInfo;duration;meeting_requirements;story;reasons_for_strike;change_number_participants;initiators_and_participants;state_position;results_so_far;additional_information;case_text)>": "CardPhoto.card" must be a "Card" instance.
+ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 100703 2021-08-25 18:55:23,358

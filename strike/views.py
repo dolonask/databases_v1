@@ -261,11 +261,11 @@ def update_case(request, pk):
             #     individualForm.save()
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
-                    photo = CardPhoto(photo=f, card=form)
+                    photo = CardPhoto(photo=f, card=case)
                     photo.save()
             if fileForm.is_valid():
                 for f in request.FILES.getlist('file'):
-                    file = CardFile(file=f, card=form)
+                    file = CardFile(file=f, card=case)
                     file.save()
 
             return redirect('strikes_list')
@@ -288,8 +288,8 @@ def update_case(request, pk):
         if case.employear is not None:
             employerForm = EmployerForm(instance=Employer.objects.get(pk=case.employear_id))
 
-        photoForm = CardPhotoForm
-        fileForm = CardFileForm
+        photoForm = CardPhotoForm()
+        fileForm = CardFileForm()
 
     return render(request, 'strike/add_case.html', context={
         'form': form,
