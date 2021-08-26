@@ -512,6 +512,8 @@ class DataFilterAPI(APIView):
         for item in request.data:
             if item['id'] == 'user':
                 my_list.append(f"auth_user.username")
+            elif item['id'] == 'trade_union_activities':
+                my_list.append('work_tradeunionactivities.name')
             else:
                 my_list.append(f"work_{item['id']}.name")
         fields = unpucking(my_list)
