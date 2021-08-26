@@ -40,142 +40,142 @@ def load_strikes(apps,schema_editor):
     region = Region(name='г.Москва', active=True, country=country)
     region.save()
 
-    region = Region(name='Амурскаяобласть(Благовещенск)', active=True, country=country)
+    region = Region(name='Амурская область(Благовещенск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Архангельскаяобласть(Архангельск)', active=True, country=country)
+    region = Region(name='Архангельская область(Архангельск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Астраханскаяобласть(Астрахань)', active=True, country=country)
+    region = Region(name='Астраханская область(Астрахань)', active=True, country=country)
     region.save()
 
-    region = Region(name='Белгородскаяобласть(Белгород)', active=True, country=country)
+    region = Region(name='Белгородская область(Белгород)', active=True, country=country)
     region.save()
 
-    region = Region(name='Брянскаяобласть(Брянск)', active=True, country=country)
+    region = Region(name='Брянская область(Брянск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Челябинскаяобласть(Челябинск)', active=True, country=country)
+    region = Region(name='Челябинская область(Челябинск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Иркутскаяобласть(Иркутск)', active=True, country=country)
+    region = Region(name='Иркутская область(Иркутск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Ивановскаяобласть(Иваново)', active=True, country=country)
+    region = Region(name='Ивановская область(Иваново)', active=True, country=country)
     region.save()
 
-    region = Region(name='Калининградскаяобласть(Калининград)', active=True, country=country)
+    region = Region(name='Калининградская область(Калининград)', active=True, country=country)
     region.save()
 
-    region = Region(name='Калужскаяобласть(Калуга)', active=True, country=country)
+    region = Region(name='Калужская область(Калуга)', active=True, country=country)
     region.save()
 
     region = Region(name='Кемеровскаяобласть—Кузбасс(Кемерово)', active=True, country=country)
     region.save()
 
-    region = Region(name='Кировскаяобласть(Киров)', active=True, country=country)
+    region = Region(name='Кировская область(Киров)', active=True, country=country)
     region.save()
 
-    region = Region(name='Костромскаяобласть(Кострома)', active=True, country=country)
+    region = Region(name='Костромская область(Кострома)', active=True, country=country)
     region.save()
 
-    region = Region(name='Курганскаяобласть(Курган)', active=True, country=country)
+    region = Region(name='Курганская область(Курган)', active=True, country=country)
     region.save()
 
-    region = Region(name='Курскаяобласть(Курск)', active=True, country=country)
+    region = Region(name='Курская область(Курск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Ленинградскаяобласть(Санкт Петербург)', active=True, country=country)
+    region = Region(name='Ленинградская область(Санкт Петербург)', active=True, country=country)
     region.save()
 
-    region = Region(name='Липецкаяобласть(Липецк)', active=True, country=country)
+    region = Region(name='Липецкая область(Липецк)', active=True, country=country)
     region.save()
 
-    region = Region(name='Магаданскаяобласть(Магадан)', active=True, country=country)
+    region = Region(name='Магаданская область(Магадан)', active=True, country=country)
     region.save()
 
-    region = Region(name='Московскаяобласть(Москва)', active=True, country=country)
+    region = Region(name='Московская область(Москва)', active=True, country=country)
     region.save()
 
-    region = Region(name='Мурманскаяобласть(Мурманск)', active=True, country=country)
+    region = Region(name='Мурманская область(Мурманск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Нижегородскаяобласть(НижнийНовгород)', active=True, country=country)
+    region = Region(name='Нижегородская область(НижнийНовгород)', active=True, country=country)
     region.save()
 
-    region = Region(name='Новгородскаяобласть(ВеликийНовгород)', active=True, country=country)
+    region = Region(name='Новгородская область(ВеликийНовгород)', active=True, country=country)
     region.save()
 
-    region = Region(name='Новосибирскаяобласть(Новосибирск)', active=True, country=country)
+    region = Region(name='Новосибирская область(Новосибирск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Омскаяобласть(Омск)', active=True, country=country)
+    region = Region(name='Омская область(Омск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Оренбургскаяобласть(Оренбург)', active=True, country=country)
+    region = Region(name='Оренбургская область(Оренбург)', active=True, country=country)
     region.save()
 
-    region = Region(name='Орловскаяобласть(Орёл)', active=True, country=country)
+    region = Region(name='Орловская область(Орёл)', active=True, country=country)
     region.save()
 
-    region = Region(name='Пензенскаяобласть(Пенза)', active=True, country=country)
+    region = Region(name='Пензенская область(Пенза)', active=True, country=country)
     region.save()
 
-    region = Region(name='Псковскаяобласть(Псков)', active=True, country=country)
+    region = Region(name='Псковская область(Псков)', active=True, country=country)
     region.save()
 
-    region = Region(name='Ростовскаяобласть(Ростов на Дону)', active=True, country=country)
+    region = Region(name='Ростовская область(Ростов на Дону)', active=True, country=country)
     region.save()
 
-    region = Region(name='Рязанскаяобласть(Рязань)', active=True, country=country)
+    region = Region(name='Рязанская область(Рязань)', active=True, country=country)
     region.save()
 
-    region = Region(name='Сахалинскаяобласть(Южно Сахалинск)', active=True, country=country)
+    region = Region(name='Сахалинская область(Южно Сахалинск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Самарскаяобласть(Самара)', active=True, country=country)
+    region = Region(name='Самарская область(Самара)', active=True, country=country)
     region.save()
 
-    region = Region(name='Саратовскаяобласть(Саратов)', active=True, country=country)
+    region = Region(name='Саратовская область(Саратов)', active=True, country=country)
     region.save()
 
-    region = Region(name='Смоленскаяобласть(Смоленск)', active=True, country=country)
+    region = Region(name='Смоленская область(Смоленск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Свердловскаяобласть(Екатеринбург)', active=True, country=country)
+    region = Region(name='Свердловская область(Екатеринбург)', active=True, country=country)
     region.save()
 
-    region = Region(name='Тамбовскаяобласть(Тамбов)', active=True, country=country)
+    region = Region(name='Тамбовская область(Тамбов)', active=True, country=country)
     region.save()
 
-    region = Region(name='Томскаяобласть(Томск)', active=True, country=country)
+    region = Region(name='Томская область(Томск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Тверскаяобласть(Тверь)', active=True, country=country)
+    region = Region(name='Тверская область(Тверь)', active=True, country=country)
     region.save()
 
-    region = Region(name='Тульскаяобласть(Тула)', active=True, country=country)
+    region = Region(name='Тульская область(Тула)', active=True, country=country)
     region.save()
 
-    region = Region(name='Тюменскаяобласть(Тюмень)', active=True, country=country)
+    region = Region(name='Тюменская область(Тюмень)', active=True, country=country)
     region.save()
 
-    region = Region(name='Ульяновскаяобласть(Ульяновск)', active=True, country=country)
+    region = Region(name='Ульяновская область(Ульяновск)', active=True, country=country)
     region.save()
 
-    region = Region(name='Владимирскаяобласть(Владимир)', active=True, country=country)
+    region = Region(name='Владимирская область(Владимир)', active=True, country=country)
     region.save()
 
-    region = Region(name='Волгоградскаяобласть(Волгоград)', active=True, country=country)
+    region = Region(name='Волгоградская область(Волгоград)', active=True, country=country)
     region.save()
 
-    region = Region(name='Вологодскаяобласть(Вологда)', active=True, country=country)
+    region = Region(name='Вологодская область(Вологда)', active=True, country=country)
     region.save()
 
-    region = Region(name='Воронежскаяобласть(Воронеж)', active=True, country=country)
+    region = Region(name='Воронежская область(Воронеж)', active=True, country=country)
     region.save()
 
-    region = Region(name='Ярославскаяобласть(Ярославль)', active=True, country=country)
+    region = Region(name='Ярославская область(Ярославль)', active=True, country=country)
     region.save()
 
 

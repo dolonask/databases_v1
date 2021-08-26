@@ -1284,7 +1284,7 @@
                     validate_selected('id_entrepreneur_doAgreement');
                     validate_selected('id_entrepreneur_payWay');
                     validate_checkbox_list('entrepreneur_hireWay', 'id_entrepreneur_hireWay');
-                    if (get_selected('id_entrepreneur_hireWay_6') == 6) {
+                    if (is_checked('id_entrepreneur_hireWay_6')) {
                         validate_text_field('id_entrepreneur_hireWayAnother', 7)
                     }
                 }
