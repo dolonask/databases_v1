@@ -407,7 +407,7 @@ class Card(models.Model):
     initiators_and_participants = models.TextField('Ситуация с инициаторами и участниками забастовки/акции (продолжают ли они работать, применялись ли к ним административные меры со стороны предприятия). ', max_length=1800, blank=True)
     state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", max_length=1800, blank=True)
     results_so_far = models.TextField('Опишите, с какими итогами закончилась забастовка, если еще не закончилась, то какие итоги на данный момент.', max_length=1800, blank=True)
-    additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True)
+    additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True, max_length=1500)
 
     case_text = models.TextField("Окно для внесения информации", max_length=1800, null=True, blank=True)
 

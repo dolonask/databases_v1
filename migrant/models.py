@@ -672,7 +672,7 @@ class CasePhoto(models.Model):
 
 class CaseFile(models.Model):
     card = models.ForeignKey(Case, on_delete=models.CASCADE, null=True)
-    file = models.FileField("Кейсы, связанные с забастовкой", upload_to=files_location)
+    file = models.FileField("Кейсы, связанные с данной ситуацией", upload_to=files_location)
 
     def __str__(self):
         return self.file.url
@@ -681,8 +681,8 @@ class CaseFile(models.Model):
         return
 
     class Meta:
-        verbose_name = "Кейсы, связанные с забастовкой"
-        verbose_name_plural = "Кейсы, связанные с забастовкой"
+        verbose_name = "Кейсы, связанные с данной ситуацией"
+        verbose_name_plural = "Кейсы, связанные с данной ситуацией"
 
 
 class CaseComment(models.Model):
