@@ -572,3 +572,5 @@ Traceback (most recent call last):
     'individualForm': individualForm,
 UnboundLocalError: local variable 'individualForm' referenced before assignment
 ERROR django.server "POST /strike/update/1 HTTP/1.1" 500 327076 2021-08-26 19:17:18,030
+WARNING django.request Not Found: /favicon.ico 2021-08-26 19:38:03,592
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-08-26 19:38:03,594

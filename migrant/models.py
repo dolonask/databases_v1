@@ -660,7 +660,7 @@ def photos_location(instance, filename):
 
 class CasePhoto(models.Model):
     card = models.ForeignKey(Case, on_delete=models.CASCADE, null=True)
-    photo = models.ImageField("Фото/видео/документы", upload_to='photos/%Y/%m/%d/')
+    photo = models.FileField("Фото/видео/документы", upload_to='document/%Y/%m/%d/')
 
     def __str__(self):
         return self.photo.url

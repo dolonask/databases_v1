@@ -218,7 +218,7 @@ def photos_location(instance, filename):
 
 
 class CardPhoto(models.Model):
-    photo = models.ImageField("Фото/видео/документы", upload_to="photos/%Y/%m/%d/", blank=True)
+    photo = models.FileField("Фото/видео/документы", upload_to="document/%Y/%m/%d/", blank=True)
     card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
