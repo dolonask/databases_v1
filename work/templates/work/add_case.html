@@ -442,6 +442,9 @@
                                 if (get_selected("id_form-"+i+"-member_of_tradeunion") == 'NO') {
                                     hideTandem('id_tradeUnionSituation');
                                     hideTandem('id_tradeUnionCount');
+                                } else {
+                                    showTandem('id_tradeUnionSituation');
+                                    showTandem('id_tradeUnionCount');
                                 }
                                 validate_selected("id_form-"+i+"-gender");
                                 validate_text_field("id_form-"+i+"-age", 0);
