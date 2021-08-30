@@ -336,7 +336,7 @@ class Company(models.Model):
     company_experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
     branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")
-    additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=500)
+    additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=2000)
 
     def __str__(self):
         return self.company_name
