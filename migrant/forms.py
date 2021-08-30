@@ -29,7 +29,7 @@ class CaseForm(forms.ModelForm):
     class Meta:
         model = Case
         fields = '__all__'
-        exclude =['active', 'user', 'personGroupInfo', 'individualInfo', 'company', 'entrepreneur', 'comment']
+        exclude = ['active', 'user', 'personGroupInfo', 'individualInfo', 'company', 'entrepreneur', 'comment']
 
         widgets = {
             'case_name': forms.TextInput(attrs={'class': 'form-control'}),

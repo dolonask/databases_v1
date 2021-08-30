@@ -495,7 +495,7 @@ class DataAPIView(APIView):
             {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
             {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
              'item': tradeUnionSituation.data},
-            {'id': 'trade_union_activities', 'name': 'Отрасль деятельности профсоюза', 'item': trade_union_activities.data},
+            {'id': 'work_tradeunionactivities', 'name': 'Отрасль деятельности профсоюза', 'item': trade_union_activities.data},
             {'id': 'user', 'name': 'Монитор', 'item': user.data},
         ])
         # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
@@ -508,16 +508,15 @@ class DataFilterAPI(APIView):
     authentication_classes = []
     def post(self, request):
         my_list = []
-        print(request.data)
+        # print(request.data)
         for item in request.data:
-            if item['id'] == 'trade_union_activities':
-                my_list.append('work_tradeunionactivities.name')
-            if item['id'] == 'user':
+            if item['id'] == 'work_tradeunionactivities':
+                my_list.append(f'{item["id"]}.name')
+            elif item['id'] == 'user':
                 my_list.append(f"auth_user.username")
             else:
                 my_list.append(f"work_{item['id']}.name")
         fields = unpucking(my_list)
-        # print(my_list)
         case_count = Case.objects.count()
         sql_query = f"SELECT {fields}, count(*), round(count (*) * 100.0 /{case_count}, 2) percent FROM work_case"
         where_query = "where "
@@ -917,6 +916,7 @@ class DataFilterAPI(APIView):
                     where_sql_query = "work_case.trade_union_activities_id in "
                     for i in item:
                         where_list.append(i['id'])
+                        # print(i['id'])
                     if len(where_list) > 1:
                         where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
                     else:
@@ -934,7 +934,6 @@ class DataFilterAPI(APIView):
                         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
                     where_list.clear()
                     sql_query += " join auth_user on auth_user.id = work_case.user_id "
-
 
                 # elif id == "": # Экземпляр
                 #     where_sql_query = "work_case._id in "
@@ -974,27 +973,27 @@ class DataFilterAPI(APIView):
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
         # print(where_query)
-        print(sql_query + where_query + group_by_query)
-        return Response(['1', '2'])
-        # with connection.cursor() as cursor:
-        #     cursor.execute(sql_query + where_query + group_by_query)
-        #     row = cursor.fetchall()
-        #     print(row)
-        #     fields_list = []
-        #     for i in request.data:
-        #         fields_list.append(i['id'])
-        #     fields_list.append('count')
-        #     fields_list.append('percent')
-        #     response_list = []
-        #
-        #     for i in range(len(row)):
-        #         response_body = dict()
-        #         for j in range(len(fields_list)):
-        #             response_body[fields_list[j]] = row[i][j]
-        #         response_list.append(response_body)
-        #     for i in range(len(response_list)):
-        #         response_list[i]['percent'] = 100 / len(response_list)
-        # return Response(response_list)
+        # print(sql_query + where_query + group_by_query)
+        # return Response(['1', '2'])
+        with connection.cursor() as cursor:
+            cursor.execute(sql_query + where_query + group_by_query)
+            row = cursor.fetchall()
+            # print(row)
+            fields_list = []
+            for i in request.data:
+                fields_list.append(i['id'])
+            fields_list.append('count')
+            fields_list.append('percent')
+            response_list = []
+
+            for i in range(len(row)):
+                response_body = dict()
+                for j in range(len(fields_list)):
+                    response_body[fields_list[j]] = row[i][j]
+                response_list.append(response_body)
+            for i in range(len(response_list)):
+                response_list[i]['percent'] = 100 / len(response_list)
+        return Response(response_list)
 
 
 def case_files_download(request, pk):
