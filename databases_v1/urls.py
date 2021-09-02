@@ -21,6 +21,7 @@ from databases_v1 import settings
 import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/base-auth/', include('rest_framework.urls')),

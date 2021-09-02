@@ -1,0 +1,12 @@
+WARNING django.request Not Found: /favicon.ico 2021-09-02 12:39:12,050
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-02 12:39:12,050
+WARNING django.request Not Found: /favicon.ico 2021-09-02 12:51:34,103
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13991 2021-09-02 12:51:34,104
+WARNING django.request Not Found: /favicon.ico 2021-09-02 12:52:34,581
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13991 2021-09-02 12:52:34,582
+WARNING django.request Not Found: /admin/strike/case/export/ 2021-09-02 12:54:25,242
+WARNING django.server "GET /admin/strike/case/export/? HTTP/1.1" 404 15345 2021-09-02 12:54:25,244
+WARNING django.request Not Found: /favicon.ico 2021-09-02 12:55:05,085
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13991 2021-09-02 12:55:05,087
+WARNING django.request Not Found: /favicon.ico 2021-09-02 12:55:08,272
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13991 2021-09-02 12:55:08,273

@@ -138,6 +138,13 @@
             </div>
         </div>
     </div>
+    <div>
+        <form class="form" method="post" action="/admin/strike/card/export/">
+            {% csrf_token %}
+            <input value="1" name="file_format" id="id_file_format" style="display: none">
+            <button type="submit" class="btn btn-primary">Экспорт</button>
+        </form>
+    </div>
 {% endblock %}
 {% block scripts %}
     <script>
