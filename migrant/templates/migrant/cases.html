@@ -156,13 +156,15 @@
             </div>
         </div>
     </div>
-    <div>
-        <form class="form" method="post" action="/admin/migrant/case/export/">
-            {% csrf_token %}
-            <input value="1" name="file_format" id="id_file_format" style="display: none">
-            <button type="submit" class="btn btn-primary">Экспорт</button>
-        </form>
-    </div>
+    {% if request.user.is_superuser %}
+        <div>
+            <form class="form" method="post" action="/admin/migrant/case/export/">
+                {% csrf_token %}
+                <input value="1" name="file_format" id="id_file_format" style="display: none">
+                <button type="submit" class="btn btn-primary">Экспорт</button>
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}
 {% block scripts %}
     <script>

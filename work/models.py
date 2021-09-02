@@ -874,7 +874,7 @@ class CaseComment(models.Model):
     comment = models.TextField("Коментрий")
     active = models.BooleanField("Активен", default=True)
     date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    case = models.ForeignKey(Case, on_delete=models.DO_NOTHING)
+    case = models.ForeignKey(Case, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Коментарий к трудовому нарушению"
