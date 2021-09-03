@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
@@ -514,6 +515,12 @@ class DataFilterAPI(APIView):
                 my_list.append(f'{item["id"]}.name')
             elif item['id'] == 'user':
                 my_list.append(f"auth_user.username")
+            elif item['id'] == 'conversationRight':
+                item['id'] = 'сonversationRight'
+                my_list.append('work_сonversationRight.name')
+            elif item['id'] == 'convention182':
+                item['id'] = 'сonvention182'
+                my_list.append('work_сonvention182.name')
             else:
                 my_list.append(f"work_{item['id']}.name")
         fields = unpucking(my_list)
@@ -527,6 +534,7 @@ class DataFilterAPI(APIView):
             if data['id'] in fields:
                 id = data['id']
                 item = data['item']
+                print(data)
                 if id == "country":
                     where_sql_query = "work_case.country_id in "
                     for i in item:
@@ -626,7 +634,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_createorganizationright on work_createorganizationright.id = work_case.createorganizationright_id "
 
-                elif id == "createtradeunionright":
+                elif id == "createTradeUnionRight":
                     where_sql_query = "work_case.createtradeunionright_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -637,7 +645,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_createtradeunionright on work_createtradeunionright.id = work_case.createtradeunionright_id "
 
-                elif id == "electionsright":
+                elif id == "electionsRight":
                     where_sql_query = "work_case.electionsright_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -648,7 +656,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_electionsright on work_electionsright.id = work_case.electionsright_id "
 
-                elif id == "tradeunionactivityright":
+                elif id == "tradeUnionActivityRight":
                     where_sql_query = "work_case.tradeunionactivityright_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -659,7 +667,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_tradeunionactivityright on work_tradeunionactivityright.id = work_case.tradeunionactivityright_id "
 
-                elif id == "createstrikeright":
+                elif id == "createStrikeRight":
                     where_sql_query = "work_case.createstrikeright_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -681,7 +689,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_сonvention98 on work_сonvention98.id = work_case.сonvention98_id "
 
-                elif id == "antitradeuniondiscrimination":
+                elif id == "antiTradeUnionDiscrimination":
                     where_sql_query = "work_case.antitradeuniondiscrimination_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -692,7 +700,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_antitradeuniondiscrimination on work_antitradeuniondiscrimination.id = work_case.antitradeuniondiscrimination_id "
 
-                elif id == "сonversationright":
+                elif id == "сonversationRight":
                     where_sql_query = "work_case.conversationRight_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -714,7 +722,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_сonvention135 on work_сonvention135.id = work_case.сonvention135_id "
 
-                elif id == "consultationright":
+                elif id == "consultationRight":
                     where_sql_query = "work_case.consultationRight_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -725,7 +733,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_consultationright on work_consultationright.id = work_case.consultationRight_id "
 
-                elif id == "principleofnondiscrimination":
+                elif id == "principleOfNonDiscrimination":
                     where_sql_query = "work_case.principleofnondiscrimination_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -736,7 +744,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_principleofnondiscrimination on work_principleofnondiscrimination.id = work_case.principleofnondiscrimination_id "
 
-                elif id == "discriminationvariousgrounds":
+                elif id == "discriminatiOnVariousGrounds":
                     where_sql_query = "work_case.discriminationvariousgrounds_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -747,7 +755,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_discriminationvariousgrounds on work_discriminationvariousgrounds.id = work_case.discriminationvariousgrounds_id "
 
-                elif id == "discriminationinvariousareas":
+                elif id == "discriminationInVariousAreas":
                     where_sql_query = "work_case.discriminationinvariousareas_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -758,7 +766,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_discriminationinvariousareas on work_discriminationinvariousareas.id = work_case.discriminationinvariousareas_id "
 
-                elif id == "publicpolicydiscrimination":
+                elif id == "publicPolicyDiscrimination":
                     where_sql_query = "work_case.publicpolicydiscrimination_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -769,7 +777,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_publicpolicydiscrimination on work_publicpolicydiscrimination.id = work_case.publicpolicydiscrimination_id "
 
-                elif id == "childlabor":
+                elif id == "childLabor":
                     where_sql_query = "work_case.childlabor_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -791,7 +799,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_сonvention138 on work_сonvention138.id = work_case.сonvention138_id "
 
-                elif id == "convention182":
+                elif id == "сonvention182":
                     where_sql_query = "work_case.convention182_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -800,9 +808,9 @@ class DataFilterAPI(APIView):
                     else:
                         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
                     where_list.clear()
-                    sql_query += " join work_convention182 on work_convention182.id = work_case.convention182_id "
+                    sql_query += " join work_сonvention182 on work_сonvention182.id = work_case.convention182_id "
 
-                elif id == "prohibitionofforcedlabor":
+                elif id == "prohibitionOfForcedLabor":
                     where_sql_query = "work_case.prohibitionofforcedlabor_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -813,7 +821,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_prohibitionofforcedlabor on work_prohibitionofforcedlabor.id = work_case.prohibitionofforcedlabor_id "
 
-                elif id == "useofforcedlabor":
+                elif id == "useOfForcedLabor":
                     where_sql_query = "work_case.useofforcedlabor_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -824,7 +832,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_useofforcedlabor on work_useofforcedlabor.id = work_case.useofforcedlabor_id "
 
-                elif id == "governmentcoercion":
+                elif id == "governmentCoercion":
                     where_sql_query = "work_case.governmentcoercion_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -835,7 +843,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_governmentcoercion on work_governmentcoercion.id = work_case.governmentcoercion_id "
 
-                elif id == "violationsusingcompulsorylabor":
+                elif id == "violationsUsingCompulsoryLabor":
                     where_sql_query = "work_case.violationsusingcompulsorylabor_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -846,7 +854,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_violationsusingcompulsorylabor on work_violationsusingcompulsorylabor.id = work_case.violationsusingcompulsorylabor_id "
 
-                elif id == "failuresystemicmeasures":
+                elif id == "failureSystemicMeasures":
                     where_sql_query = "work_case.failuresystemicmeasures_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -901,7 +909,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_victimsituation on work_victimsituation.id = work_case.victim_situation_id "
 
-                elif id == "tradeunionsituation":
+                elif id == "tradeUnionSituation":
                     where_sql_query = "work_case.tradeunionsituation_id in "
                     for i in item:
                         where_list.append(i['id'])
@@ -973,7 +981,7 @@ class DataFilterAPI(APIView):
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
         # print(where_query)
-        # print(sql_query + where_query + group_by_query)
+        print(sql_query + where_query + group_by_query)
         # return Response(['1', '2'])
         with connection.cursor() as cursor:
             cursor.execute(sql_query + where_query + group_by_query)
@@ -1052,3 +1060,121 @@ def work_pdf_in_html_page(request, pk):
         'comments': comments
     }
     return render(request, 'work/work_pdf.html', context)
+
+
+from docx import Document
+
+
+def word_generate(request, pk):
+    case = get_object_or_404(Case, pk=pk)
+    sources = Source.objects.filter(case__pk=pk)
+    intruders = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
+    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
+    individual_info = IndividualInfo.objects.filter(case__id=pk)
+    document = Document()
+
+    document.add_heading('Трудовые нарушения', 0)
+
+    records = []
+    case_values = Case.objects.filter(pk=pk).values()
+    individual_info_values = IndividualInfo.objects.filter(case__id=pk).values()
+    field_name_list = [i.name for i in Case._meta.get_fields()]
+
+    for field in field_name_list:
+        try:
+            if field == 'source':
+                verbose_name = Case._meta.get_field(field).verbose_name
+                for source in sources:
+                    source_name = source.name
+                    if source_name is not None:
+                        records.append((verbose_name, source_name))
+            elif field == 'intruder':
+                verbose_name = Case._meta.get_field(field).verbose_name
+                for intruder in intruders:
+                    intruder_name = intruder.name
+                    if intruder_name is not None:
+                        records.append((verbose_name, intruder_name))
+            elif field == 'trade_union_activities':
+                verbose_name = Case._meta.get_field(field).verbose_name
+                for trade_union_activitie in trade_union_activities:
+                    trade_union_activitie_name = trade_union_activitie.name
+                    if trade_union_activitie_name is not None:
+                        records.append((verbose_name, trade_union_activitie_name))
+            elif field == 'individualinfo':
+                individual_info_fields = [i.name for i in Case._meta.get_fields()]
+                for individual in individual_info:
+                    individual_verbose_name = 'Физическое лицо'
+                    records.append((individual_verbose_name, '--------'))
+                    for individual_field in individual_info_fields:
+                        if individual_field == 'card':
+                            continue
+                        else:
+                            try:
+                                verbose_name = IndividualInfo._meta.get_field(individual_field).verbose_name
+                                value = individual[individual_field]
+                                if value is not None:
+                                    records.append((verbose_name, value))
+                            except KeyError as e:
+                                print(e)
+            elif field == 'casephoto':
+                continue
+            elif field == 'casefile':
+                continue
+            elif field == 'casecomment':
+                # verbose_name = Case._meta.get_field('comment').verbose_name
+                # for comment in comments:
+                #     comment_name = comment.comment
+                #     if comment_name is not None:
+                #         records.append((verbose_name, comment_name))
+                continue
+            elif field == 'active':
+                continue
+            elif field == 'id':
+                continue
+            else:
+                verbose_name = Case._meta.get_field(field).verbose_name
+                value = case_values[0][field]
+                if value is not None:
+                    records.append((verbose_name, value))
+        except KeyError:
+            try:
+                field += '_id'
+                value_id = case_values[0][field]
+                if value_id is not None:
+                    value_name = Case._meta.get_field(field).related_model.objects.get(pk=value_id)
+                    if field == 'tradeUnionCount_id':
+                        records.append((verbose_name, value_name.choice))
+                    elif field == 'tradeUnionInfo_id':
+                        records.append((verbose_name, value_name.tradeunion_name))
+                    elif field == 'user_id':
+                        records.append((verbose_name, value_name.username))
+                    else:
+                        records.append((verbose_name, value_name.name))
+                else:
+                    pass
+            except Exception as e:
+                print(e)
+
+    table = document.add_table(rows=1, cols=3)
+    hdr_cells = table.rows[0].cells
+    hdr_cells[0].text = ''
+    hdr_cells[1].text = ''
+    hdr_cells[2].text = ''
+    for field, value in records:
+        # print(field, value)
+        row_cells = table.add_row().cells
+        row_cells[0].text = str(field)
+        row_cells[2].text = str(value)
+
+    document.add_page_break()
+    base_dir = str(settings.BASE_DIR)
+    base_dir += "/work/static/word/work/"
+    save_path = base_dir + f'card_{case.id}.docx'
+    document.save(save_path)
+    if os.path.exists(save_path):
+        with open(save_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
+            return response
+    return Http404()

@@ -262,3 +262,752 @@ Traceback (most recent call last):
     return self.connection.commit()
 django.db.utils.IntegrityError: FOREIGN KEY constraint failed
 ERROR django.server "GET /work/delete/2/ HTTP/1.1" 500 107067 2021-09-02 13:06:14,375
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-09-02 14:49:44,616
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\migrant\views.py", line 405, in post
+    where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+IndexError: list index out of range
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 97352 2021-09-02 14:49:44,620
+ERROR django.request Internal Server Error: /work/show-comments/2/ 2021-09-02 14:52:03,675
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 322, in show_comments
+    return render(request, 'work/show_comments.html', {'comments': comments})
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 814, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 449, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 658, in __init__
+    self.args_check(filter_name, filter_func, args)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 717, in args_check
+    raise TemplateSyntaxError("%s requires %d arguments, %d provided" %
+django.template.exceptions.TemplateSyntaxError: slice requires 2 arguments, 1 provided
+ERROR django.server "GET /work/show-comments/2/ HTTP/1.1" 500 192745 2021-09-02 14:52:03,679
+WARNING django.request Not Found: /favicon.ico 2021-09-02 15:00:52,719
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-02 15:00:52,720
+WARNING django.request Not Found: /favicon.ico 2021-09-02 15:01:03,454
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-02 15:01:03,455
+WARNING django.request Not Found: /favicon.ico 2021-09-02 15:01:04,306
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-02 15:01:04,307
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:08:25,371
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1096, in word_generate
+    docx = document.save()
+TypeError: save() missing 1 required positional argument: 'path_or_stream'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 73749 2021-09-02 15:08:25,374
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:15:16,729
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    print(case._meta.get_field())
+TypeError: get_field() missing 1 required positional argument: 'field_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 72437 2021-09-02 15:15:16,731
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:15:32,914
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    print(Case._meta.get_field())
+TypeError: get_field() missing 1 required positional argument: 'field_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 72574 2021-09-02 15:15:32,915
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:16:24,711
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    print(Case._meta.get_fields(context))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\options.py", line 778, in get_fields
+    return self._get_fields(include_parents=include_parents, include_hidden=include_hidden)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\options.py", line 794, in _get_fields
+    raise TypeError("Invalid argument for include_parents: %s" % (include_parents,))
+TypeError: Invalid argument for include_parents: {'case': <Case: Case object (2)>, 'source': <QuerySet [<Source: информация о нарушении, допущенном в отношении человека лично>, <Source: интервью с пострадавшим>, <Source: сообщение в СМИ>, <Source: информация от профсоюзов>, <Source: информация НКО, правозащитной организации>, <Source: информация от работодателя>, <Source: информация от правоохранительных органов>, <Source: информация от государственного органа>, <Source: информация от представителя интересов пострадавшего (юриста)>, <Source: другое>]>, 'intruder': <QuerySet [<Intruder: Государственные органы>, <Intruder: Органы местного самоуправления >, <Intruder: Правоохранительные органы>, <Intruder: Работодатель (компания)>, <Intruder: Затрудняюсь ответить>, <Intruder: Другое >]>, 'trade_union_activities': <QuerySet [<TradeUnionActivities: текстильная и легкая промышленность>]>, 'comments': <QuerySet [<CaseComment: CaseComment object (3)>, <CaseComment: CaseComment object (4)>, <CaseComment: CaseComment object (5)>]>}
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 91531 2021-09-02 15:16:24,718
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:21:10,464
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1080, in word_generate
+    print(Case._meta.get_field(field).verbose_name)
+AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 75823 2021-09-02 15:21:10,468
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:26:20,186
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    case_values = case.values()
+AttributeError: 'Case' object has no attribute 'values'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 72485 2021-09-02 15:26:20,189
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:30:16,791
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    case_values = case.values('case')
+AttributeError: 'Case' object has no attribute 'values'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 72410 2021-09-02 15:30:16,794
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:31:00,025
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1082, in word_generate
+    print(case.values(field))
+AttributeError: 'Case' object has no attribute 'values'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 75584 2021-09-02 15:31:00,029
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:31:10,346
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1083, in word_generate
+    print(Case._meta.get_field(field).verbose_name)
+AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 75628 2021-09-02 15:31:10,349
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:32:02,545
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1082, in word_generate
+    print(case.values('case_name'))
+AttributeError: 'Case' object has no attribute 'values'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 75634 2021-09-02 15:32:02,548
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:33:58,704
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    case_values = Case.objects.get(pk=pk).values()
+AttributeError: 'Case' object has no attribute 'values'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 72451 2021-09-02 15:33:58,708
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:34:17,576
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1078, in word_generate
+    case_values = Case.objects.get(pk=pk).values()
+AttributeError: 'Case' object has no attribute 'values'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 72451 2021-09-02 15:34:17,579
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:34:24,074
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1082, in word_generate
+    print(Case._meta.get_field('case_name').verbose_name, case_values[field])
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 290, in __getitem__
+    raise TypeError(
+TypeError: QuerySet indices must be integers or slices, not str.
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 87267 2021-09-02 15:34:24,080
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:35:17,055
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1083, in word_generate
+    print(Case._meta.get_field('case_name').verbose_name, case_values['case_name'])
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 290, in __getitem__
+    raise TypeError(
+TypeError: QuerySet indices must be integers or slices, not str.
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 87240 2021-09-02 15:35:17,059
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:36:01,700
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1083, in word_generate
+    print(Case._meta.get_field('case_name').verbose_name, case_values[0][field])
+KeyError: 'individualinfo'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79389 2021-09-02 15:36:01,703
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 15:45:17,922
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1098, in word_generate
+    row_cells[1].text = value
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\table.py", line 270, in text
+    r.text = text
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\oxml\text\run.py", line 104, in text
+    _RunContentAppender.append_to_run_from_text(self, text)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\oxml\text\run.py", line 134, in append_to_run_from_text
+    appender.add_text(text)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\oxml\text\run.py", line 141, in add_text
+    for char in text:
+TypeError: 'int' object is not iterable
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 100044 2021-09-02 15:45:17,924
+ERROR django.request Internal Server Error: /work/word/3/ 2021-09-02 15:45:22,685
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1098, in word_generate
+    row_cells[1].text = value
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\table.py", line 270, in text
+    r.text = text
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\oxml\text\run.py", line 104, in text
+    _RunContentAppender.append_to_run_from_text(self, text)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\oxml\text\run.py", line 134, in append_to_run_from_text
+    appender.add_text(text)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\docx\oxml\text\run.py", line 141, in add_text
+    for char in text:
+TypeError: 'int' object is not iterable
+ERROR django.server "GET /work/word/3/ HTTP/1.1" 500 100875 2021-09-02 15:45:22,687
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:11:51,235
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1083, in word_generate
+    verbose_name = Case._meta.get_field(field).verbose_name
+AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79483 2021-09-02 16:11:51,237
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:40:24,375
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1099, in word_generate
+    value = case_values[0][field]
+KeyError: 'country'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80206 2021-09-02 16:40:24,378
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:40:51,924
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1099, in word_generate
+    value = case_values[0][field]
+KeyError: 'country'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80201 2021-09-02 16:40:51,963
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:41:07,722
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1099, in word_generate
+    value = case_values[0][field]
+KeyError: 'country'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80222 2021-09-02 16:41:07,724
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:41:35,772
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1099, in word_generate
+    value = case_values[0][field]
+KeyError: 'country'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80231 2021-09-02 16:41:35,774
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:42:27,378
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80231 2021-09-02 16:42:27,381
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:42:40,514
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80235 2021-09-02 16:42:40,516
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:42:56,604
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80238 2021-09-02 16:42:56,608
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:43:25,896
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(case_values[0]['country_id'].model.name)
+AttributeError: 'int' object has no attribute 'model'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79825 2021-09-02 16:43:25,899
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:43:34,495
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(case_values[0]['country_id'].model)
+AttributeError: 'int' object has no attribute 'model'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79815 2021-09-02 16:43:34,497
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:44:10,249
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80261 2021-09-02 16:44:10,251
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:44:35,922
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Country.objects.get(case_values[0]['country_id']))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 424, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1281, in build_filter
+    arg, value = filter_expr
+TypeError: cannot unpack non-iterable int object
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 117484 2021-09-02 16:44:35,932
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:44:52,149
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Country.objects.get(case_values[0]['country_id']).name)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 424, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1281, in build_filter
+    arg, value = filter_expr
+TypeError: cannot unpack non-iterable int object
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 117494 2021-09-02 16:44:52,158
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:45:03,851
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80284 2021-09-02 16:45:03,854
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:46:07,456
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80249 2021-09-02 16:46:07,460
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:46:08,841
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80249 2021-09-02 16:46:08,843
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:46:46,187
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80255 2021-09-02 16:46:46,193
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:47:04,492
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80250 2021-09-02 16:47:04,501
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:47:36,182
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).model.verbose_name)
+AttributeError: type object 'Case' has no attribute 'verbose_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79871 2021-09-02 16:47:36,185
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:47:51,704
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).model.object.all())
+AttributeError: type object 'Case' has no attribute 'object'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79847 2021-09-02 16:47:51,718
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:47:52,326
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).model.object.all())
+AttributeError: type object 'Case' has no attribute 'object'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79847 2021-09-02 16:47:52,333
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:48:18,408
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80264 2021-09-02 16:48:18,413
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:48:51,252
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).model.objects.get(id=value['country_id']))
+TypeError: 'int' object is not subscriptable
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79799 2021-09-02 16:48:51,254
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:49:18,170
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).model.objects.get(id=case_values[1]['country_id']))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 318, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 87374 2021-09-02 16:49:18,173
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:49:45,847
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1101, in word_generate
+    print(case_values[1]['country_id'])
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 318, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 87364 2021-09-02 16:49:45,851
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:50:07,566
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).model.objects.get(id=case_values[0]['country_id']))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+work.models.Case.DoesNotExist: Case matching query does not exist.
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 88991 2021-09-02 16:50:07,569
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:51:00,074
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80886 2021-09-02 16:51:00,079
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:51:37,773
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80223 2021-09-02 16:51:37,776
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:51:50,611
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80228 2021-09-02 16:51:50,614
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:52:24,433
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).get_foreign_related_value)
+AttributeError: 'BigAutoField' object has no attribute 'get_foreign_related_value'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79971 2021-09-02 16:52:24,436
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:53:08,762
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).foreign_related_fields)
+AttributeError: 'BigAutoField' object has no attribute 'foreign_related_fields'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79953 2021-09-02 16:53:08,769
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:53:53,723
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80266 2021-09-02 16:53:53,728
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:54:27,917
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80280 2021-09-02 16:54:27,919
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:55:01,802
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1102, in word_generate
+    print(Case._meta.get_field(field).related_model.objects.all().id)
+AttributeError: 'NoneType' object has no attribute 'objects'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 79893 2021-09-02 16:55:01,804
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:55:13,653
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80280 2021-09-02 16:55:13,656
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:55:46,685
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80297 2021-09-02 16:55:46,690
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:56:06,026
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80302 2021-09-02 16:56:06,028
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:56:33,214
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80310 2021-09-02 16:56:33,217
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:56:56,941
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80320 2021-09-02 16:56:56,943
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 16:57:21,780
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1100, in word_generate
+    value = case_values[0][field]
+KeyError: 'region'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 80315 2021-09-02 16:57:21,781
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-02 17:05:57,791
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1099, in word_generate
+    value = case_values[0][field]
+KeyError: 'tradeUnionCrime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1107, in word_generate
+    value_name = Case._meta.get_field(field).related_model.objects.get(pk=value)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+work.models.TradeUnionCrime.DoesNotExist: TradeUnionCrime matching query does not exist.
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 107268 2021-09-02 17:05:57,793
+ERROR django.request Internal Server Error: /work/word/3/ 2021-09-02 18:45:45,265
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1105, in word_generate
+    verbose_name = Case._meta.get_field(field).verbose_name
+AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
+ERROR django.server "GET /work/word/3/ HTTP/1.1" 500 78050 2021-09-02 18:45:45,269
