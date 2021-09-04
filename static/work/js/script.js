@@ -10,6 +10,7 @@ function process_dict(dict){
 
 
 function get_selected(id){
+    console.log('#%'.replace('%', id));
     return document.querySelector('#%'.replace('%', id)).value;
 }
 
@@ -160,6 +161,8 @@ function onTradeUnionRightChanged(value){
         'id_tradeUnionBuildingsRight':true,
         'id_tradeUnionRightAnother':true,
     }
+
+    console.log('asd', get_selected('id_tradeUnionRight'));
 
     switch (get_selected('id_tradeUnionRight')){
         case '1':

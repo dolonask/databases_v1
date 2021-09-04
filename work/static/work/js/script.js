@@ -161,6 +161,8 @@ function onTradeUnionRightChanged(value){
         'id_tradeUnionRightAnother':true,
     }
 
+    console.log('asd', get_selected('id_tradeUnionRight'));
+
     switch (get_selected('id_tradeUnionRight')){
         case '1':
             field_dict['id_tradeUnionCrime'] = false;

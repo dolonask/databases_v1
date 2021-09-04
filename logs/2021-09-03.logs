@@ -3920,3 +3920,15 @@ WARNING django.request Not Found: /favicon.ico 2021-09-03 16:29:58,006
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 16:29:58,006
 WARNING django.request Not Found: /favicon.ico 2021-09-03 16:30:19,944
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 16:30:19,948
+WARNING django.request Not Found: /favicon.ico 2021-09-03 17:30:20,001
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 17:30:20,001
+WARNING django.request Not Found: /favicon.ico 2021-09-03 17:31:09,904
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 17:31:09,905
+WARNING django.request Not Found: /favicon.ico 2021-09-03 18:30:15,161
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 18:30:15,163
+WARNING django.request Not Found: /favicon.ico 2021-09-03 18:33:27,800
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 18:33:27,801
+WARNING django.request Not Found: /favicon.ico 2021-09-03 18:53:52,004
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 18:53:52,006
+WARNING django.request Not Found: /favicon.ico 2021-09-03 18:54:53,927
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-03 18:54:53,928
