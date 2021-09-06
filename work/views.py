@@ -1073,33 +1073,32 @@ def word_generate(request, pk):
     trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     individual_info = IndividualInfo.objects.filter(case__id=pk)
     document = Document()
-
+    dates_list = ['date_create', 'date_update', 'start_date', 'end_date']
     document.add_heading('Трудовые нарушения', 0)
 
     records = []
     case_values = Case.objects.filter(pk=pk).values()
     individual_info_values = IndividualInfo.objects.filter(case__id=pk).values()
     field_name_list = [i.name for i in Case._meta.get_fields()]
-
     for field in field_name_list:
         try:
             if field == 'source':
                 verbose_name = Case._meta.get_field(field).verbose_name
                 for source in sources:
                     source_name = source.name
-                    if source_name is not None:
+                    if source_name is not None and value != '':
                         records.append((verbose_name, source_name))
             elif field == 'intruder':
                 verbose_name = Case._meta.get_field(field).verbose_name
                 for intruder in intruders:
                     intruder_name = intruder.name
-                    if intruder_name is not None:
+                    if intruder_name is not None and value != '':
                         records.append((verbose_name, intruder_name))
             elif field == 'trade_union_activities':
                 verbose_name = Case._meta.get_field(field).verbose_name
                 for trade_union_activitie in trade_union_activities:
                     trade_union_activitie_name = trade_union_activitie.name
-                    if trade_union_activitie_name is not None:
+                    if trade_union_activitie_name is not None and value != '':
                         records.append((verbose_name, trade_union_activitie_name))
             elif field == 'individualinfo':
                 individual_info_fields = [i.name for i in Case._meta.get_fields()]
@@ -1113,7 +1112,7 @@ def word_generate(request, pk):
                             try:
                                 verbose_name = IndividualInfo._meta.get_field(individual_field).verbose_name
                                 value = individual[individual_field]
-                                if value is not None:
+                                if value is not None and value != '':
                                     records.append((verbose_name, value))
                             except KeyError as e:
                                 print(e)
@@ -1122,11 +1121,6 @@ def word_generate(request, pk):
             elif field == 'casefile':
                 continue
             elif field == 'casecomment':
-                # verbose_name = Case._meta.get_field('comment').verbose_name
-                # for comment in comments:
-                #     comment_name = comment.comment
-                #     if comment_name is not None:
-                #         records.append((verbose_name, comment_name))
                 continue
             elif field == 'active':
                 continue
@@ -1135,13 +1129,16 @@ def word_generate(request, pk):
             else:
                 verbose_name = Case._meta.get_field(field).verbose_name
                 value = case_values[0][field]
-                if value is not None:
-                    records.append((verbose_name, value))
+                if value is not None and value != '':
+                    if field in dates_list:
+                        records.append((verbose_name, value.strftime("%Y.%m.%d")))
+                    else:
+                        records.append((verbose_name, value))
         except KeyError:
             try:
                 field += '_id'
                 value_id = case_values[0][field]
-                if value_id is not None:
+                if value_id is not None and value_id != '':
                     value_name = Case._meta.get_field(field).related_model.objects.get(pk=value_id)
                     if field == 'tradeUnionCount_id':
                         records.append((verbose_name, value_name.choice))
@@ -1152,20 +1149,17 @@ def word_generate(request, pk):
                     else:
                         records.append((verbose_name, value_name.name))
                 else:
-                    pass
+                    continue
             except Exception as e:
                 print(e)
 
-    table = document.add_table(rows=1, cols=3)
-    hdr_cells = table.rows[0].cells
-    hdr_cells[0].text = ''
-    hdr_cells[1].text = ''
-    hdr_cells[2].text = ''
+    table = document.add_table(rows=0, cols=2)
+    table.style = 'Table Grid'
+    # hdr_cells = table.rows[0].cells
     for field, value in records:
-        # print(field, value)
         row_cells = table.add_row().cells
         row_cells[0].text = str(field)
-        row_cells[2].text = str(value)
+        row_cells[1].text = str(value)
 
     document.add_page_break()
     base_dir = str(settings.BASE_DIR)
