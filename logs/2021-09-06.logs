@@ -1,0 +1,22 @@
+WARNING django.request Not Found: /favicon.ico 2021-09-06 09:18:49,677
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-06 09:18:49,679
+ERROR django.request Internal Server Error: /work/word/10/ 2021-09-06 09:35:44,410
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1162, in word_generate
+    hdr_cells._tc.get_or_add_tcPr().append(shading_elm)
+AttributeError: 'tuple' object has no attribute '_tc'
+ERROR django.server "GET /work/word/10/ HTTP/1.1" 500 84812 2021-09-06 09:35:44,414
+ERROR django.request Internal Server Error: /work/word/7/ 2021-09-06 09:52:28,609
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1156, in word_generate
+    table = document.add_table()
+TypeError: add_table() missing 2 required positional arguments: 'rows' and 'cols'
+ERROR django.server "GET /work/word/7/ HTTP/1.1" 500 89374 2021-09-06 09:52:28,613
