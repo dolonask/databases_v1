@@ -56,3 +56,13 @@ Traceback (most recent call last):
     verbose_name = Card._meta.get_field(field).verbose_name
 AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
 ERROR django.server "GET /strike/word/1/ HTTP/1.1" 500 74696 2021-09-06 11:38:36,574
+ERROR django.request Internal Server Error: /work/word/2/ 2021-09-06 12:10:46,879
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 1063, in work_word_generate
+    verbose_name = Case._meta.get_field(field).verbose_name
+AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
+ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 78761 2021-09-06 12:10:46,880

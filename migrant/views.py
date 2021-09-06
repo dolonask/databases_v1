@@ -610,50 +610,16 @@ def case_files_download(request, pk):
         return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
-def generate_case_word(request, pk):
-    case = Case.objects.get(pk=pk)
-    source = InfoSource.objects.filter(case__pk=pk)
-    right = Right.objects.filter(case__pk=pk)
-    intruder = Intruder.objects.filter(case__pk=pk)
-    comments = CaseComment.objects.filter(case_id=pk)
-    base_dir = str(settings.BASE_DIR)
-    base_dir += "/migrant/static/word/migrant/"
-    tpl = DocxTemplate(base_dir + 'template.docx')
-    context = {
-        'case': case,
-        'source': source,
-        'right': right,
-        'intruder': intruder,
-        'comments': comments
-    }
-    jinja_env = jinja2.Environment()
-    jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
-    jinja_env.filters['check_arg_is_none'] = check_arg_is_none
-    tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + f'card_{case.id}.docx'
-    tpl.save(save_path)
-    if os.path.exists(save_path):
-        with open(save_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
-            return response
-    return Http404()
-
-
-
 def migrant_word_generate(request, pk):
     case = Case.objects.get(pk=pk)
     sources = InfoSource.objects.filter(case__pk=pk)
-    right = Right.objects.filter(case__pk=pk)
-    intruder = Intruder.objects.filter(case__pk=pk)
-    comments = CaseComment.objects.filter(case_id=pk)
-    base_dir = str(settings.BASE_DIR)
+    rights = Right.objects.filter(case__pk=pk)
+    intruders = Intruder.objects.filter(case__pk=pk)
     document = Document()
     dates_list = ['date_create', 'date_update', 'start_date', 'end_date']
-    document.add_heading('Трудовые нарушения', 0)
+    document.add_heading('Мигранты', 0)
     records = []
     case_values = Case.objects.filter(pk=pk).values()
-    individual_info_values = IndividualInfo.objects.filter(case__id=pk).values()
     field_name_list = [i.name for i in Case._meta.get_fields()]
     for field in field_name_list:
         try:
@@ -661,12 +627,20 @@ def migrant_word_generate(request, pk):
                 verbose_name = Case._meta.get_field(field).verbose_name
                 for source in sources:
                     source_name = source.name
-                    if source_name is not None and value != '':
+                    if source_name is not None and source_name != '':
                         records.append((verbose_name, source_name))
             elif field == 'violated_right':
-                continue
+                verbose_name = Case._meta.get_field(field).verbose_name
+                for right in rights:
+                    right_name = right.name
+                    if right_name is not None and right_name != '':
+                        records.append((verbose_name, right_name))
             elif field == 'intruder':
-                continue
+                verbose_name = Case._meta.get_field(field).verbose_name
+                for intruder in intruders:
+                    intruder_name = intruder.name
+                    if intruder_name is not None and intruder_name != '':
+                        records.append((verbose_name, intruder_name))
             elif field == 'casephoto':
                 continue
             elif field == 'casefile':
@@ -702,7 +676,7 @@ def migrant_word_generate(request, pk):
                 else:
                     continue
             except Exception as e:
-                print(e)
+                print(e, field)
 
     table = document.add_table(rows=0, cols=2)
     table.style = 'Table Grid'

@@ -722,39 +722,6 @@ def card_files_download(request, pk):
         return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
-def generate_card_word(request, pk):
-    card = Card.objects.get(id=pk)
-    card_sources = Source.objects.filter(card__pk=pk)
-    card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
-    economic_demands = EconomicDemand.objects.filter(card__pk=pk)
-    politic_demands = PoliticDemand.objects.filter(card__pk=pk)
-    combo_demands = ComboDemand.objects.filter(card__pk=pk)
-    comments = CardComment.objects.filter(card_id=pk)
-    base_dir = str(settings.BASE_DIR)
-    base_dir += "/strike/static/word/strike/"
-    tpl = DocxTemplate(base_dir + 'template.docx')
-    context = {
-        'card': card,
-        'card_sources': card_sources,
-        'card_demand_categories': card_demand_categories,
-        'economic_demands': economic_demands,
-        'politic_demands': politic_demands,
-        'combo_demands': combo_demands,
-        'comments': comments,
-    }
-    jinja_env = jinja2.Environment()
-    jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
-    tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + f'card_{card.id}.docx'
-    tpl.save(save_path)
-    if os.path.exists(save_path):
-        with open(save_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
-            return response
-    return Http404()
-
-
 def strike_word_generate(request, pk):
     card = Card.objects.get(id=pk)
     card_sources = Source.objects.filter(card__pk=pk)
@@ -762,7 +729,6 @@ def strike_word_generate(request, pk):
     economic_demands = EconomicDemand.objects.filter(card__pk=pk)
     politic_demands = PoliticDemand.objects.filter(card__pk=pk)
     combo_demands = ComboDemand.objects.filter(card__pk=pk)
-    comments = CardComment.objects.filter(card_id=pk)
 
     document = Document()
     dates_list = ['date_create', 'date_update', 'start_date', 'end_date']
@@ -776,17 +742,32 @@ def strike_word_generate(request, pk):
                 verbose_name = Card._meta.get_field(field).verbose_name
                 for source in card_sources:
                     source_name = source.name
-                    if source_name is not None and value != '':
+                    if source_name is not None and source_name != '':
                         records.append((verbose_name, source_name))
-                continue
             elif field == 'card_demand_categories':
-                continue
+                verbose_name = Card._meta.get_field(field).verbose_name
+                for card_demand_category in card_demand_categories:
+                    card_demand_category_name = card_demand_category.demand_cat_name
+                    if card_demand_category_name is not None and card_demand_category_name != '':
+                        records.append((verbose_name, card_demand_category_name))
             elif field == 'economic_demands':
-                continue
+                verbose_name = Card._meta.get_field(field).verbose_name
+                for economic_demand in economic_demands:
+                    economic_demand_name = economic_demand.name
+                    if economic_demand_name is not None and economic_demand_name != '':
+                        records.append((verbose_name, economic_demand_name))
             elif field == 'politic_demands':
-                continue
+                verbose_name = Card._meta.get_field(field).verbose_name
+                for politic_demand in politic_demands:
+                    politic_demand_name = politic_demand.name
+                    if politic_demand_name is not None and politic_demand_name != '':
+                        records.append((verbose_name, politic_demand_name))
             elif field == 'combo_demands':
-                continue
+                verbose_name = Card._meta.get_field(field).verbose_name
+                for combo_demand in combo_demands:
+                    combo_demand_name = combo_demand.name
+                    if combo_demand_name is not None and combo_demand_name != '':
+                        records.append((verbose_name, combo_demand_name))
             elif field == 'individual':
                 continue
             elif field == 'cardphoto':
@@ -824,9 +805,7 @@ def strike_word_generate(request, pk):
                 else:
                     continue
             except Exception as e:
-                print(e)
-        except Exception as e:
-            print(e, field)
+                print(e, field)
 
     table = document.add_table(rows=0, cols=2)
     table.style = 'Table Grid'
