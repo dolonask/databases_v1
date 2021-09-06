@@ -1,29 +1,21 @@
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from rest_framework.views import APIView
-from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from .serializers import *
-from django.core import serializers
-from xhtml2pdf import pisa
-from io import BytesIO
 from django.contrib.auth.models import User
-import json
 from django.db import connection
 from main.service import unpucking
 from .filters import WorkFilter
 from .forms import CaseForm, IndividualForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
     CaseFileForm, IndividualFormSet, CaseCommentForm
 from .models import *
-from docxtpl import DocxTemplate
-from migrant.templatetags.migrant_tags import var_verbose_name_for_word
-import jinja2
 import os
 import pdfkit
+from docx import Document
+
 # Create your views here.
 
 general_tabs_fields = [
@@ -1017,35 +1009,6 @@ def case_files_download(request, pk):
         return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
 
 
-def generate_case_word(request, pk):
-    case = get_object_or_404(Case, pk=pk)
-    source = Source.objects.filter(case__pk=pk)
-    intruder = Intruder.objects.filter(case__pk=pk)
-    comments = CaseComment.objects.filter(case_id=pk)
-    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
-    base_dir = str(settings.BASE_DIR)
-    base_dir += "/work/static/word/work/"
-    tpl = DocxTemplate(base_dir + 'template.docx')
-    context = {
-        'case': case,
-        'source': source,
-        'intruder': intruder,
-        'trade_union_activities': trade_union_activities,
-        'comments': comments
-    }
-    jinja_env = jinja2.Environment()
-    jinja_env.filters['var_verbose_name'] = var_verbose_name_for_word
-    tpl.render(context, jinja_env=jinja_env)
-    save_path = base_dir + f'card_{case.id}.docx'
-    tpl.save(save_path)
-    if os.path.exists(save_path):
-        with open(save_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
-            return response
-    return Http404()
-
-
 def work_pdf_in_html_page(request, pk):
     case = get_object_or_404(Case, pk=pk)
     source = Source.objects.filter(case__pk=pk)
@@ -1062,10 +1025,7 @@ def work_pdf_in_html_page(request, pk):
     return render(request, 'work/work_pdf.html', context)
 
 
-from docx import Document
-
-
-def word_generate(request, pk):
+def work_word_generate(request, pk):
     case = get_object_or_404(Case, pk=pk)
     sources = Source.objects.filter(case__pk=pk)
     intruders = Intruder.objects.filter(case__pk=pk)

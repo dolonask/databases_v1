@@ -1,9 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
-from io import BytesIO, StringIO
 from django.template.loader import get_template
-from xhtml2pdf import pisa
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from main.service import unpucking
@@ -14,6 +12,7 @@ from .forms import *
 from .models import *
 from docxtpl import DocxTemplate
 from migrant.templatetags.migrant_tags import var_verbose_name_for_word
+from docx import Document
 import jinja2
 import os
 import pdfkit
@@ -748,6 +747,100 @@ def generate_card_word(request, pk):
     tpl.render(context, jinja_env=jinja_env)
     save_path = base_dir + f'card_{card.id}.docx'
     tpl.save(save_path)
+    if os.path.exists(save_path):
+        with open(save_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
+            return response
+    return Http404()
+
+
+def strike_word_generate(request, pk):
+    card = Card.objects.get(id=pk)
+    card_sources = Source.objects.filter(card__pk=pk)
+    card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
+    economic_demands = EconomicDemand.objects.filter(card__pk=pk)
+    politic_demands = PoliticDemand.objects.filter(card__pk=pk)
+    combo_demands = ComboDemand.objects.filter(card__pk=pk)
+    comments = CardComment.objects.filter(card_id=pk)
+
+    document = Document()
+    dates_list = ['date_create', 'date_update', 'start_date', 'end_date']
+    document.add_heading('Забастовка', 0)
+    records = []
+    card_values = Card.objects.filter(pk=pk).values()
+    field_name_list = [i.name for i in Card._meta.get_fields()]
+    for field in field_name_list:
+        try:
+            if field == 'card_sources':
+                verbose_name = Card._meta.get_field(field).verbose_name
+                for source in card_sources:
+                    source_name = source.name
+                    if source_name is not None and value != '':
+                        records.append((verbose_name, source_name))
+                continue
+            elif field == 'card_demand_categories':
+                continue
+            elif field == 'economic_demands':
+                continue
+            elif field == 'politic_demands':
+                continue
+            elif field == 'combo_demands':
+                continue
+            elif field == 'individual':
+                continue
+            elif field == 'cardphoto':
+                continue
+            elif field == 'cardfile':
+                continue
+            elif field == 'cardcomment':
+                continue
+            elif field == 'active':
+                continue
+            elif field == 'id':
+                continue
+            else:
+                verbose_name = Card._meta.get_field(field).verbose_name
+                value = card_values[0][field]
+                if value is not None and value != '':
+                    if field in dates_list:
+                        records.append((verbose_name, value.strftime("%Y.%m.%d")))
+                    else:
+                        records.append((verbose_name, value))
+        except KeyError:
+            try:
+                field += '_id'
+                value_id = card_values[0][field]
+                if value_id is not None and value_id != '':
+                    value_name = Card._meta.get_field(field).related_model.objects.get(pk=value_id)
+                    if field == 'company_employees_count_id' or field == 'count_strike_participants_id':
+                        records.append((verbose_name, value_name.choice))
+                    elif field == 'tradeunion_data_id':
+                        records.append((verbose_name, value_name.tradeUnion_name))
+                    elif field == 'added_by_id':
+                        records.append((verbose_name, value_name.username))
+                    else:
+                        records.append((verbose_name, value_name.name))
+                else:
+                    continue
+            except Exception as e:
+                print(e)
+        except Exception as e:
+            print(e, field)
+
+    table = document.add_table(rows=0, cols=2)
+    table.style = 'Table Grid'
+    # hdr_cells = table.rows[0].cells
+    for field, value in records:
+        row_cells = table.add_row().cells
+        row_cells[0].text = str(field)
+        row_cells[1].text = str(value)
+
+    document.add_page_break()
+    base_dir = str(settings.BASE_DIR)
+    base_dir += "/strike/static/word/strike/"
+    save_path = base_dir + f'card_{card.id}.docx'
+    document.save(save_path)
     if os.path.exists(save_path):
         with open(save_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")

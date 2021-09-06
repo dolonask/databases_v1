@@ -16,5 +16,5 @@ urlpatterns = [
     path('data/', views.DataAPIView.as_view(), name='work_data'),
     path('data/get/', views.DataFilterAPI.as_view(), name='work_data_get'),
     path('case_files_download/<int:pk>/', views.case_files_download, name='work_case_files_download'),
-    path('word/<int:pk>/', views.word_generate, name='word_case_word')
+    path('word/<int:pk>/', views.work_word_generate, name='word_case_word')
 ]

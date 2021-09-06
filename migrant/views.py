@@ -1,14 +1,7 @@
-import os
-from io import BytesIO, StringIO
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from django.template import RequestContext
 from django.template.loader import get_template
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.permissions import IsAuthenticated
-from xhtml2pdf import pisa
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .forms import CaseForm, CompanyForm, IndividualForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm, CaseCommentForm
@@ -19,11 +12,13 @@ from .models import *
 from main.service import unpucking
 from django.db import connection
 from django.http import Http404
-from django.utils.decorators import method_decorator
 from docxtpl import DocxTemplate
-import jinja2
 from .templatetags.migrant_tags import var_verbose_name_for_word, check_arg_is_none
+from docx import Document
+import jinja2
 import pdfkit
+import os
+
 
 
 @login_required
@@ -644,3 +639,86 @@ def generate_case_word(request, pk):
             return response
     return Http404()
 
+
+
+def migrant_word_generate(request, pk):
+    case = Case.objects.get(pk=pk)
+    sources = InfoSource.objects.filter(case__pk=pk)
+    right = Right.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
+    base_dir = str(settings.BASE_DIR)
+    document = Document()
+    dates_list = ['date_create', 'date_update', 'start_date', 'end_date']
+    document.add_heading('Трудовые нарушения', 0)
+    records = []
+    case_values = Case.objects.filter(pk=pk).values()
+    individual_info_values = IndividualInfo.objects.filter(case__id=pk).values()
+    field_name_list = [i.name for i in Case._meta.get_fields()]
+    for field in field_name_list:
+        try:
+            if field == 'source':
+                verbose_name = Case._meta.get_field(field).verbose_name
+                for source in sources:
+                    source_name = source.name
+                    if source_name is not None and value != '':
+                        records.append((verbose_name, source_name))
+            elif field == 'violated_right':
+                continue
+            elif field == 'intruder':
+                continue
+            elif field == 'casephoto':
+                continue
+            elif field == 'casefile':
+                continue
+            elif field == 'casecomment':
+                continue
+            elif field == 'active':
+                continue
+            elif field == 'id':
+                continue
+            else:
+                verbose_name = Case._meta.get_field(field).verbose_name
+                value = case_values[0][field]
+                if value is not None and value != '':
+                    if field in dates_list:
+                        records.append((verbose_name, value.strftime("%Y.%m.%d")))
+                    else:
+                        records.append((verbose_name, value))
+        except KeyError:
+            try:
+                field += '_id'
+                value_id = case_values[0][field]
+                if value_id is not None and value_id != '':
+                    value_name = Case._meta.get_field(field).related_model.objects.get(pk=value_id)
+                    if field == 'tradeUnionCount_id':
+                        records.append((verbose_name, value_name.choice))
+                    elif field == 'personGroupInfo_id':
+                        records.append((verbose_name, value_name.amount))
+                    elif field == 'user_id':
+                        records.append((verbose_name, value_name.username))
+                    else:
+                        records.append((verbose_name, value_name.name))
+                else:
+                    continue
+            except Exception as e:
+                print(e)
+
+    table = document.add_table(rows=0, cols=2)
+    table.style = 'Table Grid'
+    for field, value in records:
+        row_cells = table.add_row().cells
+        row_cells[0].text = str(field)
+        row_cells[1].text = str(value)
+
+    document.add_page_break()
+    base_dir = str(settings.BASE_DIR)
+    base_dir += "/migrant/static/word/migrant/"
+    save_path = base_dir + f'card_{case.id}.docx'
+    document.save(save_path)
+    if os.path.exists(save_path):
+        with open(save_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-word")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
+            return response
+    return Http404()
