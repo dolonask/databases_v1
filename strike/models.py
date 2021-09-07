@@ -401,13 +401,13 @@ class Card(models.Model):
     meeting_requirements = models.ForeignKey(MeetingRequirment, on_delete=models.DO_NOTHING,
                                              verbose_name='Удовлетворение требований', null=True, blank=True)
 
-    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ', max_length=1800, blank=True)
-    reasons_for_strike = models.TextField('Опишите причины начала забастовки (например: условия труда на предприятии, продолжительность рабочего времени, безопасность и т.д. время, связанное с работой)',max_length=1800, blank=True)
-    change_number_participants = models.TextField('Опишите как менялось количество участников забастовки во время проведения и что на это влияло?', max_length=1800, blank=True)
-    initiators_and_participants = models.TextField('Ситуация с инициаторами и участниками забастовки/акции (продолжают ли они работать, применялись ли к ним административные меры со стороны предприятия). ', max_length=1800, blank=True)
-    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", max_length=1800, blank=True)
-    results_so_far = models.TextField('Опишите, с какими итогами закончилась забастовка, если еще не закончилась, то какие итоги на данный момент.', max_length=1800, blank=True)
-    additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True, max_length=1500)
+    story = models.TextField('Укажите ПОСЛЕДОВАТЕЛЬНО, что произошло. Параллельно указывайте, чем подтверждаются эти факты (если есть приложения, укажите сразу номера и названия соответствующих приложений) ', max_length=3600, blank=True)
+    reasons_for_strike = models.TextField('Опишите причины начала забастовки (например: условия труда на предприятии, продолжительность рабочего времени, безопасность и т.д. время, связанное с работой)',max_length=3600, blank=True)
+    change_number_participants = models.TextField('Опишите как менялось количество участников забастовки во время проведения и что на это влияло?', max_length=3600, blank=True)
+    initiators_and_participants = models.TextField('Ситуация с инициаторами и участниками забастовки/акции (продолжают ли они работать, применялись ли к ним административные меры со стороны предприятия). ', max_length=3600, blank=True)
+    state_position = models.TextField("Позиция государства (Опишите реакцию государственных органов)", max_length=3600, blank=True)
+    results_so_far = models.TextField('Опишите, с какими итогами закончилась забастовка, если еще не закончилась, то какие итоги на данный момент.', max_length=3600, blank=True)
+    additional_information = models.TextField("Любая дополнительная информация", null=True, blank=True, max_length=3600)
 
     case_text = models.TextField("Окно для внесения информации", max_length=1800, null=True, blank=True)
 
