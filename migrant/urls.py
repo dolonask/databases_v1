@@ -16,5 +16,7 @@ urlpatterns = [
     path('data/', views.DataAPIView.as_view(), name='migrant_data'),
     path('data/get/', views.DataFilterAPI.as_view(), name='migrant_data_get'),
     path('case_files_download/<int:pk>/', views.case_files_download, name='migrant_case_files_download'),
+    path('card_files_delete/<int:pk>/', views.case_files_delete, name='migrant_card_files_delete'),
+    path('card_photo_delete/<int:pk>/', views.case_photo_delete, name='migrant_card_photo_delete'),
     path('word/<int:pk>/', views.migrant_word_generate, name='migrant_case_word')
 ]

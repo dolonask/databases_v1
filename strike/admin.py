@@ -123,3 +123,5 @@ class CaseAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Card, CaseAdmin)
+admin.site.register(CardFile)
+admin.site.register(CardPhoto)

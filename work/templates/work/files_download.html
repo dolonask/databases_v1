@@ -8,8 +8,8 @@
 {% for item in images %}
     <tr>
         <th>Файл</th>
-        <th><a href="{{ item.photo.url }}">Скачать</a></th>
-        {#        <td><a href="{{ item.photo.url }}"><img src="{{ item.photo.url }}" alt="image" width=250></a></td>#}
+        <th><a href="{{ item.photo.url }}" download>Скачать</a></th>
+        <th><a href="{% url 'work_card_photo_delete' item.pk %}">Удалить файл</a></th>
     </tr>
     <br>
 {% empty %}
@@ -18,7 +18,8 @@
 {% for item in files %}
     <tr>
         <th>Файл</th>
-        <a href="{{ item.file.url }}">Скачать</a>
+        <th><a href="{{ item.file.url }}" download>Скачать</a></th>
+        <th><a href="{% url 'work_card_photo_delete' item.pk %}">Удалить файл</a></th>
     </tr>
     <br>
 {% empty %}

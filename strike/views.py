@@ -289,7 +289,8 @@ def update_case(request, pk):
 
         photoForm = CardPhotoForm()
         fileForm = CardFileForm()
-
+        images = CardPhoto.objects.filter(card_id=case.id)
+        files = CardFile.objects.filter(card_id=case.id)
     return render(request, 'strike/add_case.html', context={
         'form': form,
         'tradeUnionForm': tradeUnionForm,
@@ -301,7 +302,10 @@ def update_case(request, pk):
         'general_tabs_fields': general_tabs_fields,
         'initiator_tab_fields': initiator_tab_fields,
         'description_tab_fields': description_tab_fields,
+        'images': images,
+        'files': files,
     })
+
 
 @login_required()
 def add_comment(request, pk):
@@ -709,18 +713,34 @@ class DataFilterAPI(APIView):
         return Response(response_list)
 
 
+@login_required()
 def card_files_download(request, pk):
     if request.user.position.role_id == 3:
         case = Card.objects.get(added_by=request.user, id=pk)
         images = CardPhoto.objects.filter(card_id=case.id)
         files = CardFile.objects.filter(card_id=case.id)
-        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+        return render(request, 'strike/files_download.html', {'images': images, 'files': files})
     else:
         case = Card.objects.get(id=pk)
         images = CardPhoto.objects.filter(card_id=case.id)
         files = CardFile.objects.filter(card_id=case.id)
-        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+        return render(request, 'strike/files_download.html', {'images': images, 'files': files})
 
+
+@login_required()
+def card_files_delete(request, pk):
+    card_file = CardFile.objects.get(pk=pk)
+    card_id = card_file.card_id
+    card_file.delete()
+    return redirect('strike_card_files_download', pk=card_id)
+
+
+@login_required()
+def card_photo_delete(request, pk):
+    card_photo = CardPhoto.objects.get(pk=pk)
+    card_id = card_photo.card_id
+    card_photo.delete()
+    return redirect('strike_card_files_download', pk=card_id)
 
 def strike_word_generate(request, pk):
     card = Card.objects.get(id=pk)

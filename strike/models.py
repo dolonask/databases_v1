@@ -234,7 +234,7 @@ class CardFile(models.Model):
     card = models.ForeignKey("Card", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.file
+        return self.file.path
 
     class Meta:
         verbose_name = "Кейсы, связанные с данной ситуацией"

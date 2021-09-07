@@ -229,6 +229,13 @@
                     <div class="form-group">
                         {{ casePhotoForm.photo.label_tag }}
                         {{ casePhotoForm.photo }}
+                        {% for item in images %}
+                            <tr>
+                                <th>Файл</th>
+                                <th><a href="{{ item.photo.url }}">Скачать</a></th>
+                            </tr>
+                            <br>
+                        {% endfor %}
                         <div class="invalid_feedback">
                             {{ casePhotoForm.photo.errors }}
                         </div>
@@ -236,6 +243,13 @@
                     <div class="form-group">
                         {{ caseFileForm.file.label_tag }}
                         {{ caseFileForm.file }}
+                        {% for item in files %}
+                            <tr>
+                                <th>Файл</th>
+                                <a href="{{ item.file.url }}">Скачать</a>
+                            </tr>
+                            <br>
+                        {% endfor %}
                         <div class="invalid_feedback">
                             {{ caseFileForm.file.errors }}
                         </div>
@@ -259,7 +273,6 @@
     </div>
     {% block scripts %}
         {{ block.super }}
-
 
         <script src="{% static 'work/js/script.js' %}"></script>
 
@@ -735,11 +748,11 @@
 
         <script>
             $("#id_country").change(function () {
-                console.log("work")
+                {#console.log("work")#}
                 const url = $("#msform").attr("regions-url");  // get the url of the `load_cities` view
-                console.log(url)
+                {#console.log(url)#}
                 const countryId = $(this).val();  // get the selected country ID from the HTML input
-                console.log(countryId)
+                {#console.log(countryId)#}
                 $.ajax({                       // initialize an AJAX request
                     url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
                     data: {

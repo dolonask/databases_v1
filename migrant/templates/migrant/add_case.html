@@ -780,6 +780,13 @@
                     <div class="form-group">
                         {{ photoForm.photo.label_tag }}
                         {{ photoForm.photo }}
+                        {% for item in images %}
+                            <tr>
+                                <th>Файл</th>
+                                <th><a href="{{ item.photo.url }}">Скачать</a></th>
+                            </tr>
+                            <br>
+                        {% endfor %}
                         <div class="invalid_feedback">
                             {{ photoForm.photo.errors }}
                         </div>
@@ -787,6 +794,13 @@
                     <div class="form-group">
                         {{ fileForm.file.label_tag }}
                         {{ fileForm.file }}
+                        {% for item in files %}
+                            <tr>
+                                <th>Файл</th>
+                                <a href="{{ item.file.url }}">Скачать</a>
+                            </tr>
+                            <br>
+                        {% endfor %}
                         <div class="invalid_feedback">
                             {{ fileForm.file.errors }}
                         </div>

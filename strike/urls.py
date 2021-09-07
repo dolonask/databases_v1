@@ -15,5 +15,7 @@ urlpatterns = [
     path('data/', views.DataAPIView.as_view(), name="strike_data_api"),
     path('data/get/', views.DataFilterAPI.as_view(), name="strike_filter_data_api"),
     path('card_files_download/<int:pk>/', views.card_files_download, name='strike_card_files_download'),
+    path('card_files_delete/<int:pk>/', views.card_files_delete, name='strike_card_files_delete'),
+    path('card_photo_delete/<int:pk>/', views.card_photo_delete, name='strike_card_photo_delete'),
     path('word/<int:pk>/', views.strike_word_generate, name='strike_case_word')
 ]

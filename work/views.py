@@ -250,7 +250,8 @@ def update_case(request,pk):
 
     casePhotoForm = CasePhotoForm()
     caseFileForm = CaseFileForm()
-
+    images = CasePhoto.objects.filter(card_id=case.id)
+    files = CaseFile.objects.filter(card_id=case.id)
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
@@ -264,6 +265,8 @@ def update_case(request,pk):
         'intruder_tab_fields':intruder_tab_fields,
         'description_tab_fields':description_tab_fields,
         'files_tab_fields':files_tab_fields,
+        'images': images,
+        'files': files,
     })
 
 
@@ -996,18 +999,34 @@ class DataFilterAPI(APIView):
         return Response(response_list)
 
 
+@login_required()
 def case_files_download(request, pk):
     if request.user.position.role_id == 3:
         case = Case.objects.get(user=request.user, pk=pk)
         images = CasePhoto.objects.filter(card_id=case.id)
         files = CaseFile.objects.filter(card_id=case.id)
-        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+        return render(request, 'work/files_download.html', {'images': images, 'files': files})
     else:
         case = Case.objects.get(pk=pk)
         images = CasePhoto.objects.filter(card_id=case.id)
         files = CaseFile.objects.filter(card_id=case.id)
-        return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+        return render(request, 'work/files_download.html', {'images': images, 'files': files})
 
+
+@login_required()
+def case_files_delete(request, pk):
+    case_file = CaseFile.objects.get(pk=pk)
+    case_id = case_file.card_id
+    case_file.delete()
+    return redirect('work_case_files_download', pk=case_id)
+
+
+@login_required()
+def case_photo_delete(request, pk):
+    case_photo = CasePhoto.objects.get(pk=pk)
+    case_id = case_photo.card_id
+    case_photo.delete()
+    return redirect('work_case_files_download', pk=case_id)
 
 def work_pdf_in_html_page(request, pk):
     case = get_object_or_404(Case, pk=pk)

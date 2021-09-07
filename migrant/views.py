@@ -163,7 +163,8 @@ def update_case(request,pk):
         # print(photos)
         photoForm = PhotoForm
         fileForm = FileForm
-
+        images = CasePhoto.objects.filter(card_id=case.id)
+        files = CaseFile.objects.filter(card_id=case.id)
     return render(request,
                   'migrant/add_case.html',
                   context={
@@ -175,6 +176,8 @@ def update_case(request,pk):
                       'entrepreneurForm': entrepreneurForm,
                       'photoForm': photoForm,
                       'fileForm': fileForm,
+                      'images': images,
+                      'files': files,
                   })
 
 @login_required()
@@ -596,7 +599,7 @@ class DataFilterAPI(APIView):
                 response_list[i]['percent'] = 100 / len(response_list)
         return Response(response_list)
 
-
+@login_required()
 def case_files_download(request, pk):
     if request.user.position.role_id == 3:
         case = Case.objects.get(user=request.user, pk=pk)
@@ -608,6 +611,22 @@ def case_files_download(request, pk):
         images = CasePhoto.objects.filter(card_id=case.id)
         files = CaseFile.objects.filter(card_id=case.id)
         return render(request, 'migrant/files_download.html', {'images': images, 'files': files})
+
+
+@login_required()
+def case_files_delete(request, pk):
+    case_file = CaseFile.objects.get(pk=pk)
+    case_id = case_file.card_id
+    case_file.delete()
+    return redirect('migrant_case_files_download', pk=case_id)
+
+
+@login_required()
+def case_photo_delete(request, pk):
+    case_photo = CasePhoto.objects.get(pk=pk)
+    case_id = case_photo.card_id
+    case_photo.delete()
+    return redirect('migrant_case_files_download', pk=case_id)
 
 
 def migrant_word_generate(request, pk):
