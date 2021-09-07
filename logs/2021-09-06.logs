@@ -66,3 +66,31 @@ Traceback (most recent call last):
     verbose_name = Case._meta.get_field(field).verbose_name
 AttributeError: 'ManyToOneRel' object has no attribute 'verbose_name'
 ERROR django.server "GET /work/word/2/ HTTP/1.1" 500 78761 2021-09-06 12:10:46,880
+WARNING django.request Not Found: /favicon.ico 2021-09-06 16:55:17,212
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-06 16:55:17,213
+WARNING django.request Method Not Allowed: /work/data/get/ 2021-09-06 16:58:44,082
+WARNING django.server "GET /work/data/get/ HTTP/1.1" 405 5831 2021-09-06 16:58:44,083
+ERROR django.request Internal Server Error: /work/get-pdf/3/ 2021-09-06 16:59:41,585
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 342, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\api.py", line 69, in from_string
+    r = PDFKit(input, 'string', options=options, toc=toc, cover=cover, css=css,
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\pdfkit.py", line 42, in __init__
+    self.configuration = (Configuration() if configuration is None
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b''"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+ERROR django.server "GET /work/get-pdf/3/ HTTP/1.1" 500 109642 2021-09-06 16:59:41,589

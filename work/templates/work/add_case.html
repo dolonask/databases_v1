@@ -400,7 +400,7 @@
                         }
                     }
                     validate_text_field('id_company_experience', 3);
-                    validate_text_field('id_branch', 3);
+                    {#validate_text_field('id_branch', 3);#}
                     validate_selected('id_emp_count');
                     {#validate_text_field('id_additional',7);#}
                 }
@@ -435,7 +435,7 @@
                             if (el){
                                 validate_selected('id_form-'+i+'-is_anonim');
                                 if (el.value == 'NO'){
-                                    validate_text_field("id_form-"+i+"-name", 7);
+                                    validate_text_field("id_form-"+i+"-name", 1);
                                 }
                                 validate_selected("id_form-"+i+"-member_of_tradeunion");
                                 if (get_selected("id_form-"+i+"-member_of_tradeunion") == 'NO') {
@@ -449,10 +449,10 @@
                                 validate_text_field("id_form-"+i+"-age", 0);
                                 validate_selected("id_form-"+i+"-education");
                                 validate_selected("id_form-"+i+"-marital_status");
-                                validate_text_field("id_form-"+i+"-position", 3);
+                                {#validate_text_field("id_form-"+i+"-position", 3);#}
                                 validate_text_field("id_form-"+i+"-experience", 0);
-                                validate_selected("id_form-"+i+"-is_official");
-                                validate_selected("id_form-"+i+"-has_agreement");
+                                {#validate_selected("id_form-"+i+"-is_official");#}
+                                {#validate_selected("id_form-"+i+"-has_agreement");#}
                             }
                         }
                         break;

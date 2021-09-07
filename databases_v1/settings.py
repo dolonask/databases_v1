@@ -87,6 +87,8 @@ INSTALLED_APPS = [
     'import_export'
 ]
 
+AUTHENTICATION_BACKENDS = ['main.backend.EmailBackend']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
