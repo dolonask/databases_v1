@@ -278,6 +278,7 @@
 
         <script>
             let has_error;
+
             function validate(id) {
                 switch (id) {
                     case 'checkGeneralTab':
@@ -298,10 +299,6 @@
                 }
             }
 
-
-
-
-
             function validate_files_uploaded(id){
                 let field = document.querySelector('#%'.replace('%', id));
 
@@ -309,6 +306,7 @@
                     set_error(field, 'files')
                 }
             }
+
             function set_error(field, type = 'empty', amount = 7) {
                 if (has_error === false){
                     field.focus();
@@ -427,7 +425,6 @@
                 }
             }
 
-
             function checkVictimTab(){
                 has_error = false;
                 clear_errors();
@@ -521,7 +518,6 @@
 
                 }
             }
-
 
             function checkGeneralTab() {
                 has_error = false;
@@ -742,7 +738,6 @@
                 }
 
             }
-
 
         </script>
 
