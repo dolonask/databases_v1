@@ -141,10 +141,8 @@ class CaseForm(forms.ModelForm):
             'violationsUsingCompulsoryLabor': forms.Select(attrs={'class': 'form-control'}),
             'failureSystemicMeasures': forms.Select(attrs={'class': 'form-control'}),
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
-            'start_date': forms.DateInput(
-                attrs={'class': 'form-control', 'type': 'date'}),
-            'end_date': forms.DateInput(
-                attrs={'class': 'form-control', 'type': 'date'}),
+            'start_date': forms.DateInput(format='%Y-%m-%d', attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': forms.DateInput(format='%Y-%m-%d', attrs={'class': 'form-control', 'type': 'date'}),
             'date_type': forms.Select(
                 attrs={'class': 'form-control', 'onchange': 'checkIntrud(this)', 'type': 'radio'}
             ),

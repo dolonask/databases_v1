@@ -183,7 +183,6 @@ def add_case(request):
 def update_case(request, pk):
     case = Case.objects.get(id=pk)
     if request.method == 'POST':
-        print('data', request.POST)
         form = CaseForm(request.POST, instance=case)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
         individualForm = IndividualForm(request.POST)
@@ -196,7 +195,6 @@ def update_case(request, pk):
         if form.is_valid():
             form.save(commit=False)
 
-            print('Individual = ', individualFormSet)
             for individual in individualFormSet:
                 if individual.is_valid():
                     ind = individual.save(commit=False)
@@ -255,7 +253,7 @@ def update_case(request, pk):
     images = CasePhoto.objects.filter(card_id=case.id)
     files = CaseFile.objects.filter(card_id=case.id)
     individualFormSet = IndividualFormSet(queryset=IndividualInfo.objects.filter(case_id=case.id))
-
+    individualFormSet.extra = 0
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,

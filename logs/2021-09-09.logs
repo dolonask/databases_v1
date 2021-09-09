@@ -483,3 +483,223 @@ WARNING django.request Not Found: /favicon.ico 2021-09-09 16:44:11,373
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13991 2021-09-09 16:44:11,374
 WARNING django.request Not Found: /favicon.ico 2021-09-09 16:46:19,751
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13991 2021-09-09 16:46:19,752
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:48:53,412
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:48:53,413
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:50:52,673
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:50:52,674
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:51:02,008
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:51:02,008
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:52:28,691
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:52:28,692
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:52:32,425
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:52:32,426
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:52:41,128
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:52:41,128
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:54:11,803
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:54:11,805
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:54:34,880
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:54:34,881
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:56:07,520
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:56:07,521
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:56:17,183
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:56:17,185
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:56:52,309
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:56:52,310
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:57:06,913
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:57:06,914
+WARNING django.request Not Found: /favicon.ico 2021-09-09 16:57:30,385
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 16:57:30,386
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:02:48,222
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:02:48,223
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:17:44,070
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:17:44,071
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:21:31,411
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:21:31,411
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:21:59,005
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:21:59,006
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:23:28,504
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:23:28,505
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:32:44,133
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:32:44,134
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:33:53,342
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:33:53,343
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:34:34,165
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:34:34,166
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:35:46,439
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:35:46,440
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:36:52,043
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:36:52,044
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:39:11,477
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:39:11,478
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:39:40,418
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:39:40,420
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:40:52,904
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:40:52,905
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:41:59,258
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:41:59,259
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:47:40,676
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:47:40,676
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:48:29,302
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:48:29,303
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:50:12,199
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:50:12,200
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:50:31,276
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:50:31,277
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:50:52,099
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:50:52,100
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:51:19,407
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:51:19,408
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:53:32,357
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:53:32,358
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:54:11,581
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:54:11,582
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:54:58,247
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:54:58,250
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:55:47,109
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:55:47,110
+ERROR django.request Internal Server Error: /work/update/25/ 2021-09-09 17:57:05,146
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 259, in update_case
+    form['start_date'] = form['start_date'].value.strftime('%Y-%m-%d')
+AttributeError: 'function' object has no attribute 'strftime'
+ERROR django.server "GET /work/update/25/ HTTP/1.1" 500 77757 2021-09-09 17:57:05,150
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:57:05,547
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:57:05,548
+ERROR django.request Internal Server Error: /work/update/25/ 2021-09-09 17:57:29,901
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 259, in update_case
+    form['start_date'] = form['start_date'].value
+TypeError: 'CaseForm' object does not support item assignment
+ERROR django.server "GET /work/update/25/ HTTP/1.1" 500 77504 2021-09-09 17:57:29,906
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:57:30,380
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:57:30,381
+ERROR django.request Internal Server Error: /work/update/25/ 2021-09-09 17:57:49,639
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 259, in update_case
+    form.fields['start_date'] = form.fields['start_date'].value
+AttributeError: 'DateTimeField' object has no attribute 'value'
+ERROR django.server "GET /work/update/25/ HTTP/1.1" 500 77725 2021-09-09 17:57:49,642
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:57:50,022
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:57:50,023
+ERROR django.request Internal Server Error: /work/update/25/ 2021-09-09 17:57:51,423
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 259, in update_case
+    form.fields['start_date'] = form.fields['start_date'].value
+AttributeError: 'DateTimeField' object has no attribute 'value'
+ERROR django.server "GET /work/update/25/ HTTP/1.1" 500 77725 2021-09-09 17:57:51,424
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:57:51,696
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:57:51,698
+ERROR django.request Internal Server Error: /work/update/25/ 2021-09-09 17:57:52,216
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 259, in update_case
+    form.fields['start_date'] = form.fields['start_date'].value
+AttributeError: 'DateTimeField' object has no attribute 'value'
+ERROR django.server "GET /work/update/25/ HTTP/1.1" 500 77725 2021-09-09 17:57:52,220
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:57:52,504
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:57:52,507
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:58:06,073
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:58:06,073
+ERROR django.request Internal Server Error: /work/update/25/ 2021-09-09 17:58:27,813
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\work\views.py", line 259, in update_case
+    form.fields['start_date'] = form.fields['start_date'].strftime('%Y-%m-%d')
+AttributeError: 'DateTimeField' object has no attribute 'strftime'
+ERROR django.server "GET /work/update/25/ HTTP/1.1" 500 77787 2021-09-09 17:58:27,816
+WARNING django.request Not Found: /favicon.ico 2021-09-09 17:58:28,246
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 17:58:28,247
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:00:03,801
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:00:03,803
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:00:14,849
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:00:14,850
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:00:26,589
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:00:26,590
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:01:38,362
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:01:38,376
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:02:22,637
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:02:22,638
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:04:49,254
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:04:49,255
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:06:10,024
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:06:10,025
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:06:44,333
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:06:44,334
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:06:46,086
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:06:46,086
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:07:29,026
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:07:29,027
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:07:38,328
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:07:38,329
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:08:27,307
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:08:27,308
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:08:36,035
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:08:36,040
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:09:12,129
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:09:12,129
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:10:07,845
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:10:07,846
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:10:49,933
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:10:49,934
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:10:54,052
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:10:54,054
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:11:30,078
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:11:30,079
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:17:43,863
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:17:43,865
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:18:07,824
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:18:07,825
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:18:30,455
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:18:30,456
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:19:12,814
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:19:12,817
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:20:01,842
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:20:01,843
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:23:03,191
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:23:03,192
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:23:12,780
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:23:12,782
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:23:27,213
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:23:27,215
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:25:08,305
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:25:08,306
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:25:29,218
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:25:29,219
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:25:57,860
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:25:57,861
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:28:06,901
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:28:06,903

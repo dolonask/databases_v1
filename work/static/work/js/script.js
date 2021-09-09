@@ -8,11 +8,9 @@ function process_dict(dict){
     }
 }
 
-
 function get_selected(id){
     return document.querySelector('#%'.replace('%', id)).value;
 }
-
 
 function hideTandem(id){
     $('#' + id + ', label[for=' + id + ']').hide();
@@ -27,6 +25,7 @@ function showTandem(id){
 function show_div(id){
     document.getElementById(id).style.display = '';
 }
+
 function hide_div(id){
     document.getElementById(id).style.display = 'none';
 
@@ -115,12 +114,10 @@ function ownership(){
     if(x.options[4].selected === true){
         document.getElementById("company_country").style.display = "block";
         document.getElementById("company_is_tnk_member").style.display = "block";
-        console.log(x.options[4]);
     }
     else{
         document.getElementById("company_country").style.display = "none";
         document.getElementById("company_is_tnk_member").style.display = "none";
-        console.log(x.options[4]);
     }
 }
 
@@ -161,8 +158,6 @@ function onTradeUnionRightChanged(value){
         'id_tradeUnionRightAnother':true,
     }
 
-    // console.log('asd', get_selected('id_tradeUnionRight'));
-
     switch (get_selected('id_tradeUnionRight')){
         case '1':
             field_dict['id_tradeUnionCrime'] = false;
@@ -180,10 +175,7 @@ function onTradeUnionRightChanged(value){
 
     process_dict(field_dict);
 }
-
-
-
-function onGroupOfRightsChanged(value){
+function onGroupOfRightsChanged(value = 'start'){
 
     field_dict = {
         'id_tradeUnionRight': true,
@@ -196,7 +188,7 @@ function onGroupOfRightsChanged(value){
         'id_prohibitionOfForcedLabor': true,
     }
 
-    hideRights();
+    value === 'start' ? '' : hideRights();
     switch (get_selected('id_groupOfRights')){
         case '1':
             field_dict['id_tradeUnionRight'] = false;
@@ -234,7 +226,6 @@ function onConvention87Changed(value){
         'id_electionsRight':true,
         'id_tradeUnionActivityRight':true,
         'id_createStrikeRight':true,
-
     }
     switch (get_selected('id_сonvention87')){
         case '1':
@@ -257,7 +248,6 @@ function onConvention87Changed(value){
     process_dict(field_dict);
 
 }
-
 function onConvention98Changed(value){
     // hideRights();
 
@@ -524,7 +514,6 @@ function onVictim_situationChanged(value){
         hideTandem('id_victim_situation_another');
     }
 }
-
 function onTradeUnionSituationChanged(value){
     if (get_selected('id_tradeUnionSituation') == 4){
         showTandem('id_tradeUnionSituation_another');
@@ -532,7 +521,6 @@ function onTradeUnionSituationChanged(value){
         hideTandem('id_tradeUnionSituation_another');
     }
 }
-
 function onTradeUnionActivitiesChanged(value){
     if (get_selected('id_trade_union_activities') == 19){
         showTandem('id_trade_union_activities_another');
@@ -540,19 +528,15 @@ function onTradeUnionActivitiesChanged(value){
         hideTandem('id_trade_union_activities_another');
     }
 }
-
-
 function hideRights(){
     for (key in fields){
         hideTandem('id_'+fields[key]);
     }
 }
-
 function hide_source(){
     hideTandem('id_source_url');
     hideTandem('id_source_content');
 }
-
 function show_source(){
     showTandem('id_source_url');
     showTandem('id_source_content');
@@ -606,7 +590,6 @@ var fields = ['tradeUnionRight',
     'violationsUsingCompulsoryLabor',
     'failureSystemicMeasures',
 ]
-
 
 onIndAnonimChanged();
 onTnkChanged();
