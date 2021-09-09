@@ -54,24 +54,32 @@
                     {% for field in form %}
                         {% if field.name in general_tabs_fields %}
                             {% if field.name == 'start_date' %}
+                                {% for field in form %}
+                                    {% if field.name == 'date_type' %}
+                                        <div class="form-group">
+                                            <label>{{ field.label }}</label> <br>
+                                            {{ field }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if field.name == 'start_date' %}
+                                    <div class="form-group">
+                                        <label>{{ field.label }}</label> <br>
+                                        {{ field }}
+                                    </div>
+                                {% endif %}
+                            {% else %}
                                 <div class="form-group">
-                                    <label>Дата нарушения</label> <br>
-                                    <label for="exact"> Точная <input id="exact" onchange="checkIntrud(this)" type="radio"
-                                                                      name="intrud" value="1"></label>
-                                    <label for="interval"> Интервал <input id="interval" onchange="checkIntrud(this)" type="radio"
-                                                                           name="intrud" value="2" checked></label>
+                                    <label for="{{ field.auto_id }}">{{ field.label }}</label>
+                                    {{ field }}
+                                    <div class="invalid_feedback">
+                                        {{ field.errors }}
+                                    </div>
                                 </div>
                             {% endif %}
-                            <div class="form-group">
-                                <label for="{{ field.auto_id }}">{{ field.label }}</label>
-                                {{ field }}
-                                <div class="invalid_feedback">
-                                    {{ field.errors }}
-                                </div>
-                            </div>
+
                         {% endif %}
                     {% endfor %}
-
 
                     <input type="button" onclick="validate('checkGeneralTab')" class="action-button" value="Следующий"/>
                     <input type="button" id="btnNextFromStrikeGeneral" name="next" class="next action-button d-none" value="Следующий"/>
@@ -494,18 +502,26 @@
 
             }
 
-
-            function checkIntrud(e) {
-                if (e.value === '1') {
-                    document.querySelector('#id_end_date').style.display = 'none';
+            document.addEventListener("DOMContentLoaded", () =>{
+                checkIntrud(document.querySelector("#id_date_type", true));
+            });
+            function checkIntrud(e, update) {
+                if (update != true){
+                    if (e.value === '0') {
+                        document.querySelector('#id_end_date').style.display = 'none';
+                        document.querySelector('label[for=id_end_date]').style.display = 'none';
+                        document.querySelector('label[for=id_start_date]').style.display = 'none';
+                        document.querySelector('#id_end_date').value = '';
+                    } else if (e.value === '1') {
+                        document.querySelector('label[for=id_start_date]').style.display = 'block';
+                        document.querySelector('label[for=id_end_date]').style.display = 'block';
+                        document.querySelector('#id_end_date').style.display = 'block';
+                        document.querySelector('#id_end_date').value = document.querySelector('#id_start_date').value;
+                    }}
+                else{
                     document.querySelector('label[for=id_end_date]').style.display = 'none';
                     document.querySelector('label[for=id_start_date]').style.display = 'none';
                     document.querySelector('#id_end_date').value = '';
-                } else if (e.value === '2') {
-                    document.querySelector('label[for=id_start_date]').style.display = 'block';
-                    document.querySelector('label[for=id_end_date]').style.display = 'block';
-                    document.querySelector('#id_end_date').style.display = 'block';
-                    document.querySelector('#id_end_date').value = document.querySelector('#id_start_date').value;
                 }
 
             }

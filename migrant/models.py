@@ -595,6 +595,11 @@ class Case(models.Model):
     case_date = models.DateTimeField("Дата создания", auto_now_add=True)
     start_date = models.DateTimeField("Дата начала нарушения")
     end_date = models.DateTimeField("Дата конца нарушения", null=True, blank=True)
+    INTERVAL_OR_EXACT = [
+        (0, 'Точная'),
+        (1, 'Интервал')
+    ]
+    date_type = models.BooleanField("Тип даты нарушения", choices=INTERVAL_OR_EXACT, default=0)
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING, verbose_name="В отношении кого совершено нарушение")
     individualInfo = models.ForeignKey(IndividualInfo, on_delete=models.DO_NOTHING, verbose_name="физическое лицо", null=True, blank=True)
     personGroupInfo = models.ForeignKey(PersonGroup, on_delete=models.DO_NOTHING, verbose_name="Группа лиц", null=True, blank=True)

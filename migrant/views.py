@@ -145,7 +145,7 @@ def update_case(request,pk):
 
         individualForm = IndividualForm
         if case.individualInfo is not None:
-            individualForm = IndividualForm(instance=IndividualInfo.objects.get(id = case.individualInfo_id))
+            individualForm = IndividualForm(instance=IndividualInfo.objects.get(id=case.individualInfo_id))
 
         # victimForm = VictimForm
         # if case.victim is not None:

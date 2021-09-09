@@ -703,3 +703,106 @@ WARNING django.request Not Found: /favicon.ico 2021-09-09 18:25:57,860
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:25:57,861
 WARNING django.request Not Found: /favicon.ico 2021-09-09 18:28:06,901
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:28:06,903
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:36:54,588
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:36:54,589
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:39:08,243
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:39:08,244
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:40:33,975
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:40:33,976
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:43:02,194
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:43:02,195
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:44:35,518
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:44:35,519
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:45:51,125
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:45:51,125
+ERROR django.request Internal Server Error: /strike/update/3 2021-09-09 18:46:05,485
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 294, in update_case
+    return render(request, 'strike/add_case.html', context={
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 814, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 965, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\template\base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 82: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR django.server "GET /strike/update/3 HTTP/1.1" 500 222288 2021-09-09 18:46:05,490
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:46:06,091
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:46:06,093
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:46:21,451
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:46:21,452
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:46:47,278
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:46:47,279
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:47:31,034
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:47:31,035
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:47:53,237
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:47:53,238
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:48:30,950
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:48:30,951
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:48:43,444
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:48:43,445
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:48:59,629
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:48:59,630
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:49:23,992
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:49:23,993
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:49:42,777
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:49:42,778
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:50:26,816
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:50:26,836
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:51:06,596
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:51:06,598
+WARNING django.request Not Found: /favicon.ico 2021-09-09 18:52:05,598
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-09 18:52:05,598

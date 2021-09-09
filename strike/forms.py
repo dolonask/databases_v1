@@ -128,11 +128,13 @@ class CardForm(forms.ModelForm):
             'combo_demands': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onComboDemandsChanged(this.value);"}),
             'combo_another': forms.TextInput(attrs={'class': 'form-control'}),
-            'start_date': forms.DateInput(
+            'start_date': forms.DateInput(format='%Y-%m-%d',
                 attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
-            'end_date': forms.DateInput(
+            'end_date': forms.DateInput(format='%Y-%m-%d',
                 attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
-
+            'date_type': forms.Select(
+                attrs={'class': 'form-control', 'onchange': 'checkIntrud(this)', 'type': 'radio'}
+            ),
             'tradeunionChoice': forms.Select(
                 attrs={'class': 'form-control', 'onchange': "onTradeunionChoiceChanged(this.value);"}),
             'tradeunionChoiceAnother': forms.TextInput(attrs={'class': 'form-control'}),

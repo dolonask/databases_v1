@@ -69,15 +69,6 @@
                                     </div>
                                 </div>
                             {% endif %}
-                            {% if field.name == 'start_date' %}
-                                <div class="form-group">
-                                    {{ field.label_tag }}
-                                    {{ field|date:'%Y-%m-%d' }}
-                                    <div class="invalid_feedback">
-                                        {{ field.errors }}
-                                    </div>
-                                </div>
-                            {% endif %}
                             {% if field.name == "card_demand_categories" %}
                                 <div class="form-group">
                                     {{ field.label_tag }}

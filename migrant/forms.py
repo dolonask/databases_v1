@@ -47,11 +47,13 @@ class CaseForm(forms.ModelForm):
                 attrs={'class': 'checkbox-list-none', 'onchange': "onRightChanged(this.value);"}),
             'violatedRightAnother': forms.TextInput(attrs={'class': 'form-control'}),
 
-            'start_date': forms.DateInput(
+            'start_date': forms.DateInput(format='%Y-%m-%d',
                 attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
-            'end_date': forms.DateInput(
+            'end_date': forms.DateInput(format='%Y-%m-%d',
                 attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
-
+            'date_type': forms.Select(
+                attrs={'class': 'form-control', 'onchange': 'checkIntrud(this)', 'type': 'radio'}
+            ),
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
             'intruder': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onIntruderChanged(this.value);"}),

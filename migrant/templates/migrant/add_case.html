@@ -169,11 +169,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Дата нарушения</label> <br>
-                        <label for="exact"> Точная <input id="exact" onchange="checkIntrud(this)" type="radio"
-                                                          name="intrud" value="1"></label>
-                        <label for="interval"> Интервал <input id="interval" onchange="checkIntrud(this)" type="radio"
-                                                               name="intrud" value="2" checked></label>
+                        <label>{{ form.date_type.label }}</label> <br>
+                        {{ form.date_type }}
+                        <div class="invalid_feedback">
+                            {{ form.date_type.errors }}
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -1394,19 +1394,28 @@
                 }
             }
 
-            function checkIntrud(e) {
-                if (e.value === '1') {
-                    document.querySelector('#id_end_date').style.display = 'none';
+             document.addEventListener("DOMContentLoaded", () =>{
+                checkIntrud(document.querySelector("#id_date_type", true));
+            });
+
+            function checkIntrud(e, update) {
+                if (update != true){
+                    if (e.value === '0') {
+                        document.querySelector('#id_end_date').style.display = 'none';
+                        document.querySelector('label[for=id_end_date]').style.display = 'none';
+                        document.querySelector('label[for=id_start_date]').style.display = 'none';
+                        document.querySelector('#id_end_date').value = '';
+                    } else if (e.value === '1') {
+                        document.querySelector('label[for=id_start_date]').style.display = 'block';
+                        document.querySelector('label[for=id_end_date]').style.display = 'block';
+                        document.querySelector('#id_end_date').style.display = 'block';
+                        document.querySelector('#id_end_date').value = document.querySelector('#id_start_date').value;
+                    }}
+                else{
                     document.querySelector('label[for=id_end_date]').style.display = 'none';
                     document.querySelector('label[for=id_start_date]').style.display = 'none';
                     document.querySelector('#id_end_date').value = '';
-                } else if (e.value === '2') {
-                    document.querySelector('label[for=id_start_date]').style.display = 'block';
-                    document.querySelector('label[for=id_end_date]').style.display = 'block';
-                    document.querySelector('#id_end_date').style.display = 'block';
-                    document.querySelector('#id_end_date').value = document.querySelector('#id_start_date').value;
                 }
-
             }
         </script>
 
