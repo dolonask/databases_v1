@@ -51,13 +51,14 @@
                     {% for field in form %}
                         {% if field.name in general_tabs_fields %}
                             {% if field.name == 'start_date' %}
-                                <div class="form-group">
-                                    <label>Дата нарушения</label> <br>
-                                    <label for="exact"> Точная <input id="exact" onchange="checkIntrud(this)" type="radio"
-                                                                      name="intrud" value="1"></label>
-                                    <label for="interval"> Интервал <input id="interval" onchange="checkIntrud(this)" type="radio"
-                                                                           name="intrud" value="2" checked></label>
-                                </div>
+                                {% for field in form %}
+                                    {% if field.name == 'date_type' %}
+                                        <div class="form-group">
+                                            <label>{{ field.label }}</label> <br>
+                                            {{ field }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
                             {% if fields.name == "trade_union_activities" %}
                                 <div class="form-group">
@@ -723,14 +724,17 @@
                 }
 
             }
+            document.addEventListener("DOMContentLoaded", () =>{
+               checkIntrud(document.querySelector("#id_date_type"));
+            });
 
             function checkIntrud(e) {
-                if (e.value === '1') {
+                if (e.value === '0') {
                     document.querySelector('#id_end_date').style.display = 'none';
                     document.querySelector('label[for=id_end_date]').style.display = 'none';
                     document.querySelector('label[for=id_start_date]').style.display = 'none';
                     document.querySelector('#id_end_date').value = '';
-                } else if (e.value === '2') {
+                } else if (e.value === '1') {
                     document.querySelector('label[for=id_start_date]').style.display = 'block';
                     document.querySelector('label[for=id_end_date]').style.display = 'block';
                     document.querySelector('#id_end_date').style.display = 'block';

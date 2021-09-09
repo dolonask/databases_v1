@@ -72,6 +72,7 @@ general_tabs_fields = [
     'governmentCoercion',
     'violationsUsingCompulsoryLabor',
     'failureSystemicMeasures',
+    # 'date_type',
     'start_date',
     'end_date',
 ]
@@ -119,12 +120,6 @@ def add_case(request):
         if form.is_valid():
             case = form.save(commit=False)
 
-
-            for individual in individualFormSet:
-                if individual.is_valid():
-                    ind = individual.save(commit=False)
-                    ind.case = case
-
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
             if personGroupForm.is_valid():
@@ -141,6 +136,12 @@ def add_case(request):
                 individualFormSet.save()
 
             form._save_m2m()
+
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.case_id = case.id
+                    ind.save()
 
             # if casePhotoForm.is_valid():
             for f in request.FILES.getlist('photo'):
@@ -179,9 +180,10 @@ def add_case(request):
 
 
 @login_required()
-def update_case(request,pk):
+def update_case(request, pk):
     case = Case.objects.get(id=pk)
-    if request.method=='POST':
+    if request.method == 'POST':
+        print('data', request.POST)
         form = CaseForm(request.POST, instance=case)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
         individualForm = IndividualForm(request.POST)
@@ -194,11 +196,12 @@ def update_case(request,pk):
         if form.is_valid():
             form.save(commit=False)
 
-
+            print('Individual = ', individualFormSet)
             for individual in individualFormSet:
                 if individual.is_valid():
                     ind = individual.save(commit=False)
                     ind.case = case
+                    ind.save()
 
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
@@ -230,9 +233,7 @@ def update_case(request,pk):
             return redirect('works_list')
     form = CaseForm(instance=case)
 
-
     individualForm = IndividualForm
-
 
     tradeUnionForm = TradeUnionInfoForm
     if case.tradeUnionInfo is not None:
@@ -250,12 +251,15 @@ def update_case(request,pk):
 
     casePhotoForm = CasePhotoForm()
     caseFileForm = CaseFileForm()
+    individual_infos = IndividualInfo.objects.filter(case__id=pk)
     images = CasePhoto.objects.filter(card_id=case.id)
     files = CaseFile.objects.filter(card_id=case.id)
+    individualFormSet = IndividualFormSet(queryset=IndividualInfo.objects.filter(case_id=case.id))
+
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
-        'individualForm':individualForm,
+        'individualFormSet':individualFormSet,
         'personGroupForm':personGroupForm,
         'companyInfoForm':companyInfoForm,
         'caseFileForm':caseFileForm,
@@ -267,6 +271,7 @@ def update_case(request,pk):
         'files_tab_fields':files_tab_fields,
         'images': images,
         'files': files,
+        'individual_infos': individual_infos
     })
 
 

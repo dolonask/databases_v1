@@ -142,10 +142,12 @@ class CaseForm(forms.ModelForm):
             'failureSystemicMeasures': forms.Select(attrs={'class': 'form-control'}),
             'victim': forms.Select(attrs={'class': 'form-control', 'onchange': "onVictimChanged(this.value);"}),
             'start_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
+                attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': forms.DateInput(
-                attrs={'class': 'form-control', 'value': datetime.now().strftime("%Y-%m-%d"), 'type': 'date'}),
-
+                attrs={'class': 'form-control', 'type': 'date'}),
+            'date_type': forms.Select(
+                attrs={'class': 'form-control', 'onchange': 'checkIntrud(this)', 'type': 'radio'}
+            ),
             'intruder': forms.CheckboxSelectMultiple(
                 attrs={'class': 'checkbox-list-none', 'onchange': "onIntruderChanged(this.value);"}),
             'intruderAnother': forms.TextInput(attrs={'class': 'form-control'}),
@@ -194,30 +196,6 @@ class VictimForm(forms.ModelForm):
         fields = '__all__'
 
 
-IndividualFormSet = modelformset_factory(
-    IndividualInfo,
-    fields=('__all__'),
-    exclude = ['case'],
-    widgets={
-        'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
-        'name': forms.TextInput(attrs={'class': 'form-control'}),
-        'member_of_tradeunion': forms.Select(
-            attrs={'class': 'form-control', 'onchange': "onIndTradeUnionMemberChanged(this.value);"}),
-        'gender': forms.Select(attrs={'class': 'form-control'}),
-        'age': forms.TextInput(attrs={'class': 'form-control'}),
-        'education': forms.Select(attrs={'class': 'form-control'}),
-        'marital_status': forms.Select(attrs={'class': 'form-control'}),
-        'position': forms.TextInput(attrs={'class': 'form-control'}),
-        'experience': forms.TextInput(attrs={'class': 'form-control'}),
-        'is_official': forms.Select(attrs={'class': 'form-control'}),
-        'has_agreement': forms.Select(
-            attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
-        'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
-    },
-    extra=1,
-)
-
-
 class IndividualForm(forms.ModelForm):
     class Meta:
         model = IndividualInfo
@@ -238,6 +216,31 @@ class IndividualForm(forms.ModelForm):
             'has_agreement': forms.Select(attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
             'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
         }
+
+
+IndividualFormSet = modelformset_factory(
+    model=IndividualInfo,
+    form=IndividualForm,
+    fields='__all__',
+    exclude=['case'],
+    widgets={
+        'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
+        'name': forms.TextInput(attrs={'class': 'form-control'}),
+        'member_of_tradeunion': forms.Select(
+            attrs={'class': 'form-control', 'onchange': "onIndTradeUnionMemberChanged(this.value);"}),
+        'gender': forms.Select(attrs={'class': 'form-control'}),
+        'age': forms.TextInput(attrs={'class': 'form-control'}),
+        'education': forms.Select(attrs={'class': 'form-control'}),
+        'marital_status': forms.Select(attrs={'class': 'form-control'}),
+        'position': forms.TextInput(attrs={'class': 'form-control'}),
+        'experience': forms.TextInput(attrs={'class': 'form-control'}),
+        'is_official': forms.Select(attrs={'class': 'form-control'}),
+        'has_agreement': forms.Select(
+            attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
+        'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
+    },
+    extra=1,
+)
 
 
 class PersonGroupForm(forms.ModelForm):

@@ -13,8 +13,6 @@ function get_selected(id){
 }
 
 function hideTandem(id){
-    console.log(id, ' :::: ' + $('#' + id ).val());
-
     $('#' + id + ', label[for=' + id + ']').hide();
     $('#' + id ).prop('selectedIndex',0);
     $('#' + id ).val('');

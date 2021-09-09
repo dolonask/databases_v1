@@ -161,7 +161,7 @@ class AgreementDetail(models.Model):
 
 class IndividualInfo(models.Model):
     is_anonim = models.CharField("Ананимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    name = models.CharField("ФИО", max_length=100,blank=True, null = True)
+    name = models.CharField("ФИО", max_length=100, blank=True, null=True)
     member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     age = models.CharField("Возраст пострадавшего", max_length=50,)
@@ -169,11 +169,11 @@ class IndividualInfo(models.Model):
     marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке")
     position = models.CharField("Должность в организации", max_length=50, )
     experience = models.CharField("Стаж работы в организации", max_length=50,)
-    is_official = models.CharField("Было ли официальное трудоустройство?", choices=[('YES', 'Да'), ('NO', 'Нет'), ],
-                                   max_length=20)
-    has_agreement = models.CharField("Был ли подписан трудовой договор?", choices=[('YES', 'Да'), ('NO', 'Нет'), ],
+    is_official = models.CharField("Было ли официальное трудоустройство?", choices=[('YES', 'Да'), ('NO', 'Нет')],
+                                   max_length=20, null=True, blank=True)
+    has_agreement = models.CharField("Был ли подписан трудовой договор?", choices=[('YES', 'Да'), ('NO', 'Нет')],
                                      max_length=20, blank=True, null=True)
-    agreementDetail = models.ForeignKey(AgreementDetail, on_delete=models.DO_NOTHING, verbose_name="Детали договора")
+    agreementDetail = models.ForeignKey(AgreementDetail, on_delete=models.DO_NOTHING, verbose_name="Детали договора", null=True, blank=True)
     case = models.ForeignKey("Case", on_delete=models.CASCADE, verbose_name="Карточка")
 
     def __str__(self):
@@ -806,7 +806,11 @@ class Case(models.Model):
 
     start_date = models.DateTimeField("Дата начала")
     end_date = models.DateTimeField("Дата завершения", null=True, blank=True)
-
+    INTERVAL_OR_EXACT = [
+        (0, 'Точная'),
+        (1, 'Интервал')
+    ]
+    date_type = models.BooleanField("Тип даты нарушения", choices=INTERVAL_OR_EXACT, default=0)
     victim = models.ForeignKey(Victim, on_delete=models.DO_NOTHING,
                                verbose_name="В отношении кого совершено нарушение:", null=True, blank=True)
     tradeUnionInfo = models.ForeignKey(TradeUnionInfo, on_delete=models.DO_NOTHING,
