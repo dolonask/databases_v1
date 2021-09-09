@@ -253,7 +253,8 @@ def update_case(request, pk):
     images = CasePhoto.objects.filter(card_id=case.id)
     files = CaseFile.objects.filter(card_id=case.id)
     individualFormSet = IndividualFormSet(queryset=IndividualInfo.objects.filter(case_id=case.id))
-    individualFormSet.extra = 0
+    if len(individual_infos) != 0:
+        individualFormSet.extra = 0
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
