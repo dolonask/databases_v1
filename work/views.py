@@ -507,8 +507,8 @@ class DataAPIView(APIView):
 class DataFilterAPI(APIView):
     authentication_classes = []
     def post(self, request):
+        print(request.data)
         my_list = []
-        # print(request.data)
         for item in request.data:
             if item['id'] == 'work_tradeunionactivities':
                 my_list.append(f'{item["id"]}.name')
@@ -975,6 +975,12 @@ class DataFilterAPI(APIView):
                         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
                     where_list.clear()
                     sql_query += " join work_case_intruder on work_case.id = work_case_intruder.case_id join work_intruder on work_case_intruder.intruder_id = work_intruder.id "
+                # Запрос для нахождение между start_date and end_date
+                elif id == 'start_date':
+                    # Переменные где будут находится даты
+                    start_date, end_date = 1, 2
+                    # Сам запрос
+                    where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
             else:
                 continue
         where_query_list = 'and '.join(where_query_list)
@@ -985,7 +991,6 @@ class DataFilterAPI(APIView):
         with connection.cursor() as cursor:
             cursor.execute(sql_query + where_query + group_by_query)
             row = cursor.fetchall()
-            # print(row)
             fields_list = []
             for i in request.data:
                 fields_list.append(i['id'])

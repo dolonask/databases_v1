@@ -525,6 +525,13 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join auth_user on auth_user.id = migrant_case.user_id "
 
+                # Запрос для нахождение между start_date and end_date
+                elif id == 'start_date':
+                    # Переменные где будут находится даты
+                    start_date, end_date = 1, 2
+                    # Сам запрос
+                    where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
+
 
                 # elif id == "": # Экземпляр
                 #     where_sql_query = "migrant_case._id in "
