@@ -278,6 +278,7 @@ def delete_case(request, pk):
     case = Case.objects.get(id=pk).delete()
     return redirect('works_list')
 
+
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
@@ -286,9 +287,16 @@ def cases(request):
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'work/cases.html', context)
-    elif request.user.position.role_id == 2 or request.user.position.role_id == 3:
+    elif request.user.position.role_id == 2:
         cases = Case.objects.filter(country_id=request.user.country.country_id)
         filter = WorkFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'work/cases.html', context)
+    elif request.user.position.role_id == 3:
+        cases = Case.objects.filter(user=request.user)
+        country_cards = Case.objects.filter(country_id=request.user.country.country_id)
+        filter = WorkFilter(request.GET, queryset=cases | country_cards)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'work/cases.html', context)

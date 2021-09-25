@@ -154,12 +154,21 @@ def cases(request):
         cards = myFilter.qs
         context = {'cards': cards, 'myFilter': myFilter}
         return render(request, 'strike/strike.html', context)
-    elif request.user.position.role_id == 2 or request.user.position.role_id == 3:
+    elif request.user.position.role_id == 2:
         cards = Card.objects.filter(country_id=request.user.country.country_id)
         myFilter = CardFilter(request.GET, queryset=cards)
         cards = myFilter.qs
         context = {'cards': cards, 'myFilter': myFilter}
         return render(request, 'strike/strike.html', context)
+    elif request.user.position.role_id == 3:
+        cards = Card.objects.filter(added_by=request.user)
+        country_cards = Card.objects.filter(country_id=request.user.country.country_id)
+        myFilter = CardFilter(request.GET, queryset=cards | country_cards)
+        cards = myFilter.qs
+        context = {'cards': cards, 'myFilter': myFilter}
+        return render(request, 'strike/strike.html', context)
+    else:
+        raise Http404('Недостаточно прав!')
 
 
 @login_required()

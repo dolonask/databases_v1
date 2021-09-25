@@ -180,6 +180,7 @@ def update_case(request,pk):
                       'files': files,
                   })
 
+
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
@@ -188,9 +189,16 @@ def cases(request):
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'migrant/cases.html', context)
-    elif request.user.position.role_id == 2 or request.user.position.role_id == 3:
+    elif request.user.position.role_id == 2:
         cases = Case.objects.filter(country_id=request.user.country.country_id)
         filter = MigrantFilter(request.GET, queryset=cases)
+        cards = filter.qs
+        context = {'cards': cards, 'myFilter': filter}
+        return render(request, 'migrant/cases.html', context)
+    elif request.user.position.role_id == 3:
+        cases = Case.objects.filter(user=request.user)
+        country_cards = Case.objects.filter(country_id=request.user.country.country_id)
+        filter = MigrantFilter(request.GET, queryset=cases | country_cards)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'migrant/cases.html', context)

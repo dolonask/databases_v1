@@ -2,3 +2,23 @@ WARNING django.request Not Found: /favicon.ico 2021-09-25 22:49:51,359
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-25 22:49:51,386
 WARNING django.request Not Found: /favicon.ico 2021-09-25 22:59:24,848
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-25 22:59:24,849
+WARNING django.request Not Found: /favicon.ico 2021-09-25 23:20:57,114
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-25 23:20:57,115
+ERROR django.request Internal Server Error: /strike/cases/ 2021-09-25 23:22:24,359
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Projects\databases_v1\databases_v1\strike\views.py", line 166, in cases
+    myFilter = CardFilter(request.GET, queryset=cards+another_cards)
+TypeError: unsupported operand type(s) for +: 'QuerySet' and 'QuerySet'
+ERROR django.server "GET /strike/cases/ HTTP/1.1" 500 76419 2021-09-25 23:22:24,367
+WARNING django.request Not Found: /favicon.ico 2021-09-25 23:22:25,085
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-25 23:22:25,086
+WARNING django.request Not Found: /favicon.ico 2021-09-25 23:26:02,855
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-25 23:26:02,857
+WARNING django.request Not Found: /favicon.ico 2021-09-25 23:27:00,755
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-09-25 23:27:00,758
