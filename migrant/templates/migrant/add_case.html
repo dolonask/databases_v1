@@ -1272,7 +1272,6 @@
                     validate_selected('id_ownership');
                     validate_text_field('id_branch', 3);
                     validate_text_field('id_product_type', 3);
-                    validate_text_field('id_company_experience', 3);
                     validate_selected('id_emp_count');
                     if (get_selected('id_ownership') == 4) {
                         validate_text_field('id_country_from', 3);
@@ -1381,11 +1380,11 @@
                 validate_selected('id_has_violation_in_covid');
                 validate_selected('id_violationType');
                 if (get_selected('id_violationType') == 7) {
-                    validate_text_field('id_violationType_another', 7);
+                    validate_text_field('id_violationType_another', 3);
                 }
                 validate_selected('id_changesInSalary');
                 if (get_selected('id_changesInSalary') == 5) {
-                    validate_text_field('id_changesInSalary_another', 7)
+                    validate_text_field('id_changesInSalary_another', 3)
                 }
 
                 if (has_error == false) {
