@@ -140,11 +140,11 @@ function createRightElems(name, item, id) {
     }
 
 
-    let block = '<div class="item">' +
-        '<div class="item-header">' +
-        '<label>' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
+    let block = '<div class="item panel panel-primary">' +
+        '<div class="item-header panel-heading">' +
+        '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
-        '<div class="item-body d-none pt-3 pb-3">' +
+        '<div class="item-body d-none pt-3 pb-3 panel-body">' +
         '<select data-id="' + id + '" class="form-control s-selects" id="" multiple>'
         + itemElems +
         '</select>' +
