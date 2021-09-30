@@ -10,12 +10,14 @@ searchBtn.onclick = function () {
     let arr = [];
 
     sChecks.forEach(i => {
-        let select = document.querySelector(`[data-id='${i.id}']`);
-        let selected = [...select.selectedOptions].map(option => {
-            return {id: option.value}
-        });
-        let obj = {id: i.id, item: selected};
-        arr.push(obj);
+        let elem = document.querySelector(`[data-id='${i.id}']`);
+
+        if(elem.localName !== 'input'){
+            let selected = [...elem.selectedOptions].map(option => ({ id: option.value }) );
+            arr.push({id: i.id, item: selected});
+        } else{
+            arr.push({ id:i.id, value:elem.value });
+        }
     });
 
     getResult(arr);
