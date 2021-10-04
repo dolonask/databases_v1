@@ -10,12 +10,14 @@ searchBtn.onclick = function () {
     let arr = [];
 
     sChecks.forEach(i => {
-        let select = document.querySelector(`[data-id='${i.id}']`);
-        let selected = [...select.selectedOptions].map(option => {
-            return {id: option.value}
-        });
-        let obj = {id: i.id, item: selected};
-        arr.push(obj);
+        let elem = document.querySelector(`[data-id='${i.id}']`);
+
+        if(elem.localName !== 'input'){
+            let selected = [...elem.selectedOptions].map(option => ({ id: option.value }) );
+            arr.push({id: i.id, item: selected});
+        } else{
+            arr.push({ id:i.id, value:elem.value });
+        }
     });
 
     getResult(arr);
@@ -140,11 +142,11 @@ function createRightElems(name, item, id) {
     }
 
 
-    let block = '<div class="item">' +
-        '<div class="item-header">' +
-        '<label>' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
+    let block = '<div class="item panel panel-primary">' +
+        '<div class="item-header panel-heading">' +
+        '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
-        '<div class="item-body d-none pt-3 pb-3">' +
+        '<div class="item-body d-none pt-3 pb-3 panel-body">' +
         '<select data-id="' + id + '" class="form-control s-selects" id="" multiple>'
         + itemElems +
         '</select>' +
