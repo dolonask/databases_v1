@@ -431,6 +431,7 @@ class DataAPIView(APIView):
         tradeUnionSituation = TradeUnionSituationSerializers(TradeUnionSituation.objects.all(), many=True)
         trade_union_activities = TradeUnionActivitiesSerializers(TradeUnionActivities.objects.all(), many=True)
         user = UserSerializers(User.objects.all(), many=True)
+
         # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
         # company = CompanySerializers(Company.objects.all(), many=True)
         # tradeUnionInfo = TradeUnionInfoSerializers(TradeUnionInfo.objects.all(), many=True)
@@ -515,6 +516,7 @@ class DataAPIView(APIView):
 class DataFilterAPI(APIView):
     authentication_classes = []
     def post(self, request):
+
         print(request.data)
         my_list = []
         for item in request.data:
@@ -537,11 +539,13 @@ class DataFilterAPI(APIView):
         where_list = []
         where_query_list = []
         group_by_query = f"group by {fields}"
+
         for data in request.data:
             if data['id'] in fields:
                 id = data['id']
+                print(data, "data")
                 item = data['item']
-                print(data)
+
                 if id == "country":
                     where_sql_query = "work_case.country_id in "
                     for i in item:
@@ -974,6 +978,7 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_case_source on work_case.id = work_case_source.case_id join work_source on work_case_source.source_id = work_source.id "
                 elif id == "intruder":
+                    print("i am intruder")
                     where_sql_query = "work_case_intruder.intruder_id in"
                     for i in item:
                         where_list.append(i['id'])
@@ -984,11 +989,22 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_case_intruder on work_case.id = work_case_intruder.case_id join work_intruder on work_case_intruder.intruder_id = work_intruder.id "
                 # Запрос для нахождение между start_date and end_date
-                elif id == 'start_date':
+                elif id == "startDate":
+                    print("idafa")
+                    if i['id'] == 'startDate':
+                        print("I am here")
+                        a = dict(request.data)
                     # Переменные где будут находится даты
-                    start_date, end_date = 1, 2
+
+                    # start_date, end_date = 1, 2
                     # Сам запрос
-                    where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
+                    # start_date = \
+                    # print(request.data[1]['value'], "my start date hope it works")
+
+                    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{request.data[1]['item']}') AND date('{request.data[2]['item']}')")
+                    print(where_query_list)
+                #
+                #     #where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
             else:
                 continue
         where_query_list = 'and '.join(where_query_list)
