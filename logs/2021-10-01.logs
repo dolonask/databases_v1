@@ -1,0 +1,483 @@
+WARNING django.request Method Not Allowed: /analytic/migrant/isk/ 2021-10-01 12:27:52,467
+WARNING django.server "GET /analytic/migrant/isk/ HTTP/1.1" 405 6001 2021-10-01 12:27:52,468
+WARNING django.request Bad Request: /analytic/migrant/isk/ 2021-10-01 12:28:17,389
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 400 5791 2021-10-01 12:28:17,390
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 14:23:20,547
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 79, in post
+    return Response({serializer.data})
+TypeError: unhashable type: 'ReturnList'
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 99644 2021-10-01 14:23:20,550
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 14:23:21,499
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 79, in post
+    return Response({serializer.data})
+TypeError: unhashable type: 'ReturnList'
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 99644 2021-10-01 14:23:21,501
+WARNING django.request Bad Request: /analytic/migrant/isk/ 2021-10-01 14:40:01,583
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 400 109 2021-10-01 14:40:01,584
+WARNING django.request Bad Request: /analytic/migrant/isk/ 2021-10-01 14:40:02,764
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 400 109 2021-10-01 14:40:02,765
+WARNING django.request Bad Request: /analytic/migrant/isk/ 2021-10-01 14:40:45,184
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 400 109 2021-10-01 14:40:45,185
+WARNING django.request Bad Request: /analytic/migrant/isk/ 2021-10-01 14:40:45,875
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 400 109 2021-10-01 14:40:45,876
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 14:40:55,859
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 60, in post
+    re = eval(query)
+  File "<string>", line 1
+    country=country,victim=victim
+           ^
+SyntaxError: invalid syntax
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 92994 2021-10-01 14:40:55,861
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 14:40:57,104
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 60, in post
+    re = eval(query)
+  File "<string>", line 1
+    country=country,victim=victim
+           ^
+SyntaxError: invalid syntax
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 92994 2021-10-01 14:40:57,106
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 15:55:01,553
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 79, in post
+    cases = self.queryset.annotate(search=vector).filter(search=query)
+AttributeError: 'MigrantResulApiView' object has no attribute 'queryset'
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 95101 2021-10-01 15:55:01,556
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 15:55:03,026
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 79, in post
+    cases = self.queryset.annotate(search=vector).filter(search=query)
+AttributeError: 'MigrantResulApiView' object has no attribute 'queryset'
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 95101 2021-10-01 15:55:03,028
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 15:56:21,521
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 79, in post
+    cases = MigrantCase.objects.annotate(search=vector).filter(search=query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 1091, in annotate
+    return self._annotate(args, kwargs, select=True)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 1130, in _annotate
+    clone.query.add_annotation(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1037, in add_annotation
+    annotation = annotation.resolve_expression(self, allow_joins=True, reuse=None,
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\contrib\postgres\search.py", line 90, in resolve_expression
+    resolved = super().resolve_expression(query, allow_joins, reuse, summarize, for_save)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\expressions.py", line 678, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\expressions.py", line 578, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1754, in resolve_ref
+    join_info = self.setup_joins(field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1623, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'Россия' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 156315 2021-10-01 15:56:21,526
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 15:57:05,888
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: unrecognized token: "@"
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 81, in post
+    return Response({"cases": serializer.data})
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: unrecognized token: "@"
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 196990 2021-10-01 15:57:05,894
+WARNING django.request Not Found: /analytic/migrant/isk/ 2021-10-01 16:22:47,637
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 404 4183 2021-10-01 16:22:47,638
+WARNING django.request Not Found: /analytic/migrant/isk/ 2021-10-01 16:25:22,099
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 404 4183 2021-10-01 16:25:22,099
+WARNING django.request Not Found: /analytic/migrant/isk/ 2021-10-01 16:25:23,225
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 404 4183 2021-10-01 16:25:23,228
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 403 3346 2021-10-01 16:26:12,201
+WARNING django.server "POST /analytic/migrant/isk/ HTTP/1.1" 403 3346 2021-10-01 16:26:13,804
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 16:26:58,225
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: unrecognized token: "@"
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 81, in post
+    return Response({"cases": serializer.data})
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: unrecognized token: "@"
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 196991 2021-10-01 16:26:58,230
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 16:36:11,493
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 77, in post
+    cases = MigrantCase.objects.filter(Q(country=country)|
+NameError: name 'Q' is not defined
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 94873 2021-10-01 16:36:11,496
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 16:37:29,686
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Россия'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 77, in post
+    cases = MigrantCase.objects.filter(Q(country=country)|
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1263, in build_filter
+    return self._add_q(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'Россия'.
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 166322 2021-10-01 16:37:29,692
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 16:42:46,162
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 77, in post
+    cases = MigrantCase.objects.filter(Q(country=country)|
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1263, in build_filter
+    return self._add_q(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'right' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 161291 2021-10-01 16:42:46,167
+ERROR django.request Internal Server Error: /analytic/migrant/isk/ 2021-10-01 16:42:47,241
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 77, in post
+    cases = MigrantCase.objects.filter(Q(country=country)|
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1263, in build_filter
+    return self._add_q(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'right' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+ERROR django.server "POST /analytic/migrant/isk/ HTTP/1.1" 500 161291 2021-10-01 16:42:47,246
