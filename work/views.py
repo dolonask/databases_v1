@@ -519,7 +519,11 @@ class DataFilterAPI(APIView):
 
         print(request.data)
         my_list = []
+
         for item in request.data:
+            print(
+                item
+            )
             if item['id'] == 'work_tradeunionactivities':
                 my_list.append(f'{item["id"]}.name')
             elif item['id'] == 'user':
@@ -531,11 +535,20 @@ class DataFilterAPI(APIView):
                 item['id'] = 'сonvention182'
                 my_list.append('work_сonvention182.name')
             else:
+
                 my_list.append(f"work_{item['id']}.name")
+    #         remove last date append new date
+        if 'work_start_date.name' and 'work_end_date.name' in my_list:
+            my_list.remove('work_start_date.name')
+            my_list.append("start_date")
+            my_list.remove('work_end_date.name')
+            my_list.append("end_date")
+
+        print('my', my_list)
         fields = unpucking(my_list)
         case_count = Case.objects.count()
         sql_query = f"SELECT {fields}, count(*), round(count (*) * 100.0 /{case_count}, 2) percent FROM work_case"
-        where_query = "where "
+        where_query = " where "
         where_list = []
         where_query_list = []
         group_by_query = f"group by {fields}"
@@ -989,11 +1002,20 @@ class DataFilterAPI(APIView):
                     where_list.clear()
                     sql_query += " join work_case_intruder on work_case.id = work_case_intruder.case_id join work_intruder on work_case_intruder.intruder_id = work_intruder.id "
                 # Запрос для нахождение между start_date and end_date
-                elif id == "startDate":
-                    print("idafa")
-                    if i['id'] == 'startDate':
-                        print("I am here")
-                        a = dict(request.data)
+                elif id == "start_date":
+                    start = item[0]['id']
+
+                elif id == "end_date":
+                    end = item[0]['id']
+
+                    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
+
+
+
+                    # print("idafa")
+                    # if i['id'] == 'startDate':
+                    #     print("I am here")
+                    #     a = dict(request.data)
                     # Переменные где будут находится даты
 
                     # start_date, end_date = 1, 2
@@ -1001,34 +1023,37 @@ class DataFilterAPI(APIView):
                     # start_date = \
                     # print(request.data[1]['value'], "my start date hope it works")
 
-                    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{request.data[1]['item']}') AND date('{request.data[2]['item']}')")
+
                     print(where_query_list)
-                #
-                #     #where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
+
+                    # where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
             else:
                 continue
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
         # print(where_query)
-        print(sql_query + where_query + group_by_query)
+        # print(sql_query + where_query + group_by_query)
         # return Response(['1', '2'])
         with connection.cursor() as cursor:
             cursor.execute(sql_query + where_query + group_by_query)
             row = cursor.fetchall()
+            print("cursor", cursor)
             fields_list = []
             for i in request.data:
                 fields_list.append(i['id'])
             fields_list.append('count')
             fields_list.append('percent')
             response_list = []
-
+            print("field", fields_list)
             for i in range(len(row)):
                 response_body = dict()
+                # print()
                 for j in range(len(fields_list)):
                     response_body[fields_list[j]] = row[i][j]
                 response_list.append(response_body)
             for i in range(len(response_list)):
                 response_list[i]['percent'] = 100 / len(response_list)
+        print("responce list", response_list)
         return Response(response_list)
 
 

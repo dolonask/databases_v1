@@ -256,9 +256,10 @@ class TradeUnionCountSerializers(serializers.ModelSerializer):
 
 
 class UserSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(source='username')
     class Meta:
         model = User
-        fields = ('id', 'username')
+        fields = ('id', 'name' )
 
 
 class TradeUnionActivitiesSerializers(serializers.ModelSerializer):

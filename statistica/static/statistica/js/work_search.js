@@ -16,7 +16,7 @@ searchBtn.onclick = function () {
             let selected = [...elem.selectedOptions].map(option => ({ id: option.value }) );
             arr.push({id: i.id, item: selected});
         } else{
-            arr.push({ id:i.id, value:elem.value });
+            arr.push({ id:i.id, item:[{id:elem.value}] });
         }
     });
 
@@ -48,6 +48,8 @@ function getResult(data) {
  * @param {array} data - ответ от запроса
  * */
 function showResult(data) {
+   console.log(data);
+
     let td = '';
     let tr = '';
     data.forEach(item => {

@@ -80,7 +80,6 @@ class WorkResultApiView(APIView):
 
 
 class StrikeResultApiView(APIView):
-
     def post(self, request):
         filters = request.data
         # cases = Card.objects.all()

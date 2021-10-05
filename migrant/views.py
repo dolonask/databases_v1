@@ -261,11 +261,12 @@ def case_render_pdf_view(request, *args, **kwargs):
     }
     # Create a Django response object, and specify content_type as pdf
     # find the template and render it.
+    config = pdfkit.configuration(wkhtmltopdf="C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
     template = get_template(template_path)
     html = template.render(context)
     # print(html)
     # create a pdf
-    pdf = pdfkit.from_string(html, False)
+    pdf = pdfkit.from_string(html, False, configuration=config)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     # if error then show some funy view
@@ -378,6 +379,12 @@ class DataFilterAPI(APIView):
                 my_list.append(f"migrant_entrepreneur.entrepreneur_name")
             else:
                 my_list.append(f"migrant_{item['id']}.name")
+        #         remove last date append new date
+        if 'work_start_date.name' and 'work_end_date.name' in my_list:
+            my_list.remove('work_start_date.name')
+            my_list.append("start_date")
+            my_list.remove('work_end_date.name')
+            my_list.append("end_date")
         fields = unpucking(my_list)
         # print(my_list)
         case_count = Case.objects.count()
@@ -534,11 +541,13 @@ class DataFilterAPI(APIView):
                     sql_query += " join auth_user on auth_user.id = migrant_case.user_id "
 
                 # Запрос для нахождение между start_date and end_date
-                elif id == 'start_date':
-                    # Переменные где будут находится даты
-                    start_date, end_date = 1, 2
-                    # Сам запрос
-                    where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
+                elif id == "start_date":
+                    start = item[0]['id']
+
+                elif id == "end_date":
+                    end = item[0]['id']
+
+                    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
 
 
                 # elif id == "": # Экземпляр
@@ -597,13 +606,14 @@ class DataFilterAPI(APIView):
                 sql_query + where_query + group_by_query
             )
             row = cursor.fetchall()
-            print(row)
+            # print(row)
             fields_list = []
             for i in request.data:
                 fields_list.append(i['id'])
             fields_list.append('count')
             fields_list.append('percent')
             response_list = []
+            # print(response_list)
 
             for i in range(len(row)):
                 response_body = dict()

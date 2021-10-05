@@ -111,9 +111,9 @@
                             <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
                             <td>
                                 {% if card.added_by == request.user or request.user.position.role_id == 1 or request.user.position.role_id == 2%}
-                                    <a href="{% url 'strike_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить"></a>
-                                    <img data-id="{{ card.id }}" class="delete-btn" src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить">
-                                    <a href="{% url 'strike_card_files_download' card.id %}"><img src="{% static 'icon/image_file.svg' %}" height="20px" alt="Скачать файлы и изображения"></a>
+                                    <a href="{% url 'strike_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить" title="Обновить"></a>
+                                    <img data-id="{{ card.id }}" class="delete-btn" src="{% static 'icon/delete.svg' %}" height="20px" alt="Удалить" title="Удалить">
+                                    <a href="{% url 'strike_card_files_download' card.id %}"><img src="{% static 'icon/image_file.svg' %}" height="20px" alt="Скачать файлы и изображения" title="Скачать файлы и изображения"></a>
                                     <div id="myModal{{ card.id }}" class="modal">
                                         <div class="modal-content">
                                             <span  data-id="{{ card.id }}" class="close">&times;</span>
@@ -123,12 +123,12 @@
                                         </div>
                                     </div>
                                 {% endif %}
-                                <a href="{% url 'strike_case_word' card.id %}"><img src="{% static 'icon/word.svg' %}" height="20px" alt="Скачать word файл"></a>
-                                <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл"></a>
-                                <a href="{% url 'strike_case_get_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл"></a>
-                                <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии"></a>
+                                <a href="{% url 'strike_case_word' card.id %}"><img src="{% static 'icon/word.svg' %}" height="20px" alt="Скачать word файл" title="Скачать word файл"></a>
+                                <a href="{% url 'strike_case_download_pdf' card.id %}"><img src="{% static 'icon/pdf-download.svg' %}" height="20px" alt="Скачать pdf файл" title="Скачать pdf файл"></a>
+                                <a href="{% url 'strike_case_get_pdf' card.id %}"><img src="{% static 'icon/pdf.svg' %}" height="20px" alt="Просмотреть pdf файл" title="Просмотреть pdf файл"></a>
+                                <a href="{% url 'strike_card_show_comments' card.id %}"><img src="{% static 'icon/show-more.svg' %}" height="20px" alt="Показать коментарии" title="Показать коментарии"></a>
                                 {% if card.user == request.user or request.user.position.role_id == 1 or request.user.position.role_id == 2%}
-                                    <a href="{% url 'strike_card_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий"></a>
+                                    <a href="{% url 'strike_card_add_comment' card.id %}"><img src="{% static 'icon/add.svg' %}" height="20px" alt="Добавить коментарий" title="Добавить коментарий"></a>
                                 {% endif %}
                             </td>
                         </tr>

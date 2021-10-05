@@ -480,6 +480,13 @@ class DataFilterAPI(APIView):
 
             else:
                 my_list.append(f"strike_{item['id']}.name")
+        #         remove last date append new date
+        if 'work_start_date.name' and 'work_end_date.name' in my_list:
+            my_list.remove('work_start_date.name')
+            my_list.append("start_date")
+            my_list.remove('work_end_date.name')
+            my_list.append("end_date")
+
         fields = unpucking(my_list)
         # case_count = Card.objects.count()
         sql_query = f"SELECT {fields}, count(*), 100 / count (*) FROM strike_card"
@@ -624,11 +631,13 @@ class DataFilterAPI(APIView):
                     sql_query += " join strike_meetingrequirment on strike_meetingrequirment.id = strike_card.meeting_requirements_id "
 
                 # Запрос для нахождение между start_date and end_date
-                elif id == 'start_date':
-                    # Переменные где будут находится даты
-                    start_date, end_date = 1, 2
-                    # Сам запрос
-                    where_query_list.append(f"work_case.start_date BETWEEN date({item[0]}) AND date({item[1]})")
+                elif id == "start_date":
+                    start = item[0]['id']
+
+                elif id == "end_date":
+                    end = item[0]['id']
+
+                    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
 
 
                 # elif id == "": # Экземпляр
