@@ -1957,3 +1957,97 @@ Traceback (most recent call last):
 OSError: No wkhtmltopdf executable found: "b''"
 If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
 ERROR django.server "GET /work/get-pdf/1/ HTTP/1.1" 500 109809 2021-10-06 14:09:04,531
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 14:22:54,042
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1071, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99704 2021-10-06 14:22:54,046
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 14:28:41,262
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1023, in post
+    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
+UnboundLocalError: local variable 'start' referenced before assignment
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 98697 2021-10-06 14:28:41,265
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 14:31:17,147
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1023, in post
+    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
+UnboundLocalError: local variable 'start' referenced before assignment
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 98268 2021-10-06 14:31:17,150
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 14:31:58,251
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1023, in post
+    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
+UnboundLocalError: local variable 'start' referenced before assignment
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 98272 2021-10-06 14:31:58,254
+WARNING django.request Bad Request: /analytic/work/search/ 2021-10-06 14:35:08,071
+WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 400 82 2021-10-06 14:35:08,071
+WARNING django.request Bad Request: /analytic/work/search/ 2021-10-06 14:39:59,042
+WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 400 82 2021-10-06 14:39:59,043
+WARNING django.request Bad Request: /analytic/work/search/ 2021-10-06 14:40:00,239
+WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 400 82 2021-10-06 14:40:00,240
