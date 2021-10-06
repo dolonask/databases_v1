@@ -1,0 +1,1959 @@
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 08:05:10,125
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Нур-Султан (Астана)'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'Нур-Султан (Астана)'.
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 151179 2021-10-06 08:05:10,132
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 08:05:15,085
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Нур-Султан (Астана)'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'Нур-Султан (Астана)'.
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 151179 2021-10-06 08:05:15,089
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 08:05:16,503
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Нур-Султан (Астана)'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'Нур-Султан (Астана)'.
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 151179 2021-10-06 08:05:16,507
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 08:35:13,663
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'информация о нарушении, допущенном в отношении человека лично'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'информация о нарушении, допущенном в отношении человека лично'.
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153457 2021-10-06 08:35:13,669
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 09:49:26,864
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Казахстан'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'Казахстан'.
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 151344 2021-10-06 09:49:26,872
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 10:23:35,163
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1038, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148825 2021-10-06 10:23:35,168
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 10:25:00,096
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1040, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148825 2021-10-06 10:25:00,100
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 10:27:12,956
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1041, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148825 2021-10-06 10:27:12,962
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 10:27:18,340
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1041, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148825 2021-10-06 10:27:18,345
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 10:54:58,122
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1063, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 100032 2021-10-06 10:54:58,122
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 10:56:20,381
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1063, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99702 2021-10-06 10:56:20,381
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:08:24,697
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1064, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99985 2021-10-06 11:08:24,713
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:09:07,790
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1064, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99985 2021-10-06 11:09:07,793
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:09:11,157
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1064, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99973 2021-10-06 11:09:11,157
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:16:22,704
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1047, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 146708 2021-10-06 11:16:22,720
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:16:50,085
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1047, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 146708 2021-10-06 11:16:50,089
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:17:30,114
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1047, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148842 2021-10-06 11:17:30,130
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:18:27,435
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1047, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149067 2021-10-06 11:18:27,435
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:18:51,122
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1047, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149067 2021-10-06 11:18:51,124
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:18:53,177
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1062, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99421 2021-10-06 11:18:53,193
+WARNING django.request Method Not Allowed: /work/data/get/ 2021-10-06 11:20:23,511
+WARNING django.server "GET /work/data/get/ HTTP/1.1" 405 5831 2021-10-06 11:20:23,512
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:47:24,732
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1038, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148807 2021-10-06 11:47:24,739
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:51:38,737
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149099 2021-10-06 11:51:38,737
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:56:28,739
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149099 2021-10-06 11:56:28,743
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:56:30,483
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149099 2021-10-06 11:56:30,486
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:57:21,474
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149099 2021-10-06 11:57:21,479
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:57:25,931
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149125 2021-10-06 11:57:25,947
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:58:18,094
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149099 2021-10-06 11:58:18,094
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:59:05,239
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: unrecognized token: "{"
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: unrecognized token: "{"
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 150021 2021-10-06 11:59:05,254
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:59:19,436
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source.namework_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source.namework_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148691 2021-10-06 11:59:19,436
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 11:59:58,819
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149125 2021-10-06 11:59:58,819
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:01:05,901
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_source_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1042, in post
+    with connection.cursor() as cursor:
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_source_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 149072 2021-10-06 12:01:05,906
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:01:09,772
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1043, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148660 2021-10-06 12:01:09,772
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:02:21,592
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: work_start_date.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1043, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: work_start_date.name
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 148660 2021-10-06 12:02:21,596
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:03:55,128
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1016, in post
+    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
+UnboundLocalError: local variable 'start' referenced before assignment
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 98406 2021-10-06 12:03:55,128
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:09:13,895
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1058, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99720 2021-10-06 12:09:13,895
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:10:08,609
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1058, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99720 2021-10-06 12:10:08,611
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:12:45,778
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1061, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99668 2021-10-06 12:12:45,778
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:15:01,240
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1061, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99461 2021-10-06 12:15:01,240
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:15:20,610
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1061, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99461 2021-10-06 12:15:20,613
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:15:55,064
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1061, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99461 2021-10-06 12:15:55,066
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 12:28:43,800
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 546, in post
+    my_list.append("start_date", "end_date")
+TypeError: list.append() takes exactly one argument (2 given)
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 95313 2021-10-06 12:28:43,800
+WARNING django.request Method Not Allowed: /work/data/get/ 2021-10-06 13:34:54,607
+WARNING django.server "GET /work/data/get/ HTTP/1.1" 405 5831 2021-10-06 13:34:54,608
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 13:36:18,645
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1066, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 101637 2021-10-06 13:36:18,645
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 13:36:39,750
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1066, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 102163 2021-10-06 13:36:39,752
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 13:41:20,171
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “None” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153879 2021-10-06 13:41:20,178
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 13:41:21,196
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “None” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153879 2021-10-06 13:41:21,201
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 13:41:31,595
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “null” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153879 2021-10-06 13:41:31,601
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 13:41:32,854
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “null” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153879 2021-10-06 13:41:32,859
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 13:41:44,225
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153795 2021-10-06 13:41:44,230
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 13:41:48,906
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 68, in post
+    cases = MigrantCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “ ” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 153816 2021-10-06 13:41:48,910
+ERROR django.request Internal Server Error: /work/get-pdf/1/ 2021-10-06 14:05:34,405
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 359, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\api.py", line 69, in from_string
+    r = PDFKit(input, 'string', options=options, toc=toc, cover=cover, css=css,
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\pdfkit.py", line 42, in __init__
+    self.configuration = (Configuration() if configuration is None
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b''"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+ERROR django.server "GET /work/get-pdf/1/ HTTP/1.1" 500 109809 2021-10-06 14:05:34,409
+ERROR django.request Internal Server Error: /work/download-pdf/1/ 2021-10-06 14:08:29,901
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+OSError: [Errno 22] Invalid argument: b'C:\\Program Files\\wkhtmltopdf\x08in\\wkhtmltopdf.exe'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 385, in case_download_pdf_view
+    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\api.py", line 83, in configuration
+    return Configuration(**kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b'C:\\Program Files\\wkhtmltopdf\x08in\\wkhtmltopdf.exe'"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+ERROR django.server "GET /work/download-pdf/1/ HTTP/1.1" 500 90211 2021-10-06 14:08:29,904
+ERROR django.request Internal Server Error: /work/get-pdf/1/ 2021-10-06 14:09:04,528
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 359, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\api.py", line 69, in from_string
+    r = PDFKit(input, 'string', options=options, toc=toc, cover=cover, css=css,
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\pdfkit.py", line 42, in __init__
+    self.configuration = (Configuration() if configuration is None
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b''"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+ERROR django.server "GET /work/get-pdf/1/ HTTP/1.1" 500 109809 2021-10-06 14:09:04,531

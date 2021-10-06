@@ -4,6 +4,8 @@ from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
+from .functions import remove_data
 from .serializers import *
 from django.contrib.auth.models import User
 from django.db import connection
@@ -354,7 +356,9 @@ def case_render_pdf_view(request, *args, **kwargs):
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
-    pdf = pdfkit.from_string(html, False)
+    path_wkthmltopdf = b'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+    pdf = pdfkit.from_string(html, False, configuration=config)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     return response
@@ -379,7 +383,9 @@ def case_download_pdf_view(request, *args, **kwargs):
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
-    pdf = pdfkit.from_string(html, False)
+    path_wkthmltopdf = b'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+    pdf = pdfkit.from_string(html, False,  configuration=config)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="card_{case.id}.pdf"'
     return response
@@ -537,12 +543,17 @@ class DataFilterAPI(APIView):
             else:
 
                 my_list.append(f"work_{item['id']}.name")
-    #         remove last date append new date
-        if 'work_start_date.name' and 'work_end_date.name' in my_list:
-            my_list.remove('work_start_date.name')
-            my_list.append("start_date")
-            my_list.remove('work_end_date.name')
-            my_list.append("end_date")
+                my_list.append(f"work_{item['id']}.id")
+            # remove last date append new date
+            delete_data = ["work_start_date.name", "work_end_date.name", "work_start_date.id","work_end_date.id", ]
+            remove_data(my_list, delete_data,)
+        my_list.append("start_date")
+        my_list.append("end_date")
+    #     if 'work_start_date.name' and 'work_end_date.name' in my_list:
+    #         my_list.remove('work_start_date.name')
+    #         my_list.append("start_date")
+    #         my_list.remove('work_end_date.name')
+    #         my_list.append("end_date")
 
         print('my', my_list)
         fields = unpucking(my_list)
@@ -1031,16 +1042,23 @@ class DataFilterAPI(APIView):
                 continue
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
-        # print(where_query)
-        # print(sql_query + where_query + group_by_query)
+        print(group_by_query)
+        print(sql_query + where_query + group_by_query)
         # return Response(['1', '2'])
         with connection.cursor() as cursor:
             cursor.execute(sql_query + where_query + group_by_query)
             row = cursor.fetchall()
-            print("cursor", cursor)
+            print("row", row)
             fields_list = []
             for i in request.data:
+                if i['id'] in ['start_date', 'end_date']:
+                    continue
+
                 fields_list.append(i['id'])
+                fields_list.append(f"{i['id']}_id")
+
+            fields_list.append('start_date')
+            fields_list.append('end_date')
             fields_list.append('count')
             fields_list.append('percent')
             response_list = []
