@@ -58,7 +58,8 @@
                 <div id="right-result"></div>
                 <div class="item panel panel-primary">
                     <div class="item-header panel-heading">
-                        <label class="s-label no-margin">Дата начала <input class="s-checks" id="start_date" type="checkbox"></label>
+                        <label class="s-label no-margin">Дата начала <input class="s-checks" id="start_date"
+                                                                            type="checkbox"></label>
                     </div>
                     <div class="item-body d-none pt-3 pb-3 panel-body">
                         <input class="form-control" data-id="start_date" type="date">
@@ -66,7 +67,8 @@
                 </div>
                 <div class="item panel panel-primary">
                     <div class="item-header panel-heading">
-                        <label class="s-label no-margin">Дата конца <input class="s-checks" id="end_date" type="checkbox"></label>
+                        <label class="s-label no-margin">Дата конца <input class="s-checks" id="end_date"
+                                                                           type="checkbox"></label>
                     </div>
                     <div class="item-body d-none pt-3 pb-3 panel-body">
                         <input class="form-control" data-id="end_date" type="date">
@@ -81,6 +83,45 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Детальное отображение</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead class="small">
+                    <tr>
+                        <th>№</th>
+                        <th class="text-center">Монитор</th>
+                        <th class="text-center">Название</th>
+                        <th class="text-center">Регион</th>
+                        <th class="text-center">Страна</th>
+                        <th class="text-center">Дата создания</th>
+                        <th class="text-center">Дата последних изменений</th>
+                    </tr>
+                    </thead>
+                    <tbody class="small" id="tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="{% static 'statistica/js/sp_fields.js' %}"></script>
 {% block scripts %}
 

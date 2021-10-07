@@ -2051,3 +2051,161 @@ WARNING django.request Bad Request: /analytic/work/search/ 2021-10-06 14:39:59,0
 WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 400 82 2021-10-06 14:39:59,043
 WARNING django.request Bad Request: /analytic/work/search/ 2021-10-06 14:40:00,239
 WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 400 82 2021-10-06 14:40:00,240
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:08:37,739
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:08:37,740
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:09:47,999
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:09:48,000
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:12:42,653
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:12:42,654
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:13:36,043
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:13:36,045
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:13:48,517
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:13:48,518
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:14:48,877
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:14:48,881
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:29:36,441
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:29:36,441
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:34:55,243
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:34:55,246
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:39:56,284
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:39:56,286
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:41:58,608
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:41:58,609
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:43:08,839
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:43:08,841
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:43:39,559
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:43:39,562
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-06 15:45:33,402
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1001, in post
+    where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
+IndexError: list index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97124 2021-10-06 15:45:33,405
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:46:19,930
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:46:19,931
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:53:38,925
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:53:38,925
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:54:28,051
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:54:28,054
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:59:09,425
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:59:09,425
+WARNING django.request Not Found: /favicon.ico 2021-10-06 15:59:57,091
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 15:59:57,092
+WARNING django.request Not Found: /favicon.ico 2021-10-06 16:00:09,637
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 16:00:09,637
+WARNING django.request Not Found: /favicon.ico 2021-10-06 16:34:42,618
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 16:34:42,620
+WARNING django.request Not Found: /favicon.ico 2021-10-06 16:37:57,616
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 16:37:57,618
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-06 16:39:33,106
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 77, in post
+    workcases = WorkCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “null” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 154723 2021-10-06 16:39:33,113
+WARNING django.request Not Found: /favicon.ico 2021-10-06 16:47:37,892
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-06 16:47:37,894
+WARNING django.request Forbidden: /analytic/work/search/ 2021-10-06 16:48:20,332
+WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 403 58 2021-10-06 16:48:20,332
+WARNING django.request Forbidden: /analytic/work/search/ 2021-10-06 16:51:05,434
+WARNING django.server "POST /analytic/work/search/ HTTP/1.1" 403 58 2021-10-06 16:51:05,435
+WARNING django.request Method Not Allowed: /analytic/work/search/ 2021-10-06 16:52:17,740
+WARNING django.server "GET /analytic/work/search/ HTTP/1.1" 405 5991 2021-10-06 16:52:17,740
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-10-07 10:17:21,450
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\statistica\views.py", line 77, in post
+    workcases = WorkCase.objects.filter(**filters)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 155264 2021-10-07 10:17:21,456

@@ -28,6 +28,9 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     const url = document.getElementById('work_data_get').textContent;
+
+    console.log({url});
+
     // const url = 'https://databasesv1.herokuapp.com/work/data/get/';
     // const url = 'http://localhost:8000/work/data/get/';
 
@@ -48,21 +51,87 @@ function getResult(data) {
  * @param {array} data - ответ от запроса
  * */
 function showResult(data) {
-   console.log(data);
 
+    console.log({data});
+    let td = '';
+    let tr = '';
+    let d = [];
+    let str = '';
+    data.forEach(item => {
+        let keys = Object.keys(item);
+        console.log({keys});
+        keys.forEach(i => {
+            if(i.includes('id') || i.includes('date')){
+                d.push(`data-${i}=${item[i]}`);
+
+                d.forEach(i => {
+                    str += i + ' '
+                })
+            } else{
+                td += '<td>' + item[i] + '</td>';
+            }
+        });
+
+        tr += '<tr ' + str + ' class="rowTable">' + td + '</td>';
+        td = '';
+        d=[];
+        str='';
+    });
+
+    document.querySelector('#left-result').innerHTML = tr;
+
+    let rows = document.querySelectorAll('.rowTable');
+
+    rows.forEach(i => {
+        i.onclick = getDataAttr;
+    });
+}
+
+function getDataAttr(e){
+    const obj = {...e.target.parentElement.dataset};
+
+    getModalInfo(obj);
+}
+
+function getModalInfo(obj){
+   const url = 'http://127.0.0.1:8000/analytic/work/search/';
+   const options = {
+       method:'POST',
+       headers:{
+           'Content-Type':'application/json'
+       },
+       body:JSON.stringify(obj)
+   }
+
+   fetch(url, options)
+      .then(response => {
+          if(response.ok){
+             return response.json();
+          } else {
+             alert('Код ошибки: ', response.status)
+          }
+      })
+      .then(data=>showInoModal(data))
+}
+
+function showInoModal(data){
     let td = '';
     let tr = '';
     data.forEach(item => {
-        let keys = Object.keys(item);
-        keys.forEach(i => {
-            td += '<td>' + item[i] + '</td>';
-        });
-
+        td += '<td>' + item['id'] + '</td>';
+        td += '<td>' + item['user'] + '</td>';
+        td += '<td>' + item['case_name'] + '</td>';
+        td += '<td>' + item['region'] + '</td>';
+        td += '<td>' + item['country'] + '</td>';
+        td += '<td>' + new Date(item['date_create']).toLocaleDateString() + '</td>';
+        td += '<td>' + new Date(item['date_update']).toLocaleDateString() + '</td>';
         tr += '<tr>' + td + '</td>';
         td = '';
     });
 
-    document.querySelector('#left-result').innerHTML = tr;
+    document.querySelector('#tbody').innerHTML = tr;
+
+    $('#myModal').modal();
 }
 
 function getRight() {

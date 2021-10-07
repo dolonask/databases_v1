@@ -14,6 +14,8 @@ class MigrantResultSerializer(serializers.ModelSerializer):
 
 class WorkResultSerializer(serializers.ModelSerializer):
     country = serializers.CharField()
+    user = serializers.CharField()
+    region = serializers.CharField()
     class Meta:
         model = WorkCase
         fields = "__all__"
