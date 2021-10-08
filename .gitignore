@@ -68,6 +68,8 @@ coverage.xml
 .pytest_cache/
 cover/
 
+
+ */__pycache__/*
 # Translations
 *.mo
 
@@ -191,7 +193,7 @@ cython_debug/
 # .idea/modules
 # *.iml
 # *.ipr
-
+db-crm-4.sqlite3
 # CMake
 cmake-build-*/
 
