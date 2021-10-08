@@ -1042,6 +1042,8 @@ class DataFilterAPI(APIView):
                 continue
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
+
+        group_by_query = group_by_query[0:len(group_by_query)-20]
         print(group_by_query)
         print(sql_query + where_query + group_by_query)
         # return Response(['1', '2'])
