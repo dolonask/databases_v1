@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'databases_v1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'databases_crm_1',
+        'NAME': 'database_crm_1',
         'USER': 'crm_admin',
         'PASSWORD': 'qwerTY123',
         'HOST': '127.0.0.1',
