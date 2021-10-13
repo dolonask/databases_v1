@@ -484,6 +484,14 @@ function onGroupMembershipChanged(value){
     }else{
         hideTandem('id_membership_another');
     }
+
+    if (get_selected('id_membership') == 4){
+        hideTandem('id_tradeUnionSituation');
+        hideTandem('id_tradeUnionCount');
+    }else{
+        hideTandem('id_tradeUnionSituation');
+        hideTandem('id_tradeUnionCount');
+    }
 }
 function onOwnershipChanged(value){
 

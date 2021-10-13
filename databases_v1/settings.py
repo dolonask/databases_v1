@@ -127,9 +127,9 @@ WSGI_APPLICATION = 'databases_v1.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'databases_crm-1',
+#         'NAME': 'database_crm1',
 #         'USER': 'postgres',
-#         'PASSWORD': 'admin',
+#         'PASSWORD': 'postgres',
 #         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }

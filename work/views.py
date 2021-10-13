@@ -519,6 +519,7 @@ class DataAPIView(APIView):
         # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
 
 
+
 class DataFilterAPI(APIView):
     authentication_classes = []
     def post(self, request):
