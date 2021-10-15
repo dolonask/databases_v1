@@ -1,0 +1,832 @@
+WARNING django.request Not Found: /favicon.ico 2021-10-15 10:46:45,572
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-15 10:46:45,573
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-15 14:49:37,732
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1051, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 152077 2021-10-15 14:49:37,748
+WARNING django.request Not Found: /analytic/work/test-data/get/ 2021-10-15 15:07:38,805
+WARNING django.server "POST /analytic/work/test-data/get/ HTTP/1.1" 404 4713 2021-10-15 15:07:38,805
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-15 15:08:11,856
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1051, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 144699 2021-10-15 15:08:11,872
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:12:14,905
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:12:14,906
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:12:26,335
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:12:26,336
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:13:01,025
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:13:01,025
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:13:16,435
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:13:16,436
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:13:17,132
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:13:17,132
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 15:14:45,920
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 29, in post
+    print(request.DATA)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\request.py", line 422, in DATA
+    raise NotImplementedError(
+NotImplementedError: `request.DATA` has been deprecated in favor of `request.data` since version 3.0, and has been fully removed as of version 3.2.
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 95920 2021-10-15 15:14:45,924
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-15 15:19:50,260
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1049, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 144699 2021-10-15 15:19:50,260
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:22,762
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:22,762
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:29,086
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:29,087
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:29,902
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:29,903
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:37,040
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:37,041
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:37,849
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:37,851
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:38,392
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:38,393
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:49,481
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:49,481
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:50,370
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:50,371
+WARNING django.request Bad Request: /work/test-data/get/ 2021-10-15 15:20:50,968
+WARNING django.server "POST /work/test-data/get/ HTTP/1.1" 400 83 2021-10-15 15:20:50,968
+WARNING django.request Not Found: /favicon.ico 2021-10-15 16:29:14,812
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-15 16:29:14,813
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:09:19,798
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields = fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 146, in many_init
+    child_serializer = cls(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 115, in __init__
+    super().__init__(**kwargs)
+TypeError: __init__() got an unexpected keyword argument 'fields'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 112375 2021-10-15 17:09:19,803
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:10:30,888
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 146, in many_init
+    child_serializer = cls(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 115, in __init__
+    super().__init__(**kwargs)
+TypeError: __init__() got an unexpected keyword argument 'fields'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 112371 2021-10-15 17:10:30,891
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:10:56,495
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 146, in many_init
+    child_serializer = cls(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 115, in __init__
+    super().__init__(**kwargs)
+TypeError: __init__() got an unexpected keyword argument 'fields'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 112353 2021-10-15 17:10:56,498
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:23:12,534
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138795 2021-10-15 17:23:12,538
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:23:56,210
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138795 2021-10-15 17:23:56,213
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:24:24,688
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138795 2021-10-15 17:24:24,692
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:24:59,141
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138795 2021-10-15 17:24:59,145
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:25:45,013
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138801 2021-10-15 17:25:45,017
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:26:16,209
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 42, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138818 2021-10-15 17:26:16,214
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:27:28,668
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138786 2021-10-15 17:27:28,672
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:32:23,879
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138786 2021-10-15 17:32:23,882
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:41:15,145
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138786 2021-10-15 17:41:15,148
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:50:25,346
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138507 2021-10-15 17:50:25,349
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:50:28,722
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138507 2021-10-15 17:50:28,724
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:50:30,602
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138507 2021-10-15 17:50:30,605
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:51:06,938
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 41, in post
+    serializer = serializer(queryset, many=True, fields=fields_keys)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 121, in __new__
+    return cls.many_init(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 158, in many_init
+    return list_serializer_class(*args, **list_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 580, in __init__
+    self.child.bind(field_name='', parent=self)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 378, in bind
+    assert self.source != field_name, (
+AttributeError: 'DataFilterApiSerializer' object has no attribute 'source'
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 138507 2021-10-15 17:51:06,943
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:54:21,996
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 36, in post
+    queryset = Case.objects.filter(**two)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [1].
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 150595 2021-10-15 17:54:22,001
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:55:14,198
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 37, in post
+    queryset = Case.objects.filter(**two)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [1].
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 150604 2021-10-15 17:55:14,204
+ERROR django.request Internal Server Error: /work/test-data/get/ 2021-10-15 17:57:13,274
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\data_filter_api.py", line 39, in post
+    queryset = Case.objects.filter(**two)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [1].
+ERROR django.server "POST /work/test-data/get/ HTTP/1.1" 500 150839 2021-10-15 17:57:13,282

@@ -266,3 +266,9 @@ class TradeUnionActivitiesSerializers(serializers.ModelSerializer):
     class Meta:
         model = TradeUnionActivities
         fields = ('id', 'name')
+
+class DataFilterApiSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Case
+        fields = "__all__"

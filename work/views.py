@@ -519,18 +519,15 @@ class DataAPIView(APIView):
         # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
 
 
-
 class DataFilterAPI(APIView):
     authentication_classes = []
     def post(self, request):
 
-        print(request.data)
+        print(request.data, "request data")
         my_list = []
 
         for item in request.data:
-            print(
-                item
-            )
+
             if item['id'] == 'work_tradeunionactivities':
                 my_list.append(f'{item["id"]}.name')
             elif item['id'] == 'user':
@@ -556,7 +553,7 @@ class DataFilterAPI(APIView):
     #         my_list.remove('work_end_date.name')
     #         my_list.append("end_date")
 
-        print('my', my_list)
+
         fields = unpucking(my_list)
         case_count = Case.objects.count()
         sql_query = f"SELECT {fields}, count(*), round(count (*) * 100.0 /{case_count}, 2) percent FROM work_case"
@@ -568,7 +565,7 @@ class DataFilterAPI(APIView):
         for data in request.data:
             if data['id'] in fields:
                 id = data['id']
-                print(data, "data")
+
                 item = data['item']
 
                 if id == "country":
@@ -1044,7 +1041,7 @@ class DataFilterAPI(APIView):
         where_query_list = 'and '.join(where_query_list)
         where_query += where_query_list
 
-        group_by_query = group_by_query[0:len(group_by_query)-20]
+
         print(group_by_query)
         print(sql_query + where_query + group_by_query)
         # return Response(['1', '2'])

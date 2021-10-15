@@ -1,3 +1,3 @@
 def unpucking(list):
-    res = ','.join(list)
+    res = ', '.join(list)
     return res

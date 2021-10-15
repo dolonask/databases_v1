@@ -1,0 +1,2049 @@
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 13:54:08,423
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name,work_country.id,start_date,end_date...
+                                                 ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name,work_country.id,start_date,end_date...
+                                                 ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135922 2021-10-14 13:54:08,423
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 13:56:47,910
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '4', '5', '6') group by work_country.name,work_country.id,
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '4', '5', '6') group by work_country.name,work_country.id,
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 134965 2021-10-14 13:56:47,910
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 13:58:45,116
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name,work_country.id,start_date,end_date...
+                                                 ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name,work_country.id,start_date,end_date...
+                                                 ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135922 2021-10-14 13:58:45,132
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:01:06,944
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135003 2021-10-14 14:01:06,944
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:02:19,514
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 134996 2021-10-14 14:02:19,520
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:02:38,804
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 134996 2021-10-14 14:02:38,809
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:02:50,983
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name, work_country.id, start_date, end_d...
+                                                   ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name, work_country.id, start_date, end_d...
+                                                   ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135973 2021-10-14 14:02:50,998
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:36:40,432
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1072, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 98918 2021-10-14 14:36:40,437
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:40:34,305
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135680 2021-10-14 14:40:34,305
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:53:34,049
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135003 2021-10-14 14:53:34,049
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:54:13,017
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 134996 2021-10-14 14:54:13,017
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:54:21,795
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ... '4', '5', '6') group by work_country.name, work_country.id,
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 134996 2021-10-14 14:54:21,810
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:54:24,090
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name, work_country.id, start_date, end_d...
+                                                   ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name, work_country.id, start_date, end_d...
+                                                   ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135973 2021-10-14 14:54:24,090
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:55:41,649
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name, work_country.id, start_date, end_d...
+                                                   ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    with connection.cursor() as cursor:
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец "work_case.start_date" должен фигурировать в предложении GROUP BY или использоваться в агрегатной функции
+LINE 1: SELECT work_country.name, work_country.id, start_date, end_d...
+                                                   ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135990 2021-10-14 14:55:41,649
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:55:44,299
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1053, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135033 2021-10-14 14:55:44,315
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:56:43,740
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1053, in post
+    with connection.cursor() as cursor:
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135050 2021-10-14 14:56:43,740
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:56:48,983
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135033 2021-10-14 14:56:48,990
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:57:40,324
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135033 2021-10-14 14:57:40,324
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:58:43,553
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135033 2021-10-14 14:58:43,558
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 14:59:11,820
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1055, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135033 2021-10-14 14:59:11,820
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:00:04,789
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1055, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ..., '6') group by work_country.name, work_country.id, max(star
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135033 2021-10-14 15:00:04,804
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:02:52,015
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135684 2021-10-14 15:02:52,015
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:02:56,960
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135684 2021-10-14 15:02:56,960
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:03:58,552
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1053, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135781 2021-10-14 15:03:58,557
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:04:38,402
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1053, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135780 2021-10-14 15:04:38,402
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:04:43,486
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1053, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135780 2021-10-14 15:04:43,502
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:05:08,217
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135743 2021-10-14 15:05:08,217
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:06:13,656
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135718 2021-10-14 15:06:13,672
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:06:18,543
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135718 2021-10-14 15:06:18,543
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:06:50,785
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...'6') group by work_country.name, work_country.id, max(start_...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135724 2021-10-14 15:06:50,785
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:08:17,532
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.GroupingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...y work_country.name, work_country.id, start_date, max(end_da...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  агрегатные функции нельзя применять в конструкции GROUP BY
+LINE 1: ...y work_country.name, work_country.id, start_date, max(end_da...
+                                                             ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135606 2021-10-14 15:08:17,538
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:12:24,097
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса (примерное положение: ";")
+LINE 1: ...4', '5', '6') group by work_country.name, work_country.id, ;
+                                                                      ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса (примерное положение: ";")
+LINE 1: ...4', '5', '6') group by work_country.name, work_country.id, ;
+                                                                      ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135634 2021-10-14 15:12:24,112
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:13:02,873
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135252 2021-10-14 15:13:02,888
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:13:35,974
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...'4', '5', '6') group by work_country.name, work_country.id, 
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 135254 2021-10-14 15:13:35,989
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:14:06,769
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 138737 2021-10-14 15:14:06,769
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:14:49,370
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 140205 2021-10-14 15:14:49,375
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 15:22:01,302
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.groupofrights_id не существует
+LINE 1: ...oin work_groupofrights on work_groupofrights.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.groupOfRights_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 140205 2021-10-14 15:22:01,302
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:25:55,048
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.tradeunioncrime_id не существует
+LINE 1: ...work_tradeunioncrime on work_tradeunioncrime.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.tradeUnionCrime_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.tradeunioncrime_id не существует
+LINE 1: ...work_tradeunioncrime on work_tradeunioncrime.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.tradeUnionCrime_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 139379 2021-10-14 16:25:55,048
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:26:13,467
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1075, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 102068 2021-10-14 16:26:13,467
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:26:26,011
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1075, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99943 2021-10-14 16:26:26,014
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:26:30,454
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1075, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99821 2021-10-14 16:26:30,456
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:26:31,652
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1075, in post
+    response_body[fields_list[j]] = row[i][j]
+IndexError: tuple index out of range
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99821 2021-10-14 16:26:31,652
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:27:05,264
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.tradeunionsituation_id не существует
+LINE 1: ...deunionsituation on work_tradeunionsituation.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.tradeUnionSituation_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1054, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.tradeunionsituation_id не существует
+LINE 1: ...deunionsituation on work_tradeunionsituation.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.tradeUnionSituation_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 142380 2021-10-14 16:27:05,264
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:36:02,262
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...ion.id, work_tradeunionactivities.name, auth_user.username, 
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...ion.id, work_tradeunionactivities.name, auth_user.username, 
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 140596 2021-10-14 16:36:02,267
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:49:28,941
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.SyntaxError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...ion.id, work_tradeunionactivities.name, auth_user.username, 
+                                                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1052, in post
+    row = cursor.fetchall()
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  ошибка синтаксиса в конце
+LINE 1: ...ion.id, work_tradeunionactivities.name, auth_user.username, 
+                                                                       ^
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 140466 2021-10-14 16:49:28,941
+ERROR django.request Internal Server Error: /work/data/get/ 2021-10-14 16:49:31,249
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+psycopg2.errors.UndefinedColumn: ОШИБКА:  столбец work_case.tradeunionsituation_id не существует
+LINE 1: ...deunionsituation on work_tradeunionsituation.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.tradeUnionSituation_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\work\views.py", line 1051, in post
+    cursor.execute(sql_query + where_query + group_by_query)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\backends\utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+django.db.utils.ProgrammingError: ОШИБКА:  столбец work_case.tradeunionsituation_id не существует
+LINE 1: ...deunionsituation on work_tradeunionsituation.id = work_case....
+                                                             ^
+HINT:  Возможно, предполагалась ссылка на столбец "work_case.tradeUnionSituation_id".
+
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 142211 2021-10-14 16:49:31,256
