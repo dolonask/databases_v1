@@ -267,8 +267,31 @@ class TradeUnionActivitiesSerializers(serializers.ModelSerializer):
         model = TradeUnionActivities
         fields = ('id', 'name')
 
-class DataFilterApiSerializer(serializers.ModelSerializer):
+
+class CustomTestSerializer(serializers.ModelSerializer):
+    def __init__(self, *args, **kwargs):
+        # Don't pass the 'fields' arg up to the superclass
+        fields = kwargs.pop('fields', None)
+
+        # Instantiate the superclass normally
+        super(CustomTestSerializer, self).__init__(*args, **kwargs)
+
+        if fields is not None:
+            allowed = set(fields)
+            existing = set(self.fields)
+            for field_name in existing - allowed:
+                self.fields.pop(field_name)
+
+
+class DataFilterApiSerializer(CustomTestSerializer):
+    country = serializers.CharField(max_length=255, read_only=True)
+    region = serializers.CharField(max_length=255, read_only=True)
+    source = serializers.CharField(max_length=255, read_only=True)
+    groupOfRights = serializers.CharField(max_length=255, read_only=True)
+    count = serializers.IntegerField()
+    procent = serializers.IntegerField()
 
     class Meta:
         model = Case
-        fields = "__all__"
+        # fields = "__all__"
+        fields = ("id", "source", "country", "region", "groupOfRights", "count", "procent")

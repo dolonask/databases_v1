@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -31,13 +32,36 @@ class TestDataFilterAPI(APIView):
     def post(self, request):
 
         #  первая переработка даты
+        #  первая переработка даты
         one = get_request_data(request.data)
+        #  вторая переработка даты
         two = return_right_data(one)
-        # print("two ", two)
+        dicts = {}
+
+        country = two.get("country")
+        region = two.get("region")
+        groupofrights = two.get("groupofrights")
+        source = two.get("source")
+
         fields = list(two.keys())
-        print("two ", fields)
-        queryset = Case.objects.filter(**two)
-        serializer = DataFilterApiSerializer(queryset, many=True)
+
+        if "country" in fields:
+            dicts["country__in"] = country
+        if "region" in fields:
+            dicts["region__in"] = region
+        if "groupofrights" in fields:
+            fields.remove("groupofrights")
+            fields.append("groupOfRights")
+            dicts["groupOfRights__in"] = groupofrights
+        if "source" in fields:
+            dicts['source__in'] = source
+        print(dicts)
+        # поиск по бд
+        queryset = Case.objects.filter(**dicts).values(*fields).annotate(count=Count('id'), procent=100 / Count('id'))
+        # Добавление count и procent
+        fields.append("count")
+        fields.append("procent")
+        serializer = DataFilterApiSerializer(queryset, many=True, fields=fields)
         return Response(serializer.data)
 
 
