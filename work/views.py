@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
@@ -313,14 +314,25 @@ def load_regions(request):
 
 @login_required()
 def add_comment(request, pk):
+
     case = Case.objects.get(id=pk)
+
     if request.method == 'POST':
         data = request.POST
         data._mutable = True
         data['case'] = case.id
         form = CaseCommentForm(data)
         if form.is_valid():
+            from_email = request.user.email
+            print(from_email)
+
+            to_email = case.user.email
+            print(to_email)
+            comment = request.POST.get('comment')
+            subject = "Новые комментарии"
+            message = f"На вашу крточку был оставлен комментарий '{comment}' от {from_email}"
             form.save()
+            send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
             return redirect('works_list')
     else:
         form = CaseCommentForm()
