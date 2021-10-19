@@ -1,0 +1,356 @@
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:01:11,781
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 326, in add_comment
+    from_email = request.user.name
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/utils/functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'User' object has no attribute 'name'
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 73526 2021-10-19 11:01:11,783
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:04:39,437
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 308, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 112543 2021-10-19 11:04:39,442
+WARNING django.request Not Found: /work/add-comment 2021-10-19 11:04:52,335
+WARNING django.server "GET /work/add-comment HTTP/1.1" 404 6997 2021-10-19 11:04:52,336
+WARNING django.request Not Found: /work/ 2021-10-19 11:04:55,593
+WARNING django.server "GET /work/ HTTP/1.1" 404 6964 2021-10-19 11:04:55,594
+WARNING django.request Not Found: /work/ 2021-10-19 11:04:58,333
+WARNING django.server "GET /work/ HTTP/1.1" 404 6964 2021-10-19 11:04:58,333
+WARNING django.request Not Found: /work/ 2021-10-19 11:05:01,917
+WARNING django.server "GET /work/ HTTP/1.1" 404 6964 2021-10-19 11:05:01,917
+ERROR django.request Internal Server Error: /work/add-comment/2/ 2021-10-19 11:10:47,746
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 308, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+ERROR django.server "POST /work/add-comment/2/ HTTP/1.1" 500 112643 2021-10-19 11:10:47,749
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:16:31,538
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 308, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 112644 2021-10-19 11:16:31,542
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:21:00,827
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 308, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 112644 2021-10-19 11:21:00,830
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:39:26,133
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 308, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 112638 2021-10-19 11:39:26,136
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:44:13,643
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 308, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 112629 2021-10-19 11:44:13,646
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:45:46,532
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 734, in login
+    raise last_exception
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 723, in login
+    (code, resp) = self.auth(
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 646, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'Authentication failed. Please verify your account by going to https://e.mail.ru/login?email=tabyldieva1296@gmail.com')
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 105128 2021-10-19 11:45:46,536
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 11:57:49,392
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, from_email=None, to_email=[to_email, ], fail_silently=False)
+TypeError: send_mail() got an unexpected keyword argument 'to_email'
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 71016 2021-10-19 11:57:49,394
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 13:45:46,871
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 734, in login
+    raise last_exception
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 723, in login
+    (code, resp) = self.auth(
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 646, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'Authentication failed. Please verify your account by going to https://e.mail.ru/login?email=skomentariyev@bk.ru')
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 105088 2021-10-19 13:45:46,875
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 14:02:39,174
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 734, in login
+    raise last_exception
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 723, in login
+    (code, resp) = self.auth(
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 646, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'Authentication failed. Please verify your account by going to https://e.mail.ru/login?email=ksistema@internet.ru')
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 105084 2021-10-19 14:02:39,177
+ERROR django.request Internal Server Error: /work/add-comment/2/ 2021-10-19 14:16:35,154
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 734, in login
+    raise last_exception
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 723, in login
+    (code, resp) = self.auth(
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 646, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'Authentication failed. Please verify your account by going to https://e.mail.ru/login?email=komentariyev@mail.ru')
+ERROR django.server "POST /work/add-comment/2/ HTTP/1.1" 500 105095 2021-10-19 14:16:35,157
+ERROR django.request Internal Server Error: /work/add-comment/2/ 2021-10-19 14:22:36,882
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 335, in add_comment
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/__init__.py", line 61, in send_mail
+    return mail.send()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/mail/backends/smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 734, in login
+    raise last_exception
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 723, in login
+    (code, resp) = self.auth(
+  File "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/smtplib.py", line 646, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'Authentication failed. Please verify your account by going to https://e.mail.ru/login?email=komentariyev@mail.ru')
+ERROR django.server "POST /work/add-comment/2/ HTTP/1.1" 500 105074 2021-10-19 14:22:36,884
+ERROR django.request Internal Server Error: /work/add-comment/1/ 2021-10-19 14:28:06,729
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/Users/admin/Desktop/testing/databases_v1/work/views.py", line 322, in add_comment
+    print(request.data)
+AttributeError: 'WSGIRequest' object has no attribute 'data'
+ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 69303 2021-10-19 14:28:06,732

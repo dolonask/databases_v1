@@ -319,6 +319,7 @@ def add_comment(request, pk):
 
     if request.method == 'POST':
         data = request.POST
+        print(case.case_name)
         data._mutable = True
         data['case'] = case.id
         form = CaseCommentForm(data)
@@ -330,7 +331,7 @@ def add_comment(request, pk):
             print(to_email)
             comment = request.POST.get('comment')
             subject = "Новые комментарии"
-            message = f"На вашу крточку был оставлен комментарий '{comment}' от {from_email}"
+            message = f"На вашу карточку /'{case.case_name}'/ был оставлен слудующий комментарий : '{comment}', oт {from_email}"
             form.save()
             send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
             return redirect('works_list')

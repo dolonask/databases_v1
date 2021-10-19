@@ -124,23 +124,23 @@ WSGI_APPLICATION = 'databases_v1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'database_crm1',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db-crm-4.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'database_crm1',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db-crm-4.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -213,7 +213,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'tabyldieva1296@gmail.com'
-EMAIL_HOST_PASSWORD = 'cbopcvoquqyterol'
+EMAIL_HOST_USER = 'otzyvykomentarii@gmail.com'
+EMAIL_HOST_PASSWORD = 'ogzwsoaplkemxlza'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'komentariyev@mail.ru'
+EMAIL_HOST_PASSWORD = 'kU9KXe2efmtWNePhRvzg'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 2525
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# SERVER_EMAIL = 'n-tabyldieva@mail.ru'
+
+
