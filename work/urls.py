@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views, test_get_data
 from .data_filter_api import TestDataFilterAPI
 
 urlpatterns = [
@@ -15,7 +15,10 @@ urlpatterns = [
     path('delete-comments/<int:pk>/', views.delete_comment, name="work_case_delete_comment"),
     path('dict/regions/', views.load_regions, name='works_regions_list'),
     path('data/', views.DataAPIView.as_view(), name='work_data'),
+
     path('test-data/get/', TestDataFilterAPI.as_view()),
+    path('test-data/', test_get_data.TestDataAPIView.as_view(), name='work_data'),
+
     path('data/get/', views.DataFilterAPI.as_view(), name='work_data_get'),
     path('case_files_download/<int:pk>/', views.case_files_download, name='work_case_files_download'),
     path('card_files_delete/<int:pk>/', views.case_files_delete, name='work_card_files_delete'),

@@ -28,6 +28,7 @@ class RegionSerializers(serializers.ModelSerializer):
 
 
 class GroupOfRightsSerializers(serializers.ModelSerializer):
+
     class Meta:
         model = GroupOfRights
         fields = ('id', 'name')
@@ -284,14 +285,20 @@ class CustomTestSerializer(serializers.ModelSerializer):
 
 
 class DataFilterApiSerializer(CustomTestSerializer):
-    country = serializers.CharField(max_length=255, read_only=True)
-    region = serializers.CharField(max_length=255, read_only=True)
+    country_ = CountrySerializers(source='name', read_only=True)
+    region = serializers.StringRelatedField()
     source = serializers.CharField(max_length=255, read_only=True)
     groupOfRights = serializers.CharField(max_length=255, read_only=True)
     count = serializers.IntegerField()
     procent = serializers.IntegerField()
+    country = serializers.CharField(max_length=256)
 
     class Meta:
         model = Case
-        # fields = "__all__"
-        fields = ("id", "source", "country", "region", "groupOfRights", "count", "procent")
+        fields = "__all__"
+        # fields = ("id", "source", "country", "region", "groupOfRights", "count", "procent")
+
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     representation['country_'] = 'dghm'
+    #     return representation

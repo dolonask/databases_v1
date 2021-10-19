@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, F
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -37,6 +37,7 @@ class TestDataFilterAPI(APIView):
         #  вторая переработка даты
         two = return_right_data(one)
         dicts = {}
+        dicts2 = {}
 
         country = two.get("country")
         region = two.get("region")
@@ -47,17 +48,23 @@ class TestDataFilterAPI(APIView):
 
         if "country" in fields:
             dicts["country__in"] = country
+            dicts2["country__in"] = country
         if "region" in fields:
             dicts["region__in"] = region
+            dicts2["region__in"] = region
+
         if "groupofrights" in fields:
             fields.remove("groupofrights")
             fields.append("groupOfRights")
             dicts["groupOfRights__in"] = groupofrights
+            dicts2["groupOfRights__in"] = groupofrights
         if "source" in fields:
             dicts['source__in'] = source
+            dicts2['source__in'] = source
         print(dicts)
         # поиск по бд
-        queryset = Case.objects.filter(**dicts).values(*fields).annotate(count=Count('id'), procent=100 / Count('id'))
+        # queryset = Case.objects.all()
+        queryset = Case.objects.filter(**dicts).values(*fields).annotate(count=Count('id'), procent=100 / Count('id'),)
         # Добавление count и procent
         fields.append("count")
         fields.append("procent")
