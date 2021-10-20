@@ -442,6 +442,7 @@ class DataAPIView(APIView):
         governmentCoercion = GovernmentCoercionSerializers(GovernmentCoercion.objects.all(), many=True)
         violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLaborSerializer(ViolationsUsingCompulsoryLabor.objects.all(), many=True)
         failureSystemicMeasures = FailureSystemicMeasuresSerializers(FailureSystemicMeasures.objects.all(), many=True)
+
         victim = VictimSerializers(Victim.objects.all(), many=True)
         intruder = IntruderSerializers(Intruder.objects.all(), many=True)
         violation_nature = NatureViolationSerializers(NatureViolation.objects.all(), many=True)
@@ -516,6 +517,7 @@ class DataAPIView(APIView):
              'item': violationsUsingCompulsoryLabor.data},
             {'id': 'failureSystemicMeasures', 'name': 'Нарушения, связанные с непринятием государством системных мер',
              'item': failureSystemicMeasures.data},
+
             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
             {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
             {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},

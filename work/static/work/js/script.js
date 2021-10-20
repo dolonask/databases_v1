@@ -274,6 +274,7 @@ function onPrincipleOfNonDiscriminationChanged(value){
         'id_discriminationInVariousAreas':true,
         'id_publicPolicyDiscrimination':true,
     }
+
     switch (get_selected('id_principleOfNonDiscrimination')){
         case '1':
             field_dict['id_discriminatiOnVariousGrounds'] = false;

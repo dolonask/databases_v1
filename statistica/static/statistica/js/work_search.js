@@ -151,8 +151,12 @@ function getRight() {
  * */
 function showRight(data) {
     let block = '';
-    data.forEach(item => {
-        block += createRightElems(item.name, item.item, item.id);
+    data[1].forEach(item => {
+                block += createRightElems(item.name, item.item, item.id);
+
+//        item.forEach(i => {
+//            block += createRightElems(i.name, i.item, i.id);
+//        })
     })
 
     document.querySelector('#right-result').innerHTML = block;
@@ -218,7 +222,7 @@ function createRightElems(name, item, id) {
         '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
         '<div class="item-body d-none pt-3 pb-3 panel-body">' +
-        '<select data-id="' + id + '" class="form-control s-selects" id="" multiple>'
+        '<select data-id="' + id + '" class="form-control s-selects" id="">'
         + itemElems +
         '</select>' +
         '</div>' +
