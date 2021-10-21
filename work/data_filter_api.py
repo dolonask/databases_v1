@@ -31,6 +31,7 @@ def return_right_data(custom_dict_data):
 class TestDataFilterAPI(APIView):
     def post(self, request):
 
+
         #  первая переработка даты
         #  первая переработка даты
         one = get_request_data(request.data)
@@ -45,29 +46,32 @@ class TestDataFilterAPI(APIView):
         source = two.get("source")
 
         fields = list(two.keys())
-
+        print(two)
         if "country" in fields:
             dicts["country__in"] = country
-            dicts2["country__in"] = country
+            # dicts["country_id"] = country
+
         if "region" in fields:
             dicts["region__in"] = region
-            dicts2["region__in"] = region
+
 
         if "groupofrights" in fields:
             fields.remove("groupofrights")
             fields.append("groupOfRights")
             dicts["groupOfRights__in"] = groupofrights
-            dicts2["groupOfRights__in"] = groupofrights
+            # dicts["groupOfRights_id"] = groupofrights
         if "source" in fields:
             dicts['source__in'] = source
-            dicts2['source__in'] = source
+            # dicts['source_id'] = source
         print(dicts)
+        fields.append("country_id")
+
         # поиск по бд
-        # queryset = Case.objects.all()
-        queryset = Case.objects.filter(**dicts).values(*fields).annotate(count=Count('id'), procent=100 / Count('id'),)
+        queryset = Case.objects.filter(**dicts).values("country__name", "country_id", "region__name").annotate(count=Count('id'), procent=100 / Count('id'),)
         # Добавление count и procent
         fields.append("count")
         fields.append("procent")
+        print(fields)
         serializer = DataFilterApiSerializer(queryset, many=True, fields=fields)
         return Response(serializer.data)
 

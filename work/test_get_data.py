@@ -14,7 +14,6 @@ from work.test_serializers import GroupOfRightsSerializers
 
 class TestDataAPIView(APIView):
     def get(self, request):
-        print(request.GET)
         source = SourceSerializers(Source.objects.all(), many=True)
         country = CountrySerializers(Country.objects.all(), many=True)
         region_1 = RegionSerializers(Region.objects.filter(country__pk=1), many=True)
@@ -34,25 +33,25 @@ class TestDataAPIView(APIView):
         serializer = GroupOfRightsSerializers(queryset, many=True)
         print(serializer.data)
 
-        return Response([serializer.data,[
-                         {'id': 'source', 'name': 'Источник информации', 'item': source.data},
-                         {'id': 'country', 'name': 'Страна', 'item': country.data},
-                         {'id': 'region', 'name': 'Регион', 'item': {1: region_1.data,
+        return Response([{"id_name": "groupOfRights", "name": "Группа прав", "item": serializer.data},
+                         {'id_name': 'source', 'name': 'Источник информации', 'item': source.data},
+                         {'id_name': 'country', 'name': 'Страна', 'item': country.data},
+                         {'id_name': 'region', 'name': 'Регион', 'item': {1: region_1.data,
                                                                      2: region_2.data,
                                                                      3: region_3.data,
                                                                      4: region_4.data,
                                                                      5: region_5.data}},
-            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
-            {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
-            {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
-            {'id': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
-            {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
-            {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
+            {'id_name': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+            {'id_name': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
+            {'id_name': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
+            {'id_name': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
+            {'id_name': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
+            {'id_name': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
              'item': tradeUnionSituation.data},
-            {'id': 'work_tradeunionactivities', 'name': 'Отрасль деятельности профсоюза',
+            {'id_name': 'work_tradeunionactivities', 'name': 'Отрасль деятельности профсоюза',
              'item': trade_union_activities.data},
-            {'id': 'user', 'name': 'Монитор', 'item': user.data},
-        ] ])
+            {'id_name': 'user', 'name': 'Монитор', 'item': user.data},
+         ])
 
 
 
