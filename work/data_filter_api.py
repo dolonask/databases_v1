@@ -65,9 +65,10 @@ class TestDataFilterAPI(APIView):
             # dicts['source_id'] = source
         print(dicts)
         fields.append("country_id")
+        fields.append("region_id")
 
         # поиск по бд
-        queryset = Case.objects.filter(**dicts).values("country__name", "country_id", "region__name").annotate(count=Count('id'), procent=100 / Count('id'),)
+        queryset = Case.objects.filter(**dicts).values("country__name", "country_id", "region__name", "region_id").annotate(count=Count('id'), procent=100 / Count('id'),)
         # Добавление count и procent
         fields.append("count")
         fields.append("procent")
