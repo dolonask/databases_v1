@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -230,7 +231,14 @@ def add_comment(request, pk):
         data['case'] = case.id
         form = CaseCommentForm(data)
         if form.is_valid():
+            from_email = request.user.email
+            to_email = case.user.email
+            comment = request.POST.get('comment')
+
+            subject = "Новые комментарии"
+            message = f"На вашу карточку /'{case.case_name}'/ был оставлен слудующий комментарий : '{comment}', oт {from_email}"
             form.save()
+            send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
             return redirect('migrants_list')
     else:
         form = CaseCommentForm()
