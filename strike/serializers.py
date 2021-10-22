@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from work.serializers import CustomTestSerializer
 from .models import *
 from django.contrib.auth.models import User
 
@@ -103,6 +105,23 @@ class MeetingRequirmentSerializers(serializers.ModelSerializer):
     class Meta:
         model = MeetingRequirment
         fields = ('id', 'name')
+
+
+class FilterStrikeGroupSerializer(CustomTestSerializer):
+    country = serializers.CharField(max_length=256, source="country__name")
+    region = serializers.CharField(max_length=256, source="region__name")
+    country_id = serializers.IntegerField()
+    region_id = serializers.IntegerField()
+    class Meta:
+        model = Card
+        fields = "__all__"
+
+
+
+
+
+
+
 # class PersonGroupInfoSerializers(serializers.ModelSerializer):
 #     class Meta:
 #         model = PersonGroupInfo

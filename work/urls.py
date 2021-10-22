@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views, test_get_data
-from .data_filter_api import TestDataFilterAPI
+
 
 urlpatterns = [
     path('add/', views.add_case, name='work_case'),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('dict/regions/', views.load_regions, name='works_regions_list'),
     path('data/', views.DataAPIView.as_view(), name='work_data'),
 
-    path('test-data/get/', TestDataFilterAPI.as_view(), name="filter_data"),
+
     path('test-data/', test_get_data.TestDataAPIView.as_view(), name='work_get_data'),
 
     path('data/get/', views.DataFilterAPI.as_view(), name='work_data_get'),

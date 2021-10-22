@@ -1,10 +1,13 @@
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from main.service import unpucking
+from .helpers import get_request_data, return_right_data, get_data, get_values, get_fields
 from .serializers import *
 from .filters import CardFilter
 from django.db import connection
@@ -325,7 +328,13 @@ def add_comment(request, pk):
         data['card'] = card.id
         form = CardCommentForm(data)
         if form.is_valid():
+            from_email = request.user.email
+            to_email = card.added_by.email
+            comment = request.POST.get('comment')
+            subject = "Новые комментарии"
+            message = f"На вашу карточку /'{card.name}'/ был оставлен слудующий комментарий : '{comment}', oт {from_email}"
             form.save()
+            send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
             return redirect('strikes_list')
     else:
         form = CardCommentForm()
@@ -453,289 +462,22 @@ class DataAPIView(APIView):
 
 class DataFilterAPI(APIView):
     authentication_classes = []
+
     def post(self, request):
-        my_list = []
         print(request.data)
-        for item in request.data:
-            if item['id'] == 'user':
-                my_list.append(f"auth_user.username")
-            elif item['id'] == 'demand_cat':
-                my_list.append(f"strike_demandcategory.demand_cat_name")
-            elif item['id'] == 'economicdemand':
-                my_list.append(f"strike_economicdemand.name")
-            elif item['id'] == 'politicdemand':
-                my_list.append(f"strike_politicdemand.name")
-            elif item['id'] == 'combodemand':
-                my_list.append(f"strike_combodemand.name")
-            elif item['id'] == 'ownershiptype':
-                my_list.append(f"strike_ownershiptype.name")
-            elif item['id'] == 'employeescount':
-                my_list.append(f"strike_employeescount.choice")
-            elif item['id'] == 'participantscount':
-                my_list.append(f"strike_participantscount.choice")
-            elif item['id'] == 'tradeuniondata':
-                my_list.append(f"strike_tradeuniondata.tradeUnion_name")
-            elif item['id'] == 'employer':
-                my_list.append(f"strike_employer.emp_name")
+        one = get_request_data(request.data)
+        two = return_right_data(one)
+        values_list = get_values(two)
+        dicts = get_data(two)
 
-            else:
-                my_list.append(f"strike_{item['id']}.name")
-        #         remove last date append new date
-        if 'work_start_date.name' and 'work_end_date.name' in my_list:
-            my_list.remove('work_start_date.name')
-            my_list.append("start_date")
-            my_list.remove('work_end_date.name')
-            my_list.append("end_date")
-
-        fields = unpucking(my_list)
-        # case_count = Card.objects.count()
-        sql_query = f"SELECT {fields}, count(*), 100 / count (*) FROM strike_card"
-        where_query = "where "
-        where_list = []
-        where_query_list = []
-        group_by_query = f"group by {fields}"
-        for data in request.data:
-            if data['id'] in fields:
-                id = data['id']
-                item = data['item']
-                if id == "country":
-                    where_sql_query = "strike_card.country_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_country on strike_country.id = strike_card.country_id "
-
-                elif id == "region":
-                    where_sql_query = "strike_card.region_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_region on strike_region.id = strike_card.region_id "
-
-                elif id == "user":
-                    where_sql_query = "strike_card.added_by_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join auth_user on auth_user.id = strike_card.added_by_id "
-
-                elif id == "ownershiptype":
-                    where_sql_query = "strike_card.company_ownership_type_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_ownershiptype on strike_ownershiptype.id = strike_card.company_ownership_type_id "
-
-                elif id == "employeescount":
-                    where_sql_query = "strike_card.company_employees_count_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_employeescount on strike_employeescount.id = strike_card.company_employees_count_id "
-
-                elif id == "participantscount":
-                    where_sql_query = "strike_card.count_strike_participants_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_participantscount on strike_participantscount.id = strike_card.count_strike_participants_id "
-
-                elif id == "tradeunionchoice":
-                    where_sql_query = "strike_card.tradeunionChoice_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_tradeunionchoice on strike_tradeunionchoice.id = strike_card.tradeunionChoice_id "
-
-                elif id == "initiator":
-                    where_sql_query = "strike_card.initiator_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_initiator on strike_initiator.id = strike_card.initiator_id "
-
-                elif id == "tradeuniondata":
-                    where_sql_query = "strike_card.tradeunion_data_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_tradeuniondata on strike_tradeuniondata.id = strike_card.tradeunion_data_id "
-
-                elif id == "employer":
-                    where_sql_query = "strike_card.employear_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_employer on strike_employer.id = strike_card.employear_id "
-
-                elif id == "strikecharacter":
-                    where_sql_query = "strike_card.duration_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_strikecharacter on strike_strikecharacter.id = strike_card.duration_id "
-
-                elif id == "meetingrequirment":
-                    where_sql_query = "strike_card.meeting_requirements_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_meetingrequirment on strike_meetingrequirment.id = strike_card.meeting_requirements_id "
-
-                # Запрос для нахождение между start_date and end_date
-                elif id == "start_date":
-                    start = item[0]['id']
-
-                elif id == "end_date":
-                    end = item[0]['id']
-
-                    where_query_list.append(f"date(work_case.start_date) BETWEEN date('{start}') AND date('{end}')")
-
-
-                # elif id == "": # Экземпляр
-                #     where_sql_query = "strike_card._id in "
-                #     for i in item:
-                #         where_list.append(i['id'])
-                #     if len(where_list) > 1:
-                #         where_query_list.append(f"{where_sql_query} {tuple(where_list)}")
-                #     else:
-                #         where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                #     where_list.clear()
-                #     sql_query += " join strike_ on strike_.id = strike_card._id "
-
-
-                # Ниже представлены ManyToMany связи!
-                elif id == "source":
-                    where_sql_query = "strike_card_card_sources.source_id in"
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_card_card_sources on strike_card.id = strike_card_card_sources.card_id join strike_source on strike_card_card_sources.source_id = strike_source.id "
-
-                elif id == "demand_cat":
-                    where_sql_query = "strike_card_card_demand_categories.demandcategory_id in "
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_card_card_demand_categories on strike_card.id = strike_card_card_demand_categories.card_id join strike_demandcategory on strike_card_card_demand_categories.demandcategory_id = strike_demandcategory.id "
-
-                elif id == "economicdemand":
-                    where_sql_query = "strike_card_economic_demands.economicdemand_id in"
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_card_economic_demands on strike_card.id = strike_card_economic_demands.card_id join strike_economicdemand on strike_card_economic_demands.economicdemand_id = strike_economicdemand.id "
-
-                elif id == "politicdemand":
-                    where_sql_query = "strike_card_politic_demands.politicdemand_id in"
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_card_politic_demands on strike_card.id = strike_card_politic_demands.card_id join strike_politicdemand on strike_card_politic_demands.politicdemand_id = strike_politicdemand.id "
-
-                elif id == "combodemand":
-                    where_sql_query = "strike_card_combo_demands.combodemand_id in"
-                    for i in item:
-                        where_list.append(i['id'])
-                    if len(where_list) > 1:
-                        where_query_list.append(f"{where_sql_query} {tuple(where_list)} ")
-                    else:
-                        where_query_list.append(f"{where_sql_query} ({where_list[0]}) ")
-                    where_list.clear()
-                    sql_query += " join strike_card_combo_demands on strike_card.id = strike_card_combo_demands.card_id join strike_combodemand on strike_card_combo_demands.combodemand_id = strike_combodemand.id "
-
-            else:
-                continue
-        where_query_list = 'and '.join(where_query_list)
-        where_query += where_query_list
-        # print(where_query)
-        # print(sql_query + where_query + group_by_query)
-        with connection.cursor() as cursor:
-            cursor.execute(
-                sql_query + where_query + group_by_query
-            )
-            row = cursor.fetchall()
-            # print(row)
-            fields_list = []
-            for i in request.data:
-                fields_list.append(i['id'])
-            fields_list.append('count')
-            fields_list.append('percent')
-            response_list = []
-
-            for i in range(len(row)):
-                response_body = dict()
-                for j in range(len(fields_list)):
-                    response_body[fields_list[j]] = row[i][j]
-                response_list.append(response_body)
-            for i in range(len(response_list)):
-                response_list[i]['percent'] = 100 / len(response_list)
-        # return Response(status=401)
-        return Response(response_list)
+        queryset = Card.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+                                                                         procent=100 / Count('id')
+                                                                              )
+        fields = get_fields(two)
+        fields.append("count")
+        fields.append("procent")
+        serializers = FilterStrikeGroupSerializer(queryset, many=True, fields=fields)
+        return Response(serializers.data)
 
 
 @login_required()

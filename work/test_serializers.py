@@ -18,10 +18,13 @@ from work.serializers import СonversationRightSerializers, AntiTradeUnionDiscri
 
 # функция для переопределения representation
 def get_representation(representation, id, id_name, serializer, model):
+
     if representation.get("id") == id:
         representation['id_name'] = id_name
         representation['child'] = True
-        representation['child_item'] = serializer(model.objects.all(), many=True).data
+        representation['item'] = serializer(model.objects.all(), many=True).data
+
+
 
 
 class ChildLaborSerializers(serializers.ModelSerializer):
@@ -134,6 +137,7 @@ class GroupOfRightsSerializers(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
+
         get_representation(representation, 1, "tradeUnionRight", TradeUnionRightSerializers, TradeUnionRight)
         get_representation(representation, 2, "сonvention87",  Сonvention87Serializers, Сonvention87)
         get_representation(representation, 3, "сonvention98", Сonvention98Serializers, Сonvention98)
