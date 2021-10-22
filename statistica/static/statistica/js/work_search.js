@@ -151,20 +151,22 @@ function getRight() {
  * */
 function showRight(data) {
     let block = '';
-    data[1].forEach(item => {
-                block += createRightElems(item.name, item.item, item.id);
-
-//        item.forEach(i => {
-//            block += createRightElems(i.name, i.item, i.id);
-//        })
+    data.forEach(item => {
+        block += createRightElems(item.name, item.item, item.id_name);
     })
 
     document.querySelector('#right-result').innerHTML = block;
 
     let sChecks = document.querySelectorAll('.s-checks');
 
+    let sSelects = document.querySelectorAll('.s-selects');
+
     sChecks.forEach(s => {
         s.onchange = showItems;
+    });
+
+    sSelects.forEach(select => {
+        select.onclick = showChildBlocks;
     });
 
     document.querySelector('#region').onclick = function(e){
@@ -195,6 +197,33 @@ function showRight(data) {
     }
 }
 
+
+function showChildBlocks(e){
+         let child = e.currentTarget.options[e.currentTarget.selectedIndex].dataset.child;
+         e.currentTarget.nextElementSibling.innerHTML = '';
+
+         console.log(e.currentTarget.options[e.currentTarget.selectedIndex].dataset);
+
+         if(child){
+             let childItems = JSON.parse(e.currentTarget.options[e.currentTarget.selectedIndex].dataset.childitems);
+             let name = e.currentTarget.options[e.currentTarget.selectedIndex].dataset.name;
+             let childBlock = createRightElems(name, childItems, 1);
+             e.currentTarget.nextElementSibling.innerHTML = childBlock;
+
+             let sChecks = document.querySelectorAll('.s-checks');
+
+             sChecks.forEach(s => {
+                 s.onchange = showItems;
+             });
+
+             let sSelects = document.querySelectorAll('.s-selects');
+
+             sSelects.forEach(select => {
+                 select.onchange = showChildBlocks;
+             });
+         }
+}
+
 /** Выводит блок для выпадающего списка
  * @param {object} e - Обьект event
  * */
@@ -212,19 +241,20 @@ function createRightElems(name, item, id) {
     let itemElems = '';
     if (id !== 'region') {
         item.forEach(i => {
-            itemElems += `<option value="${i.id}">${i.name}</option>`;
+            itemElems += `<option data-name="${i.name}" data-childitems='${JSON.stringify(i.item) || ''}' data-child="${i.child || ''}" value="${i.id}">${i.name}</option>`;
         })
     }
-
 
     let block = '<div class="item panel panel-primary">' +
         '<div class="item-header panel-heading">' +
         '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
         '<div class="item-body d-none pt-3 pb-3 panel-body">' +
-        '<select data-id="' + id + '" class="form-control s-selects" id="">'
+        '<select data-id="' + id + '" class="form-control s-selects" id="">'+
+        `<option data-name="" data-childitems="" data-child="" value="">Выберите</option>`
         + itemElems +
         '</select>' +
+        '<p><p/>' +
         '</div>' +
         '</div>';
 

@@ -109,8 +109,17 @@ class UserSerializers(serializers.ModelSerializer):
 class MigrantCaseGroupByFilterSerializer(CustomTestSerializer):
     country = serializers.CharField(max_length=256, source="country__name")
     region = serializers.CharField(max_length=256, source="region__name")
+    victim = serializers.CharField(max_length=256, source="victim__name")
+    banOnEntry = serializers.CharField(max_length=256, source="banOnEntry__name")
+    source = serializers.CharField(max_length=256, source="source__name")
+    # user = serializers.CharField(max_length=256, source="user__name")
+    # entrepreneur = serializers.CharField(max_length=256, source="entrepreneur__entrepreneur_name")
     country_id = serializers.IntegerField()
+    victim_id = serializers.IntegerField()
     region_id = serializers.IntegerField()
+    banOnEntry_id = serializers.IntegerField()
+    source_id = serializers.IntegerField()
+    # user_id = serializers.IntegerField()
 
     class Meta:
         model = Case

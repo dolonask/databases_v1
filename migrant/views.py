@@ -357,9 +357,9 @@ class DataAPIView(APIView):
                                                         4: region_4.data,
                                                         5: region_5.data}},
             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
-            {'id': 'banonentry', 'name': 'Есть ли у вас запрет на въезд?', 'item': banOnEntry.data},
-            {'id': 'infosource', 'name': 'Источник информации о нарушении', 'item': source.data},
-            {'id': 'right', 'name': 'Какое право нарушено?', 'item': violated_right.data},
+            {'id': 'banOnEntry', 'name': 'Есть ли у вас запрет на въезд?', 'item': banOnEntry.data},
+            {'id': 'source', 'name': 'Источник информации о нарушении', 'item': source.data},
+            {'id': 'violated_right', 'name': 'Какое право нарушено?', 'item': violated_right.data},
             # {'id': 'individualinfo', 'name': 'физическое лицо', 'item': individualInfo.data}, #50 % 50
             # {'id': 'personGroupInfo', 'name': 'Группа лиц', 'item': personGroupInfo.data},
             {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
