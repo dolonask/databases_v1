@@ -31,7 +31,7 @@ class TestDataAPIView(APIView):
         trade_union_activities = TradeUnionActivitiesSerializers(TradeUnionActivities.objects.all(), many=True)
         queryset = GroupOfRights.objects.all()
         serializer = GroupOfRightsSerializers(queryset, many=True)
-        print(serializer.data)
+        # print(serializer.data)
 
         return Response([{"id_name": "groupOfRights", "name": "Группа прав", "item": serializer.data},
                          {'id_name': 'source', 'name': 'Источник информации', 'item': source.data},

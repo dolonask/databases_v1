@@ -539,21 +539,21 @@ class DataFilterAPI(APIView):
     authentication_classes = []
 
     def post(self, request):
-        def post(self, request):
-            print(request.data)
-            one = get_request_data(request.data)
-            two = return_right_data(one)
-            values_list = get_values(two)
-            dicts = get_data(two)
 
-            queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+        print(request.data)
+        one = get_request_data(request.data)
+        two = return_right_data(one)
+        values_list = get_values(two)
+        dicts = get_data(two)
+
+        queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
                                                                                   procent=100 / Count('id')
                                                                                   )
-            fields = get_fields(two)
-            fields.append("count")
-            fields.append("procent")
-            serializers = DataFilterApiSerializer(queryset, many=True, fields=fields)
-            return Response(serializers.data)
+        fields = get_fields(two)
+        fields.append("count")
+        fields.append("procent")
+        serializers = DataFilterApiSerializer(queryset, many=True, fields=fields)
+        return Response(serializers.data)
 
 
 @login_required()
