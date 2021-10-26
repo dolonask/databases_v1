@@ -371,7 +371,7 @@ class DataAPIView(APIView):
              'item': tradeUnionSituation.data},
             {'id': 'violationtype', 'name': 'С какими нарушениями трудовых прав вы столкнулись из-за COVID-19?',
              'item': violationType.data},
-            {'id': 'changesinsalary', 'name': 'Как изменились Ваши доходы из-за COVID-19?', 'item': changesInSalary.data},
+            {'id': 'changesInSalary', 'name': 'Как изменились Ваши доходы из-за COVID-19?', 'item': changesInSalary.data},
             {'id': 'user', 'name': 'Монитор', 'item': user.data},
         ])
         # {'id': 'company', 'name': 'Работодатель(компания)', 'item': company.data},  # Можно удалить
@@ -385,8 +385,10 @@ class DataFilterAPI(APIView):
         print(request.data)
         one = get_request_data(request.data)
         two = return_right_data(one)
+        print(two)
         values_list = get_values(two)
         dicts = get_data(two)
+        print(dicts)
 
         queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
                                                                          procent=100 / Count('id')

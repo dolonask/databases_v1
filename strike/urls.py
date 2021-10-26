@@ -17,5 +17,8 @@ urlpatterns = [
     path('card_files_download/<int:pk>/', views.card_files_download, name='strike_card_files_download'),
     path('card_files_delete/<int:pk>/', views.card_files_delete, name='strike_card_files_delete'),
     path('card_photo_delete/<int:pk>/', views.card_photo_delete, name='strike_card_photo_delete'),
-    path('word/<int:pk>/', views.strike_word_generate, name='strike_case_word')
+    path('word/<int:pk>/', views.strike_word_generate, name='strike_case_word'),
+
+
+    path('test/', views.TestGet.as_view())
 ]

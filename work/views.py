@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
@@ -545,10 +546,12 @@ class DataFilterAPI(APIView):
         two = return_right_data(one)
         values_list = get_values(two)
         dicts = get_data(two)
+        print(dicts)
 
         queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
                                                                                   procent=100 / Count('id')
                                                                                   )
+        print(queryset)
         fields = get_fields(two)
         fields.append("count")
         fields.append("procent")

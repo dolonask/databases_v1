@@ -442,23 +442,31 @@ class DataAPIView(APIView):
                                                         3: region_3.data,
                                                         4: region_4.data,
                                                         5: region_5.data}},
-            {'id': 'source', 'name': 'Источник', 'item': source.data},
-            {'id': 'user', 'name': 'Монитор', 'item': added_by.data},
-            {'id': 'demand_cat', 'name': 'Характер требований', 'item': demand_categories.data},
+            {'id': 'card_sources', 'name': 'Источник', 'item': source.data},
+            {'id': 'added_by', 'name': 'Монитор', 'item': added_by.data},
+            {'id': 'card_demand_categories', 'name': 'Характер требований', 'item': demand_categories.data},
             {'id': 'economicdemand', 'name': 'Экономический', 'item': economic_demands.data},
             {'id': 'politicdemand', 'name': 'Политический', 'item': politic_demands.data},
             {'id': 'combodemand', 'name': 'Смешанный', 'item': combo_demands.data},
-            {'id': 'ownershiptype', 'name': 'Форма собственности компании', 'item': company_ownership_type.data},
-            {'id': 'employeescount', 'name': 'Общая численность работников на предприятии', 'item': company_employees_count.data},
-            {'id': 'participantscount', 'name': 'Общая численность работников на предприятии', 'item': count_strike_participants.data},
-            {'id': 'tradeunionchoice', 'name': 'Есть ли на предприятии профсоюз', 'item': tradeunion_choice.data},
+            {'id': 'company_ownership_type', 'name': 'Форма собственности компании', 'item': company_ownership_type.data},
+
+            {'id': 'company_employees_count', 'name': 'Общая численность работников на предприятии', 'item': company_employees_count.data},
+
+            {'id': 'count_strike_participants', 'name': 'Общая численность работников на предприятии', 'item': count_strike_participants.data},
+
+            {'id': 'tradeunionChoice', 'name': 'Есть ли на предприятии профсоюз', 'item': tradeunion_choice.data},
             {'id': 'initiator', 'name': 'Инициатор забастовки/акции', 'item': initiator.data},
-            {'id': 'tradeuniondata', 'name': 'Данные профсоюза', 'item': tradeunion_data.data},
+            {'id': 'tradeunion_data', 'name': 'Данные профсоюза', 'item': tradeunion_data.data},
             {'id': 'employer', 'name': 'Работодатель', 'item': employear.data},
-            {'id': 'strikecharacter', 'name': 'Характер забастовки/акции - сколько длилась', 'item': duration.data},
-            {'id': 'meetingrequirment', 'name': 'Удовлетворение требований', 'item': meeting_requirements.data},
+            {'id': 'duration', 'name': 'Характер забастовки/акции - сколько длилась', 'item': duration.data},
+            {'id': 'meeting_requirements', 'name': 'Удовлетворение требований', 'item': meeting_requirements.data},
         ])
 
+class TestGet(APIView):
+    def get(self, request):
+        queryset = Card.objects.filter(card_sources__in=Source.objects.filter(id=4)).values( "country")
+        serializer = TestSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 class DataFilterAPI(APIView):
     authentication_classes = []
@@ -469,13 +477,16 @@ class DataFilterAPI(APIView):
         two = return_right_data(one)
         values_list = get_values(two)
         dicts = get_data(two)
-
+        print(values_list)
+        # print(dicts)
         queryset = Card.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
                                                                          procent=100 / Count('id')
-                                                                              )
+                                                              )
+
         fields = get_fields(two)
         fields.append("count")
         fields.append("procent")
+
         serializers = FilterStrikeGroupSerializer(queryset, many=True, fields=fields)
         return Response(serializers.data)
 

@@ -24,8 +24,34 @@ def return_right_data(custom_dict_data):
 def get_values(data):
     values_list = []
     for i in data.keys():
-        values_list.append(i + "__name")
-        values_list.append(i + "_id")
+        print(i)
+        if i == "added_by":
+            values_list.append(i + "__username")
+            values_list.append(i + "_id")
+            continue
+        if i == "tradeunion_data":
+            values_list.append(i + "__tradeUnion_name")
+            values_list.append(i + "_id")
+            continue
+
+
+        if i == "count_strike_participants":
+            values_list.append(i + "__choice")
+            values_list.append(i + "_id")
+            continue
+
+        if i == "company_employees_count":
+            values_list.append(i + "__choice")
+            values_list.append(i + "_id")
+            continue
+
+        if i == "card_demand_categories":
+            values_list.append(i + "__demand_cat_name")
+            # values_list.append(i + "_id")
+
+        else:
+            values_list.append(i + "__name")
+            values_list.append(i + "_id")
     return values_list
 
 
@@ -46,7 +72,9 @@ def get_fields(data):
     """
     lists = []
     for i in data.keys():
+
         q = i + '_id'
         lists.append(i)
         lists.append(q)
+    print(lists)
     return lists

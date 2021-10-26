@@ -28,9 +28,6 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     const url = document.getElementById('work_data_get').textContent;
-
-    console.log({url});
-
     // const url = 'https://databasesv1.herokuapp.com/work/data/get/';
     // const url = 'http://localhost:8000/work/data/get/';
 
@@ -51,15 +48,12 @@ function getResult(data) {
  * @param {array} data - ответ от запроса
  * */
 function showResult(data) {
-
-    console.log({data});
     let td = '';
     let tr = '';
     let d = [];
     let str = '';
     data.forEach(item => {
         let keys = Object.keys(item);
-        console.log({keys});
         keys.forEach(i => {
             if(i.includes('id') || i.includes('date')){
                 d.push(`data-${i}=${item[i]}`);
@@ -177,9 +171,10 @@ function showRight(data) {
                 return option.value;
             }); //айдишники стран
 
+            console.log({data});
 
             data.forEach(i => {
-                if(i.id === 'region') regions = i;
+                if(i.id_name === 'region') regions = i;
             }); //получаю регионы
 
             let regions2 = [];
@@ -187,37 +182,33 @@ function showRight(data) {
                 regions2.push(regions.item[item]);
             })
 
-            let regionOptions;
+            let regionOptions = '<option value="0">Выберите</option>';
             regions2.flat().forEach(i => {
                 regionOptions += `<option value="${i.id}">${i.name}</option>`;
             })
-
             document.querySelector('[data-id="region"]').innerHTML = regionOptions;
         }
     }
 }
 
-
 function showChildBlocks(e){
          let child = e.currentTarget.options[e.currentTarget.selectedIndex].dataset.child;
          e.currentTarget.nextElementSibling.innerHTML = '';
 
-         console.log(e.currentTarget.options[e.currentTarget.selectedIndex].dataset);
-
          if(child){
              let childItems = JSON.parse(e.currentTarget.options[e.currentTarget.selectedIndex].dataset.childitems);
              let name = e.currentTarget.options[e.currentTarget.selectedIndex].dataset.name;
-             let childBlock = createRightElems(name, childItems, 1);
+             let id = e.currentTarget.options[e.currentTarget.selectedIndex].dataset.idopt;
+             let childBlock = createRightElems(name, childItems, id);
+
              e.currentTarget.nextElementSibling.innerHTML = childBlock;
 
              let sChecks = document.querySelectorAll('.s-checks');
-
              sChecks.forEach(s => {
                  s.onchange = showItems;
              });
 
              let sSelects = document.querySelectorAll('.s-selects');
-
              sSelects.forEach(select => {
                  select.onchange = showChildBlocks;
              });
@@ -241,7 +232,7 @@ function createRightElems(name, item, id) {
     let itemElems = '';
     if (id !== 'region') {
         item.forEach(i => {
-            itemElems += `<option data-name="${i.name}" data-childitems='${JSON.stringify(i.item) || ''}' data-child="${i.child || ''}" value="${i.id}">${i.name}</option>`;
+            itemElems += `<option data-idopt='${i.id_name || ''}' data-name="${i.name}" data-childitems='${JSON.stringify(i.item) || ''}' data-child="${i.child || ''}" value="${i.id}">${i.name}</option>`;
         })
     }
 

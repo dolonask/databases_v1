@@ -24,6 +24,8 @@ class SourceSerializers(serializers.ModelSerializer):
 
 
 class UserSerializers(serializers.ModelSerializer):
+    username = serializers.CharField(max_length=256)
+
     class Meta:
         model = User
         fields = ('id', 'username')
@@ -110,11 +112,46 @@ class MeetingRequirmentSerializers(serializers.ModelSerializer):
 class FilterStrikeGroupSerializer(CustomTestSerializer):
     country = serializers.CharField(max_length=256, source="country__name")
     region = serializers.CharField(max_length=256, source="region__name")
+    added_by = serializers.CharField(max_length=256, source="added_by__username")
+    card_demand_categories = serializers.CharField(max_length=256, source="card_demand_categories__demand_cat_name")
+    economic_demands = serializers.CharField(max_length=256, source="economic_demands__name")
+    meeting_requirements = serializers.CharField(max_length=256, source="meeting_requirements__name")
+    meeting_requirements_id = serializers.IntegerField()
+    duration = serializers.CharField(max_length=256, source="duration__name")
+    employer = serializers.CharField(max_length=256, source="employer__name")
+    tradeunion_data = serializers.CharField(max_length=256, source="tradeunion_data__tradeUnion_name")
+    initiator = serializers.CharField(max_length=256, source="initiator__name")
+    tradeunionChoice = serializers.CharField(max_length=256, source="tradeunionChoice__name")
+    company_ownership_type = serializers.CharField(max_length=256, source="company_ownership_type__name")
+    count_strike_participants = serializers.CharField(max_length=256, source="count_strike_participants__choice")
+    company_employees_count = serializers.CharField(max_length=256, source="company_employees_count__choice")
+    card_sources = serializers.CharField(max_length=256, source="card_sources__name")
+    # source = SourceSerializers(many=True, read_only=True)
+
+    # card_sources_id = serializers.ListSerializer(child=serializers.IntegerField(min_value=0, max_value=100))
+    company_employees_count_id = serializers.IntegerField()
+    count_strike_participants_id = serializers.IntegerField()
+    company_ownership_type_id = serializers.IntegerField()
+    tradeunionChoice_id = serializers.IntegerField()
+    initiator_id = serializers.IntegerField()
+    tradeunion_data_id = serializers.IntegerField()
+    duration_id = serializers.IntegerField()
+    employer_id = serializers.IntegerField()
+    added_by_id = serializers.IntegerField()
     country_id = serializers.IntegerField()
     region_id = serializers.IntegerField()
+    count = serializers.IntegerField()
+    procent = serializers.IntegerField()
+
     class Meta:
         model = Card
         fields = "__all__"
+
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     if id  == "card_sources":
+    #         representation['card_sources'] = SourceSerializers(Source.objects.all(), many=True).data
+    #     return representation
 
 
 
@@ -127,3 +164,7 @@ class FilterStrikeGroupSerializer(CustomTestSerializer):
 #         model = PersonGroupInfo
 #         fields = ('id', 'groupCharacter_another')
 
+class TestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = "__all__"

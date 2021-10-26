@@ -288,17 +288,21 @@ class DataFilterApiSerializer(CustomTestSerializer):
     country = serializers.CharField(read_only=True, source="country__name")
     region = serializers.StringRelatedField(source='region__name')
     source = serializers.CharField(max_length=255, read_only=True)
-    groupOfRights = serializers.CharField(max_length=255, read_only=True)
+    groupOfRights = serializers.CharField(max_length=255, source='groupOfRights__name')
+    groupOfRights_id = serializers.IntegerField()
     count = serializers.IntegerField()
     procent = serializers.IntegerField()
     country_id = serializers.IntegerField()
     region_id = serializers.IntegerField()
 
 
+
+
+
     class Meta:
         model = Case
-        # fields = "__all__"
-        fields = ("id", "source", "country", "country_id", "region", "groupOfRights", "count", "region_id", "procent")
+        fields = "__all__"
+        # fields = ("id", "source", "country", "country_id", "region", "groupOfRights", "count", "region_id", "procent")
 
     # def to_representation(self, instance):
     #     representation = super().to_representation(instance)
