@@ -4160,3 +4160,212 @@ Traceback (most recent call last):
     raise FieldError("Cannot resolve keyword %r into field. "
 django.core.exceptions.FieldError: Cannot resolve keyword 'economic_demands_id' into field. Choices are: active, added_by, added_by_id, additional_information, card_demand_categories, card_sources, cardcomment, cardfile, cardphoto, case_text, change_number_participants, city_name, combo_another, combo_demands, comment, company_country_name, company_employees_count, company_employees_count_id, company_is_tnk_member, company_name, company_ownership_type, company_ownership_type_id, company_tnk_name, count_strike_participants, count_strike_participants_id, country, country_id, date_create, date_type, date_update, duration, duration_id, economic_another, economic_demands, employear, employear_id, end_date, id, individual, initiator, initiator_id, initiators_and_participants, meeting_requirements, meeting_requirements_id, name, personGroupInfo, personGroupInfo_id, politic_another, politic_demands, reasons_for_strike, region, region_id, results_so_far, source_content, source_url, start_date, state_position, story, tradeunionChoice, tradeunionChoiceAnother, tradeunionChoice_id, tradeunion_data, tradeunion_data_id
 ERROR django.server "POST /strike/data/get/ HTTP/1.1" 500 149342 2021-10-26 16:44:46,881
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-10-26 17:56:41,335
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 457, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 95, in get_attribute
+    instance = instance[attr]
+KeyError: 'source_id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\migrant\views.py", line 400, in post
+    return Response(serializers.data)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 490, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `source_id` on serializer `MigrantCaseGroupByFilterSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'source_id'."
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 142149 2021-10-26 17:56:41,335
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-10-26 17:56:46,865
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1930, in add_fields
+    join_info = self.setup_joins(name.split(LOOKUP_SEP), opts, alias, allow_many=allow_m2m)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1623, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'violated_right_id' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\migrant\views.py", line 393, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 840, in values
+    clone = self._values(*fields, **expressions)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 835, in _values
+    clone.query.set_values(fields)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 2246, in set_values
+    self.add_fields(field_names, True)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1957, in add_fields
+    raise FieldError("Cannot resolve keyword %r into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'violated_right_id' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 153379 2021-10-26 17:56:46,870
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-10-26 18:00:34,501
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\migrant\views.py", line 393, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'natureviolation' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 151597 2021-10-26 18:00:34,505
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-10-26 18:00:42,950
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 457, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 95, in get_attribute
+    instance = instance[attr]
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\migrant\views.py", line 400, in post
+    return Response(serializers.data)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\relations.py", line 190, in get_attribute
+    return super().get_attribute(instance)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\fields.py", line 490, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `user` on serializer `MigrantCaseGroupByFilterSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 137390 2021-10-26 18:00:42,954
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-10-26 18:00:58,326
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\migrant\views.py", line 393, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'violationtype' into field. Choices are: actions, active, advice, banOnEntry, banOnEntryAnother, banOnEntry_id, banned_country, case_additional, case_additional_info, case_date, case_name, casecomment, casefile, casephoto, changesInSalary, changesInSalary_another, changesInSalary_id, comment, company, company_id, control_agency_name, country, country_id, date_create, date_type, date_update, decision, end_date, entrepreneur, entrepreneur_id, final, frequent_problems, government_agency_name, has_violation_in_covid, id, individualInfo, individualInfo_id, intruder, local_agency_name, personGroupInfo, personGroupInfo_id, police_agency_name, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_content, source_url, start_date, story, tradeUnionCount, tradeUnionCount_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, victim_status, victim_status_id, violatedRightAnother, violated_right, violationType, violationType_another, violationType_id, violation_nature, violation_nature_id
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 149249 2021-10-26 18:00:58,330
