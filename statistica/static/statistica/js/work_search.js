@@ -88,7 +88,8 @@ function getDataAttr(e){
 }
 
 function getModalInfo(obj){
-   const url = 'http://127.0.0.1:8000/analytic/work/search/';
+//   const url = 'http://127.0.0.1:8000/analytic/work/search/';
+   const url = document.getElementById('modal_search').textContent;
    const options = {
        method:'POST',
        headers:{
