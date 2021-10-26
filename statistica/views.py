@@ -82,12 +82,13 @@ class WorkResultApiView(APIView):
     authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
     def post(self, request, format=None):
         lists_keys = list(request.data.keys())
-        print(lists_keys)
+        # print(lists_keys)
         print(request.data)
         filters = {}
         tradeunioncrime = request.data.get("tradeunioncrime_id")
         tradeunionright = request.data.get("tradeunionright_id")
         groupofrights = request.data.get("groupofrights_id")
+        print(groupofrights)
         meetingsright = request.data.get("meetingsright_id")
         сonvention87 = request.data.get("сonvention87_id")
         tradeunionbuildingsright = request.data.get("tradeunionbuildingsright_id")
@@ -126,6 +127,7 @@ class WorkResultApiView(APIView):
         user = request.data.get("user_id")
         victim = request.data.get("victim_id")
         source = request.data.get("source_id")
+        print(source)
         country = request.data.get("country_id")
         region = request.data.get("region_id")
 

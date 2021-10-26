@@ -126,9 +126,11 @@ class FilterStrikeGroupSerializer(CustomTestSerializer):
     count_strike_participants = serializers.CharField(max_length=256, source="count_strike_participants__choice")
     company_employees_count = serializers.CharField(max_length=256, source="company_employees_count__choice")
     card_sources = serializers.CharField(max_length=256, source="card_sources__name")
-    # source = SourceSerializers(many=True, read_only=True)
+    combo_demands = serializers.CharField(max_length=256, source="combo_demands__name")
+    politic_demands = serializers.CharField(max_length=256, source="politic_demands__name")
+    economic_demands = serializers.CharField(max_length=256, source="economic_demands__name")
 
-    # card_sources_id = serializers.ListSerializer(child=serializers.IntegerField(min_value=0, max_value=100))
+
     company_employees_count_id = serializers.IntegerField()
     count_strike_participants_id = serializers.IntegerField()
     company_ownership_type_id = serializers.IntegerField()
@@ -154,17 +156,8 @@ class FilterStrikeGroupSerializer(CustomTestSerializer):
     #     return representation
 
 
-
-
-
-
-
-# class PersonGroupInfoSerializers(serializers.ModelSerializer):
-#     class Meta:
-#         model = PersonGroupInfo
-#         fields = ('id', 'groupCharacter_another')
-
 class TestSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Card
         fields = "__all__"

@@ -445,9 +445,9 @@ class DataAPIView(APIView):
             {'id': 'card_sources', 'name': 'Источник', 'item': source.data},
             {'id': 'added_by', 'name': 'Монитор', 'item': added_by.data},
             {'id': 'card_demand_categories', 'name': 'Характер требований', 'item': demand_categories.data},
-            {'id': 'economicdemand', 'name': 'Экономический', 'item': economic_demands.data},
-            {'id': 'politicdemand', 'name': 'Политический', 'item': politic_demands.data},
-            {'id': 'combodemand', 'name': 'Смешанный', 'item': combo_demands.data},
+            {'id': 'economic_demands', 'name': 'Экономический', 'item': economic_demands.data},
+            {'id': 'politic_demands', 'name': 'Политический', 'item': politic_demands.data},
+            {'id': 'combo_demands', 'name': 'Смешанный', 'item': combo_demands.data},
             {'id': 'company_ownership_type', 'name': 'Форма собственности компании', 'item': company_ownership_type.data},
 
             {'id': 'company_employees_count', 'name': 'Общая численность работников на предприятии', 'item': company_employees_count.data},
@@ -464,8 +464,11 @@ class DataAPIView(APIView):
 
 class TestGet(APIView):
     def get(self, request):
-        queryset = Card.objects.filter(card_sources__in=Source.objects.filter(id=4)).values( "country")
+
+        queryset = Source.objects.filter(id=4).values("id", "name")
+        print(queryset)
         serializer = TestSerializer(queryset, many=True)
+        # print(serializer)
         return Response(serializer.data)
 
 class DataFilterAPI(APIView):
@@ -477,13 +480,14 @@ class DataFilterAPI(APIView):
         two = return_right_data(one)
         values_list = get_values(two)
         dicts = get_data(two)
-        print(values_list)
+        print(values_list, "values")
         # print(dicts)
         queryset = Card.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
-                                                                         procent=100 / Count('id')
-                                                              )
+                                                                         procent=100 / Count('id'))
+        print(queryset)
 
         fields = get_fields(two)
+        print(fields, "f")
         fields.append("count")
         fields.append("procent")
 

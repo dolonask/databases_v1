@@ -285,19 +285,97 @@ class CustomTestSerializer(serializers.ModelSerializer):
 
 
 class DataFilterApiSerializer(CustomTestSerializer):
-    country = serializers.CharField(read_only=True, source="country__name")
-    region = serializers.StringRelatedField(source='region__name')
-    source = serializers.CharField(max_length=255, read_only=True)
-    groupOfRights = serializers.CharField(max_length=255, source='groupOfRights__name')
-    groupOfRights_id = serializers.IntegerField()
+    country = serializers.CharField(max_length=255, read_only=True, source='country__name')
+    region = serializers.CharField(max_length=255, read_only=True, source='region__name')
+    source = serializers.CharField(max_length=255, read_only=True, source='source__name')
+    groupOfRights = serializers.CharField(max_length=255, read_only=True, source='groupOfRights__name')
+    tradeUnionRight = serializers.CharField(max_length=255, read_only=True, source='tradeUnionRight__name')
+    tradeUnionCrime = serializers.CharField(max_length=255, read_only=True, source='tradeUnionCrime__name')
+    meetingsRight = serializers.CharField(max_length=255, read_only=True, source='meetingsRight__name')
+    сonvention87 = serializers.CharField(max_length=255, read_only=True, source='сonvention87__name')
+    tradeUnionBuildingsRight = serializers.CharField(max_length=255, read_only=True,
+                                                     source='tradeUnionBuildingsRight__name')
+    createOrganizationRight = serializers.CharField(max_length=255, read_only=True,
+                                                    source='createOrganizationRight__name')
+    createTradeUnionRight = serializers.CharField(max_length=255, read_only=True, source='createTradeUnionRight__name')
+    electionsRight = serializers.CharField(max_length=255, read_only=True, source='electionsRight__name')
+    tradeUnionActivityRight = serializers.CharField(max_length=255, read_only=True,
+                                                    source='tradeUnionActivityRight__name')
+    сonversationRight = serializers.CharField(max_length=255, read_only=True, source='сonversationRight__name')
+    createStrikeRight = serializers.CharField(max_length=255, read_only=True, source='createStrikeRight__name')
+    сonvention98 = serializers.CharField(max_length=255, read_only=True, source='сonvention98__name')
+    antiTradeUnionDiscrimination = serializers.CharField(max_length=255, read_only=True,
+                                                         source='antiTradeUnionDiscrimination__name')
+    сonvention135 = serializers.CharField(max_length=255, read_only=True, source='сonvention135__name')
+    consultationRight = serializers.CharField(max_length=255, read_only=True, source='consultationRight__name')
+    principleOfNonDiscrimination = serializers.CharField(max_length=255, read_only=True,
+                                                         source='principleOfNonDiscrimination__name')
+    discriminatiOnVariousGrounds = serializers.CharField(max_length=255, read_only=True,
+                                                         source='discriminatiOnVariousGrounds__name')
+    discriminationInVariousAreas = serializers.CharField(max_length=255, read_only=True,
+                                                         source='discriminationInVariousAreas__name')
+    publicPolicyDiscrimination = serializers.CharField(max_length=255, read_only=True,
+                                                       source='publicPolicyDiscrimination__name')
+    childLabor = serializers.CharField(max_length=255, read_only=True, source='childLabor__name')
+    сonvention138 = serializers.CharField(max_length=255, read_only=True, source='сonvention138__name')
+    сonvention182 = serializers.CharField(max_length=255, read_only=True, source='сonvention182__name')
+    prohibitionOfForcedLabor = serializers.CharField(max_length=255, read_only=True,
+                                                     source='prohibitionOfForcedLabor__name')
+    useOfForcedLabor = serializers.CharField(max_length=255, read_only=True, source='useOfForcedLabor__name')
+    governmentCoercion = serializers.CharField(max_length=255, read_only=True, source='governmentCoercion__name')
+    violationsUsingCompulsoryLabor = serializers.CharField(max_length=255, read_only=True,
+                                                           source='violationsUsingCompulsoryLabor__name')
+    failureSystemicMeasures = serializers.CharField(max_length=255, read_only=True,
+                                                    source='failureSystemicMeasures__name')
+    intruder = serializers.CharField(max_length=255, read_only=True, source='intruder__name')
+    violation_nature = serializers.CharField(max_length=255, read_only=True, source='violation_nature__name')
+    rights_state = serializers.CharField(max_length=255, read_only=True, source='rights_state__name')
+    victim_situation = serializers.CharField(max_length=255, read_only=True, source='victim_situation__name')
+    tradeUnionSituation = serializers.CharField(max_length=255, read_only=True, source='tradeUnionSituation__name')
+    trade_union_activities = serializers.CharField(max_length=255, read_only=True, source='trade_union_activities__name')
+    user = serializers.CharField(max_length=255, read_only=True, source="user__username")
+    victim = serializers.CharField(max_length=255, read_only=True, source='victim__name')
+    start_date = serializers.CharField(max_length=255, read_only=True)
     count = serializers.IntegerField()
     procent = serializers.IntegerField()
     country_id = serializers.IntegerField()
     region_id = serializers.IntegerField()
-
-
-
-
+    groupOfRights_id = serializers.IntegerField()
+    # source_id = serializers.IntegerField(default=4)
+    tradeUnionRight_id = serializers.IntegerField()
+    tradeUnionCrime_id = serializers.IntegerField()
+    meetingsRight_id = serializers.IntegerField()
+    сonvention87_id = serializers.IntegerField()
+    tradeUnionBuildingsRight_id = serializers.IntegerField()
+    createOrganizationRight_id = serializers.IntegerField()
+    createTradeUnionRight_id = serializers.IntegerField()
+    electionsRight_id = serializers.IntegerField()
+    tradeUnionActivityRight_id = serializers.IntegerField()
+    сonversationRight_id = serializers.IntegerField()
+    createStrikeRight_id = serializers.IntegerField()
+    сonvention98_id = serializers.IntegerField()
+    antiTradeUnionDiscrimination_id = serializers.IntegerField()
+    сonvention135_id = serializers.IntegerField()
+    consultationRight_id = serializers.IntegerField()
+    principleOfNonDiscrimination_id = serializers.IntegerField()
+    discriminatiOnVariousGrounds_id = serializers.IntegerField()
+    discriminationInVariousAreas_id = serializers.IntegerField()
+    publicPolicyDiscrimination_id = serializers.IntegerField()
+    childLabor_id = serializers.IntegerField()
+    сonvention138_id = serializers.IntegerField()
+    сonvention182_id = serializers.IntegerField()
+    prohibitionOfForcedLabor_id = serializers.IntegerField()
+    useOfForcedLabor_id = serializers.IntegerField()
+    governmentCoercion_id = serializers.IntegerField()
+    violationsUsingCompulsoryLabor_id = serializers.IntegerField()
+    failureSystemicMeasures_id = serializers.IntegerField()
+    violation_nature_id = serializers.IntegerField()
+    rights_state_id = serializers.IntegerField()
+    victim_situation_id = serializers.IntegerField()
+    tradeUnionSituation_id = serializers.IntegerField()
+    trade_union_activities_id = serializers.IntegerField()
+    user_id = serializers.IntegerField()
+    victim_id = serializers.IntegerField()
 
     class Meta:
         model = Case

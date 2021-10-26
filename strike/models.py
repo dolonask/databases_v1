@@ -316,7 +316,7 @@ class MeetingRequirment(models.Model):
 class Card(models.Model):
     id = models.BigAutoField("№", primary_key=True)
     name = models.CharField("Название", max_length=100, blank=False)
-    card_sources = models.ManyToManyField(Source, verbose_name="Источник")
+    card_sources = models.ManyToManyField(Source, verbose_name="Источник", related_name="source")
     source_url = models.CharField("Источник информации (ссылка)", max_length=255, null=True, blank=True)
     source_content = models.TextField("Текст статьи/сообщения ", null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")

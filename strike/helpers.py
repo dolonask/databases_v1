@@ -25,7 +25,7 @@ def get_values(data):
     values_list = []
     for i in data.keys():
         print(i)
-        if i == "added_by":
+        if i == "added_by" or i == "user":
             values_list.append(i + "__username")
             values_list.append(i + "_id")
             continue
@@ -43,6 +43,9 @@ def get_values(data):
         if i == "company_employees_count":
             values_list.append(i + "__choice")
             values_list.append(i + "_id")
+            continue
+        if i == "card_sources" or i == "economic_demands" or  i == "politic_demands" or  i == "combo_demands" or i == "intruder" or i == "source":
+            values_list.append(i + "__name")
             continue
 
         if i == "card_demand_categories":
