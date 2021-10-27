@@ -371,9 +371,7 @@ def case_render_pdf_view(request, *args, **kwargs):
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
-    path_wkthmltopdf = b'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
-    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
-    pdf = pdfkit.from_string(html, False, configuration=config)
+    pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     return response
@@ -398,9 +396,7 @@ def case_download_pdf_view(request, *args, **kwargs):
     template = get_template(template_path)
     html = template.render(context)
     # create a pdf
-    path_wkthmltopdf = b'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
-    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
-    pdf = pdfkit.from_string(html, False,  configuration=config)
+    pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="card_{case.id}.pdf"'
     return response

@@ -272,12 +272,10 @@ def case_render_pdf_view(request, *args, **kwargs):
     }
     # Create a Django response object, and specify content_type as pdf
     # find the template and render it.
-    config = pdfkit.configuration(wkhtmltopdf="C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
     template = get_template(template_path)
     html = template.render(context)
-    # print(html)
     # create a pdf
-    pdf = pdfkit.from_string(html, False, configuration=config)
+    pdf = pdfkit.from_string(html, False)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     # if error then show some funy view
