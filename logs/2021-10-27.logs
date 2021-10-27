@@ -34,3 +34,5 @@ Traceback (most recent call last):
     sock.connect(sa)
 TimeoutError: [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера
 ERROR django.server "POST /work/add-comment/1/ HTTP/1.1" 500 120428 2021-10-27 16:42:48,905
+WARNING django.request Not Found: /favicon.ico 2021-10-27 18:19:53,040
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-27 18:19:53,040
