@@ -32,6 +32,8 @@ class UserSerializers(serializers.ModelSerializer):
 
 
 class DemandCategorySerializers(serializers.ModelSerializer):
+    demand_cat_name = serializers.CharField(max_length=256)
+
     class Meta:
         model = DemandCategory
         fields = ('id', 'demand_cat_name')

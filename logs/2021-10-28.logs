@@ -99,3 +99,37 @@ WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:07,827
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:07,828
 WARNING django.request Not Found: /favicon.ico 2021-10-28 12:02:02,349
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 12:02:02,349
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:35:39,846
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:35:39,846
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:35:45,287
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:35:45,288
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:35:46,349
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:35:46,349
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:35:47,384
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:35:47,385
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:35:48,357
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:35:48,358
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:37:34,716
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:37:34,716
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:37:35,042
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:37:35,042
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:39:19,186
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:39:19,187
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:39:20,112
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:39:20,113
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:39:33,841
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:39:33,842
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:41:11,886
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:41:11,887
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:13,478
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:13,479
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:14,387
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:14,388
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:14,941
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:14,942
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:15,950
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:15,950
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:16,317
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:16,318
+WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:16,928
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:16,928
