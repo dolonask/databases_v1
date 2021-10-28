@@ -5,8 +5,8 @@ from migrant.models import Country as Countries
 
 # Create your models here.
 class Country(models.Model):
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING, verbose_name='Пользователь', related_name='country')
-    country = models.ForeignKey(Countries, on_delete=models.DO_NOTHING, verbose_name='Страна')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Пользователь', related_name='country')
+    country = models.ForeignKey(Countries, on_delete=models.CASCADE, verbose_name='Страна')
 
     def __str__(self):
         return self.country.name
@@ -28,11 +28,11 @@ class Role(models.Model):
 
 
 class Position(models.Model):
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING, verbose_name='Пользователь', related_name='position')
-    role = models.ForeignKey(Role, on_delete=models.DO_NOTHING, verbose_name='Позиция')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь', blank=True, null=True, related_name='position')
+    role = models.ForeignKey(Role, on_delete=models.CASCADE,  blank=True, null=True, verbose_name='Позиция')
 
-    def __str__(self):
-        return self.role.name
+    # def __str__(self):
+    #     return self.role.name
 
     class Meta:
         verbose_name = 'Позиция'

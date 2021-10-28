@@ -1,0 +1,101 @@
+WARNING django.request Not Found: /favicon.ico 2021-10-28 10:51:58,003
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 10:51:58,003
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:11:33,739
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:11:33,740
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:11:34,020
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:11:34,021
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:11:34,512
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:11:34,512
+ERROR django.server "POST /admin/auth/user/ HTTP/1.1" 500 159112 2021-10-28 11:12:56,688
+ERROR django.server "POST /admin/auth/user/ HTTP/1.1" 500 159112 2021-10-28 11:13:47,332
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:19:31,320
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:19:31,321
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:19:32,074
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:19:32,074
+ERROR django.request Internal Server Error: /admin/auth/user/2/change/ 2021-10-28 11:20:32,719
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1588, in _changeform_view
+    change_message = self.construct_change_message(request, form, formsets, add)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1061, in construct_change_message
+    return construct_change_message(form, formsets, add)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 529, in construct_change_message
+    'object': str(changed_object),
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\main\models.py", line 35, in __str__
+    return self.role.name
+AttributeError: 'NoneType' object has no attribute 'name'
+ERROR django.server "POST /admin/auth/user/2/change/ HTTP/1.1" 500 129777 2021-10-28 11:20:32,723
+ERROR django.request Internal Server Error: /admin/auth/user/2/change/ 2021-10-28 11:20:49,436
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1588, in _changeform_view
+    change_message = self.construct_change_message(request, form, formsets, add)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1061, in construct_change_message
+    return construct_change_message(form, formsets, add)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 529, in construct_change_message
+    'object': str(changed_object),
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\main\models.py", line 35, in __str__
+    return self.role.name
+AttributeError: 'NoneType' object has no attribute 'name'
+ERROR django.server "POST /admin/auth/user/2/change/ HTTP/1.1" 500 129777 2021-10-28 11:20:49,439
+ERROR django.server "POST /admin/auth/user/ HTTP/1.1" 500 159112 2021-10-28 11:22:20,923
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:44:32,519
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:44:32,520
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:44:33,341
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:44:33,341
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:44:34,247
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:44:34,248
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:44:34,929
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:44:34,930
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:03,115
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:03,116
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:03,918
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:03,919
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:04,646
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:04,646
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:05,426
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:05,427
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:06,227
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:06,228
+WARNING django.request Not Found: /favicon.ico 2021-10-28 11:45:07,827
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 11:45:07,828
+WARNING django.request Not Found: /favicon.ico 2021-10-28 12:02:02,349
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 12:02:02,349
