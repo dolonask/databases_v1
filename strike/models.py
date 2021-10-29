@@ -381,7 +381,7 @@ class Card(models.Model):
         ('> 63', '63 и старше'),
     ]
 
-    added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
+    added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True,
                                  verbose_name="Монитор")
     initiator = models.ForeignKey(Initiator, on_delete=models.DO_NOTHING, verbose_name="Инициатор забастовки/акции",
                                   null=True)

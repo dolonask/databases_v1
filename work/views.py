@@ -537,12 +537,15 @@ class DataFilterAPI(APIView):
 
     def post(self, request):
 
-        print(request.data)
+        # print(request.data)
         one = get_request_data(request.data)
+        print(one, "one")
         two = return_right_data(one)
+        print(two, "te")
         values_list = get_values(two)
+        print(values_list)
         dicts = get_data(two)
-        print(dicts)
+        print(dicts, "dicts")
 
         queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
                                                                                   procent=100 / Count('id')

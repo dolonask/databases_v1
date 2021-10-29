@@ -864,7 +864,7 @@ class Case(models.Model):
     trade_union_activities = models.ForeignKey('TradeUnionActivities', on_delete=models.DO_NOTHING,
                                                verbose_name='Отрасль деятельности профсоюза', null=True, blank=True)
     trade_union_activities_another = models.CharField('Отрасль деятельности профсоюза(Другое)', max_length=50, null=True, blank=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True,
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True,
                              verbose_name="Монитор", related_name="strike_users", blank=True)
     active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)

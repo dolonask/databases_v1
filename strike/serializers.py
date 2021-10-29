@@ -32,11 +32,11 @@ class UserSerializers(serializers.ModelSerializer):
 
 
 class DemandCategorySerializers(serializers.ModelSerializer):
-    demand_cat_name = serializers.CharField(max_length=256)
+    name = serializers.CharField(max_length=256, source="demand_cat_name")
 
     class Meta:
         model = DemandCategory
-        fields = ('id', 'demand_cat_name')
+        fields = ('id', 'name')
 
 
 class EconomicDemandSerializers(serializers.ModelSerializer):
@@ -64,15 +64,17 @@ class OwnerShipTypeSerializers(serializers.ModelSerializer):
 
 
 class EmployeesCountSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(max_length=256, source="choice")
     class Meta:
         model = EmployeesCount
-        fields = ('id', 'choice')
+        fields = ('id', 'name')
 
 
 class ParticipantsCountSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(max_length=256, source="choice")
     class Meta:
         model = ParticipantsCount
-        fields = ('id', 'choice')
+        fields = ('id', 'name')
 
 
 class TradeunionChoiceSerializers(serializers.ModelSerializer):
@@ -88,15 +90,17 @@ class InitiatorSerializers(serializers.ModelSerializer):
 
 
 class TradeunionDataSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(max_length=256, source="tradeUnion_name")
     class Meta:
         model = TradeunionData
-        fields = ('id', 'tradeUnion_name')
+        fields = ('id', 'name')
 
 
 class EmployerSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(max_length=256, source="emp_name")
     class Meta:
         model = Employer
-        fields = ('id', 'emp_name')
+        fields = ('id', 'name')
 
 
 class StrikeCharacterSerializers(serializers.ModelSerializer):
@@ -131,7 +135,11 @@ class FilterStrikeGroupSerializer(CustomTestSerializer):
     combo_demands = serializers.CharField(max_length=256, source="combo_demands__name")
     politic_demands = serializers.CharField(max_length=256, source="politic_demands__name")
     economic_demands = serializers.CharField(max_length=256, source="economic_demands__name")
-
+    economic_demands_id = serializers.IntegerField(source='economic_demands__id')
+    politic_demands_id = serializers.IntegerField(source='politic_demands__id')
+    combo_demands_id = serializers.IntegerField(source='combo_demands__id')
+    card_sources_id = serializers.IntegerField(source='card_sources__id')
+    card_demand_categories_id = serializers.IntegerField(source='card_demand_categories__id')
 
     company_employees_count_id = serializers.IntegerField()
     count_strike_participants_id = serializers.IntegerField()

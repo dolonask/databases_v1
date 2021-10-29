@@ -2,7 +2,7 @@ from djoser.conf import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from migrant.serializers import UserSerializers
+from work.serializers import UserSerializers
 
 from work.models import GroupOfRights, Source, Region, Country, Victim, Intruder, NatureViolation, RightsState, \
     TradeUnionSituation, VictimSituation, TradeUnionActivities

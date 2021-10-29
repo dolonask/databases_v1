@@ -147,7 +147,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db-crm-1.sqlite3',
+#         'NAME': BASE_DIR / 'db-crm-4.sqlite3',
 #     }
 # }
 

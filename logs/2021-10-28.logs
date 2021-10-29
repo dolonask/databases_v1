@@ -133,3 +133,81 @@ WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:16,317
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:16,318
 WARNING django.request Not Found: /favicon.ico 2021-10-28 14:46:16,928
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 14:46:16,928
+ERROR django.request Internal Server Error: /analytic/work/ 2021-10-28 16:41:26,725
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 233, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 44, in <lambda>
+    lambda u: u.is_authenticated,
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\functional.py", line 246, in inner
+    self._setup()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\functional.py", line 382, in _setup
+    self._wrapped = self._setupfunc()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\__init__.py", line 177, in get_user
+    user_id = _get_user_session_key(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 238, in _get_session
+    self._session_cache = self.load()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: django_session
+ERROR django.server "GET /analytic/work/ HTTP/1.1" 500 187300 2021-10-28 16:41:26,733
+WARNING django.request Not Found: /favicon.ico 2021-10-28 16:41:26,980
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 16:41:26,981
+WARNING django.request Not Found: /favicon.ico 2021-10-28 16:54:50,912
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-28 16:54:50,913

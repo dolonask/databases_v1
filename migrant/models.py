@@ -643,7 +643,7 @@ class Case(models.Model):
     changesInSalary = models.ForeignKey(ChangesInSalary, on_delete=models.DO_NOTHING,
                                         verbose_name="Как изменились Ваши доходы из-за COVID-19?", null=True)
     changesInSalary_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, verbose_name="Монитор")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, verbose_name="Монитор")
     active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора',max_length=500, blank= True, null= True)
 

@@ -101,9 +101,10 @@ class ChangesInSalarySerializers(serializers.ModelSerializer):
 
 
 class UserSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(max_length=256, source="username")
     class Meta:
         model = User
-        fields = ('id', 'username')
+        fields = ('id', 'name')
 
 
 class MigrantCaseGroupByFilterSerializer(CustomTestSerializer):
@@ -114,12 +115,16 @@ class MigrantCaseGroupByFilterSerializer(CustomTestSerializer):
     source = serializers.CharField(max_length=256, source="source__name")
     changesInSalary = serializers.CharField(max_length=256, source="changesInSalary__name")
     # entrepreneur = serializers.CharField(max_length=256, source="entrepreneur__entrepreneur_name")
+    intruder = serializers.CharField(max_length=256, source="intruder__name")
+    violated_right = serializers.CharField(max_length=256, source="violated_right__name")
     country_id = serializers.IntegerField()
     victim_id = serializers.IntegerField()
     region_id = serializers.IntegerField()
     banOnEntry_id = serializers.IntegerField()
-    source_id = serializers.IntegerField()
     changesInSalary_id = serializers.IntegerField()
+    source_id = serializers.IntegerField(source="source__id")
+    intruder_id = serializers.IntegerField(source="intruder__id")
+    violated_right_id = serializers.IntegerField(source="violated_right__id")
 
     class Meta:
         model = Case
