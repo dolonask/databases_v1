@@ -48,23 +48,50 @@ function getResult(data) {
 function showResult(data) {
     let td = '';
     let tr = '';
+    let tr2 = '';
+    let th = '';
+    let d = [];
+    let str = '';
     data.forEach(item => {
         let keys = Object.keys(item);
         keys.forEach(i => {
-            td += '<td>' + item[i] + '</td>';
+            if(i.includes('id') || i.includes('date')){
+                d.push(`data-${i}=${item[i]}`);
+
+                d.forEach(i => {
+                    str += i + ' '
+                })
+            } else{
+                td += '<td>' + item[i] + '</td>';
+            }
         });
 
-        tr += '<tr>' + td + '</td>';
+        tr += '<tr ' + str + ' class="rowTable">' + td + '</tr>';
         td = '';
+        d=[];
+        str='';
     });
 
+    let keys2 = Object.keys(data[0]);
+    keys2.forEach(i => {
+        if(!i.includes('id') && !i.includes('date')){
+           th += '<th>' + sp_fields[i] + '</td>';
+        }
+    });
+    tr2 = '<tr>' + th + '</tr>';
+
     document.querySelector('#left-result').innerHTML = tr;
+    document.querySelector('#left-header').innerHTML = tr2;
+
+    let rows = document.querySelectorAll('.rowTable');
+
+    rows.forEach(i => {
+        i.onclick = getDataAttr;
+    });
 }
 
 function getRight() {
     const url = document.getElementById('strike_data').textContent;
-    // const url = 'https://databasesv1.herokuapp.com/strike/data/'
-    // const url = 'http://127.0.0.1:8000/strike/data/';
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -139,15 +166,15 @@ function createRightElems(name, item, id) {
         })
     }
 
-
-    let block = '<div class="item">' +
-        '<div class="item-header">' +
-        '<label>' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
+    let block = '<div class="item panel panel-primary">' +
+        '<div class="item-header panel-heading">' +
+        '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
-        '<div class="item-body d-none pt-3 pb-3">' +
+        '<div class="item-body d-none pt-3 pb-3 panel-body">' +
         '<select data-id="' + id + '" class="form-control s-selects" id="" multiple>'
         + itemElems +
         '</select>' +
+        '<p></p>' +
         '</div>' +
         '</div>';
 

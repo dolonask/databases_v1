@@ -50,6 +50,8 @@ function getResult(data) {
 function showResult(data) {
     let td = '';
     let tr = '';
+    let tr2 = '';
+    let th = '';
     let d = [];
     let str = '';
     data.forEach(item => {
@@ -72,7 +74,17 @@ function showResult(data) {
         str='';
     });
 
+
+    let keys2 = Object.keys(data[0]);
+    keys2.forEach(i => {
+        if(!i.includes('id') && !i.includes('date')){
+           th += '<th>' + sp_fields[i] + '</td>';
+        }
+    });
+    tr2 = '<tr>' + th + '</tr>';
+
     document.querySelector('#left-result').innerHTML = tr;
+    document.querySelector('#left-header').innerHTML = tr2;
 
     let rows = document.querySelectorAll('.rowTable');
 
@@ -131,8 +143,6 @@ function showInoModal(data){
 
 function getRight() {
     const url = document.getElementById('work_data').textContent;
-    // const url = 'https://databasesv1.herokuapp.com/work/data/'
-    // const url = 'http://127.0.0.1:8000/work/data/';
     fetch(url)
         .then(response => response.json())
         .then(data => {

@@ -1069,3 +1069,81 @@ Traceback (most recent call last):
     raise FieldError("Cannot resolve keyword '%s' into field. "
 django.core.exceptions.FieldError: Cannot resolve keyword 'employer' into field. Choices are: active, added_by, added_by_id, additional_information, card_demand_categories, card_sources, cardcomment, cardfile, cardphoto, case_text, change_number_participants, city_name, combo_another, combo_demands, comment, company_country_name, company_employees_count, company_employees_count_id, company_is_tnk_member, company_name, company_ownership_type, company_ownership_type_id, company_tnk_name, count_strike_participants, count_strike_participants_id, country, country_id, date_create, date_type, date_update, duration, duration_id, economic_another, economic_demands, employear, employear_id, end_date, id, individual, initiator, initiator_id, initiators_and_participants, meeting_requirements, meeting_requirements_id, name, personGroupInfo, personGroupInfo_id, politic_another, politic_demands, reasons_for_strike, region, region_id, results_so_far, source_content, source_url, start_date, state_position, story, tradeunionChoice, tradeunionChoiceAnother, tradeunionChoice_id, tradeunion_data, tradeunion_data_id
 ERROR django.server "POST /strike/data/get/ HTTP/1.1" 500 149331 2021-10-29 16:42:13,860
+WARNING django.request Method Not Allowed: /migrant/data/get/ 2021-10-29 17:00:12,736
+WARNING django.server "GET /migrant/data/get/ HTTP/1.1" 405 5849 2021-10-29 17:00:12,737
+ERROR django.request Internal Server Error: /migrant/data/get/ 2021-10-29 17:00:33,075
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 384, in post
+    one = get_request_data(request.data)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\strike\helpers.py", line 10, in get_request_data
+    i['id']: i['item']
+TypeError: string indices must be integers
+ERROR django.server "POST /migrant/data/get/ HTTP/1.1" 500 95844 2021-10-29 17:00:33,078
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:09:49,909
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:09:49,910
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:32:50,174
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:32:50,175
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:43:36,670
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:43:36,670
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:46:37,586
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:46:37,587
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:47:37,434
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:47:37,435
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:48:58,001
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:48:58,002
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:58:29,449
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:58:29,449
+WARNING django.request Not Found: /favicon.ico 2021-10-29 17:59:47,139
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 17:59:47,140
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:04:28,193
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:04:28,194
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:06:52,015
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:06:52,015
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:08:35,694
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:08:35,695
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:09:38,697
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:09:38,697
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:11:21,961
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:11:21,962
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:23:36,239
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:23:36,239
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:28:42,618
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:28:42,618
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:30:55,749
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:30:55,750
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:31:56,917
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:31:56,918
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:32:36,794
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:32:36,795
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:33:11,052
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:33:11,052
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:34:16,379
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:34:16,379
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:34:50,332
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:34:50,333
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:37:45,723
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:37:45,724
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:37:59,664
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:37:59,665
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:40:01,777
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:40:01,778
+WARNING django.request Not Found: /favicon.ico 2021-10-29 18:42:30,790
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 18:42:30,791
+WARNING django.request Not Found: /favicon.ico 2021-10-29 19:12:44,096
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-10-29 19:12:44,096

@@ -186,6 +186,8 @@ def load_works(apps, schema_editor):
 
     print("EmployeesCount")
     EmployeesCount = apps.get_model("work", "EmployeesCount")
+    employeesCount = EmployeesCount(name='от 1 до 10 человек', active=True)
+    employeesCount.save()
     employeesCount = EmployeesCount(name='от 10 до 50 человек', active=True)
     employeesCount.save()
     employeesCount = EmployeesCount(name='малое до 50 человек', active=True)

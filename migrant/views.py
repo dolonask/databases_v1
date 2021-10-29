@@ -394,6 +394,7 @@ class DataFilterAPI(APIView):
         fields = get_fields(two)
         fields.append("count")
         fields.append("procent")
+        print(fields)
         serializers = MigrantCaseGroupByFilterSerializer(queryset, many=True, fields=fields)
         return Response(serializers.data)
 
