@@ -28,9 +28,6 @@ searchBtn.onclick = function () {
  * */
 function getResult(data) {
     const url = document.getElementById('work_data_get').textContent;
-    // const url = 'https://databasesv1.herokuapp.com/work/data/get/';
-    // const url = 'http://localhost:8000/work/data/get/';
-
     let options = {
         method: 'POST',
         headers: {
@@ -100,8 +97,7 @@ function getDataAttr(e){
 }
 
 function getModalInfo(obj){
-//   const url = 'http://127.0.0.1:8000/analytic/work/search/';
-   const url = document.getElementById('modal_search').textContent;
+   const url = document.getElementById('work_search').textContent;
    const options = {
        method:'POST',
        headers:{

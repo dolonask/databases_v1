@@ -61,7 +61,7 @@ def work_analytic(request):
 
 
 class MigrantResultApiView(APIView):
-
+    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
     def post(self, request):
         filters = dict(request.data)
         list_filter = list(filters.keys())

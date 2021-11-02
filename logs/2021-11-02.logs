@@ -743,3 +743,45 @@ WARNING django.request Not Found: /favicon.ico 2021-11-02 12:08:11,757
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 12:08:11,758
 WARNING django.request Not Found: /favicon.ico 2021-11-02 12:09:20,812
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 12:09:20,813
+WARNING django.request Not Found: /favicon.ico 2021-11-02 13:38:48,736
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 13:38:48,737
+ERROR django.request Internal Server Error: /work/word/32/ 2021-11-02 13:44:40,468
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 600, in work_word_generate
+    print(Case._meta.get_field())
+TypeError: get_field() missing 1 required positional argument: 'field_name'
+ERROR django.server "GET /work/word/32/ HTTP/1.1" 500 75828 2021-11-02 13:44:40,469
+WARNING django.request Not Found: /favicon.ico 2021-11-02 14:08:37,832
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 14:08:37,833
+WARNING django.request Not Found: /favicon.ico 2021-11-02 14:19:44,440
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 14:19:44,440
+WARNING django.request Not Found: /favicon.ico 2021-11-02 15:41:39,577
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 15:41:39,578
+WARNING django.request Not Found: /favicon.ico 2021-11-02 15:44:21,117
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 15:44:21,118
+WARNING django.request Not Found: /favicon.ico 2021-11-02 15:45:07,087
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 15:45:07,087
+WARNING django.request Not Found: /favicon.ico 2021-11-02 15:46:24,530
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 15:46:24,530
+WARNING django.request Bad Request: /analytic/strike/search/ 2021-11-02 15:50:05,145
+WARNING django.server "POST /analytic/strike/search/ HTTP/1.1" 400 82 2021-11-02 15:50:05,145
+WARNING django.request Not Found: /favicon.ico 2021-11-02 15:54:24,782
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 15:54:24,783
+WARNING django.request Not Found: /favicon.ico 2021-11-02 16:03:28,950
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:03:28,951
+WARNING django.request Forbidden: /analytic/migrant/search/ 2021-11-02 16:03:41,947
+WARNING django.server "POST /analytic/migrant/search/ HTTP/1.1" 403 58 2021-11-02 16:03:41,947
+WARNING django.request Not Found: /favicon.ico 2021-11-02 16:04:23,736
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:04:23,737
+WARNING django.request Not Found: /favicon.ico 2021-11-02 16:29:26,891
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:29:26,892
+WARNING django.request Not Found: /favicon.ico 2021-11-02 16:30:27,183
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:30:27,184
+WARNING django.request Not Found: /favicon.ico 2021-11-02 16:32:47,695
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:32:47,696
+WARNING django.request Not Found: /favicon.ico 2021-11-02 16:35:45,258
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:35:45,259

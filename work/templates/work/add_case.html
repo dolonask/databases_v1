@@ -89,7 +89,6 @@
                         {% endif %}
                     {% endfor %}
 
-
                     <input type="button" onclick="validate('checkGeneralTab')" class="action-button" value="Следующий"/>
                     <input type="button" id="btnStrikeNextFromStrikeGeneral" name="next" class="next action-button d-none" value="Следующий"/>
                 </fieldset>
@@ -811,10 +810,12 @@
 
                 totalForms.setAttribute('value', `${formNum+1}`)
             }
-            function delForm(e){
-                e.preventDefault()
 
-                $("#formNum").remove();
+            function delForm(e){
+                let bird_form = document.querySelectorAll('.bird-form').length;
+                if(bird_form > 1){
+                    $(this).prev().prev().remove();
+                }
             }
         </script>
 

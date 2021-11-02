@@ -72,7 +72,6 @@ function showResult(data) {
     });
 
     let keys2 = Object.keys(data[0]);
-    console.log(keys2);
     keys2.forEach(i => {
         if(!i.includes('id') && !i.includes('date')){
            th += '<th>' + sp_fields[i] + '</td>';
@@ -89,6 +88,53 @@ function showResult(data) {
     rows.forEach(i => {
         i.onclick = getDataAttr;
     });
+}
+
+function getDataAttr(e){
+    const obj = {...e.target.parentElement.dataset};
+
+    getModalInfo(obj);
+}
+
+function getModalInfo(obj){
+   const url = document.getElementById('migrant_search').textContent;
+   const options = {
+       method:'POST',
+       headers:{
+           'Content-Type':'application/json'
+       },
+       body:JSON.stringify(obj)
+   }
+
+   fetch(url, options)
+      .then(response => {
+          if(response.ok){
+             return response.json();
+          } else {
+             alert('Код ошибки: ', response.status)
+          }
+      })
+      .then(data=>showInoModal(data))
+}
+
+function showInoModal(data){
+    let td = '';
+    let tr = '';
+    data.forEach(item => {
+        td += '<td>' + item['id'] + '</td>';
+        td += '<td>' + item['user'] + '</td>';
+        td += '<td>' + item['case_name'] + '</td>';
+        td += '<td>' + item['region'] + '</td>';
+        td += '<td>' + item['country'] + '</td>';
+        td += '<td>' + new Date(item['date_create']).toLocaleDateString() + '</td>';
+        td += '<td>' + new Date(item['date_update']).toLocaleDateString() + '</td>';
+        tr += '<tr>' + td + '</td>';
+        td = '';
+    });
+
+    document.querySelector('#tbody').innerHTML = tr;
+
+    $('#myModal').modal();
 }
 
 function getRight() {
@@ -174,7 +220,7 @@ function createRightElems(name, item, id) {
         '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
         '<div class="item-body d-none pt-3 pb-3 panel-body">' +
-        '<select data-id="' + id + '" class="form-control s-selects" id="" multiple>'
+        '<select data-id="' + id + '" class="form-control s-selects" id="">'
         + itemElems +
         '</select>' +
         '</div>' +

@@ -125,6 +125,8 @@ class MigrantCaseGroupByFilterSerializer(CustomTestSerializer):
     source_id = serializers.IntegerField(source="source__id")
     intruder_id = serializers.IntegerField(source="intruder__id")
     violated_right_id = serializers.IntegerField(source="violated_right__id")
+    count = serializers.IntegerField()
+    procent = serializers.IntegerField()
 
     class Meta:
         model = Case

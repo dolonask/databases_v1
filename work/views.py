@@ -132,8 +132,9 @@ def add_case(request):
                 individualFormSet.save()
             form._save_m2m()
             for individual in individualFormSet:
+                print(individual)
                 if individual.is_valid():
-                    ind = individual.save(commit=False)
+                    ind = individual.save(commit=True)
                     ind.case_id = case.id
                     ind.save()
             # if casePhotoForm.is_valid():
@@ -250,6 +251,7 @@ def update_case(request, pk):
 def delete_case(request, pk):
     case = Case.objects.get(id=pk).delete()
     return redirect('works_list')
+
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
@@ -596,13 +598,16 @@ def work_word_generate(request, pk):
     document.add_heading('Трудовые нарушения', 0)
     records = []
     case_values = Case.objects.filter(pk=pk).values()
+
     field_name_list = [i.name for i in Case._meta.get_fields()]
+    print(field_name_list)
     for field in field_name_list:
         try:
             if field == 'source':
                 verbose_name = Case._meta.get_field(field).verbose_name
                 for source in sources:
                     source_name = source.name
+                    print(source_name)
                     if source_name is not None and source_name != '':
                         records.append((verbose_name, source_name))
             elif field == 'intruder':
@@ -618,6 +623,7 @@ def work_word_generate(request, pk):
                     if trade_union_activitie_name is not None and trade_union_activitie_name != '':
                         records.append((verbose_name, trade_union_activitie_name))
             elif field == 'individualinfo':
+                print("privet")
                 verbose_name = IndividualInfo._meta.verbose_name
                 for individual_info in individual_infos:
                     individual_info_name = individual_info.name
