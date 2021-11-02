@@ -6,7 +6,6 @@ from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
 from strike.helpers import get_request_data, return_right_data, get_values, get_data, get_fields
 from .functions import remove_data
 from .serializers import *
@@ -20,9 +19,7 @@ from .models import *
 import os
 import pdfkit
 from docx import Document
-
 # Create your views here.
-
 general_tabs_fields = [
     'case_name',
     'source',
@@ -109,7 +106,6 @@ description_tab_fields = [
 files_tab_fields = [
     'case_text'
 ]
-
 @login_required()
 def add_case(request):
     if request.method == 'POST':
@@ -121,33 +117,25 @@ def add_case(request):
         companyInfoForm = CompanyInfoForm(request.POST)
         casePhotoForm = CasePhotoForm(request.POST)
         caseFileForm = CaseFileForm(request.POST)
-
         if form.is_valid():
             case = form.save(commit=False)
-
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
             if personGroupForm.is_valid():
                 case.groupOfPersons = personGroupForm.save()
             if companyInfoForm.is_valid():
                 case.company = companyInfoForm.save()
-
-
             case.user = request.user
             case.active = True
             case.save()
-
             if individualFormSet.is_valid():
                 individualFormSet.save()
-
             form._save_m2m()
-
             for individual in individualFormSet:
                 if individual.is_valid():
                     ind = individual.save(commit=False)
                     ind.case_id = case.id
                     ind.save()
-
             # if casePhotoForm.is_valid():
             for f in request.FILES.getlist('photo'):
                 photo = CasePhoto(photo=f, card=case)
@@ -156,7 +144,6 @@ def add_case(request):
             for f in request.FILES.getlist('file'):
                 file = CaseFile(file=f, card=case)
                 file.save()
-
             return redirect('works_list')
     else:
         form = CaseForm
@@ -183,7 +170,6 @@ def add_case(request):
         'individualForm': individualForm,
     })
 
-
 @login_required()
 def update_case(request, pk):
     case = Case.objects.get(id=pk)
@@ -196,34 +182,26 @@ def update_case(request, pk):
         companyInfoForm = CompanyInfoForm(request.POST)
         casePhotoForm = CasePhotoForm(request.POST)
         caseFileForm = CaseFileForm(request.POST)
-
         if form.is_valid():
             form.save(commit=False)
-
             for individual in individualFormSet:
                 if individual.is_valid():
                     ind = individual.save(commit=False)
                     ind.case = case
                     ind.save()
-
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
             if personGroupForm.is_valid():
                 case.groupOfPersons = personGroupForm.save()
             if companyInfoForm.is_valid():
                 case.company = companyInfoForm.save()
-
-
             case.user = request.user
             case.active = True
             case.save()
-
             if individualFormSet.is_valid():
                 individualFormSet.save()
-
             form._save_m2m()
-
-
+            print(request.FILES.getlist('photo'))
             # if casePhotoForm.is_valid():
             for f in request.FILES.getlist('photo'):
                 photo = CasePhoto(photo=f, card=case)
@@ -232,26 +210,18 @@ def update_case(request, pk):
             for f in request.FILES.getlist('file'):
                 file = CaseFile(file=f, card=case)
                 file.save()
-
             return redirect('works_list')
     form = CaseForm(instance=case)
-
     individualForm = IndividualForm
-
     tradeUnionForm = TradeUnionInfoForm
     if case.tradeUnionInfo is not None:
         tradeUnionForm = TradeUnionInfoForm(instance=TradeUnionInfo.objects.get(pk=case.tradeUnionInfo_id))
-
     personGroupForm = PersonGroupForm
     if case.groupOfPersons is not None:
         personGroupForm = PersonGroupForm(instance=GroupOfPersons.objects.get(pk=case.groupOfPersons_id))
-
-
     companyInfoForm = CompanyInfoForm
-
     if case.company is not None:
         companyInfoForm = CompanyInfoForm(instance=Company.objects.get(pk=case.company_id))
-
     casePhotoForm = CasePhotoForm()
     caseFileForm = CaseFileForm()
     individual_infos = IndividualInfo.objects.filter(case__id=pk)
@@ -261,29 +231,25 @@ def update_case(request, pk):
     if len(individual_infos) != 0:
         individualFormSet.extra = 0
     return render(request, 'work/add_case.html', context={
-        'form':form,
-        'tradeUnionForm':tradeUnionForm,
-        'individualFormSet':individualFormSet,
-        'personGroupForm':personGroupForm,
-        'companyInfoForm':companyInfoForm,
-        'caseFileForm':caseFileForm,
-        'casePhotoForm':casePhotoForm,
-        'general_tabs_fields':general_tabs_fields,
-        'initiator_tab_fields':initiator_tab_fields,
-        'intruder_tab_fields':intruder_tab_fields,
-        'description_tab_fields':description_tab_fields,
-        'files_tab_fields':files_tab_fields,
+        'form': form,
+        'tradeUnionForm': tradeUnionForm,
+        'individualFormSet': individualFormSet,
+        'personGroupForm': personGroupForm,
+        'companyInfoForm': companyInfoForm,
+        'caseFileForm': caseFileForm,
+        'casePhotoForm': casePhotoForm,
+        'general_tabs_fields': general_tabs_fields,
+        'initiator_tab_fields': initiator_tab_fields,
+        'intruder_tab_fields': intruder_tab_fields,
+        'description_tab_fields': description_tab_fields,
+        'files_tab_fields': files_tab_fields,
         'images': images,
         'files': files,
         'individual_infos': individual_infos
     })
-
-
 def delete_case(request, pk):
     case = Case.objects.get(id=pk).delete()
     return redirect('works_list')
-
-
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
@@ -307,18 +273,13 @@ def cases(request):
         return render(request, 'work/cases.html', context)
     else:
         raise Http404('Недостаточно прав!')
-
-
 def load_regions(request):
     country_id = request.GET.get('country_id')
     regions = Region.objects.filter(country=country_id).all()
-    return render(request,'work/region_dropdown.html',{'regions':regions})
-
+    return render(request, 'work/region_dropdown.html', {'regions': regions})
 @login_required()
 def add_comment(request, pk):
-
     case = Case.objects.get(id=pk)
-
     if request.method == 'POST':
         data = request.POST
         print(case.case_name)
@@ -328,7 +289,6 @@ def add_comment(request, pk):
         if form.is_valid():
             from_email = request.user.email
             print(from_email)
-
             to_email = case.user.email
             print(to_email)
             comment = request.POST.get('comment')
@@ -340,18 +300,12 @@ def add_comment(request, pk):
     else:
         form = CaseCommentForm()
     return render(request, 'work/add_comment.html', {'form': form, 'case': case})
-
-
 def show_comments(request, pk):
     comments = CaseComment.objects.filter(case_id=pk, active=True)
     return render(request, 'work/show_comments.html', {'comments': comments})
-
-
 def delete_comment(request, pk):
     CaseComment.objects.get(id=pk).delete()
     return redirect('works_list')
-
-
 def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
@@ -376,7 +330,6 @@ def case_render_pdf_view(request, *args, **kwargs):
     response['Content-Disposition'] = f'filename="card_{case.id}.pdf"'
     return response
 
-
 def case_download_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
@@ -400,9 +353,142 @@ def case_download_pdf_view(request, *args, **kwargs):
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="card_{case.id}.pdf"'
     return response
-
-
-
+# class DataAPIView(APIView):
+#     def get(self, request):
+#         source = SourceSerializers(Source.objects.all(), many=True)
+#         country = CountrySerializers(Country.objects.all(), many=True)
+#         region_1 = RegionSerializers(Region.objects.filter(country__pk=1), many=True)
+#         region_2 = RegionSerializers(Region.objects.filter(country__pk=2), many=True)
+#         region_3 = RegionSerializers(Region.objects.filter(country__pk=3), many=True)
+#         region_4 = RegionSerializers(Region.objects.filter(country__pk=4), many=True)
+#         region_5 = RegionSerializers(Region.objects.filter(country__pk=5), many=True)
+#         groupOfRights = GroupOfRightsSerializers(GroupOfRights.objects.all(), many=True)
+#         tradeUnionRight = TradeUnionRightSerializers(TradeUnionRight.objects.all(), many=True)
+#         tradeUnionCrime = TradeUnionCrimeSerializers(TradeUnionCrime.objects.all(), many=True)
+#         meetingsRight = MeetingsRightSerializers(MeetingsRight.objects.all(), many=True)
+#         сonvention87 = Сonvention87Serializers(Сonvention87.objects.all(), many=True)
+#         tradeUnionBuildingsRight = TradeUnionBuildingsRightSerializers(TradeUnionBuildingsRight.objects.all(),
+#                                                                        many=True)
+#         createOrganizationRight = CreateOrganizationRightSerializers(CreateOrganizationRight.objects.all(), many=True)
+#         createTradeUnionRight = CreateTradeUnionRightSerializers(CreateTradeUnionRight.objects.all(), many=True)
+#         electionsRight = ElectionsRightSerializers(ElectionsRight.objects.all(), many=True)
+#         tradeUnionActivityRight = TradeUnionActivityRightSerializers(TradeUnionActivityRight.objects.all(), many=True)
+#         createStrikeRight = CreateStrikeRightSerializers(CreateStrikeRight.objects.all(), many=True)
+#         сonvention98 = Сonvention98Serializers(Сonvention98.objects.all(), many=True)
+#         antiTradeUnionDiscrimination = AntiTradeUnionDiscriminationSerializers(
+#             AntiTradeUnionDiscrimination.objects.all(), many=True)
+#         conversationRight = СonversationRightSerializers(СonversationRight.objects.all(), many=True)
+#         сonvention135 = Сonvention135Serializers(Сonvention135.objects.all(), many=True)
+#         consultationRight = ConsultationRightSerializers(ConsultationRight.objects.all(), many=True)
+#         principleOfNonDiscrimination = PrincipleOfNonDiscriminationSerializers(
+#             PrincipleOfNonDiscrimination.objects.all(), many=True)
+#         discriminatiOnVariousGrounds =DiscriminatiOnVariousGroundsSerializers(
+#             DiscriminatiOnVariousGrounds.objects.all(), many=True)
+#         discriminationInVariousAreas = DiscriminationInVariousAreasSerializers(
+#             DiscriminationInVariousAreas.objects.all(), many=True)
+#         publicPolicyDiscrimination = PublicPolicyDiscriminationSerializers(PublicPolicyDiscrimination.objects.all(),
+#                                                                            many=True)
+#         childLabor = ChildLaborSerializers(ChildLabor.objects.all(), many=True)
+#         сonvention138 = Сonvention138Serializers(Сonvention138.objects.all(), many=True)
+#         convention182 = Сonvention182Serializers(Сonvention182.objects.all(), many=True)
+#         prohibitionOfForcedLabor = ProhibitionOfForcedLaborSerializers(ProhibitionOfForcedLabor.objects.all(),
+#                                                                        many=True)
+#         useOfForcedLabor = UseOfForcedLaborSerializers(UseOfForcedLabor.objects.all(), many=True)
+#         governmentCoercion = GovernmentCoercionSerializers(GovernmentCoercion.objects.all(), many=True)
+#         violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLaborSerializer(
+#             ViolationsUsingCompulsoryLabor.objects.all(), many=True)
+#         failureSystemicMeasures = FailureSystemicMeasuresSerializers(FailureSystemicMeasures.objects.all(), many=True)
+#
+#         victim = VictimSerializers(Victim.objects.all(), many=True)
+#         intruder = IntruderSerializers(Intruder.objects.all(), many=True)
+#         violation_nature = NatureViolationSerializers(NatureViolation.objects.all(), many=True)
+#         rights_state = RightsStateSerializers(RightsState.objects.all(), many=True)
+#         victim_situation = VictimSituationSerializers(VictimSituation.objects.all(), many=True)
+#         tradeUnionSituation = TradeUnionSituationSerializers(TradeUnionSituation.objects.all(), many=True)
+#         trade_union_activities = TradeUnionActivitiesSerializers(TradeUnionActivities.objects.all(), many=True)
+#         user = UserSerializers(User.objects.all(), many=True)
+#
+#         # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
+#         # company = CompanySerializers(Company.objects.all(), many=True)
+#         # tradeUnionInfo = TradeUnionInfoSerializers(TradeUnionInfo.objects.all(), many=True)
+#         # groupOfPersons = GroupOfPersonsSerializers(GroupOfPersons.objects.all(), many=True)
+#         # russian_regions = Region.objects.filter()
+#         return Response([
+#             {'id': 'source', 'name': 'Источник информации', 'item': source.data},
+#             {'id': 'country', 'name': 'Страна', 'item': country.data},
+#             {'id': 'region', 'name': 'Регион', 'item': {1: region_1.data,
+#                                                         2: region_2.data,
+#                                                         3: region_3.data,
+#                                                         4: region_4.data,
+#                                                         5: region_5.data}},
+#             {'id': 'groupofrights', 'name': 'Группа прав', 'item': groupOfRights.data},
+#             {'id': 'tradeunionright', 'name': 'Нарушение в сфере профсоюзных прав и гражданских свобод',
+#              'item': tradeUnionRight.data},
+#             {'id': 'tradeunioncrime', 'name': 'Обвинения в преступном поведении в связи с профсоюзной деятельностью',
+#              'item': tradeUnionCrime.data},
+#             {'id': 'meetingsright', 'name': 'Нарушения права на проведение собраний и демонстраций',
+#              'item': meetingsRight.data},
+#             {'id': 'сonvention87', 'name': 'Нарушения положений Конвенции МОТ №87', 'item': сonvention87.data},
+#             {'id': 'tradeunionbuildingsright', 'name': 'Защита профсоюзных помещений и имущества профсоюзов',
+#              'item': tradeUnionBuildingsRight.data},
+#             {'id': 'createorganizationright', 'name': 'Создание организации без предварительного разрешения',
+#              'item': createOrganizationRight.data},
+#             {'id': 'createTradeUnionRight', 'name': 'Создание профсоюзов и вступление в профсоюзы',
+#              'item': createTradeUnionRight.data},
+#             {'id': 'electionsRight', 'name': 'Нарушение права свободно выбирать своих представителей',
+#              'item': electionsRight.data},
+#             {'id': 'tradeUnionActivityRight',
+#              'name': 'Нарушения права профсоюза организовывать деятельность своего аппарата',
+#              'item': tradeUnionActivityRight.data},
+#             {'id': 'createStrikeRight', 'name': 'Нарушение права на забастовку', 'item': createStrikeRight.data},
+#             {'id': 'сonvention98', 'name': 'Нарушения положений Конвенции МОТ №98', 'item': сonvention98.data},
+#             {'id': 'antiTradeUnionDiscrimination', 'name': 'Антипрофсоюзная дискриминация',
+#              'item': antiTradeUnionDiscrimination.data},
+#             {'id': 'conversationRight', 'name': 'Нарушения права на проведение коллективных переговоров',
+#              'item': conversationRight.data},
+#             {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'item': сonvention135.data},
+#             {'id': 'consultationRight', 'name': 'Проведение консультаций', 'item': consultationRight.data},
+#             {'id': 'principleOfNonDiscrimination', 'name': 'Принцип запрещения дискриминации',
+#              'item': principleOfNonDiscrimination.data},
+#             {'id': 'discriminatiOnVariousGrounds', 'name': 'Дискриминация по различным основаниям',
+#              'item': discriminatiOnVariousGrounds.data},
+#             {'id': 'discriminationInVariousAreas', 'name': 'Дискриминация в различных сферах трудовых отношений',
+#              'item': discriminationInVariousAreas.data},
+#             {'id': 'publicPolicyDiscrimination',
+#              'name': 'Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей',
+#              'item': publicPolicyDiscrimination.data},
+#             {'id': 'childLabor', 'name': 'Дискриминация в различных сферах трудовых отношений',
+#              'item': childLabor.data},
+#             {'id': 'сonvention138', 'name': 'О минимальном возрасте для приема на работу', 'item': сonvention138.data},
+#             {'id': 'convention182',
+#              'name': 'О запрещении и немедленных мерах по искоренению наихудших форм детского труда',
+#              'item': convention182.data},
+#             {'id': 'prohibitionOfForcedLabor', 'name': 'Запрет принудительного труда',
+#              'item': prohibitionOfForcedLabor.data},
+#             {'id': 'useOfForcedLabor', 'name': 'Использование принудительного труда', 'item': useOfForcedLabor.data},
+#             {'id': 'governmentCoercion', 'name': 'Косвенное принуждение государством к труду',
+#              'item': governmentCoercion.data},
+#             {'id': 'violationsUsingCompulsoryLabor',
+#              'name': 'Нарушения при использовании принудительного (обязательного) труда в допустимых случаях',
+#              'item': violationsUsingCompulsoryLabor.data},
+#             {'id': 'failureSystemicMeasures', 'name': 'Нарушения, связанные с непринятием государством системных мер',
+#              'item': failureSystemicMeasures.data},
+#
+#             {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+#             {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
+#             {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
+#             {'id': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
+#             {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
+#             {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
+#              'item': tradeUnionSituation.data},
+#             {'id': 'work_tradeunionactivities', 'name': 'Отрасль деятельности профсоюза',
+#              'item': trade_union_activities.data},
+#             {'id': 'user', 'name': 'Монитор', 'item': user.data},
+#         ])
+        # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
+        # {'company': {'Работодатель(компания)': company.data}}, #Можно удалить
+        # {'tradeUnionInfo': {'Профсоюзная организация': tradeUnionInfo.data}}, #Можно удалить
+        # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
 class DataAPIView(APIView):
     def get(self, request):
         source = SourceSerializers(Source.objects.all(), many=True)
@@ -412,152 +498,53 @@ class DataAPIView(APIView):
         region_3 = RegionSerializers(Region.objects.filter(country__pk=3), many=True)
         region_4 = RegionSerializers(Region.objects.filter(country__pk=4), many=True)
         region_5 = RegionSerializers(Region.objects.filter(country__pk=5), many=True)
-        groupOfRights = GroupOfRightsSerializers(GroupOfRights.objects.all(), many=True)
-        tradeUnionRight = TradeUnionRightSerializers(TradeUnionRight.objects.all(), many=True)
-        tradeUnionCrime = TradeUnionCrimeSerializers(TradeUnionCrime.objects.all(), many=True)
-        meetingsRight = MeetingsRightSerializers(MeetingsRight.objects.all(), many=True)
-        сonvention87 = Сonvention87Serializers(Сonvention87.objects.all(), many=True)
-        tradeUnionBuildingsRight = TradeUnionBuildingsRightSerializers(TradeUnionBuildingsRight.objects.all(), many=True)
-        createOrganizationRight = CreateOrganizationRightSerializers(CreateOrganizationRight.objects.all(), many=True)
-        createTradeUnionRight  = CreateTradeUnionRightSerializers(CreateTradeUnionRight.objects.all(), many=True)
-        electionsRight = ElectionsRightSerializers(ElectionsRight.objects.all(), many=True)
-        tradeUnionActivityRight = TradeUnionActivityRightSerializers(TradeUnionActivityRight.objects.all(), many=True)
-        createStrikeRight = CreateStrikeRightSerializers(CreateStrikeRight.objects.all(), many=True)
-        сonvention98 = Сonvention98Serializers(Сonvention98.objects.all(), many=True)
-        antiTradeUnionDiscrimination = AntiTradeUnionDiscriminationSerializers(AntiTradeUnionDiscrimination.objects.all(), many=True)
-        conversationRight = СonversationRightSerializers(СonversationRight.objects.all(), many=True)
-        сonvention135 = Сonvention135Serializers(Сonvention135.objects.all(), many=True)
-        consultationRight = ConsultationRightSerializers(ConsultationRight.objects.all(), many=True)
-        principleOfNonDiscrimination = PrincipleOfNonDiscriminationSerializers(PrincipleOfNonDiscrimination.objects.all(), many=True)
-        discriminatiOnVariousGrounds = DiscriminatiOnVariousGroundsSerializers(DiscriminatiOnVariousGrounds.objects.all(), many=True)
-        discriminationInVariousAreas = DiscriminationInVariousAreasSerializers(DiscriminationInVariousAreas.objects.all(), many=True)
-        publicPolicyDiscrimination  = PublicPolicyDiscriminationSerializers(PublicPolicyDiscrimination.objects.all(), many=True)
-        childLabor = ChildLaborSerializers(ChildLabor.objects.all(), many=True)
-        сonvention138 = Сonvention138Serializers(Сonvention138.objects.all(), many=True)
-        convention182 = Сonvention182Serializers(Сonvention182.objects.all(), many=True)
-        prohibitionOfForcedLabor = ProhibitionOfForcedLaborSerializers(ProhibitionOfForcedLabor.objects.all(), many=True)
-        useOfForcedLabor = UseOfForcedLaborSerializers(UseOfForcedLabor.objects.all(), many=True)
-        governmentCoercion = GovernmentCoercionSerializers(GovernmentCoercion.objects.all(), many=True)
-        violationsUsingCompulsoryLabor = ViolationsUsingCompulsoryLaborSerializer(ViolationsUsingCompulsoryLabor.objects.all(), many=True)
-        failureSystemicMeasures = FailureSystemicMeasuresSerializers(FailureSystemicMeasures.objects.all(), many=True)
-
+        user = UserSerializers(User.objects.all(), many=True)
         victim = VictimSerializers(Victim.objects.all(), many=True)
         intruder = IntruderSerializers(Intruder.objects.all(), many=True)
         violation_nature = NatureViolationSerializers(NatureViolation.objects.all(), many=True)
         rights_state = RightsStateSerializers(RightsState.objects.all(), many=True)
-        victim_situation = VictimSituationSerializers(VictimSituation.objects.all(), many=True)
         tradeUnionSituation = TradeUnionSituationSerializers(TradeUnionSituation.objects.all(), many=True)
+        victim_situation = VictimSituationSerializers(VictimSituation.objects.all(), many=True)
         trade_union_activities = TradeUnionActivitiesSerializers(TradeUnionActivities.objects.all(), many=True)
-        user = UserSerializers(User.objects.all(), many=True)
-
-        # tradeUnionCount = TradeUnionCountSerializers(TradeUnionCount.objects.all(), many=True)
-        # company = CompanySerializers(Company.objects.all(), many=True)
-        # tradeUnionInfo = TradeUnionInfoSerializers(TradeUnionInfo.objects.all(), many=True)
-        # groupOfPersons = GroupOfPersonsSerializers(GroupOfPersons.objects.all(), many=True)
-        # russian_regions = Region.objects.filter()
-        return Response([
-            {'id': 'source', 'name': 'Источник информации', 'item': source.data},
-            {'id': 'country', 'name': 'Страна', 'item': country.data},
-            {'id': 'region', 'name': 'Регион', 'item': {1: region_1.data,
-                                                        2: region_2.data,
-                                                        3: region_3.data,
-                                                        4: region_4.data,
-                                                        5: region_5.data}},
-            {'id': 'groupofrights', 'name': 'Группа прав', 'item': groupOfRights.data},
-            {'id': 'tradeunionright', 'name': 'Нарушение в сфере профсоюзных прав и гражданских свобод',
-             'item': tradeUnionRight.data},
-            {'id': 'tradeunioncrime', 'name': 'Обвинения в преступном поведении в связи с профсоюзной деятельностью',
-             'item': tradeUnionCrime.data},
-            {'id': 'meetingsright', 'name': 'Нарушения права на проведение собраний и демонстраций',
-             'item': meetingsRight.data},
-            {'id': 'сonvention87', 'name': 'Нарушения положений Конвенции МОТ №87', 'item': сonvention87.data},
-            {'id': 'tradeunionbuildingsright', 'name': 'Защита профсоюзных помещений и имущества профсоюзов',
-             'item': tradeUnionBuildingsRight.data},
-            {'id': 'createorganizationright', 'name': 'Создание организации без предварительного разрешения',
-             'item': createOrganizationRight.data},
-            {'id': 'createTradeUnionRight', 'name': 'Создание профсоюзов и вступление в профсоюзы',
-             'item': createTradeUnionRight.data},
-            {'id': 'electionsRight', 'name': 'Нарушение права свободно выбирать своих представителей',
-             'item': electionsRight.data},
-            {'id': 'tradeUnionActivityRight',
-             'name': 'Нарушения права профсоюза организовывать деятельность своего аппарата',
-             'item': tradeUnionActivityRight.data},
-            {'id': 'createStrikeRight', 'name': 'Нарушение права на забастовку', 'item': createStrikeRight.data},
-            {'id': 'сonvention98', 'name': 'Нарушения положений Конвенции МОТ №98', 'item': сonvention98.data},
-            {'id': 'antiTradeUnionDiscrimination', 'name': 'Антипрофсоюзная дискриминация',
-             'item': antiTradeUnionDiscrimination.data},
-            {'id': 'conversationRight', 'name': 'Нарушения права на проведение коллективных переговоров',
-             'item': conversationRight.data},
-            {'id': 'сonvention135', 'name': 'Нарушения положений Конвенции МОТ №135', 'item': сonvention135.data},
-            {'id': 'consultationRight', 'name': 'Проведение консультаций', 'item': consultationRight.data},
-            {'id': 'principleOfNonDiscrimination', 'name': 'Принцип запрещения дискриминации',
-             'item': principleOfNonDiscrimination.data},
-            {'id': 'discriminatiOnVariousGrounds', 'name': 'Дискриминация по различным основаниям',
-             'item': discriminatiOnVariousGrounds.data},
-            {'id': 'discriminationInVariousAreas', 'name': 'Дискриминация в различных сферах трудовых отношений',
-             'item': discriminationInVariousAreas.data},
-            {'id': 'publicPolicyDiscrimination',
-             'name': 'Нарушения в области проведения государственной политики по искоренению дискриминации и поощрению равенства прав и возможностей',
-             'item': publicPolicyDiscrimination.data},
-            {'id': 'childLabor', 'name': 'Дискриминация в различных сферах трудовых отношений',
-             'item': childLabor.data},
-            {'id': 'сonvention138', 'name': 'О минимальном возрасте для приема на работу', 'item': сonvention138.data},
-            {'id': 'convention182',
-             'name': 'О запрещении и немедленных мерах по искоренению наихудших форм детского труда',
-             'item': convention182.data},
-            {'id': 'prohibitionOfForcedLabor', 'name': 'Запрет принудительного труда',
-             'item': prohibitionOfForcedLabor.data},
-            {'id': 'useOfForcedLabor', 'name': 'Использование принудительного труда', 'item': useOfForcedLabor.data},
-            {'id': 'governmentCoercion', 'name': 'Косвенное принуждение государством к труду',
-             'item': governmentCoercion.data},
-            {'id': 'violationsUsingCompulsoryLabor',
-             'name': 'Нарушения при использовании принудительного (обязательного) труда в допустимых случаях',
-             'item': violationsUsingCompulsoryLabor.data},
-            {'id': 'failureSystemicMeasures', 'name': 'Нарушения, связанные с непринятием государством системных мер',
-             'item': failureSystemicMeasures.data},
-
-            {'id': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
-            {'id': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
-            {'id': 'natureviolation', 'name': 'Характер нарушения', 'item': violation_nature.data},
-            {'id': 'rightsstate', 'name': 'Ситуация с правами', 'item': rights_state.data},
-            {'id': 'victimsituation', 'name': 'Ситуация с потерпевшим(и)', 'item': victim_situation.data},
-            {'id': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
-             'item': tradeUnionSituation.data},
-            {'id': 'work_tradeunionactivities', 'name': 'Отрасль деятельности профсоюза', 'item': trade_union_activities.data},
-            {'id': 'user', 'name': 'Монитор', 'item': user.data},
-        ])
-        # {'tradeUnionCount': {'Численность профсоюза после произошедшего': tradeUnionCount.data}}, #Можно удалить
-        # {'company': {'Работодатель(компания)': company.data}}, #Можно удалить
-        # {'tradeUnionInfo': {'Профсоюзная организация': tradeUnionInfo.data}}, #Можно удалить
-        # {'groupOfPersons': {'Группа лиц (работников)': groupOfPersons.data}}, #Можно удалить
+        queryset = GroupOfRights.objects.all()
+        serializer = GroupOfRightsSerializers(queryset, many=True)
+        return Response([{"id_name": "groupOfRights", "name": "Группа прав", "item": serializer.data},
+                         {'id_name': 'source', 'name': 'Источник информации', 'item': source.data},
+                         {'id_name': 'country', 'name': 'Страна', 'item': country.data},
+                         {'id_name': 'region', 'name': 'Регион', 'item': {1: region_1.data,
+                                                                          2: region_2.data,
+                                                                          3: region_3.data,
+                                                                          4: region_4.data,
+                                                                          5: region_5.data}},
+                         {'id_name': 'victim', 'name': 'В отношении кого совершено нарушение', 'item': victim.data},
+                         {'id_name': 'intruder', 'name': 'Кем было совершено нарушение', 'item': intruder.data},
+                         {'id_name': 'violation_nature', 'name': 'Характер нарушения', 'item': violation_nature.data},
+                         {'id_name': 'rights_state', 'name': 'Ситуация с правами', 'item': rights_state.data},
+                         {'id_name': 'victim_situation', 'name': 'Ситуация с потерпевшим(и)',
+                          'item': victim_situation.data},
+                         {'id_name': 'tradeUnionSituation', 'name': 'Профсоюз на месте работы после произошедшего',
+                          'item': tradeUnionSituation.data},
+                         {'id_name': 'trade_union_activities', 'name': 'Отрасль деятельности профсоюза',
+                          'item': trade_union_activities.data},
+                         {'id_name': 'user', 'name': 'Монитор', 'item': user.data},
+                         ])
 
 
 class DataFilterAPI(APIView):
     authentication_classes = []
-
     def post(self, request):
-
-        # print(request.data)
         one = get_request_data(request.data)
-        print(one, "one")
         two = return_right_data(one)
-        print(two, "te")
         values_list = get_values(two)
-        print(values_list)
         dicts = get_data(two)
-        print(dicts, "dicts")
-
-        queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
-                                                                                  procent=100 / Count('id')
-                                                                                  )
-        print(queryset)
+        print(dicts)
+        queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),procent=100 / Count('id')
+                                                                              )
         fields = get_fields(two)
         fields.append("count")
         fields.append("procent")
         serializers = DataFilterApiSerializer(queryset, many=True, fields=fields)
         return Response(serializers.data)
-
-
 @login_required()
 def case_files_download(request, pk):
     if request.user.position.role_id == 3:
@@ -570,23 +557,18 @@ def case_files_download(request, pk):
         images = CasePhoto.objects.filter(card_id=case.id)
         files = CaseFile.objects.filter(card_id=case.id)
         return render(request, 'work/files_download.html', {'images': images, 'files': files})
-
-
 @login_required()
 def case_files_delete(request, pk):
     case_file = CaseFile.objects.get(pk=pk)
     case_id = case_file.card_id
     case_file.delete()
     return redirect('work_case_files_download', pk=case_id)
-
-
 @login_required()
 def case_photo_delete(request, pk):
     case_photo = CasePhoto.objects.get(pk=pk)
     case_id = case_photo.card_id
     case_photo.delete()
     return redirect('work_case_files_download', pk=case_id)
-
 def work_pdf_in_html_page(request, pk):
     case = get_object_or_404(Case, pk=pk)
     source = Source.objects.filter(case__pk=pk)
@@ -602,7 +584,6 @@ def work_pdf_in_html_page(request, pk):
     }
     return render(request, 'work/work_pdf.html', context)
 
-
 def work_word_generate(request, pk):
     case = get_object_or_404(Case, pk=pk)
     sources = Source.objects.filter(case__pk=pk)
@@ -613,7 +594,6 @@ def work_word_generate(request, pk):
     document = Document()
     dates_list = ['date_create', 'date_update', 'start_date', 'end_date']
     document.add_heading('Трудовые нарушения', 0)
-
     records = []
     case_values = Case.objects.filter(pk=pk).values()
     field_name_list = [i.name for i in Case._meta.get_fields()]
@@ -681,14 +661,12 @@ def work_word_generate(request, pk):
                     continue
             except Exception as e:
                 print(e, field)
-
     table = document.add_table(rows=0, cols=2)
     table.style = 'Table Grid'
     for field, value in records:
         row_cells = table.add_row().cells
         row_cells[0].text = str(field)
         row_cells[1].text = str(value)
-
     document.add_page_break()
     base_dir = str(settings.BASE_DIR)
     base_dir += "/work/static/word/work/"

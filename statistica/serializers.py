@@ -7,6 +7,9 @@ from work.models import Country
 
 
 class MigrantResultSerializer(serializers.ModelSerializer):
+    country = serializers.CharField()
+    user = serializers.CharField()
+    region = serializers.CharField()
 
     class Meta:
         model = MigrantCase
@@ -21,6 +24,9 @@ class WorkResultSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class StrikeResultSerializer(serializers.ModelSerializer):
+    country = serializers.CharField()
+    user = serializers.CharField(source="added_by")
+    region = serializers.CharField()
 
     class Meta:
         model = Card

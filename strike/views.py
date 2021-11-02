@@ -448,16 +448,19 @@ class DataAPIView(APIView):
             {'id': 'economic_demands', 'name': 'Экономический', 'item': economic_demands.data},
             {'id': 'politic_demands', 'name': 'Политический', 'item': politic_demands.data},
             {'id': 'combo_demands', 'name': 'Смешанный', 'item': combo_demands.data},
-            {'id': 'company_ownership_type', 'name': 'Форма собственности компании', 'item': company_ownership_type.data},
+            {'id': 'company_ownership_type', 'name': 'Форма собственности компании',
+             'item': company_ownership_type.data},
 
-            {'id': 'company_employees_count', 'name': 'Общая численность работников на предприятии', 'item': company_employees_count.data},
+            {'id': 'company_employees_count', 'name': 'Общая численность работников на предприятии',
+             'item': company_employees_count.data},
 
-            {'id': 'count_strike_participants', 'name': 'Общая численность работников на предприятии', 'item': count_strike_participants.data},
+            {'id': 'count_strike_participants', 'name': 'Общая численность работников на предприятии',
+             'item': count_strike_participants.data},
 
             {'id': 'tradeunionChoice', 'name': 'Есть ли на предприятии профсоюз', 'item': tradeunion_choice.data},
             {'id': 'initiator', 'name': 'Инициатор забастовки/акции', 'item': initiator.data},
             {'id': 'tradeunion_data', 'name': 'Данные профсоюза', 'item': tradeunion_data.data},
-            {'id': 'employer', 'name': 'Работодатель', 'item': employear.data},
+            {'id': 'employear', 'name': 'Работодатель', 'item': employear.data},
             {'id': 'duration', 'name': 'Характер забастовки/акции - сколько длилась', 'item': duration.data},
             {'id': 'meeting_requirements', 'name': 'Удовлетворение требований', 'item': meeting_requirements.data},
         ])

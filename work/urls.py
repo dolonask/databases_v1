@@ -17,7 +17,7 @@ urlpatterns = [
     path('data/', views.DataAPIView.as_view(), name='work_data'),
 
 
-    path('test-data/', test_get_data.TestDataAPIView.as_view(), name='work_get_data'),
+    path('test-data/', views.DataAPIView.as_view(), name='work_get_data'),
 
     path('data/get/', views.DataFilterAPI.as_view(), name='work_data_get'),
     path('case_files_download/<int:pk>/', views.case_files_download, name='work_case_files_download'),

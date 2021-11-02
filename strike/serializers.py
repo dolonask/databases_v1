@@ -24,11 +24,11 @@ class SourceSerializers(serializers.ModelSerializer):
 
 
 class UserSerializers(serializers.ModelSerializer):
-    username = serializers.CharField(max_length=256)
+    name = serializers.CharField(max_length=256, source='username')
 
     class Meta:
         model = User
-        fields = ('id', 'username')
+        fields = ('id', 'name')
 
 
 class DemandCategorySerializers(serializers.ModelSerializer):
@@ -124,7 +124,7 @@ class FilterStrikeGroupSerializer(CustomTestSerializer):
     meeting_requirements = serializers.CharField(max_length=256, source="meeting_requirements__name")
     meeting_requirements_id = serializers.IntegerField()
     duration = serializers.CharField(max_length=256, source="duration__name")
-    employer = serializers.CharField(max_length=256, source="employer__name")
+    employear = serializers.CharField(max_length=256, source="employear__emp_name")
     tradeunion_data = serializers.CharField(max_length=256, source="tradeunion_data__tradeUnion_name")
     initiator = serializers.CharField(max_length=256, source="initiator__name")
     tradeunionChoice = serializers.CharField(max_length=256, source="tradeunionChoice__name")

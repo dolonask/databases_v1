@@ -46,6 +46,11 @@ def get_values(data):
             values_list.append(i + "_id")
             continue
 
+        if i == "employear":
+            values_list.append(i + "__emp_name")
+            values_list.append(i + "_id")
+            continue
+
 
         if i == "count_strike_participants":
             values_list.append(i + "__choice")

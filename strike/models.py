@@ -164,6 +164,7 @@ class Employer(models.Model):
     emp_contacts = models.CharField("Реквизиты (контакты/адрес и т.д.) ", max_length=200,
                                     help_text='Реквизиты (контакты/адрес и т.д.) ')
 
+
     class Meta:
         verbose_name = "Работодатель"
         verbose_name_plural = "Работодатели"
