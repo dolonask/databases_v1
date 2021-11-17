@@ -120,23 +120,11 @@
                             {% endfor %}
                         </div>
                     </div>
-                    {#                    <div class="panel panel-default" id="idIndividualFormDiv">#}
-                    {#                        <div class="panel-heading">Физическое лицо</div>#}
-                    {#                        <div class="panel-body">#}
-                    {#                            {% for field in individualForm %}#}
-                    {#                                <div class="form-group">#}
-                    {#                                    {{ field.label_tag }}#}
-                    {#                                    {{ field }}#}
-                    {#                                    <div class="invalid_feedback">#}
-                    {#                                        {{ field.errors }}#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {#                            {% endfor %}#}
-                    {#                        </div>#}
-                    {#                    </div>#}
                     <div class="panel panel-default" id="idIndividualFormDiv">
                         <div class="panel-heading">Физическое лицо</div>
+
                         <div class="panel-body" id = "form-container">
+
                             {{individualFormSet.management_form}}
                             {% for indForm in individualFormSet %}
                                 <div class="bird-form">
@@ -146,7 +134,6 @@
                             <button id="add-form" type="button" class="btn btn-primary">Добавить ФЛ</button>
                             <button id="del-form" type="button" class="btn btn-danger">Удалить ФЛ</button>
                         </div>
-
                     </div>
                     <div class="panel panel-default" id="idPersonGroupFormDiv">
                         <div class="panel-heading">Группа лиц (работников)</div>

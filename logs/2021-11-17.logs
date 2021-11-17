@@ -1,0 +1,230 @@
+WARNING django.request Bad Request: /admin 2021-11-17 11:16:55,887
+WARNING django.server "GET /admin HTTP/1.1" 400 72030 2021-11-17 11:16:55,888
+WARNING django.request Bad Request: /favicon.ico 2021-11-17 11:16:56,115
+WARNING django.server "GET /favicon.ico HTTP/1.1" 400 71905 2021-11-17 11:16:56,116
+WARNING django.request Not Found: /favicon.ico 2021-11-17 11:17:03,381
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-17 11:17:03,382
+ERROR django.request Internal Server Error: /work/update/11/ 2021-11-17 13:32:08,388
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 255, in update_case
+    individualFormSet.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 681, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 819, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 961, in save_new
+    return super().save_new(form, commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 658, in save_new
+    return form.save(commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 468, in save
+    self.instance.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 682, in save
+    self._prepare_related_fields_for_save(operation_name='save')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 932, in _prepare_related_fields_for_save
+    raise ValueError(
+ValueError: save() prohibited to prevent data loss due to unsaved related object 'case'.
+ERROR django.server "POST /work/update/11/ HTTP/1.1" 500 125215 2021-11-17 13:32:08,392
+ERROR django.request Internal Server Error: /work/update/12/ 2021-11-17 13:37:24,437
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 255, in update_case
+    individualFormSet.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 681, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 819, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 961, in save_new
+    return super().save_new(form, commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 658, in save_new
+    return form.save(commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 468, in save
+    self.instance.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 682, in save
+    self._prepare_related_fields_for_save(operation_name='save')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 932, in _prepare_related_fields_for_save
+    raise ValueError(
+ValueError: save() prohibited to prevent data loss due to unsaved related object 'case'.
+ERROR django.server "POST /work/update/12/ HTTP/1.1" 500 125281 2021-11-17 13:37:24,441
+ERROR django.request Internal Server Error: /work/test/0/ 2021-11-17 14:52:18,753
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 113, in index
+    case = Case.objects.get(pk=pk)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+work.models.Case.DoesNotExist: Case matching query does not exist.
+ERROR django.server "GET /work/test/0/ HTTP/1.1" 500 78096 2021-11-17 14:52:18,755
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 15:19:00,112
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 159, in add_case
+    data = total_forms(request.POST)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 148, in total_forms
+    data['form-TOTAL_FORMS'] = '1';
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\http\request.py", line 513, in __setitem__
+    self._assert_mutable()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\http\request.py", line 510, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 119046 2021-11-17 15:19:00,114
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 15:25:01,370
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 160, in add_case
+    data = total_forms(a)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 148, in total_forms
+    data['form-TOTAL_FORMS'] = '1';
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\http\request.py", line 513, in __setitem__
+    self._assert_mutable()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\http\request.py", line 510, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 124536 2021-11-17 15:25:01,372
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 15:27:00,787
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 158, in add_case
+    a = dict(request.POST.iterlists())
+AttributeError: 'QueryDict' object has no attribute 'iterlists'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 91461 2021-11-17 15:27:00,791
+WARNING django.server "POST /work/add/ HTTP/1.1" 403 2561 2021-11-17 15:37:52,659
+WARNING django.server "POST /work/add/ HTTP/1.1" 403 2561 2021-11-17 15:41:22,331
+WARNING django.server "POST /work/add/ HTTP/1.1" 403 2561 2021-11-17 15:41:40,500
+WARNING django.server "POST /work/add/ HTTP/1.1" 403 2561 2021-11-17 15:41:53,233
+WARNING django.request Not Found: /favicon.ico 2021-11-17 15:41:53,622
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-17 15:41:53,623
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 16:07:31,697
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 172, in add_case
+    pprint.pprint(a, "aa")
+  File "D:\Users\ntabyldieva\AppData\Local\Programs\Python\Python39\lib\pprint.py", line 53, in pprint
+    printer.pprint(object)
+  File "D:\Users\ntabyldieva\AppData\Local\Programs\Python\Python39\lib\pprint.py", line 148, in pprint
+    self._format(object, self._stream, 0, 0, {}, 0)
+  File "D:\Users\ntabyldieva\AppData\Local\Programs\Python\Python39\lib\pprint.py", line 176, in _format
+    p(self, object, stream, indent, allowance, context, level + 1)
+  File "D:\Users\ntabyldieva\AppData\Local\Programs\Python\Python39\lib\pprint.py", line 190, in _pprint_dict
+    write = stream.write
+AttributeError: 'str' object has no attribute 'write'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 145209 2021-11-17 16:07:31,700
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 16:08:15,685
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 180, in add_case
+    individualFormSet = IndividualFormSet(data)
+NameError: name 'data' is not defined
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 97492 2021-11-17 16:08:15,687
+WARNING django.request Not Found: /favicon.ico 2021-11-17 16:22:28,128
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-17 16:22:28,141
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 17:52:36,230
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 196, in add_case
+    data = total_forms(c)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 173, in total_forms
+    if len(data['form-TOTAL_FORMS']) == 0:
+KeyError: 'form-TOTAL_FORMS'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 104877 2021-11-17 17:52:36,232
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 17:54:08,653
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 197, in add_case
+    data = total_forms(c)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 173, in total_forms
+    if len(data['form-TOTAL_FORMS']) == 0:
+KeyError: 'form-TOTAL_FORMS'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 101217 2021-11-17 17:54:08,655
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 17:55:44,441
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 202, in add_case
+    data = total_forms(c)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 173, in total_forms
+    if len(data['form-TOTAL_FORMS']) == 0:
+KeyError: 'form-TOTAL_FORMS'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 101239 2021-11-17 17:55:44,443
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 17:58:21,192
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 202, in add_case
+    data = total_forms(c)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 173, in total_forms
+    if len(data['form-TOTAL_FORMS']) == 0:
+KeyError: 'form-TOTAL_FORMS'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 101191 2021-11-17 17:58:21,193
+ERROR django.request Internal Server Error: /work/add/ 2021-11-17 17:59:03,463
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 202, in add_case
+    data = total_forms(c)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 173, in total_forms
+    if len(data['form-TOTAL_FORMS']) == 0:
+KeyError: 'form-TOTAL_FORMS'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 101191 2021-11-17 17:59:03,466

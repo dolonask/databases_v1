@@ -1,11 +1,11 @@
 {% extends 'statistica/base_search.html' %}
 {% load static %}
 {% block title %}
-    Статистика трудовых мигрантов
+    Статистика трудовых нарушений
 {% endblock %}
 
 {% block breadcrumb %}
-    <li class="breadcrumb-item active" aria-current="page">Трудовые мигранты</li>
+    <li class="breadcrumb-item active" aria-current="page">Трудовые нарушения</li>
     <a id='work_data_get' style="display: none">{{ url }}{% url 'work_data_get' %}</a>
     <a id='work_data' style="display: none">{{ url }}{% url 'work_get_data' %}</a>
     <a id='work_search' style="display: none">{{ url }}{% url 'work_search' %}</a>

@@ -1,0 +1,80 @@
+WARNING django.request Not Found: /favicon.ico 2021-11-04 10:50:10,389
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-04 10:50:10,390
+ERROR django.request Internal Server Error: /work/add/ 2021-11-04 10:53:52,168
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 112, in add_case
+    pprint.pprint(request.POST)
+NameError: name 'pprint' is not defined
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 89585 2021-11-04 10:53:52,171
+ERROR django.request Internal Server Error: /work/add/ 2021-11-04 10:59:08,839
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 132, in add_case
+    individualForm.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 460, in save
+    raise ValueError(
+ValueError: The IndividualInfo could not be created because the data didn't validate.
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 97824 2021-11-04 10:59:08,842
+WARNING django.request Not Found: /favicon.ico 2021-11-04 15:32:30,214
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-04 15:32:30,214
+WARNING django.request Not Found: /favicon.ico 2021-11-04 15:32:31,645
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-04 15:32:31,645
+ERROR django.request Internal Server Error: /work/add/ 2021-11-04 15:35:09,244
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 130, in add_case
+    if individualForm.is_valid():
+UnboundLocalError: local variable 'individualForm' referenced before assignment
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 95147 2021-11-04 15:35:09,247
+ERROR django.request Internal Server Error: /work/update/155/ 2021-11-04 18:22:49,999
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 230, in update_case
+    individualForm = IndividualForm
+NameError: name 'IndividualForm' is not defined
+ERROR django.server "GET /work/update/155/ HTTP/1.1" 500 75455 2021-11-04 18:22:50,001
+ERROR django.request Internal Server Error: /work/add/ 2021-11-04 18:31:19,735
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 167, in add_case
+    individualForm = IndividualForm
+NameError: name 'IndividualForm' is not defined
+ERROR django.server "GET /work/add/ HTTP/1.1" 500 73565 2021-11-04 18:31:19,738
+ERROR django.request Internal Server Error: /work/add/ 2021-11-04 18:32:06,483
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 186, in add_case
+    'individualForm': individualForm,
+NameError: name 'individualForm' is not defined
+ERROR django.server "GET /work/add/ HTTP/1.1" 500 74785 2021-11-04 18:32:06,487

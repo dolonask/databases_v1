@@ -785,3 +785,229 @@ WARNING django.request Not Found: /favicon.ico 2021-11-02 16:32:47,695
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:32:47,696
 WARNING django.request Not Found: /favicon.ico 2021-11-02 16:35:45,258
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 16:35:45,259
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 16:59:35,204
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 150, in add_case
+    ind.case_id = case.id
+UnboundLocalError: local variable 'ind' referenced before assignment
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 93614 2021-11-02 16:59:35,206
+WARNING django.request Not Found: /favicon.ico 2021-11-02 17:36:25,008
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 17:36:25,009
+WARNING django.request Not Found: /favicon.ico 2021-11-02 17:36:28,394
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 17:36:28,394
+WARNING django.request Not Found: /favicon.ico 2021-11-02 17:36:30,154
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 17:36:30,155
+WARNING django.request Not Found: /favicon.ico 2021-11-02 17:36:31,843
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-02 17:36:31,844
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 17:40:05,414
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 133, in add_case
+    if individualFormSet.is_valid():
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 93397 2021-11-02 17:40:05,417
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 17:49:51,869
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 112, in add_case
+    a = Case.nodes.all().reverse()[0]
+AttributeError: type object 'Case' has no attribute 'nodes'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 89756 2021-11-02 17:49:51,871
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 17:52:33,005
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 113, in add_case
+    print(int(a))
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Case'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 91018 2021-11-02 17:52:33,008
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 17:54:31,233
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 113, in add_case
+    print(a + 1)
+TypeError: unsupported operand type(s) for +: 'Case' and 'int'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 90956 2021-11-02 17:54:31,235
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 18:00:20,790
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 112, in add_case
+    a = Case.objects.latest()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 670, in latest
+    return self.reverse()._earliest(*fields)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 653, in _earliest
+    raise ValueError(
+ValueError: earliest() and latest() require either fields as positional arguments or 'get_latest_by' in the model's Meta.
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 103400 2021-11-02 18:00:20,795
+ERROR django.request Internal Server Error: /admin/work/case/ 2021-11-02 18:11:23,861
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\import_export\admin.py", line 341, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\import_export\admin.py", line 504, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1723, in changelist_view
+    response = self.response_action(request, queryset=cl.get_queryset(request))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1408, in response_action
+    response = func(self, request, queryset)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\actions.py", line 33, in delete_selected
+    deletable_objects, model_count, perms_needed, protected = modeladmin.get_deleted_objects(queryset, request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1846, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 152, in get_deleted_objects
+    to_delete = collector.nested(format_callback)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 214, in nested
+    roots.extend(self._nested(root, seen, format_callback))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 198, in _nested
+    children.extend(self._nested(child, seen, format_callback))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 200, in _nested
+    ret = [format_callback(obj)]
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 127, in format_callback
+    no_edit_link = '%s: %s' % (capfirst(opts.verbose_name), obj)
+TypeError: __str__ returned non-string (type NoneType)
+ERROR django.server "POST /admin/work/case/ HTTP/1.1" 500 152638 2021-11-02 18:11:23,868
+ERROR django.request Internal Server Error: /admin/work/case/ 2021-11-02 18:12:03,352
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\import_export\admin.py", line 341, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\import_export\admin.py", line 504, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1723, in changelist_view
+    response = self.response_action(request, queryset=cl.get_queryset(request))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1408, in response_action
+    response = func(self, request, queryset)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\actions.py", line 33, in delete_selected
+    deletable_objects, model_count, perms_needed, protected = modeladmin.get_deleted_objects(queryset, request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1846, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 152, in get_deleted_objects
+    to_delete = collector.nested(format_callback)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 214, in nested
+    roots.extend(self._nested(root, seen, format_callback))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 198, in _nested
+    children.extend(self._nested(child, seen, format_callback))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 200, in _nested
+    ret = [format_callback(obj)]
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 127, in format_callback
+    no_edit_link = '%s: %s' % (capfirst(opts.verbose_name), obj)
+TypeError: __str__ returned non-string (type NoneType)
+ERROR django.server "POST /admin/work/case/ HTTP/1.1" 500 146948 2021-11-02 18:12:03,357
+ERROR django.request Internal Server Error: /admin/work/case/ 2021-11-02 18:12:08,303
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\import_export\admin.py", line 341, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\import_export\admin.py", line 504, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1723, in changelist_view
+    response = self.response_action(request, queryset=cl.get_queryset(request))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1408, in response_action
+    response = func(self, request, queryset)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\actions.py", line 33, in delete_selected
+    deletable_objects, model_count, perms_needed, protected = modeladmin.get_deleted_objects(queryset, request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\options.py", line 1846, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 152, in get_deleted_objects
+    to_delete = collector.nested(format_callback)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 214, in nested
+    roots.extend(self._nested(root, seen, format_callback))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 198, in _nested
+    children.extend(self._nested(child, seen, format_callback))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 200, in _nested
+    ret = [format_callback(obj)]
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\admin\utils.py", line 127, in format_callback
+    no_edit_link = '%s: %s' % (capfirst(opts.verbose_name), obj)
+TypeError: __str__ returned non-string (type NoneType)
+ERROR django.server "POST /admin/work/case/ HTTP/1.1" 500 146948 2021-11-02 18:12:08,308
+ERROR django.request Internal Server Error: /work/add/ 2021-11-02 18:20:45,063
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 138, in add_case
+    individualForm.save(commit=False)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 460, in save
+    raise ValueError(
+ValueError: The IndividualInfo could not be created because the data didn't validate.
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 97956 2021-11-02 18:20:45,066

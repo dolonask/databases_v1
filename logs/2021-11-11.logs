@@ -1,0 +1,14 @@
+WARNING django.request Not Found: /work/ 2021-11-11 11:00:39,466
+WARNING django.server "GET /work/ HTTP/1.1" 404 7363 2021-11-11 11:00:39,467
+WARNING django.request Not Found: // 2021-11-11 11:00:42,018
+WARNING django.server "GET // HTTP/1.1" 404 3494 2021-11-11 11:00:42,019
+WARNING django.request Not Found: /api/v1/auth/auth_phone 2021-11-12 12:24:02,378
+WARNING django.server "POST /api/v1/auth/auth_phone HTTP/1.1" 404 8725 2021-11-12 12:24:02,378
+WARNING django.request Not Found: /api/v1/auth/auth_phone/ 2021-11-12 12:24:17,357
+WARNING django.server "POST /api/v1/auth/auth_phone/ HTTP/1.1" 404 8728 2021-11-12 12:24:17,358
+WARNING django.request Not Found: /api/v1/auth/auth_phone/ 2021-11-12 12:25:14,269
+WARNING django.server "POST /api/v1/auth/auth_phone/ HTTP/1.1" 404 8728 2021-11-12 12:25:14,270
+WARNING django.request Not Found: /api/v1/auth/auth_phone/ 2021-11-12 12:25:15,598
+WARNING django.server "POST /api/v1/auth/auth_phone/ HTTP/1.1" 404 8728 2021-11-12 12:25:15,598
+WARNING django.request Not Found: /api/v1/auth/auth_phone/ 2021-11-12 12:26:25,381
+WARNING django.server "POST /api/v1/auth/auth_phone/ HTTP/1.1" 404 8728 2021-11-12 12:26:25,382

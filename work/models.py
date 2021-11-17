@@ -10,7 +10,7 @@ class Country(models.Model):
     active = models.BooleanField("Активна", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Страна"
@@ -23,7 +23,7 @@ class Region(models.Model):
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Регион"
@@ -35,7 +35,7 @@ class Source(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Источник информации"
@@ -47,7 +47,7 @@ class GroupOfRights(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Группа прав"
@@ -60,7 +60,7 @@ class RightsViolation(models.Model):
     groupOfRights = models.ForeignKey(GroupOfRights, on_delete=models.DO_NOTHING, verbose_name="Группа прав")
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушение прав"
@@ -73,7 +73,7 @@ class RightsViolationCase(models.Model):
     rightsViolation = models.ForeignKey(RightsViolation, on_delete=models.DO_NOTHING, verbose_name="Нарушение прав")
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Тип нарушения права"
@@ -85,7 +85,7 @@ class Victim(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Лицо или организация"
@@ -104,7 +104,7 @@ class TradeUnionInfo(models.Model):
                                 help_text='электронная почта, адрес\телефон')
 
     def __str__(self):
-        return self.tradeunion_name
+        return f'{self.tradeunion_name}'
 
     class Meta:
         verbose_name = "Профсоюзная организация"
@@ -116,7 +116,7 @@ class Education(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Образование"
@@ -128,7 +128,7 @@ class MaritalStatus(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Состояние в браке"
@@ -140,7 +140,7 @@ class Gender(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Пол"
@@ -152,7 +152,7 @@ class AgreementDetail(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Детали договора"
@@ -160,24 +160,24 @@ class AgreementDetail(models.Model):
 
 
 class IndividualInfo(models.Model):
-    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
     name = models.CharField("ФИО", max_length=100, blank=True, null=True)
-    member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
-    age = models.CharField("Возраст пострадавшего", max_length=50,)
-    education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование")
-    marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке")
-    position = models.CharField("Должность в организации", max_length=50, )
-    experience = models.CharField("Стаж работы в организации", max_length=50,)
+    member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
+    gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего" , blank=True)
+    age = models.CharField("Возраст пострадавшего", max_length=50, blank=True)
+    education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование", blank=True, null=True)
+    marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке", blank=True)
+    position = models.CharField("Должность в организации", max_length=50, blank=True )
+    experience = models.CharField("Стаж работы в организации", max_length=50, blank=True)
     is_official = models.CharField("Было ли официальное трудоустройство?", choices=[('YES', 'Да'), ('NO', 'Нет')],
                                    max_length=20, null=True, blank=True)
     has_agreement = models.CharField("Был ли подписан трудовой договор?", choices=[('YES', 'Да'), ('NO', 'Нет')],
                                      max_length=20, blank=True, null=True)
     agreementDetail = models.ForeignKey(AgreementDetail, on_delete=models.DO_NOTHING, verbose_name="Детали договора", null=True, blank=True)
-    case = models.ForeignKey("Case", on_delete=models.CASCADE, verbose_name="Карточка")
+    case = models.ForeignKey("Case", on_delete=models.CASCADE, null=True, blank=True, verbose_name="Карточка", default=1)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Физическое лицо"
@@ -201,7 +201,7 @@ class GroupType(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Характеристика группы"
@@ -213,7 +213,7 @@ class MembershipOfGroupPersons(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Членство в профсоюзе участников группы"
@@ -225,7 +225,7 @@ class Intruder(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушитель"
@@ -241,7 +241,7 @@ class GroupOfPersons(models.Model):
     membership_another = models.CharField("Другое", max_length=50, null=True,blank=True)
 
     def __str__(self):
-        return self.amount
+        return f'{self.amount}'
 
     class Meta:
         verbose_name = "Группа лиц"
@@ -253,7 +253,7 @@ class OwnerShipType(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Форма собственности"
@@ -270,7 +270,7 @@ class EmployeesCount(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Количество сотрудников предприятия"
@@ -287,7 +287,7 @@ class TradeUnionCount(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.choice
+        return f'{self.choice}'
 
     class Meta:
         verbose_name = "Численность профсоюза после произошедшего"
@@ -299,7 +299,7 @@ class NatureViolation(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Характер нарушения"
@@ -311,7 +311,7 @@ class RightsState(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Ситуация с правами"
@@ -339,7 +339,7 @@ class Company(models.Model):
     additional = models.CharField("Иная важная информация (Другие компании, связанные с ней, головная компания, подрядчики, поставщики и пр.)", max_length=2000)
 
     def __str__(self):
-        return self.company_name
+        return f'{self.company_name}'
 
     class Meta:
         verbose_name = "Работодатель (компания)"
@@ -351,7 +351,7 @@ class VictimSituation(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Ситуация с потерпевшим(и)"
@@ -363,7 +363,7 @@ class TradeUnionSituation(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Профсоюз на месте работы после произошедшего"
@@ -375,7 +375,7 @@ class TradeUnionRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушение в сфере профсоюзных прав и гражданских свобод"
@@ -387,7 +387,7 @@ class TradeUnionCrime(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Обвинения в преступном поведении в связи с профсоюзной деятельностью"
@@ -399,7 +399,7 @@ class MeetingsRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушение права на проведение собраний и демонстраций"
@@ -411,7 +411,7 @@ class TradeUnionBuildingsRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Защита профсоюзных помещений и имущества профсоюзов"
@@ -423,7 +423,7 @@ class CreateOrganizationRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Создание организации без предварительного разрешения"
@@ -435,7 +435,7 @@ class CreateTradeUnionRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Создание профсоюзов без предварительного разрешения"
@@ -447,7 +447,7 @@ class ElectionsRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушение права свободно выбирать своих представителей"
@@ -459,7 +459,7 @@ class TradeUnionActivityRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушение права профсоюза организовывать деятельность своего аппарата"
@@ -471,7 +471,7 @@ class CreateStrikeRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Нарушение права на забастовку"
@@ -483,7 +483,7 @@ class AntiTradeUnionDiscrimination(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class СonversationRight(models.Model):
@@ -491,7 +491,7 @@ class СonversationRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class Сonvention135(models.Model):
@@ -499,7 +499,7 @@ class Сonvention135(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class ConsultationRight(models.Model):
@@ -507,7 +507,7 @@ class ConsultationRight(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class DiscriminatiOnVariousGrounds(models.Model):
@@ -515,7 +515,7 @@ class DiscriminatiOnVariousGrounds(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class PrincipleOfNonDiscrimination(models.Model):
@@ -523,7 +523,7 @@ class PrincipleOfNonDiscrimination(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class DiscriminationInVariousAreas(models.Model):
@@ -531,7 +531,7 @@ class DiscriminationInVariousAreas(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class PublicPolicyDiscrimination(models.Model):
@@ -539,7 +539,7 @@ class PublicPolicyDiscrimination(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class ChildLabor(models.Model):
@@ -547,7 +547,7 @@ class ChildLabor(models.Model):
     active = models.BooleanField("Активен", default=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class Сonvention138(models.Model):
@@ -635,7 +635,7 @@ class CasePhoto(models.Model):
     card = models.ForeignKey("Case", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.photo
+        return f'{self.photo}'
 
     class Meta:
         verbose_name = "Фото/видео/документы "
@@ -647,7 +647,7 @@ class CaseFile(models.Model):
     card = models.ForeignKey("Case", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.file
+        return f'{self.file}'
 
     class Meta:
         verbose_name = "Кейсы, связанные с данной ситуацией"
@@ -677,7 +677,7 @@ class Case(models.Model):
     source_another = models.CharField("Другое", max_length=50, null=True, blank=True)
     source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True)
     source_content = models.TextField("Текст статьи/сообщения", null=True, blank=True)
-    country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
+    country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна", related_name='country')
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
 
     city_name = models.CharField("Город (населённый пункт)", max_length=100)
@@ -868,6 +868,9 @@ class Case(models.Model):
                              verbose_name="Монитор", related_name="strike_users", blank=True)
     active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.case_name}'
 
     class Meta:
         verbose_name = 'Кейс трудовые нарушения'

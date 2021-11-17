@@ -6,6 +6,12 @@ getRight();
  *  Готовит данные для запроса
  * **/
 searchBtn.onclick = function () {
+    let country = document.querySelector('[data-id="country"]').value;
+    if(!country){
+        alert('Выберите страну');
+        return;
+    }
+
     let sChecks = document.querySelectorAll('.s-checks:checked');
     let arr = [];
 
@@ -45,6 +51,10 @@ function getResult(data) {
  * @param {array} data - ответ от запроса
  * */
 function showResult(data) {
+    if(!data.length) {
+        clearTable();
+        return;
+    };
     let td = '';
     let tr = '';
     let tr2 = '';
@@ -147,6 +157,10 @@ function getRight() {
         })
 }
 
+function clearTable(){
+    document.querySelector('#left-result > tr').remove();
+}
+
 /** Выводит список для поиска
  * @param {array} data - Данные для вывода
  * */
@@ -227,7 +241,14 @@ function showChildBlocks(e){
  * */
 function showItems(e) {
     let target = e.target.parentElement.parentElement.nextElementSibling;
+
+    if(target.querySelectorAll('.s-checks').length){
+        target.querySelectorAll('.s-checks').forEach(item => {
+            item.parentElement.parentElement.parentElement.classList.add('d-none');
+        })
+    }
     target.classList.toggle('d-none');
+    target.querySelector('select').selectedIndex = 0;
 }
 
 /** Создает выпадающий список

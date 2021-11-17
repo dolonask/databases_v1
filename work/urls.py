@@ -24,4 +24,9 @@ urlpatterns = [
     path('card_files_delete/<int:pk>/', views.case_files_delete, name='work_card_files_delete'),
     path('card_photo_delete/<int:pk>/', views.case_photo_delete, name='work_card_photo_delete'),
     path('word/<int:pk>/', views.work_word_generate, name='word_case_word'),
+    path('word/<int:pk>/', views.work_word_generate, name='word_case_word'),
+
+
+    path('test/<int:pk>/', views.index, name='index'),
+
 ]

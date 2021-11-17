@@ -6,6 +6,12 @@ getRight();
  *  Готовит данные для запроса
  * **/
 searchBtn.onclick = function () {
+    let country = document.querySelector('[data-id="country"]').value;
+    if(!country){
+        alert('Выберите страну');
+        return;
+    }
+
     let sChecks = document.querySelectorAll('.s-checks:checked');
     let arr = [];
 
@@ -44,6 +50,10 @@ function getResult(data) {
  * @param {array} data - ответ от запроса
  * */
 function showResult(data) {
+    if(!data.length) {
+        clearTable();
+        return;
+    };
     let td = '';
     let tr = '';
     let tr2 = '';
@@ -146,6 +156,10 @@ function getRight() {
         })
 }
 
+function clearTable(){
+    document.querySelector('#left-result > tr').remove();
+}
+
 /** Выводит список для поиска
  * @param {array} data - Данные для вывода
  * */
@@ -197,6 +211,7 @@ function showRight(data) {
 function showItems(e) {
     let target = e.target.parentElement.parentElement.nextElementSibling;
     target.classList.toggle('d-none');
+    target.querySelector('select').selectedIndex = 0;
 }
 
 /** Создает выпадающий список
@@ -217,7 +232,8 @@ function createRightElems(name, item, id) {
         '<label class="s-label no-margin">' + name + ' <input class="s-checks" id="' + id + '" type="checkbox"></label>' +
         '</div>' +
         '<div class="item-body d-none pt-3 pb-3 panel-body">' +
-        '<select data-id="' + id + '" class="form-control s-selects" id="">'
+        '<select data-id="' + id + '" class="form-control s-selects" id="">' +
+        `<option value="">Выберите</option>`
         + itemElems +
         '</select>' +
         '<p></p>' +

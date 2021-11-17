@@ -180,5 +180,4 @@ class CaseAdmin(ImportExportModelAdmin):
     resource_class = CaseResource
     list_display = ('case_name', 'user', 'date_create', 'date_update')
 
-
 admin.site.register(Case, CaseAdmin)

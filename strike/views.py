@@ -1,3 +1,5 @@
+import pprint
+
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.db.models import Count
@@ -485,6 +487,7 @@ class DataFilterAPI(APIView):
         dicts = get_data(two)
         print(values_list, "values")
         # print(dicts)
+
         queryset = Card.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
                                                                          procent=100 / Count('id'))
         print(queryset)

@@ -197,7 +197,7 @@ class VictimForm(forms.ModelForm):
 class IndividualForm(forms.ModelForm):
     class Meta:
         model = IndividualInfo
-        fields = '__all__'
+        # fields = '__all__'
         exclude = ['case']
         widgets = {
             'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
@@ -215,28 +215,39 @@ class IndividualForm(forms.ModelForm):
             'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
         }
 
+# from django.forms import BaseModelFormSet
+#
+# class IndividualFormSet(BaseModelFormSet):
+#     def __init__(self, *args, **kwargs):
+#         super(IndividualFormSet, self).__init__(*args, **kwargs)
+#         for form in self.forms:
+#             form.empty_permitted = False
 
 IndividualFormSet = modelformset_factory(
     model=IndividualInfo,
     form=IndividualForm,
-    fields='__all__',
+
+    # min_num=1,
+    # validate_min=True,
+    # fields='__all__',
     exclude=['case'],
-    widgets={
-        'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
-        'name': forms.TextInput(attrs={'class': 'form-control'}),
-        'member_of_tradeunion': forms.Select(
-            attrs={'class': 'form-control', 'onchange': "onIndTradeUnionMemberChanged(this.value);"}),
-        'gender': forms.Select(attrs={'class': 'form-control'}),
-        'age': forms.TextInput(attrs={'class': 'form-control'}),
-        'education': forms.Select(attrs={'class': 'form-control'}),
-        'marital_status': forms.Select(attrs={'class': 'form-control'}),
-        'position': forms.TextInput(attrs={'class': 'form-control'}),
-        'experience': forms.TextInput(attrs={'class': 'form-control'}),
-        'is_official': forms.Select(attrs={'class': 'form-control'}),
-        'has_agreement': forms.Select(
-            attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
-        'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
-    },
+     widgets={
+         'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
+         'name': forms.TextInput(attrs={'class': 'form-control'}),
+         'member_of_tradeunion': forms.Select(
+             attrs={'class': 'form-control', 'onchange': "onIndTradeUnionMemberChanged(this.value);"}),
+         'gender': forms.Select(attrs={'class': 'form-control'}),
+         'age': forms.TextInput(attrs={'class': 'form-control'}),
+         'education': forms.Select(attrs={'class': 'form-control'}),
+         'marital_status': forms.Select(attrs={'class': 'form-control'}),
+         'position': forms.TextInput(attrs={'class': 'form-control'}),
+         'experience': forms.TextInput(attrs={'class': 'form-control'}),
+         'is_official': forms.Select(attrs={'class': 'form-control'}),
+
+         'has_agreement': forms.Select(
+             attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
+         'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
+     },
     extra=1,
 )
 

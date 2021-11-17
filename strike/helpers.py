@@ -31,7 +31,7 @@ def return_right_data(custom_dict_data):
 
 
 def get_values(data):
-    values_list = []
+    values_list = ['country']
     for i in data.keys():
         print(i)
         if i == "start_date" or i == "end_date":
@@ -64,6 +64,7 @@ def get_values(data):
         if i == "card_sources" or i == "economic_demands" or  i == "politic_demands" or  i == "combo_demands" or i == "intruder" or i == "source" or i == "violated_right":
             values_list.append(i + "__name")
             values_list.append(i + "__id")
+
             continue
 
         if i == "card_demand_categories":
@@ -73,6 +74,7 @@ def get_values(data):
         else:
             values_list.append(i + "__name")
             values_list.append(i + "_id")
+
     return values_list
 
 

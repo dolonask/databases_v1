@@ -1,0 +1,239 @@
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:14:15,403
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:14:15,403
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:14:15,419
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:14:15,419
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:17:08,851
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:17:08,852
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:17:53,209
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:17:53,209
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:17:56,388
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:17:56,389
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:17:57,254
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:17:57,255
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:17:57,975
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:17:57,975
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:18:11,397
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:18:11,397
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:18:12,265
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:18:12,266
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:19:46,500
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:19:46,501
+WARNING django.request Not Found: /favicon.ico 2021-11-10 11:19:47,927
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-10 11:19:47,928
+ERROR django.request Internal Server Error: /work/add/ 2021-11-10 12:23:00,482
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 143, in add_case
+    a = Case.objects.latest()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 670, in latest
+    return self.reverse()._earliest(*fields)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 653, in _earliest
+    raise ValueError(
+ValueError: earliest() and latest() require either fields as positional arguments or 'get_latest_by' in the model's Meta.
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 107601 2021-11-10 12:23:00,484
+ERROR django.request Internal Server Error: /work/add/ 2021-11-10 13:41:05,467
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "education_id" отношения "work_individualinfo" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (30, , null, , , , , null, null, null, null, null, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 148, in add_case
+    ind = individual.save(commit=True)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 468, in save
+    self.instance.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "education_id" отношения "work_individualinfo" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (30, , null, , , , , null, null, null, null, null, null, null).
+
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 177028 2021-11-10 13:41:05,473
+ERROR django.request Internal Server Error: /work/add/ 2021-11-10 17:56:55,290
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 134, in add_case
+    parent = case.save(commit=False)
+TypeError: save() got an unexpected keyword argument 'commit'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 93141 2021-11-10 17:56:55,291
+ERROR django.request Internal Server Error: /work/test/2016/ 2021-11-10 18:14:06,944
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 188, in index
+    case = Case.objects.get(pk=pk)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+work.models.Case.DoesNotExist: Case matching query does not exist.
+ERROR django.server "GET /work/test/2016/ HTTP/1.1" 500 77947 2021-11-10 18:14:06,947
+ERROR django.request Internal Server Error: /work/test/216/ 2021-11-10 18:14:28,737
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 195, in index
+    indiv = IndividualFormSet(isinstance=case)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 915, in __init__
+    super().__init__(data, files, prefix=prefix, queryset=qs, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 581, in __init__
+    super().__init__(**{'data': data, 'files': files, 'auto_id': auto_id, 'prefix': prefix, **kwargs})
+TypeError: __init__() got an unexpected keyword argument 'isinstance'
+ERROR django.server "GET /work/test/216/ HTTP/1.1" 500 79159 2021-11-10 18:14:28,739
+ERROR django.request Internal Server Error: /work/test/216/ 2021-11-10 18:15:01,390
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 196, in index
+    return render(request, 'index.html', {'formset': indiv})
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+ERROR django.server "GET /work/test/216/ HTTP/1.1" 500 87968 2021-11-10 18:15:01,393
+ERROR django.request Internal Server Error: /work/test/216/ 2021-11-10 18:15:26,322
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 196, in index
+    return render(request, 'test_indiv.html', {'formset': indiv})
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: test_indiv.html
+ERROR django.server "GET /work/test/216/ HTTP/1.1" 500 88168 2021-11-10 18:15:26,324
+ERROR django.request Internal Server Error: /work/test/216/ 2021-11-10 18:16:21,021
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 196, in index
+    return render(request, 'test_indiv.html', {'formset': indiv})
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: test_indiv.html
+ERROR django.server "GET /work/test/216/ HTTP/1.1" 500 88168 2021-11-10 18:16:21,023
+ERROR django.request Internal Server Error: /work/test/216/ 2021-11-10 18:17:27,624
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 196, in index
+    return render(request, "test_indiv.html", {'formset': indiv})
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: test_indiv.html
+ERROR django.server "GET /work/test/216/ HTTP/1.1" 500 88168 2021-11-10 18:17:27,626
+ERROR django.request Internal Server Error: /work/test/216/ 2021-11-10 18:17:48,842
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 196, in index
+    return render(request, "work/test_indiv.html", {'formset': indiv})
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: test_indiv.html
+ERROR django.server "GET /work/test/216/ HTTP/1.1" 500 88178 2021-11-10 18:17:48,845
+WARNING django.server "POST /work/test/216/ HTTP/1.1" 403 2561 2021-11-10 18:18:14,699
+WARNING django.server "POST /work/test/216/ HTTP/1.1" 403 2561 2021-11-10 18:19:20,018
+ERROR django.request Internal Server Error: /work/update/196/ 2021-11-10 18:35:42,365
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\work\views.py", line 219, in update_case
+    individualFormSet.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 681, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 819, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 961, in save_new
+    return super().save_new(form, commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 658, in save_new
+    return form.save(commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\models.py", line 468, in save
+    self.instance.save()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 682, in save
+    self._prepare_related_fields_for_save(operation_name='save')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\base.py", line 932, in _prepare_related_fields_for_save
+    raise ValueError(
+ValueError: save() prohibited to prevent data loss due to unsaved related object 'case'.
+ERROR django.server "POST /work/update/196/ HTTP/1.1" 500 124776 2021-11-10 18:35:42,368

@@ -147,3 +147,4 @@ class StrikeResultApiView(APIView):
         cards = Card.objects.filter(**filters)
         serializer = StrikeResultSerializer(cards, many=True)
         return Response(serializer.data)
+
