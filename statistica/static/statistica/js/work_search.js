@@ -61,12 +61,12 @@ function showResult(data) {
     let th = '';
     let d = [];
     let str = '';
+
     data.forEach(item => {
         let keys = Object.keys(item);
         keys.forEach(i => {
             if(i.includes('id') || i.includes('date')){
                 d.push(`data-${i}=${item[i]}`);
-
                 d.forEach(i => {
                     str += i + ' '
                 })

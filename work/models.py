@@ -163,12 +163,12 @@ class IndividualInfo(models.Model):
     is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
     name = models.CharField("ФИО", max_length=100, blank=True, null=True)
     member_of_tradeunion = models.CharField("Член профсоюза", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
-    gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего" , blank=True)
+    gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего" , blank=True, null=True)
     age = models.CharField("Возраст пострадавшего", max_length=50, blank=True)
     education = models.ForeignKey(Education, on_delete=models.DO_NOTHING, verbose_name="Образование", blank=True, null=True)
-    marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке", blank=True)
-    position = models.CharField("Должность в организации", max_length=50, blank=True )
-    experience = models.CharField("Стаж работы в организации", max_length=50, blank=True)
+    marital_status = models.ForeignKey(MaritalStatus, on_delete=models.DO_NOTHING, verbose_name="Состояние в браке", blank=True, null=True)
+    position = models.CharField("Должность в организации", max_length=50, blank=True, null=True )
+    experience = models.CharField("Стаж работы в организации", max_length=50, blank=True, null=True)
     is_official = models.CharField("Было ли официальное трудоустройство?", choices=[('YES', 'Да'), ('NO', 'Нет')],
                                    max_length=20, null=True, blank=True)
     has_agreement = models.CharField("Был ли подписан трудовой договор?", choices=[('YES', 'Да'), ('NO', 'Нет')],

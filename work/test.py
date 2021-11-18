@@ -118,13 +118,16 @@ data = {'additional': '',
 
 def form_formset(data):
  a = {}
- for i , y in data.items():
+ for i,y in data.items():
+  if i.endswith('id'):
+    data.pop(i)
   if i.startswith('form'):
    a.update({
    i:y
   })
-print(a)
+ print(a)
 
+form_formset(data)
 
 
 

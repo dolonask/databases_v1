@@ -142,40 +142,26 @@ def index(request, pk):
 #  'form-MIN_NUM_FORMS': '',
 #  'form-TOTAL_FORMS': ''}
 
-data2 =  {
-'form-0-age': '22',
- 'form-0-agreementDetail': '',
- 'form-0-education': '2',
- 'form-0-experience': 'l.hjl.kghf',
- 'form-0-gender': '1',
- 'form-0-has_agreement': 'NO',
- 'form-0-id': '',
- 'form-0-is_anonim': 'YES',
- 'form-0-is_official': '',
- 'form-0-marital_status': '1',
- 'form-0-member_of_tradeunion': 'YES',
- 'form-0-name': '',
- 'form-0-position': 'jmugkj',
- 'form-INITIAL_FORMS': '',
- 'form-MAX_NUM_FORMS': '',
- 'form-MIN_NUM_FORMS': '',
- 'form-TOTAL_FORMS': '',}
 
 def form_formset(data):
     a = {}
     for i , y in data.items():
         if i.startswith('form'):
             a.update({i:y})
-    # print(a)
+    for i in a.copy():
+        # print(i.endswith('id'))
+        if i.endswith("id"):
+            a.pop(i)
     return a
 
 def total_forms(data):
+
     if len(data['form-TOTAL_FORMS']) == 0:
         data['form-TOTAL_FORMS'] = '1'
         data['form-INITIAL_FORMS'] = '0'
         data['form-MAX_NUM_FORMS'] = '1000'
         data['form-MIN_NUM_FORMS'] = '0'
-    if len(data['form-TOTAL_FORMS']) == 1:
+    if len(data['form-TOTAL_FORMS']) == 2:
         data['form-TOTAL_FORMS'] = '2'
         data['form-INITIAL_FORMS'] = '0'
         data['form-MAX_NUM_FORMS'] = '1000'
@@ -192,21 +178,13 @@ def total_forms(data):
 @login_required()
 def add_case(request):
     if request.method == 'POST':
-        pprint.pprint(request.POST)
-
         form = CaseForm(request.POST)
+        print(request.POST)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
-        a = request.POST.dict()
-        # pprint.pprint(a)
-        c = form_formset(a)
-        data = total_forms(c)
-        print(data)
-
-        # pprint.pprint(a)
-        # print(type(request.POST))
-        # cases = IndividualInfo.
+        individualForm = IndividualForm(request.POST)
+        data_ = form_formset(request.POST)
+        data = total_forms(data_)
         individualFormSet = IndividualFormSet(data)
-
         personGroupForm = PersonGroupForm(request.POST)
         companyInfoForm = CompanyInfoForm(request.POST)
         casePhotoForm = CasePhotoForm(request.POST)
@@ -215,47 +193,32 @@ def add_case(request):
         print(individualFormSet.is_valid())
         print(individualFormSet.errors)
 
-        # if individualFormSet.is_valid():
-        #     if individualFormSet.is_valid():
-        #         instances = individualFormSet.save(commit=False)
-        #         for instance in instances:
-        #             instance.case_id = 13
-        #             instance.save()
-
-
-
         if form.is_valid():
             case = form.save(commit=False)
+
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
             if personGroupForm.is_valid():
                 case.groupOfPersons = personGroupForm.save()
             if companyInfoForm.is_valid():
                 case.company = companyInfoForm.save()
+
+
             case.user = request.user
             case.active = True
             case.save()
 
             if individualFormSet.is_valid():
-                print("yes")
-                instances = individualFormSet.save(commit=False)
-                for instance in instances:
-                    print('hello')
-                    instance.case_id = case.id
-                    instance.save()
+                individualFormSet.save(commit=False)
 
+            form._save_m2m()
 
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.case_id = case.id
+                    ind.save()
 
-
-            # if individualFormSet.is_valid():
-            #     individualFormSet.save()
-            # form._save_m2m()
-            # for individual in individualFormSet:
-            #     print(individual)
-            #     if individual.is_valid():
-            #         ind = individual.save(commit=True)
-            #         ind.case_id = case.id
-            #         ind.save()
             # if casePhotoForm.is_valid():
             for f in request.FILES.getlist('photo'):
                 photo = CasePhoto(photo=f, card=case)
@@ -264,6 +227,7 @@ def add_case(request):
             for f in request.FILES.getlist('file'):
                 file = CaseFile(file=f, card=case)
                 file.save()
+
             return redirect('works_list')
     else:
         form = CaseForm
@@ -295,36 +259,43 @@ def add_case(request):
 def update_case(request, pk):
     case = Case.objects.get(id=pk)
     if request.method == 'POST':
-        pprint.pprint(request.POST)
         form = CaseForm(request.POST, instance=case)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
-        individualForm = IndividualForm(request.POST)
-        individualFormSet = IndividualFormSet(data=request.POST, queryset=IndividualInfo.objects.filter(case_id=case.id))
+        data_ = form_formset(request.POST)
+        data = total_forms(data_)
+        individualFormSet = IndividualFormSet(data)
         personGroupForm = PersonGroupForm(request.POST)
         companyInfoForm = CompanyInfoForm(request.POST)
         casePhotoForm = CasePhotoForm(request.POST)
         caseFileForm = CaseFileForm(request.POST)
+
         if form.is_valid():
             form.save(commit=False)
-            if individualFormSet.is_valid():
-                individualFormSet.save(commit=False)
-                for individual in individualFormSet:
-                    if individual.is_valid():
-                        ind = individual.save(commit=False)
-                        ind.case_id = case.id
-                        ind.save()
+
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    ind.case = case
+                    ind.save()
+
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
             if personGroupForm.is_valid():
                 case.groupOfPersons = personGroupForm.save()
             if companyInfoForm.is_valid():
                 case.company = companyInfoForm.save()
+
+
             case.user = request.user
             case.active = True
             case.save()
 
+            if individualFormSet.is_valid():
+                individualFormSet.save()
+
             form._save_m2m()
-            print(request.FILES.getlist('photo'))
+
+
             # if casePhotoForm.is_valid():
             for f in request.FILES.getlist('photo'):
                 photo = CasePhoto(photo=f, card=case)
@@ -333,18 +304,24 @@ def update_case(request, pk):
             for f in request.FILES.getlist('file'):
                 file = CaseFile(file=f, card=case)
                 file.save()
+
             return redirect('works_list')
     form = CaseForm(instance=case)
-    individualForm = IndividualForm
+
     tradeUnionForm = TradeUnionInfoForm
     if case.tradeUnionInfo is not None:
         tradeUnionForm = TradeUnionInfoForm(instance=TradeUnionInfo.objects.get(pk=case.tradeUnionInfo_id))
+
     personGroupForm = PersonGroupForm
     if case.groupOfPersons is not None:
         personGroupForm = PersonGroupForm(instance=GroupOfPersons.objects.get(pk=case.groupOfPersons_id))
+
+
     companyInfoForm = CompanyInfoForm
+
     if case.company is not None:
         companyInfoForm = CompanyInfoForm(instance=Company.objects.get(pk=case.company_id))
+
     casePhotoForm = CasePhotoForm()
     caseFileForm = CaseFileForm()
     individual_infos = IndividualInfo.objects.filter(case__id=pk)
@@ -354,18 +331,18 @@ def update_case(request, pk):
     if len(individual_infos) != 0:
         individualFormSet.extra = 0
     return render(request, 'work/add_case.html', context={
-        'form': form,
-        'tradeUnionForm': tradeUnionForm,
-        'individualFormSet': individualFormSet,
-        'personGroupForm': personGroupForm,
-        'companyInfoForm': companyInfoForm,
-        'caseFileForm': caseFileForm,
-        'casePhotoForm': casePhotoForm,
-        'general_tabs_fields': general_tabs_fields,
-        'initiator_tab_fields': initiator_tab_fields,
-        'intruder_tab_fields': intruder_tab_fields,
-        'description_tab_fields': description_tab_fields,
-        'files_tab_fields': files_tab_fields,
+        'form':form,
+        'tradeUnionForm':tradeUnionForm,
+        'individualFormSet':individualFormSet,
+        'personGroupForm':personGroupForm,
+        'companyInfoForm':companyInfoForm,
+        'caseFileForm':caseFileForm,
+        'casePhotoForm':casePhotoForm,
+        'general_tabs_fields':general_tabs_fields,
+        'initiator_tab_fields':initiator_tab_fields,
+        'intruder_tab_fields':intruder_tab_fields,
+        'description_tab_fields':description_tab_fields,
+        'files_tab_fields':files_tab_fields,
         'images': images,
         'files': files,
         'individual_infos': individual_infos

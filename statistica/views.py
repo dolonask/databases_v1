@@ -80,7 +80,7 @@ class MigrantResultApiView(APIView):
             filters["source__in"] = [source_id]
             filters.pop("source_id")
         print(filters)
-        cases = MigrantCase.objects.filter(**filters)
+        cases = MigrantCase.objects.filter(**filters).order_by('id')
         serializer = MigrantResultSerializer(cases, many=True)
         return Response(serializer.data)
 
@@ -94,6 +94,7 @@ class WorkResultApiView(APIView):
         intruder_id = filters.get('intruder_id')
         source_id = filters.get('source_id')
         groupofrights_id = filters.get('groupofrights_id')
+        tradeunionright_id = filters.get('tradeunionright_id')
 
         if "intruder_id" in list_filter:
             filters["intruder__in"] = [intruder_id]
@@ -107,9 +108,13 @@ class WorkResultApiView(APIView):
             filters["groupOfRights__in"] = [groupofrights_id]
             filters.pop("groupofrights_id")
 
+        if "tradeunionright_id" in list_filter:
+            filters["tradeUnionRight__in"] = [tradeunionright_id]
+            filters.pop("tradeunionright_id")
+
 
         print(filters, 'filters')
-        workcases = WorkCase.objects.filter(**filters)
+        workcases = WorkCase.objects.filter(**filters).order_by('id')
         serializer = WorkResultSerializer(workcases, many=True)
         return Response(serializer.data)
 
@@ -144,7 +149,7 @@ class StrikeResultApiView(APIView):
 
         # cases = Card.objects.all()
 
-        cards = Card.objects.filter(**filters)
+        cards = Card.objects.filter(**filters).order_by('id')
         serializer = StrikeResultSerializer(cards, many=True)
         return Response(serializer.data)
 
