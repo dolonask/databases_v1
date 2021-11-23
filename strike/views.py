@@ -68,6 +68,7 @@ def add_case(request):
         # individualForm = IndividualForm(request.POST)
 
         individualFormSet = IndividualFormSet(data=request.POST)
+        print(individualFormSet.errors)
 
 
         employerForm = EmployerForm(request.POST)

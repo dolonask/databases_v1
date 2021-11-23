@@ -32,8 +32,9 @@ def append_case(request):
     if request.method == 'POST':
         form = CaseForm(request.POST)
         companyForm = CompanyForm(request.POST)
-        print(request.POST)
+        # print(request.POST)
         individualForm = IndividualForm(request.POST)
+        print(individualForm.errors)
         pprint.pprint(individualForm)
         groupForm = GroupForm(request.POST)
         entrepreneurForm = EntrepreneurForm(request.POST)
@@ -53,8 +54,8 @@ def append_case(request):
 
 
             if companyForm.is_valid():
-
                 case.company = companyForm.save()
+
             if individualForm.is_valid():
                 print('valid')
                 case.individualInfo = individualForm.save()

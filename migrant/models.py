@@ -280,9 +280,9 @@ class IndividualInfo(models.Model):
                                          verbose_name="Уточнение, если договор есть", null=True, blank=True)
     agreementDetailNo = models.ForeignKey(AgreementDetailNo, on_delete=models.DO_NOTHING,
                                          verbose_name="Уточнение, если договора нет", null=True, blank=True)
-    agreementLang = models.CharField("На каком языке был подписан договор?", max_length=50, help_text='На каком языке был подписан договор?', )
+    agreementLang = models.CharField("На каком языке был подписан договор?", max_length=50, help_text='На каком языке был подписан договор?', null=True, blank=True)
     understoodTheContents = models.CharField("Вы поняли содержание договора?",
-                                       choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+                                       choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, null=True, blank=True)
     workBookStatus = models.ForeignKey(WorkBookStatus, on_delete=models.DO_NOTHING,
                                           verbose_name="Есть ли у Вас трудовая книжка? ")
     workingDayDuration = models.ForeignKey(WorkingDayDuration, on_delete=models.DO_NOTHING,

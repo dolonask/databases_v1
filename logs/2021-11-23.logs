@@ -1292,3 +1292,25 @@ WARNING django.request Not Found: /favicon.ico 2021-11-23 17:14:43,999
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:14:44,000
 WARNING django.request Not Found: /favicon.ico 2021-11-23 17:16:12,643
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:16:12,645
+ERROR django.request Internal Server Error: /migrant/add/ 2021-11-23 18:25:39,421
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 58, in append_case
+    if individualForm.is_valid():
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\forms.py", line 175, in is_valid
+    return self.is_bound and not self.errors
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\forms.py", line 170, in errors
+    self.full_clean()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\forms.py", line 373, in full_clean
+    self._clean_form()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\forms\forms.py", line 400, in _clean_form
+    cleaned_data = self.clean()
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\forms.py", line 127, in clean
+    print(cleaned_data)
+NameError: name 'cleaned_data' is not defined
+ERROR django.server "POST /migrant/add/ HTTP/1.1" 500 111214 2021-11-23 18:25:39,425

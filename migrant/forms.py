@@ -123,6 +123,10 @@ class IndividualForm(forms.ModelForm):
             'wayOfGettingSalary': forms.Select(attrs={'class': 'form-control'}),
         }
 
+    def clean(self):
+        cleaned_data = super().clean()
+        # print(cleaned_data)
+        return cleaned_data
 
 
 class GroupForm(forms.ModelForm):
