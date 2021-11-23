@@ -1,0 +1,1294 @@
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:43:12,501
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 117, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166730 2021-11-23 14:43:12,517
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:44:35,952
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 117, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166730 2021-11-23 14:44:35,967
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:49:50,375
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:49:50,375
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:50:18,900
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:50:18,900
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:55:28,050
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:55:28,050
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:56:00,265
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:56:00,265
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:57:22,164
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:57:22,173
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:57:22,247
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:57:22,255
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:58:04,753
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:58:04,753
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:58:07,530
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:58:07,538
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 14:58:41,722
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 14:58:41,722
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:00:10,943
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:00:10,958
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:01:10,034
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:01:10,034
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:01:31,671
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:01:31,687
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:04:16,202
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:04:16,202
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:04:52,119
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:04:52,120
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:04:54,477
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:04:54,478
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:05:11,872
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:05:11,888
+WARNING django.request Method Not Allowed: /analytic/work/search/ 2021-11-23 15:05:15,449
+WARNING django.server "GET /analytic/work/search/ HTTP/1.1" 405 5991 2021-11-23 15:05:15,450
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:05:44,041
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:05:44,042
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:05:44,700
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:05:44,701
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:05:45,852
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:05:45,853
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:06:07,823
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:06:07,836
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:06:31,279
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:06:31,279
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:06:32,520
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:06:32,521
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:06:46,881
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:06:46,897
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:08:34,340
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:08:34,341
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:08:38,309
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:08:38,310
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:08:56,341
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:08:56,341
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:10:47,698
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:10:47,699
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:13:00,982
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:13:00,983
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:13:01,603
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:13:01,604
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:14:48,367
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:14:48,368
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:16:55,208
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:16:55,208
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:18:41,369
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:18:41,370
+WARNING django.request Not Found: /favicon.ico 2021-11-23 15:18:43,947
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 15:18:43,948
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 15:18:58,926
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166970 2021-11-23 15:18:58,926
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 16:09:07,939
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166978 2021-11-23 16:09:07,939
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 16:09:30,835
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'tradeunioncrime_id' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166757 2021-11-23 16:09:30,835
+WARNING django.request Not Found: /api/v1/category/category-create/ 2021-11-23 16:16:59,336
+WARNING django.server "GET /api/v1/category/category-create/ HTTP/1.1" 404 3587 2021-11-23 16:16:59,336
+WARNING django.request Not Found: /api/v1/category/category-create/1/ 2021-11-23 16:18:48,663
+WARNING django.server "GET /api/v1/category/category-create/1/ HTTP/1.1" 404 3593 2021-11-23 16:18:48,664
+WARNING django.request Bad Request: /admin/ 2021-11-23 16:34:04,663
+WARNING django.server "GET /admin/ HTTP/1.1" 400 72171 2021-11-23 16:34:04,663
+WARNING django.request Not Found: /favicon.ico 2021-11-23 16:40:29,709
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 16:40:29,709
+WARNING django.request Not Found: /favicon.ico 2021-11-23 16:49:33,912
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 16:49:33,913
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 16:49:51,347
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 16:49:51,363
+WARNING django.request Not Found: /favicon.ico 2021-11-23 17:00:12,109
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:00:12,110
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:00:32,031
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:00:32,031
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:01:26,429
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:01:26,445
+WARNING django.request Not Found: /favicon.ico 2021-11-23 17:01:56,882
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:01:56,883
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:02:22,912
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:02:22,912
+WARNING django.request Not Found: /favicon.ico 2021-11-23 17:03:16,959
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:03:16,960
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:03:30,489
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:03:30,504
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:04:09,306
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:04:09,306
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:05:35,515
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:05:35,531
+WARNING django.request Not Found: /favicon.ico 2021-11-23 17:13:56,048
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:13:56,049
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-11-23 17:14:20,098
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\statistica\views.py", line 121, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'n6' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166857 2021-11-23 17:14:20,098
+WARNING django.request Not Found: /favicon.ico 2021-11-23 17:14:43,999
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:14:44,000
+WARNING django.request Not Found: /favicon.ico 2021-11-23 17:16:12,643
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-11-23 17:16:12,645

@@ -124,6 +124,7 @@ class IndividualForm(forms.ModelForm):
         }
 
 
+
 class GroupForm(forms.ModelForm):
     class Meta:
         model = PersonGroup

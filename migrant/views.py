@@ -1,3 +1,5 @@
+import pprint
+
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.db.models import Count
@@ -30,7 +32,9 @@ def append_case(request):
     if request.method == 'POST':
         form = CaseForm(request.POST)
         companyForm = CompanyForm(request.POST)
+        print(request.POST)
         individualForm = IndividualForm(request.POST)
+        pprint.pprint(individualForm)
         groupForm = GroupForm(request.POST)
         entrepreneurForm = EntrepreneurForm(request.POST)
         photoForm = PhotoForm(request.POST, request.FILES)
@@ -49,8 +53,10 @@ def append_case(request):
 
 
             if companyForm.is_valid():
+
                 case.company = companyForm.save()
             if individualForm.is_valid():
+                print('valid')
                 case.individualInfo = individualForm.save()
             # if victimForm.is_valid():
             #     victim = victimForm.save(commit=False)

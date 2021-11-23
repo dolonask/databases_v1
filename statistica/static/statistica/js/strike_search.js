@@ -65,7 +65,7 @@ function showResult(data) {
         let keys = Object.keys(item);
         keys.forEach(i => {
             if(i.includes('id') || i.includes('date')){
-                d.push(`data-${i}=${item[i]}`);
+                d.push(`data-n${index}=${i}`,`data-v${index}=${item[i]}`);
 
                 d.forEach(i => {
                     str += i + ' '
@@ -101,6 +101,16 @@ function showResult(data) {
 
 function getDataAttr(e){
     const obj = {...e.target.parentElement.dataset};
+    let dataObjects = {};
+
+    for (let propsName in obj){
+       if(propsName.includes('n')){
+           let last = propsName.substr(-1);
+           let name = obj[propsName];
+           let value = 'v'+last;
+           dataObjects[name] = obj[value];
+       }
+    }
 
     getModalInfo(obj);
 }

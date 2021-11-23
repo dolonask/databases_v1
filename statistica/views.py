@@ -95,6 +95,7 @@ class WorkResultApiView(APIView):
         source_id = filters.get('source_id')
         groupofrights_id = filters.get('groupofrights_id')
         tradeunionright_id = filters.get('tradeunionright_id')
+        tradeunioncrime_id = filters.get('tradeunioncrime_id')
 
         if "intruder_id" in list_filter:
             filters["intruder__in"] = [intruder_id]
@@ -112,6 +113,9 @@ class WorkResultApiView(APIView):
             filters["tradeUnionRight__in"] = [tradeunionright_id]
             filters.pop("tradeunionright_id")
 
+        # if "tradeunioncrime_id" in list_filter:
+        #     filters["tradeUnionCrime__in"] = [tradeunioncrime_id]
+        #     filters.pop("tradeunioncrime_id")
 
         print(filters, 'filters')
         workcases = WorkCase.objects.filter(**filters).order_by('id')

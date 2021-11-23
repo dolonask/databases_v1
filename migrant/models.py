@@ -246,7 +246,7 @@ class Region(models.Model):
 
 class IndividualInfo(models.Model):
     is_anonim = models.CharField("анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    name = models.CharField("ФИО", max_length=100, help_text='ФИО')
+    name = models.CharField("ФИО", max_length=100, help_text='ФИО', null=True, blank=True)
     #member_of_tradeunion = models.BooleanField("Член профсоюза", default=True)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол пострадавшего")
     gender_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
