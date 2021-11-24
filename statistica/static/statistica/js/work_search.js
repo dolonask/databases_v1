@@ -141,14 +141,15 @@ function showInfoModal(data){
     let td = '';
     let tr = '';
     data.forEach(item => {
+
         td += '<td>' + item['id'] + '</td>';
         td += '<td>' + item['user'] + '</td>';
-        td += '<td>' + item['case_name'] + '</td>';
+        td += '<td>' + '<a href="http://127.0.0.1:8000/work/update/'+ item['id'] + '" target="_blank">'  + item['case_name'] + '</a></td>';
         td += '<td>' + item['region'] + '</td>';
         td += '<td>' + item['country'] + '</td>';
         td += '<td>' + new Date(item['date_create']).toLocaleDateString() + '</td>';
         td += '<td>' + new Date(item['date_update']).toLocaleDateString() + '</td>';
-        tr += '<tr>' + td + '</td>';
+        tr += '<tr>' + td + '</tr>';
         td = '';
     });
 

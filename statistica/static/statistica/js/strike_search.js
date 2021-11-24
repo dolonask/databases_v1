@@ -63,7 +63,7 @@ function showResult(data) {
 
     data.forEach(item => {
         let keys = Object.keys(item);
-        keys.forEach(i => {
+        keys.forEach((i,index) => {
             if(i.includes('id') || i.includes('date')){
                 d.push(`data-n${index}=${i}`,`data-v${index}=${item[i]}`);
 
@@ -112,7 +112,7 @@ function getDataAttr(e){
        }
     }
 
-    getModalInfo(obj);
+    getModalInfo(dataObjects);
 }
 
 function getModalInfo(obj){
@@ -142,7 +142,7 @@ function showInoModal(data){
     data.forEach(item => {
         td += '<td>' + item['id'] + '</td>';
         td += '<td>' + item['user'] + '</td>';
-        td += '<td>' + item['name'] + '</td>';
+        td += '<td>' + '<a href="http://127.0.0.1:8000/work/update/'+ item['id'] + '" target="_blank">'  + item['name'] + '</a></td>';
         td += '<td>' + item['region'] + '</td>';
         td += '<td>' + item['country'] + '</td>';
         td += '<td>' + new Date(item['date_create']).toLocaleDateString() + '</td>';

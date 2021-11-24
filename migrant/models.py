@@ -293,7 +293,7 @@ class IndividualInfo(models.Model):
                                           verbose_name="Как Вы получаете заработную плату?")
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
     class Meta:
         verbose_name = "Физическое лицо"

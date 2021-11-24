@@ -62,7 +62,7 @@ function showResult(data) {
 
     data.forEach(item => {
         let keys = Object.keys(item);
-        keys.forEach(i => {
+        keys.forEach((i,index) => {
             if(i.includes('id') || i.includes('date')){
                 d.push(`data-n${index}=${i}`,`data-v${index}=${item[i]}`);
 
@@ -101,7 +101,7 @@ function showResult(data) {
 
 function getDataAttr(e){
     const obj = {...e.target.parentElement.dataset};
-     let dataObjects = {};
+    let dataObjects = {};
 
     for (let propsName in obj){
        if(propsName.includes('n')){
@@ -111,7 +111,7 @@ function getDataAttr(e){
            dataObjects[name] = obj[value];
        }
     }
-    getModalInfo(obj);
+    getModalInfo(dataObjects);
 }
 
 function getModalInfo(obj){
@@ -132,16 +132,16 @@ function getModalInfo(obj){
              alert('Код ошибки: ', response.status)
           }
       })
-      .then(data=>showInoModal(data))
+      .then(data=>showInfoModal(data))
 }
 
-function showInoModal(data){
+function showInfoModal(data){
     let td = '';
     let tr = '';
     data.forEach(item => {
         td += '<td>' + item['id'] + '</td>';
         td += '<td>' + item['user'] + '</td>';
-        td += '<td>' + item['case_name'] + '</td>';
+        td += '<td>' + '<a href="http://127.0.0.1:8000/work/update/'+ item['id'] + '" target="_blank">'  + item['case_name'] + '</a></td>';
         td += '<td>' + item['region'] + '</td>';
         td += '<td>' + item['country'] + '</td>';
         td += '<td>' + new Date(item['date_create']).toLocaleDateString() + '</td>';
