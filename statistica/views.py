@@ -72,7 +72,7 @@ class MigrantResultApiView(APIView):
 
         if "intruder_id" in list_filter:
             filters["intruder__in"] = [intruder_id]
-            filters.pop("card_demand_categories_id")
+            filters.pop("intruder_id")
         if "violated_right_id" in list_filter:
             filters["violated_right__in"] = [violated_right_id]
             filters.pop("violated_right_id")
