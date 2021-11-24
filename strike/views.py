@@ -22,6 +22,38 @@ import jinja2
 import os
 import pdfkit
 
+
+
+def form_formset(data):
+    a = {}
+    for i , y in data.items():
+        if i.startswith('form'):
+            a.update({i:y})
+    for i in a.copy():
+        # print(i.endswith('id'))
+        if i.endswith("id"):
+            a.pop(i)
+    return a
+
+def total_forms(data):
+
+    if len(data['form-TOTAL_FORMS']) == 0:
+        data['form-TOTAL_FORMS'] = '1'
+        data['form-INITIAL_FORMS'] = '0'
+        data['form-MAX_NUM_FORMS'] = '1000'
+        data['form-MIN_NUM_FORMS'] = '0'
+    # if len(data['form-TOTAL_FORMS']) == 2:
+    #     data['form-TOTAL_FORMS'] = '2'
+    #     data['form-INITIAL_FORMS'] = '0'
+    #     data['form-MAX_NUM_FORMS'] = '1000'
+    #     data['form-MIN_NUM_FORMS'] = '0'
+    else:
+        data['form-TOTAL_FORMS'] = data['form-TOTAL_FORMS']
+        data['form-INITIAL_FORMS'] = '0'
+        data['form-MAX_NUM_FORMS'] = '1000'
+        data['form-MIN_NUM_FORMS'] = '0'
+    return data
+
 @login_required()
 def add_case(request):
     general_tabs_fields = ['name',
@@ -63,13 +95,13 @@ def add_case(request):
                               ]
     if request.method == "POST":
         form = CardForm(request.POST)
+        pprint.pprint(request.POST)
         tradeUnionForm = TradeunionForm(request.POST)
         personGroupInfoForm = PersonGroupInfoForm(request.POST)
         # individualForm = IndividualForm(request.POST)
-
-        individualFormSet = IndividualFormSet(data=request.POST)
-        print(individualFormSet.errors)
-
+        data0 = form_formset(request.POST)
+        data = total_forms(data0)
+        individualFormSet = IndividualFormSet(data)
 
         employerForm = EmployerForm(request.POST)
         photoForm = CardPhotoForm(request.POST)
@@ -82,17 +114,6 @@ def add_case(request):
                 case.tradeunion_data = tradeUnionForm.save()
             if personGroupInfoForm.is_valid():
                 case.personGroupInfo = personGroupInfoForm.save()
-            # if individualFormSet.is_valid():
-            #     for individualForm in individualFormSet.forms:
-            #         ind = individualForm.save(commit = False)
-            #         ind.card = case
-            #         ind.save()
-
-            for individual in individualFormSet:
-                if individual.is_valid():
-                    ind = individual.save(commit=False)
-                    ind.card = case
-            # individualFormSet.save()
             if employerForm.is_valid():
                 case.employear = employerForm.save()
 
@@ -100,19 +121,20 @@ def add_case(request):
             case.added_by = request.user
             case.active = True
             case.save()
-
-            if individualFormSet.is_valid():
-                individualFormSet.save()
-
             form._save_m2m()
 
+            if individualFormSet.is_valid():
+                individualFormSet.save(commit=False)
 
 
 
-            # if individualForm.is_valid():
-            #     individualForm = individualForm.save(commit=False)
-            #     individualForm.card = form
-            #     individualForm.save()
+            for individual in individualFormSet:
+                if individual.is_valid():
+                    ind = individual.save(commit=False)
+                    print(case.id)
+                    ind.card_id = case.id
+                    # print(ind._case)
+                    ind.save()
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
                     photo = CardPhoto(photo=f, card=case)
@@ -226,8 +248,6 @@ def update_case(request, pk):
         form = CardForm(request.POST, instance=case)
         tradeUnionForm = TradeunionForm(request.POST)
         personGroupInfoForm = PersonGroupInfoForm(request.POST)
-        # individualForm = IndividualForm(request.POST)
-
         individualFormSet = IndividualFormSet(data=request.POST)
 
 
@@ -242,11 +262,6 @@ def update_case(request, pk):
                 case.tradeunion_data = tradeUnionForm.save()
             if personGroupInfoForm.is_valid():
                 case.personGroupInfo = personGroupInfoForm.save()
-            # if individualFormSet.is_valid():
-            #     for individualForm in individualFormSet.forms:
-            #         ind = individualForm.save(commit = False)
-            #         ind.card = case
-            #         ind.save()
 
             for individual in individualFormSet:
                 if individual.is_valid():
@@ -266,13 +281,6 @@ def update_case(request, pk):
 
             form._save_m2m()
 
-
-
-
-            # if individualForm.is_valid():
-            #     individualForm = individualForm.save(commit=False)
-            #     individualForm.card = form
-            #     individualForm.save()
             if photoForm.is_valid():
                 for f in request.FILES.getlist('photo'):
                     photo = CardPhoto(photo=f, card=case)
@@ -294,10 +302,6 @@ def update_case(request, pk):
         if case.personGroupInfo is not None:
             personGroupInfoForm = PersonGroupInfoForm(instance=PersonGroupInfo.objects.get(pk=case.personGroupInfo_id))
 
-        individualForm = IndividualForm
-        # if Individual.objects.exists(card=case.pk):
-        #     individualForm = IndividualForm(instance=Individual.objects.get(card=case.pk))
-
         employerForm = EmployerForm
         if case.employear is not None:
             employerForm = EmployerForm(instance=Employer.objects.get(pk=case.employear_id))
@@ -306,11 +310,15 @@ def update_case(request, pk):
         fileForm = CardFileForm()
         images = CardPhoto.objects.filter(card_id=case.id)
         files = CardFile.objects.filter(card_id=case.id)
+        individual_infos = Individual.objects.filter(card__id=pk)
+        individualFormSet = IndividualFormSet(queryset=Individual.objects.filter(card_id=case.id))
+        if len(individual_infos) != 0:
+            individualFormSet.extra = 0
     return render(request, 'strike/add_case.html', context={
         'form': form,
         'tradeUnionForm': tradeUnionForm,
         'personGroupInfoForm': personGroupInfoForm,
-        'individualForm': individualForm,
+        'individualFormSet': individualFormSet,
         'employerForm': employerForm,
         'photoForm': photoForm,
         'fileForm': fileForm,
@@ -479,7 +487,6 @@ class TestGet(APIView):
 
 class DataFilterAPI(APIView):
     authentication_classes = []
-
     def post(self, request):
         print(request.data)
         one = get_request_data(request.data)

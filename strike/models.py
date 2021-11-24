@@ -187,12 +187,12 @@ class Individual(models.Model):
         ("MALE", "Мужской"),
         ("FEMALE", "Женский")
     ]
-    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
-    individual_name = models.CharField("ФИО", max_length=150, blank=True)
-    gender = models.CharField("Пол", choices=genders, max_length=20, blank=True)
-    age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст", blank=True)
+    is_anonim = models.CharField("Анонимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True, null=True)
+    individual_name = models.CharField("ФИО", max_length=150, blank=True, null=True)
+    gender = models.CharField("Пол", choices=genders, max_length=20, blank=True, null=True)
+    age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст", blank=True, null=True)
     profession = models.CharField("Профессия", max_length=100, blank=True)
-    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING)
+    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True, blank=True)
 
     class Meta:
         verbose_name = "Физическое лицо"

@@ -140,7 +140,6 @@ class FilterStrikeGroupSerializer(CustomTestSerializer):
     combo_demands_id = serializers.IntegerField(source='combo_demands__id')
     card_sources_id = serializers.IntegerField(source='card_sources__id')
     card_demand_categories_id = serializers.IntegerField(source='card_demand_categories__id')
-
     company_employees_count_id = serializers.IntegerField()
     count_strike_participants_id = serializers.IntegerField()
     company_ownership_type_id = serializers.IntegerField()

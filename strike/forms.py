@@ -45,9 +45,9 @@ IndividualFormSet = modelformset_factory(
         'age':forms.Select(attrs={'class': 'form-control'}),
         'profession':forms.TextInput(attrs={'class': 'form-control'}),
     },
-    extra=1,
-    absolute_max=10,
-    max_num= 10
+    extra=1
+    # absolute_max=10,
+    # max_num= 10
 )
 
 class IndividualForm(forms.ModelForm):
