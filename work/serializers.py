@@ -1,6 +1,10 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from rest_framework.fields import SerializerMethodField
+
+
 from .models import *
+
 # функция для переопределения representation
 def get_representation(representation, id, id_name, serializer, model):
     if representation.get("id") == id:
@@ -665,3 +669,4 @@ class DataFilterApiSerializer(CustomTestSerializer):
     class Meta:
         model = Case
         fields = "__all__"
+

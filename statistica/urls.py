@@ -10,4 +10,7 @@ urlpatterns = [
     path('migrant/search/', views.MigrantResultApiView.as_view(), name="migrant_search"),
     path('work/search/', views.WorkResultApiView.as_view(), name="work_search"),
     path('strike/search/', views.StrikeResultApiView.as_view(), name="strike_search"),
+
+    path('detail/<int:pk>/', views.case_detail, name='detail_case')
+
 ]

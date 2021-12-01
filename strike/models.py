@@ -192,7 +192,7 @@ class Individual(models.Model):
     gender = models.CharField("Пол", choices=genders, max_length=20, blank=True, null=True)
     age = models.ForeignKey(Age, on_delete=models.DO_NOTHING, verbose_name="Возраст", blank=True, null=True)
     profession = models.CharField("Профессия", max_length=100, blank=True)
-    card = models.ForeignKey("Card", on_delete=models.DO_NOTHING, null=True, blank=True)
+    card = models.ForeignKey("Card", on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name = "Физическое лицо"

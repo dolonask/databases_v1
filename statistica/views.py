@@ -4,6 +4,11 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from rest_framework import generics
+from django.shortcuts import get_object_or_404, render
+
+
+from work.models import Case, Source, Intruder, TradeUnionActivities, CaseComment
 
 # Create your views here.
 from migrant.models import Case as MigrantCase
@@ -157,3 +162,11 @@ class StrikeResultApiView(APIView):
         serializer = StrikeResultSerializer(cards, many=True)
         return Response(serializer.data)
 
+def case_detail(request, pk):
+
+    case = get_object_or_404(Case, pk=pk)
+    source = Source.objects.filter(case__pk=pk)
+    intruder = Intruder.objects.filter(case__pk=pk)
+    trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
+    comments = CaseComment.objects.filter(case_id=pk)
+    return render(request, 'statistica/detail_case.html', locals())

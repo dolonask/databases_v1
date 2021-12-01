@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views, test_get_data
+# from . import views, test_get_data
+from .views import views, case
 
 
 urlpatterns = [

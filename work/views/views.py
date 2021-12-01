@@ -9,15 +9,15 @@ from django.template.loader import get_template
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from strike.helpers import get_request_data, return_right_data, get_values, get_data, get_fields
-from .functions import remove_data
-from .serializers import *
+from work.functions import remove_data
+from work.serializers import *
 from django.contrib.auth.models import User
 from django.db import connection
 from main.service import unpucking
-from .filters import WorkFilter
-from .forms import CaseForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
+from work.filters import WorkFilter
+from work.forms import CaseForm, PersonGroupForm, TradeUnionInfoForm, CompanyInfoForm, CasePhotoForm, \
     CaseFileForm, IndividualFormSet, CaseCommentForm, IndividualForm
-from .models import *
+from work.models import *
 import os
 import pdfkit
 from docx import Document
@@ -407,6 +407,7 @@ def show_comments(request, pk):
 def delete_comment(request, pk):
     CaseComment.objects.get(id=pk).delete()
     return redirect('works_list')
+
 def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     case = get_object_or_404(Case, pk=pk)
