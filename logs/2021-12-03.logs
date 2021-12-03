@@ -1,0 +1,14 @@
+WARNING django.request Not Found: /favicon.ico 2021-12-03 12:02:48,906
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-03 12:02:48,907
+WARNING django.request Not Found: /favicon.ico 2021-12-03 12:02:50,469
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-03 12:02:50,470
+WARNING django.request Not Found: /api/v1/category/charges-update/1/ 2021-12-03 12:14:10,846
+WARNING django.server "PATCH /api/v1/category/charges-update/1/ HTTP/1.1" 404 3592 2021-12-03 12:14:10,847
+WARNING django.request Not Found: /api/v1/category/charges-update/1/ 2021-12-03 12:14:28,367
+WARNING django.server "PATCH /api/v1/category/charges-update/1/ HTTP/1.1" 404 3592 2021-12-03 12:14:28,367
+WARNING django.request Not Found: /api/v1/category/charges-update/1/ 2021-12-03 12:14:30,885
+WARNING django.server "PATCH /api/v1/category/charges-update/1/ HTTP/1.1" 404 3592 2021-12-03 12:14:30,886
+WARNING django.request Not Found: /api/v1/category/charges-update/1/ 2021-12-03 12:14:31,803
+WARNING django.server "PATCH /api/v1/category/charges-update/1/ HTTP/1.1" 404 3592 2021-12-03 12:14:31,804
+WARNING django.request Not Found: /favicon.ico 2021-12-03 16:56:04,657
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-03 16:56:04,658

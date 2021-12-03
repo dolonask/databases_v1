@@ -258,6 +258,7 @@ def add_case(request):
 @login_required()
 def update_case(request, pk):
     case = Case.objects.get(id=pk)
+    print(case.tradeUnionSituation)
     if request.method == 'POST':
         form = CaseForm(request.POST, instance=case)
         tradeUnionForm = TradeUnionInfoForm(request.POST)

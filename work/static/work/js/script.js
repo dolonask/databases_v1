@@ -390,7 +390,10 @@ function onIndAnonimChanged(value){
 }
 function onIndTradeUnionMemberChanged(value){
 
+
 }
+
+
 function onTnkChanged(value){
     switch (get_selected('id_is_tnk_member')){
         case 'YES':
@@ -486,12 +489,14 @@ function onGroupMembershipChanged(value){
         hideTandem('id_membership_another');
     }
 
-    if (get_selected('id_membership') == 4){
-        hideTandem('id_tradeUnionSituation');
-        hideTandem('id_tradeUnionCount');
-    }else{
-        hideTandem('id_tradeUnionSituation');
-        hideTandem('id_tradeUnionCount');
+    if (get_selected('id_type') != ''){
+        if (get_selected('id_membership') == 4){
+            hideTandem('id_tradeUnionSituation');
+            hideTandem('id_tradeUnionCount');
+        }else{
+            showTandem('id_tradeUnionSituation');
+            showTandem('id_tradeUnionCount');
+        }
     }
 }
 function onOwnershipChanged(value){
