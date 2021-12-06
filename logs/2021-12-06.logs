@@ -892,3 +892,63 @@ WARNING django.request Not Found: /analyti 2021-12-06 14:20:56,813
 WARNING django.server "GET /analyti HTTP/1.1" 404 3512 2021-12-06 14:20:56,814
 WARNING django.request Not Found: /favicon.ico 2021-12-06 14:21:36,245
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:21:36,247
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:13,811
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:13,811
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:18,147
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:18,147
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:18,922
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:18,923
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:19,736
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:19,737
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:20,437
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:20,438
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:21,154
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:21,155
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:21,900
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:21,901
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:22,453
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:22,454
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:41:22,807
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:41:22,808
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:42:24,766
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:42:24,767
+WARNING django.request Not Found: /favicon.ico 2021-12-06 14:42:25,574
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 14:42:25,575
+ERROR django.request Internal Server Error: /work/add/ 2021-12-06 15:00:48,518
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 211, in add_case
+    case.company = companyInfoForm.id
+AttributeError: 'CompanyInfoForm' object has no attribute 'id'
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 100375 2021-12-06 15:00:48,522
+ERROR django.request Internal Server Error: /work/add/ 2021-12-06 15:01:30,489
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 211, in add_case
+    case.company = companyInfoForm
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<CompanyInfoForm bound=True, valid=True, fields=(company_name;address;product_type;ownership;country_from;is_tnk_member;tnk_name;company_experience;branch;emp_count;additional)>": "Case.company" must be a "Company" instance.
+ERROR django.server "POST /work/add/ HTTP/1.1" 500 105793 2021-12-06 15:01:30,493
+WARNING django.request Not Found: /favicon.ico 2021-12-06 15:43:55,247
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 15:43:55,249
+WARNING django.request Not Found: /favicon.ico 2021-12-06 15:43:55,974
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 15:43:55,975
+WARNING django.request Not Found: /favicon.ico 2021-12-06 15:43:56,705
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 15:43:56,706
+WARNING django.request Not Found: /favicon.ico 2021-12-06 15:44:01,684
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 15:44:01,685
+WARNING django.request Not Found: /favicon.ico 2021-12-06 15:44:02,456
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 15:44:02,457
+WARNING django.request Not Found: /favicon.ico 2021-12-06 15:44:03,189
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 15:44:03,190

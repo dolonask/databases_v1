@@ -327,12 +327,12 @@ class Company(models.Model):
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
                                   verbose_name="Форма собственности компании")
     country_from = models.CharField("Страна происхождения компании", max_length=100,
-                                    help_text='Страна происхождения кампании')
+                                    help_text='Страна происхождения кампании', null=True, blank=True)
     is_tnk_member = models.CharField("Является ли эта кампания частью ТНК (Транснациональная компания)",
                                      choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, null=True,
                                      blank=True)
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
-                                help_text='Название ТНК, в которую входит эта компания')
+                                help_text='Название ТНК, в которую входит эта компания', null=True, blank=True)
     company_experience = models.CharField("Время на рынке", max_length=100, help_text='Время на рынке ')
     branch = models.CharField("Отрасль деятельности", max_length=100, help_text='Отрасль деятельности')
     emp_count = models.ForeignKey(EmployeesCount, on_delete=models.DO_NOTHING, verbose_name="Численность работников")

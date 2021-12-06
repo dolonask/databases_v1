@@ -187,6 +187,7 @@ def add_case(request):
         individualFormSet = IndividualFormSet(data)
         personGroupForm = PersonGroupForm(request.POST)
         companyInfoForm = CompanyInfoForm(request.POST)
+
         casePhotoForm = CasePhotoForm(request.POST)
         caseFileForm = CaseFileForm(request.POST)
         print(len(individualFormSet))
@@ -206,6 +207,7 @@ def add_case(request):
 
             case.user = request.user
             case.active = True
+            # case.company = companyInfoForm
             case.save()
 
             if individualFormSet.is_valid():
