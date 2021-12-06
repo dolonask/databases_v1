@@ -6,17 +6,16 @@ from rest_framework.response import Response
 
 from rest_framework import generics
 from django.shortcuts import get_object_or_404, render
-
-
-from work.models import Case, Source, Intruder, TradeUnionActivities, CaseComment
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
 # Create your views here.
-from migrant.models import Case as MigrantCase
-from work.models import Case as WorkCase
-from strike.models import Card
+from migrant.models import Case as MigrantCase, InfoSource, Right, CaseComment as MigrantCaseComment, Intruder as MigrantIntruder
+from work.models import Case as WorkCase, Source, Intruder, TradeUnionActivities, CaseComment, Case
+from strike.models import Card, DemandCategory, EconomicDemand, PoliticDemand, ComboDemand, CardComment, Source as StrikeSource
 from statistica.serializers import WorkResultSerializer, MigrantResultSerializer, StrikeResultSerializer
 
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+
+
 
 class CsrfExemptSessionAuthentication(SessionAuthentication):
 
@@ -162,11 +161,33 @@ class StrikeResultApiView(APIView):
         serializer = StrikeResultSerializer(cards, many=True)
         return Response(serializer.data)
 
-def case_detail(request, pk):
 
+def case_detail(request, pk):
     case = get_object_or_404(Case, pk=pk)
     source = Source.objects.filter(case__pk=pk)
     intruder = Intruder.objects.filter(case__pk=pk)
     trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     comments = CaseComment.objects.filter(case_id=pk)
     return render(request, 'statistica/detail_case.html', locals())
+
+
+def card_strike_detail(request, pk):
+    card = get_object_or_404(Card, id=pk)
+    card_sources = StrikeSource.objects.filter(source__pk=pk)
+    card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
+    economic_demands = EconomicDemand.objects.filter(card__pk=pk)
+    politic_demands = PoliticDemand.objects.filter(card__pk=pk)
+    combo_demands = ComboDemand.objects.filter(card__pk=pk)
+    comments = CardComment.objects.filter(card_id=pk)
+
+    return render(request, 'statistica/detail_card_strike.html', locals())
+
+
+def case_migrant_detail(request, pk):
+    case = get_object_or_404(MigrantCase, pk=pk)
+    source = InfoSource.objects.filter(case__pk=pk)
+    right = Right.objects.filter(case__pk=pk)
+    intruder = MigrantIntruder.objects.filter(case__pk=pk)
+    comments = MigrantCaseComment.objects.filter(case_id=pk)
+    return render(request, 'statistica/detail_migrant.html', locals())
+

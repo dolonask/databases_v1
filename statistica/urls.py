@@ -11,6 +11,8 @@ urlpatterns = [
     path('work/search/', views.WorkResultApiView.as_view(), name="work_search"),
     path('strike/search/', views.StrikeResultApiView.as_view(), name="strike_search"),
 
-    path('detail/<int:pk>/', views.case_detail, name='detail_case')
+    path('detail/<int:pk>/', views.case_detail, name='detail_case'),
+    path('strike-detail/<int:pk>/', views.card_strike_detail, name='detail_strike'),
+    path('migrant-detail/<int:pk>/', views.case_migrant_detail, name='detail_migrant'),
 
 ]

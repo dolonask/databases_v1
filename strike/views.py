@@ -365,7 +365,7 @@ def delete_comment(request, pk):
 def case_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     card = get_object_or_404(Card, pk=pk)
-    card_sources = Source.objects.filter(card__pk=pk)
+    card_sources = Source.objects.filter(source__pk=pk)
     card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
     economic_demands = EconomicDemand.objects.filter(card__pk=pk)
     politic_demands = PoliticDemand.objects.filter(card__pk=pk)
