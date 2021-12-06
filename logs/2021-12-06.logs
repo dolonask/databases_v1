@@ -1,0 +1,88 @@
+WARNING django.request Not Found: /favicon.ico 2021-12-06 11:10:38,145
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 11:10:38,146
+WARNING django.request Not Found: /favicon.ico 2021-12-06 11:10:52,229
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-06 11:10:52,230
+ERROR django.request Internal Server Error: /work/update/88/ 2021-12-06 11:27:44,296
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 339, in update_case
+    individualFormSet.extra = 0
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /work/update/88/ HTTP/1.1" 500 77461 2021-12-06 11:27:44,300
+ERROR django.request Internal Server Error: /work/update/88/ 2021-12-06 11:28:02,818
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 339, in update_case
+    individualFormSet.extra = 0
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /work/update/88/ HTTP/1.1" 500 77436 2021-12-06 11:28:02,822
+ERROR django.request Internal Server Error: /work/update/88/ 2021-12-06 11:28:04,137
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 339, in update_case
+    individualFormSet.extra = 0
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /work/update/88/ HTTP/1.1" 500 77436 2021-12-06 11:28:04,141
+WARNING django.request Not Found: /work/ 2021-12-06 11:28:29,437
+WARNING django.server "GET /work/ HTTP/1.1" 404 7363 2021-12-06 11:28:29,438
+WARNING django.request Not Found: /ad 2021-12-06 11:28:37,927
+WARNING django.server "GET /ad HTTP/1.1" 404 3497 2021-12-06 11:28:37,928
+ERROR django.request Internal Server Error: /work/update/88/ 2021-12-06 11:28:55,718
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 339, in update_case
+    individualFormSet.extra = 0
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /work/update/88/ HTTP/1.1" 500 77461 2021-12-06 11:28:55,721
+ERROR django.request Internal Server Error: /work/update/88/ 2021-12-06 11:29:35,024
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 343, in update_case
+    'individualFormSet':individualFormSet,
+UnboundLocalError: local variable 'individualFormSet' referenced before assignment
+ERROR django.server "GET /work/update/88/ HTTP/1.1" 500 77652 2021-12-06 11:29:35,028
+ERROR django.request Internal Server Error: /work/update/88/ 2021-12-06 11:32:04,584
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 285, in update_case
+    individualFormSet.save()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\forms\models.py", line 681, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\forms\models.py", line 819, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\forms\models.py", line 658, in save_new
+    return form.save(commit=commit)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\forms\models.py", line 460, in save
+    raise ValueError(
+ValueError: The IndividualInfo could not be created because the data didn't validate.
+ERROR django.server "POST /work/update/88/ HTTP/1.1" 500 115973 2021-12-06 11:32:04,589

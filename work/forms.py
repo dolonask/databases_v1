@@ -228,9 +228,11 @@ IndividualFormSet = modelformset_factory(
     form=IndividualForm,
 
     # min_num=1,
-    # validate_min=True,
+    validate_min=True,
     # fields='__all__',
     exclude=['case', 'id'],
+    max_num=2,
+    validate_max=True,
      widgets={
          'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
          'name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -248,7 +250,7 @@ IndividualFormSet = modelformset_factory(
              attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
          'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
      },
-    extra=1,
+    extra=2,
 )
 
 

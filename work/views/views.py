@@ -258,13 +258,17 @@ def add_case(request):
 @login_required()
 def update_case(request, pk):
     case = Case.objects.get(id=pk)
+
     print(case.tradeUnionSituation)
     if request.method == 'POST':
         form = CaseForm(request.POST, instance=case)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
         data_ = form_formset(request.POST)
         data = total_forms(data_)
-        individualFormSet = IndividualFormSet(data)
+        # individualFormSet = IndividualFormSet(request.POST)
+        individualFormSet = IndividualFormSet(request.POST, queryset=IndividualInfo.objects.filter(case_id=case.id))
+
+        print(len(individualFormSet))
         personGroupForm = PersonGroupForm(request.POST)
         companyInfoForm = CompanyInfoForm(request.POST)
         casePhotoForm = CasePhotoForm(request.POST)
@@ -272,12 +276,14 @@ def update_case(request, pk):
 
         if form.is_valid():
             form.save(commit=False)
-
+            print(len(individualFormSet))
             for individual in individualFormSet:
                 if individual.is_valid():
                     ind = individual.save(commit=False)
                     ind.case = case
                     ind.save()
+                    # individualFormSet.save()
+
 
             if tradeUnionForm.is_valid():
                 case.tradeUnionInfo = tradeUnionForm.save()
@@ -329,8 +335,8 @@ def update_case(request, pk):
     images = CasePhoto.objects.filter(card_id=case.id)
     files = CaseFile.objects.filter(card_id=case.id)
     individualFormSet = IndividualFormSet(queryset=IndividualInfo.objects.filter(case_id=case.id))
-    if len(individual_infos) != 0:
-        individualFormSet.extra = 0
+    # if len(individual_infos) != 0:
+    #     individualFormSet.extra = 0
     return render(request, 'work/add_case.html', context={
         'form':form,
         'tradeUnionForm':tradeUnionForm,
