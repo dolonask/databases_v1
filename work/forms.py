@@ -223,17 +223,23 @@ class IndividualForm(forms.ModelForm):
 #         for form in self.forms:
 #             form.empty_permitted = False
 
+class BaseFormSet(object):
+    """
+    A collection of instances of the same Form class.
+    """
+
+    def __iter__(self):
+        """Yields the forms in the order they should be rendered"""
+        return iter(self.forms)
+
 IndividualFormSet = modelformset_factory(
     model=IndividualInfo,
     form=IndividualForm,
-
-    # min_num=1,
     validate_min=True,
-    # fields='__all__',
     exclude=['case', 'id'],
     max_num=2,
     validate_max=True,
-     widgets={
+    widgets={
          'is_anonim': forms.Select(attrs={'class': 'form-control', 'onchange': "onIndAnonimChanged(this.value);"}),
          'name': forms.TextInput(attrs={'class': 'form-control'}),
          'member_of_tradeunion': forms.Select(
@@ -250,7 +256,7 @@ IndividualFormSet = modelformset_factory(
              attrs={'class': 'form-control', 'onchange': "onHasAgreementChanged(this.value);"}),
          'agreementDetail': forms.Select(attrs={'class': 'form-control'}),
      },
-    extra=2,
+    extra=1,
 )
 
 
