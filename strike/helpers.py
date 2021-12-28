@@ -3,6 +3,7 @@ import datetime
 from main.service import unpucking
 
 
+
 def get_request_data(request_data):
     dicts = {}
     for i in request_data:
@@ -78,20 +79,39 @@ def get_values(data):
     return values_list
 
 
+def relativedelta(years):
+    pass
+
+
 def get_data(data):
     """
     Добавляет __in к ключам two
     """
     dicts = {}
+    date_st = data.get('start_date', None)
+    end_date = data.get('end_date', None)
+    print(date_st)
+    q = "date_create" + "__range"
+
+    if "start_date" in list(data.keys()) and "end_date" in list(data.keys()):
+        datee = date_st + end_date
+        dicts.update({q: datee})
+        data.pop('start_date')
+        data.pop('end_date')
+
+    elif "start_date" in list(data.keys()):
+        date_st.append(datetime.datetime.now().date())
+        dicts.update({q: (date_st)})
+        data.pop('start_date')
+    elif "end_date" in list(data.keys()):
+        end_date.insert(0, '2000-01-01')
+        print(end_date)
+        dicts.update({q: end_date})
+        data.pop('end_date')
     for i, y in data.items():
-        print(i, y)
-        if i == "start_date" or i =="end_date":
-            q = i + "__gte"
-            y = unpucking(y)
-            dicts.update({q: f"datetime.date({y})"})
-            continue
         q = i + "__in"
         dicts.update({q: y})
+        print(dicts)
 
     return dicts
 

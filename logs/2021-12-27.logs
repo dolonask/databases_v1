@@ -1,0 +1,1492 @@
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:19:57,268
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:19:57,268
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:20:01,824
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:20:01,825
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:20:09,174
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:20:09,175
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:20:10,037
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:20:10,038
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:20:10,802
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:20:10,803
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:20:11,562
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:20:11,562
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:55:13,637
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:55:13,638
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:55:16,224
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:55:16,224
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:55:20,794
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:55:20,795
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:55:21,507
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:55:21,508
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:55:25,459
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:55:25,460
+WARNING django.request Not Found: /favicon.ico 2021-12-27 11:55:26,242
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 11:55:26,242
+WARNING django.request Not Found: /favicon.ico 2021-12-27 16:01:19,398
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-27 16:01:19,399
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:02:47,127
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 526, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-21)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 166101 2021-12-27 16:02:47,127
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:04:01,511
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 526, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-21)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 166101 2021-12-27 16:04:01,526
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:06:35,261
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 527, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-21)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 166101 2021-12-27 16:06:35,261
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:08:03,943
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    print(queryset.first().date_create)
+AttributeError: 'dict' object has no attribute 'date_create'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97107 2021-12-27 16:08:03,943
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:08:05,035
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    print(queryset.first().date_create)
+AttributeError: 'dict' object has no attribute 'date_create'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97107 2021-12-27 16:08:05,035
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:12:02,160
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 531, in post
+    print(date(Case.objects.all().first().date_create))
+TypeError: an integer is required (got type datetime.datetime)
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97021 2021-12-27 16:12:02,160
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:12:33,405
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 532, in post
+    print(datetime.datetime(date(Case.objects.all().first().date_create)))
+TypeError: an integer is required (got type datetime.datetime)
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97059 2021-12-27 16:12:33,405
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:13:52,850
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 532, in post
+    print(datetime.date(Case.objects.all().first().date_create))
+TypeError: an integer is required (got type datetime.datetime)
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97039 2021-12-27 16:13:52,850
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:15:30,854
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 529, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-28)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 165685 2021-12-27 16:15:30,859
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:17:05,808
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 529, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-28)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 165681 2021-12-27 16:17:05,823
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:17:45,546
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 533, in post
+    print(datetime.now().date())
+AttributeError: module 'datetime' has no attribute 'now'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97100 2021-12-27 16:17:45,546
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:17:46,530
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 533, in post
+    print(datetime.now().date())
+AttributeError: module 'datetime' has no attribute 'now'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97100 2021-12-27 16:17:46,546
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:18:04,686
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 533, in post
+    a = datetime.now().date()
+AttributeError: module 'datetime' has no attribute 'now'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 97069 2021-12-27 16:18:04,686
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:20:54,422
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 531, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-28)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 165774 2021-12-27 16:20:54,422
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:22:41,314
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 524, in post
+    start_date = request.data.get("start_date", None)
+AttributeError: 'list' object has no attribute 'get'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 95898 2021-12-27 16:22:41,314
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:23:21,081
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 524, in post
+    now_date = datetime.now().date()
+AttributeError: 'list' object has no attribute 'get'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 95817 2021-12-27 16:23:21,083
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:23:24,851
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-28)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 165759 2021-12-27 16:23:24,851
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:23:56,217
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “datetime.date(2021-12-28)” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 165941 2021-12-27 16:23:56,232
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:26:59,247
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 89, in get_data
+    q = i.date() + "__gte"
+AttributeError: 'str' object has no attribute 'date'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 100643 2021-12-27 16:26:59,247
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:28:15,665
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:28:15,665
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:31:29,871
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:31:29,887
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:32:19,469
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:32:19,477
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:32:44,622
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:32:44,627
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:32:44,633
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:32:44,637
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:33:37,265
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:33:37,272
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:34:17,854
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:34:17,870
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:36:52,054
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 90, in get_data
+    date_st = datetime.now().date
+AttributeError: module 'datetime' has no attribute 'now'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 100065 2021-12-27 16:36:52,054
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:37:38,466
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:37:38,473
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:38:20,254
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'start_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167039 2021-12-27 16:38:20,262
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:49:29,020
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 91, in get_data
+    date_st = [str(datetime.datetime.now().date() - datetime.timedelta(years=3))]
+TypeError: 'years' is an invalid keyword argument for __new__()
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 100004 2021-12-27 16:49:29,020
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:51:47,931
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    date_st = [str(datetime.datetime.now().date() - relativedelta(years=3))]
+TypeError: unsupported operand type(s) for -: 'datetime.date' and 'NoneType'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99939 2021-12-27 16:51:47,935
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:52:57,559
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    date_st = [str(datetime.date.today().date() )]
+AttributeError: 'datetime.date' object has no attribute 'date'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99813 2021-12-27 16:52:57,561
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:53:59,838
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    date_st = [str(datetime.date.today() + relativedelta(years=-1))]
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'NoneType'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99923 2021-12-27 16:53:59,842
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:54:18,551
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    date_st = [str(datetime.date.today() - relativedelta(years=1))]
+TypeError: unsupported operand type(s) for -: 'datetime.date' and 'NoneType'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99921 2021-12-27 16:54:18,567
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:55:27,953
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    r = datetime.date.today() + relativedelta(years=1)
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'NoneType'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99901 2021-12-27 16:55:27,953
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:55:43,300
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    r = datetime.date.today() + relativedelta(years=1)
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'NoneType'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99903 2021-12-27 16:55:43,300
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 16:56:08,324
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 95, in get_data
+    r = datetime.date.today() + 10
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'int'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 99833 2021-12-27 16:56:08,324
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 17:01:03,693
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'end_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167574 2021-12-27 17:01:03,693
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 17:01:45,182
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'end_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167574 2021-12-27 17:01:45,188
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 17:01:49,641
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 534, in post
+    queryset = Case.objects.filter(**dicts).values(*values_list).annotate(count=Count('id'),
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'end_date.date()' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, ñonvention135, ñonvention135Another, ñonvention135_id, ñonvention138, ñonvention138_id, ñonvention87, ñonvention87_id, ñonvention98, ñonvention98_id
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 167574 2021-12-27 17:01:49,656
+ERROR django.request Internal Server Error: /work/data/get/ 2021-12-27 17:31:13,971
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 530, in post
+    dicts = get_data(two)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\helpers.py", line 107, in get_data
+    q = i.date() + "__range"
+AttributeError: 'str' object has no attribute 'date'
+ERROR django.server "POST /work/data/get/ HTTP/1.1" 500 100839 2021-12-27 17:31:13,971
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-27 17:31:41,007
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 126, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “null” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 164602 2021-12-27 17:31:41,007
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-27 17:32:33,709
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 126, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Çíà÷åíèå “null” èìååò íåâåðíûé ôîðìàò. Îíî äîëæíî áûòü â ôîðìàòå YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 164602 2021-12-27 17:32:33,714
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-27 17:36:35,144
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 128, in post
+    print(workcases.first().created)
+AttributeError: 'Case' object has no attribute 'created'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 97781 2021-12-27 17:36:35,160

@@ -27,18 +27,5 @@ class CardFilter(django_filters.FilterSet):
     #                                  label='Имя/название пострадавшего',
     #                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
     country = ModelChoiceFilter(field_name='country', queryset=Country.objects.filter(active = True).all(), label='Страна', widget=forms.Select(attrs={'class': 'form-control'}))
-    region = ModelChoiceFilter(field_name="region", queryset=Region.objects.none(), label='Регион', widget=forms.Select(attrs={'class': 'form-control'}))
+    region = ModelChoiceFilter(field_name="region", queryset=Region.objects.all(), label='Регион', widget=forms.Select(attrs={'class': 'form-control'}))
     initiator = ModelChoiceFilter(field_name="initiator", queryset=Initiator.objects.all(), label='Инициатор', widget=forms.Select(attrs={'class': 'form-control'}))
-
-    # class Meta:
-    #     model = Card
-    #     fields = ['name', 'country', 'region', 'initiator',]
-    #     widgets = {
-    #         'name': forms.TextInput(attrs={'class': 'form-control'}),
-    #         'country': forms.Select(attrs={'class': 'form-control'}),
-    #         'region': forms.Select(attrs={'class': 'form-control'}),
-    #         'initiator': forms.Select(attrs={'class': 'form-control'}),
-    #         'start_date': forms.DateInput(attrs={'class': 'form-control'}),
-    #         'end_date': forms.DateInput(attrs={'class': 'form-control'}),
-    #     }
-        # exclude = ['customer', 'date_created']

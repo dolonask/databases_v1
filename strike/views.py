@@ -177,20 +177,20 @@ def load_regions(request):
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
-        cards = Card.objects.all()
+        cards = Card.objects.all().order_by('id')
         myFilter = CardFilter(request.GET, queryset=cards)
         cards = myFilter.qs
         context = {'cards': cards, 'myFilter': myFilter}
         return render(request, 'strike/strike.html', context)
     elif request.user.position.role_id == 2:
-        cards = Card.objects.filter(country_id=request.user.country.country_id)
+        cards = Card.objects.filter(country_id=request.user.country.country_id).order_by('id')
         myFilter = CardFilter(request.GET, queryset=cards)
         cards = myFilter.qs
         context = {'cards': cards, 'myFilter': myFilter}
         return render(request, 'strike/strike.html', context)
     elif request.user.position.role_id == 3:
-        cards = Card.objects.filter(added_by=request.user)
-        country_cards = Card.objects.filter(country_id=request.user.country.country_id)
+        cards = Card.objects.filter(added_by=request.user).order_by('id')
+        country_cards = Card.objects.filter(country_id=request.user.country.country_id).order_by('id')
         myFilter = CardFilter(request.GET, queryset=cards | country_cards)
         cards = myFilter.qs
         context = {'cards': cards, 'myFilter': myFilter}

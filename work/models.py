@@ -671,8 +671,8 @@ class CaseFile(models.Model):
 class Case(models.Model):
     case_name = models.CharField("Название (описание) карточки", max_length=50,
                                  help_text='Название (описание) карточки')
-    date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
+    date_create = models.DateField("Дата создания", auto_now_add=True)
+    date_update = models.DateField("Дата последних изменений", auto_now=True)
     source = models.ManyToManyField(Source, verbose_name="Источник информации о нарушении")
     source_another = models.CharField("Другое", max_length=50, null=True, blank=True)
     source_url = models.CharField("Источник информации", max_length=255, null=True, blank=True)
@@ -804,8 +804,8 @@ class Case(models.Model):
                                                 verbose_name="Нарушения, связанные с непринятием государством системных мер",
                                                 null=True, blank=True)
 
-    start_date = models.DateTimeField("Дата начала")
-    end_date = models.DateTimeField("Дата завершения", null=True, blank=True)
+    start_date = models.DateField("Дата начала")
+    end_date = models.DateField("Дата завершения", null=True, blank=True)
     INTERVAL_OR_EXACT = [
         (0, 'Точная'),
         (1, 'Интервал')

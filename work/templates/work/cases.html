@@ -108,8 +108,8 @@
                             <td>{{card.user}}</td>
                             <td>{{card.case_name}}</td>
                             <td>{{card.region}}</td>
-                            <td>{{card.date_create | date:"d.m.Y H:i"}}</td>
-                            <td>{{card.date_update | date:"d.m.Y H:i"}}</td>
+                            <td>{{card.date_create | date:"d.m.Y "}}</td>
+                            <td>{{card.date_update | date:"d.m.Y "}}</td>
                             <td>
                                 {% if card.user == request.user or request.user.position.role_id == 1 or request.user.position.role_id == 2%}
                                     <a href="{% url 'work_case_update' card.id %}"><img src="{% static 'icon/edit.svg' %}" height="20px" alt="Обновить" title="Обновить"></a>

@@ -9,6 +9,7 @@ def countries(request):
     return Country.objects.filter(active=True).all()
 
 
+
 # def users(request):
 #     return User.objects.filter().all()
 
@@ -32,7 +33,7 @@ class MigrantFilter(django_filters.FilterSet):
                                      label='Имя/название пострадавшего',
                                      widget=forms.TextInput(attrs={'class': 'form-control'}))
     country = ModelChoiceFilter(field_name='country', queryset=countries, label='Страна', widget=forms.Select(attrs={'class': 'form-control'}))
-    region = ModelChoiceFilter(queryset=countries, field_name="region", label='Регион', widget=forms.Select(attrs={'class': 'form-control'}))
+    region = ModelChoiceFilter(queryset=Region.objects.all(), field_name="region", label='Регион', widget=forms.Select(attrs={'class': 'form-control'}))
     # note = CharFilter(field_name='name', lookup_expr='icontains')
 
     # class Meta:

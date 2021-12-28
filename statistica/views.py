@@ -89,17 +89,19 @@ class MigrantResultApiView(APIView):
         return Response(serializer.data)
 
 
-
 class WorkResultApiView(APIView):
     authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+
     def post(self, request):
         filters = dict(request.data)
+        print(filters)
+        # end_date = '2021-11-18'
+        end_date = None
         list_filter = list(filters.keys())
         intruder_id = filters.get('intruder_id')
         source_id = filters.get('source_id')
         groupofrights_id = filters.get('groupofrights_id')
         tradeunionright_id = filters.get('tradeunionright_id')
-        tradeunioncrime_id = filters.get('tradeunioncrime_id')
 
         if "intruder_id" in list_filter:
             filters["intruder__in"] = [intruder_id]
@@ -117,9 +119,10 @@ class WorkResultApiView(APIView):
             filters["tradeUnionRight__in"] = [tradeunionright_id]
             filters.pop("tradeunionright_id")
 
-        # if "tradeunioncrime_id" in list_filter:
-        #     filters["tradeUnionCrime__in"] = [tradeunioncrime_id]
-        #     filters.pop("tradeunioncrime_id")
+        if "end_date" in list_filter:
+            filters["date_create__range"] = ("2000-01-01", end_date)
+            filters.pop('end_date')
+
 
         print(filters, 'filters')
         workcases = WorkCase.objects.filter(**filters).order_by('id')
@@ -158,6 +161,7 @@ class StrikeResultApiView(APIView):
         # cases = Card.objects.all()
 
         cards = Card.objects.filter(**filters).order_by('id')
+
         serializer = StrikeResultSerializer(cards, many=True)
         return Response(serializer.data)
 

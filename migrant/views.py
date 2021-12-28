@@ -195,20 +195,20 @@ def update_case(request,pk):
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
-        cases = Case.objects.all()
+        cases = Case.objects.all().order_by('id')
         filter = MigrantFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'migrant/cases.html', context)
     elif request.user.position.role_id == 2:
-        cases = Case.objects.filter(country_id=request.user.country.country_id)
+        cases = Case.objects.filter(country_id=request.user.country.country_id).order_by('id')
         filter = MigrantFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'migrant/cases.html', context)
     elif request.user.position.role_id == 3:
-        cases = Case.objects.filter(user=request.user)
-        country_cards = Case.objects.filter(country_id=request.user.country.country_id)
+        cases = Case.objects.filter(user=request.user).order_by('id')
+        country_cards = Case.objects.filter(country_id=request.user.country.country_id).order_by('id')
         filter = MigrantFilter(request.GET, queryset=cases | country_cards)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
@@ -227,7 +227,7 @@ def download(request, case_id):
 def load_regions(request):
     country_id = request.GET.get('country_id')
     regions = Region.objects.filter(country=country_id)
-    return render(request,'migrant/region_dropdown.html',{'regions':regions})
+    return render(request, 'migrant/region_dropdown.html', {'regions':regions})
 
 @login_required()
 def add_comment(request, pk):

@@ -1,4 +1,6 @@
+import datetime
 import pprint
+from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
@@ -363,30 +365,34 @@ def delete_case(request, pk):
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
-        cases = Case.objects.all()
+        cases = Case.objects.all().order_by('date_create')
         filter = WorkFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'work/cases.html', context)
     elif request.user.position.role_id == 2:
-        cases = Case.objects.filter(country_id=request.user.country.country_id)
+        cases = Case.objects.filter(country_id=request.user.country.country_id).order_by('id')
         filter = WorkFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'work/cases.html', context)
     elif request.user.position.role_id == 3:
         cases = Case.objects.filter(user=request.user)
-        country_cards = Case.objects.filter(country_id=request.user.country.country_id)
+        country_cards = Case.objects.filter(country_id=request.user.country.country_id).order_by('id')
         filter = WorkFilter(request.GET, queryset=cases | country_cards)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
         return render(request, 'work/cases.html', context)
     else:
         raise Http404('Недостаточно прав!')
+
+
 def load_regions(request):
     country_id = request.GET.get('country_id')
     regions = Region.objects.filter(country=country_id).all()
     return render(request, 'work/region_dropdown.html', {'regions': regions})
+
+
 @login_required()
 def add_comment(request, pk):
     case = Case.objects.get(id=pk)
@@ -513,10 +519,16 @@ class Round(Func):
 
 class DataFilterAPI(APIView):
     authentication_classes = []
+
     def post(self, request):
+        print(request.data)
         one = get_request_data(request.data)
         two = return_right_data(one)
         values_list = get_values(two)
+        # now_date = datetime.now().date()
+        # start_date = two.get("start_date", None)
+        # print(start_date)
+
 
         # values_list.append('')
         dicts = get_data(two)
@@ -527,11 +539,14 @@ class DataFilterAPI(APIView):
                                                                               count_country=Count('country'),
                                                                               procent=100 * Count('id')/count_country)
 
+
         fields = get_fields(two)
         fields.append("count")
         fields.append("procent")
         serializers = DataFilterApiSerializer(queryset, many=True, fields=fields)
         return Response(serializers.data)
+
+
 @login_required()
 def case_files_download(request, pk):
     if request.user.position.role_id == 3:
