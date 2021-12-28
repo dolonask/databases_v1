@@ -577,8 +577,8 @@ class TradeUnionCount(models.Model):
 
 # Create your models here.
 class Case(models.Model):
-    date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
+    date_create = models.DateField("Дата создания", auto_now_add=True)
+    date_update = models.DateField("Дата последних изменений", auto_now=True)
     case_name = models.CharField("Название (описание) карточки", max_length=30, help_text='Название (описание) карточки')
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING, verbose_name="Страна")
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, verbose_name="Регион")
@@ -593,8 +593,8 @@ class Case(models.Model):
     violated_right = models.ManyToManyField(Right, verbose_name="Какое право нарушено?")
     violatedRightAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
     case_date = models.DateTimeField("Дата создания", auto_now_add=True)
-    start_date = models.DateTimeField("Дата начала нарушения")
-    end_date = models.DateTimeField("Дата конца нарушения", null=True, blank=True)
+    start_date = models.DateField("Дата начала нарушения")
+    end_date = models.DateField("Дата конца нарушения", null=True, blank=True)
     INTERVAL_OR_EXACT = [
         (0, 'Точная'),
         (1, 'Интервал')

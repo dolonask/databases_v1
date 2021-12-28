@@ -1,6 +1,6 @@
 import re
 import datetime
-from main.service import unpucking
+# from main.service import unpucking
 
 
 
@@ -79,8 +79,27 @@ def get_values(data):
     return values_list
 
 
-def relativedelta(years):
-    pass
+# dicts = {}
+datee = {'start_date': '', 'end_date': '', 'country_id': '1'}
+
+
+def get_time(data):
+    start_date = data.get('start_date')
+    end_date = data.get('end_date')
+    if start_date == "" and (end_date != ""):
+        data["date_create__range"] = ("2000-01-01", end_date)
+    elif (start_date == "") and (end_date == ""):
+        data = data
+    elif end_date == "" and start_date != "":
+        data["date_create__range"] = (start_date, datetime.datetime.now().date())
+    elif (start_date != "") and (end_date != ""):
+        data["date_create__range"] = (start_date, end_date)
+    data.pop("start_date")
+    data.pop("end_date")
+
+    return data
+
+print(get_time(datee))
 
 
 def get_data(data):
@@ -88,14 +107,15 @@ def get_data(data):
     Добавляет __in к ключам two
     """
     dicts = {}
+    print(data, 'ddd')
     date_st = data.get('start_date', None)
     end_date = data.get('end_date', None)
-    print(date_st)
     q = "date_create" + "__range"
 
-    if "start_date" in list(data.keys()) and "end_date" in list(data.keys()):
+    if ("start_date" in list(data.keys())) and ("end_date" in list(data.keys())):
         datee = date_st + end_date
         dicts.update({q: datee})
+        print(dicts, "dd")
         data.pop('start_date')
         data.pop('end_date')
 

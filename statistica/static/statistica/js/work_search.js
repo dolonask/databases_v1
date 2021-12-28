@@ -101,6 +101,9 @@ function showResult(data) {
 }
 
 function getDataAttr(e){
+    const start_date = document.querySelector('#start_date:checked') ? document.querySelector('input[data-id="start_date"]').value : '';
+    const end_date = document.querySelector('#end_date:checked') ? document.querySelector('input[data-id="end_date"]').value : '';
+
     const obj = {...e.target.parentElement.dataset};
     let dataObjects = {};
 
@@ -113,7 +116,7 @@ function getDataAttr(e){
        }
     }
 
-    getModalInfo(dataObjects);
+    getModalInfo({start_date, end_date, ...dataObjects});
 }
 
 function getModalInfo(obj){

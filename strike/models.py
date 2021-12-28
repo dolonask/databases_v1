@@ -343,8 +343,8 @@ class Card(models.Model):
     politic_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
     combo_demands = models.ManyToManyField(ComboDemand, verbose_name="Смешанный", null=True, blank=True)
     combo_another = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True, blank=True)
-    start_date = models.DateTimeField("Дата начало проведения забастовки/акции")
-    end_date = models.DateTimeField("Дата конца проведения забастовки/акции", null=True, blank=True)
+    start_date = models.DateField("Дата начало проведения забастовки/акции")
+    end_date = models.DateField("Дата конца проведения забастовки/акции", null=True, blank=True)
     INTERVAL_OR_EXACT = [
         (0, 'Точная'),
         (1, 'Интервал')
@@ -354,8 +354,8 @@ class Card(models.Model):
                                          verbose_name="Есть ли на предприятии профсоюз")
     tradeunionChoiceAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                                blank=True)
-    date_create = models.DateTimeField("Дата создания", auto_now_add=True)
-    date_update = models.DateTimeField("Дата последних изменений", auto_now=True)
+    date_create = models.DateField("Дата создания", auto_now_add=True)
+    date_update = models.DateField("Дата последних изменений", auto_now=True)
     active = models.BooleanField("Активен", default=True)
     comment = models.TextField('Комментарии для монитора', max_length=500, blank=True, null=True)
 

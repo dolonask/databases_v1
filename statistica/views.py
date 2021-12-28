@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
@@ -10,6 +12,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 
 # Create your views here.
 from migrant.models import Case as MigrantCase, InfoSource, Right, CaseComment as MigrantCaseComment, Intruder as MigrantIntruder
+from strike.helpers import get_time
 from work.models import Case as WorkCase, Source, Intruder, TradeUnionActivities, CaseComment, Case
 from strike.models import Card, DemandCategory, EconomicDemand, PoliticDemand, ComboDemand, CardComment, Source as StrikeSource
 from statistica.serializers import WorkResultSerializer, MigrantResultSerializer, StrikeResultSerializer
@@ -72,7 +75,7 @@ class MigrantResultApiView(APIView):
         intruder_id = filters.get('intruder_id')
         violated_right_id = filters.get('violated_right_id')
         source_id = filters.get('source_id')
-
+        filters = get_time(filters)
 
         if "intruder_id" in list_filter:
             filters["intruder__in"] = [intruder_id]
@@ -94,14 +97,16 @@ class WorkResultApiView(APIView):
 
     def post(self, request):
         filters = dict(request.data)
-        print(filters)
-        # end_date = '2021-11-18'
-        end_date = None
+        print(filters, "reqq")
+        start_date = filters.get('start_date')
+        end_date = filters.get('end_date')
         list_filter = list(filters.keys())
         intruder_id = filters.get('intruder_id')
         source_id = filters.get('source_id')
         groupofrights_id = filters.get('groupofrights_id')
         tradeunionright_id = filters.get('tradeunionright_id')
+
+        filters = get_time(filters)
 
         if "intruder_id" in list_filter:
             filters["intruder__in"] = [intruder_id]
@@ -119,12 +124,9 @@ class WorkResultApiView(APIView):
             filters["tradeUnionRight__in"] = [tradeunionright_id]
             filters.pop("tradeunionright_id")
 
-        if "end_date" in list_filter:
-            filters["date_create__range"] = ("2000-01-01", end_date)
-            filters.pop('end_date')
-
 
         print(filters, 'filters')
+
         workcases = WorkCase.objects.filter(**filters).order_by('id')
         serializer = WorkResultSerializer(workcases, many=True)
         return Response(serializer.data)
@@ -140,6 +142,7 @@ class StrikeResultApiView(APIView):
         politic_demands_id = filters.get("politic_demands_id")
         combo_demands_id = filters.get("combo_demands_id")
         list_filter = list(filters.keys())
+        filters = get_time(filters)
 
         if "card_demand_categories_id" in list_filter:
             filters["card_demand_categories__in"] = [card_demand_categories_id]
@@ -156,9 +159,6 @@ class StrikeResultApiView(APIView):
         if "card_sources_id" in list_filter:
             filters["card_sources__in"] = [card_sources_id]
             filters.pop("card_sources_id")
-
-
-        # cases = Card.objects.all()
 
         cards = Card.objects.filter(**filters).order_by('id')
 

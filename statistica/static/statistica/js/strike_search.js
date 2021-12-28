@@ -16,12 +16,13 @@ searchBtn.onclick = function () {
     let arr = [];
 
     sChecks.forEach(i => {
-        let select = document.querySelector(`[data-id='${i.id}']`);
-        let selected = [...select.selectedOptions].map(option => {
-            return {id: option.value}
-        });
-        let obj = {id: i.id, item: selected};
-        arr.push(obj);
+       let elem = document.querySelector(`[data-id='${i.id}']`);
+       if(elem.localName !== 'input'){
+            let selected = [...elem.selectedOptions].map(option => ({ id: option.value }) );
+            arr.push({id: i.id, item: selected});
+        } else{
+            arr.push({ id:i.id, item:[{id:elem.value}] });
+        }
     });
 
     getResult(arr);
@@ -100,6 +101,8 @@ function showResult(data) {
 }
 
 function getDataAttr(e){
+    const start_date = document.querySelector('#start_date:checked') ? document.querySelector('input[data-id="start_date"]').value : '';
+    const end_date = document.querySelector('#end_date:checked') ? document.querySelector('input[data-id="end_date"]').value : '';
     const obj = {...e.target.parentElement.dataset};
     let dataObjects = {};
 
@@ -112,7 +115,7 @@ function getDataAttr(e){
        }
     }
 
-    getModalInfo(dataObjects);
+    getModalInfo({start_date, end_date, ...dataObjects});
 }
 
 function getModalInfo(obj){
