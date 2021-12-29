@@ -345,7 +345,10 @@ def add_comment(request, pk):
             subject = "Новые комментарии"
             message = f"На вашу карточку /'{card.name}'/ был оставлен слудующий комментарий : '{comment}', oт {from_email}"
             form.save()
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+            try:
+                send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+            except:
+                return redirect('strikes_list')
             return redirect('strikes_list')
     else:
         form = CardCommentForm()

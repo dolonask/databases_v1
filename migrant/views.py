@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import get_template
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -24,8 +24,6 @@ from docx import Document
 import jinja2
 import pdfkit
 import os
-
-
 
 @login_required
 def append_case(request):
@@ -199,12 +197,14 @@ def cases(request):
         filter = MigrantFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
+        # request.session['test'] = request.META.get('HTTP_REFERER', '/')
         return render(request, 'migrant/cases.html', context)
     elif request.user.position.role_id == 2:
         cases = Case.objects.filter(country_id=request.user.country.country_id).order_by('id')
         filter = MigrantFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
+        # request.session['test'] = request.META.get('HTTP_REFERER', '/')
         return render(request, 'migrant/cases.html', context)
     elif request.user.position.role_id == 3:
         cases = Case.objects.filter(user=request.user).order_by('id')
@@ -212,6 +212,7 @@ def cases(request):
         filter = MigrantFilter(request.GET, queryset=cases | country_cards)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
+        # request.session['test'] = request.META.get('HTTP_REFERER', '/')
         return render(request, 'migrant/cases.html', context)
     else:
         raise Http404('Недостаточно прав!')
@@ -245,8 +246,12 @@ def add_comment(request, pk):
             subject = "Новые комментарии"
             message = f"На вашу карточку /'{case.case_name}'/ был оставлен слудующий комментарий : '{comment}', oт {from_email}"
             form.save()
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+            try :
+                send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+            except:
+                return redirect('migrants_list')
             return redirect('migrants_list')
+
     else:
         form = CaseCommentForm()
     return render(request, 'migrant/add_comment.html', {'form': form, 'case': case})

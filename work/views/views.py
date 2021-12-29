@@ -365,7 +365,7 @@ def delete_case(request, pk):
 @login_required()
 def cases(request):
     if request.user.position.role_id == 1:
-        cases = Case.objects.all().order_by('date_create')
+        cases = Case.objects.all().order_by('id')
         filter = WorkFilter(request.GET, queryset=cases)
         cards = filter.qs
         context = {'cards': cards, 'myFilter': filter}
@@ -411,7 +411,10 @@ def add_comment(request, pk):
             subject = "Новые комментарии"
             message = f"На вашу карточку /'{case.case_name}'/ был оставлен слудующий комментарий : '{comment}', oт {from_email}"
             form.save()
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+            try:
+                send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email, ], fail_silently=False)
+            except:
+                return redirect('works_list')
             return redirect('works_list')
     else:
         form = CaseCommentForm()
