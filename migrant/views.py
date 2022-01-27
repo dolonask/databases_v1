@@ -131,7 +131,7 @@ def update_case(request,pk):
         if entrepreneurForm.is_valid():
             case.entrepreneur = entrepreneurForm.save()
 
-        case.user = request.user
+        # case.user = request.user
         case.save()
         form._save_m2m()
 

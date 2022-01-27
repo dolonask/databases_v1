@@ -26,60 +26,60 @@
     <div class="col-md">
         <div class="card card-body">
             <table class="table table-striped table-bordered" class="table table-sm">
+                    {% if card.id|check_arg_is_none %}
+                    {% else %}
                 <tr style="height: 30px;">
                     <th class="counter">1.1</th>
                     <th>{{ card|var_verbose_name:'id' }}</th>
-                    {% if card.id|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.id }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                    {% if card.name|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">1.2</th>
                     <th>{{ card|var_verbose_name:'name' }}</th>
-                    {% if card.name|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.name }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                    {% if card.date_create|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">1.3</th>
                     <th>{{ card|var_verbose_name:'date_create' }}</th>
-                    {% if card.date_create|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
-                        <td>{{ card.date_create|date:"d.m.Y H:i" }}</td>
-                    {% endif %}
+
+                        <td>{{ card.date_create|date:"d.m.Y " }}</td>
                 </tr>
+                    {% endif %}
+                    {% if card.date_update|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">1.4</th>
                     <th>{{ card|var_verbose_name:'date_update' }}</th>
-                    {% if card.date_update|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
-                        <td>{{ card.date_update|date:"d.m.Y H:i" }}</td>
-                    {% endif %}
+
+                        <td>{{ card.date_update|date:"d.m.Y " }}</td>
                 </tr>
+                    {% endif %}
+                    {% if card.country|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">1.5</th>
                     <th>{{ card|var_verbose_name:'country' }}</th>
-                    {% if card.country|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.country }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                    {% if card.region|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">1.6</th>
                     <th>{{ card|var_verbose_name:'region' }}</th>
-                    {% if card.region|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.region }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
                 {% for item in card_sources %}
                     <tr>
                         <th class="counter">1.7</th>
@@ -93,15 +93,17 @@
                         <td></td>
                     </tr>
                 {% endfor %}
+                    {% if card.source_url|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">1.8</th>
                     <th>{{ card|var_verbose_name:'source_url' }}</th>
-                    {% if card.source_url|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.source_url }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                {% if card.source_content|check_arg_is_none|length < 1 %}
+                {% else %}
                 {% if card.source_content|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.source_content|length < 500 %}
@@ -113,12 +115,10 @@
                 {% endif %}
                 <th class="counter">1.9</th>
                 <th>{{ card|var_verbose_name:'source_content' }}</th>
-                {% if card.source_content|check_arg_is_none %}
-                    <td></td>
-                {% else %}
+
                     <td>{{ card.source_content|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
                 <tr>
                     <th class="counter">2.0</th>
                     <th>{{ card|var_verbose_name:'country' }}</th>
@@ -164,33 +164,31 @@
                         <td>{{ card.company_ownership_type }}</td>
                     {% endif %}
                 </tr>
+                    {% if card.company_country_name|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">2.5</th>
                     <th>{{ card|var_verbose_name:'company_country_name' }}</th>
-                    {% if card.company_country_name|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
                         <td>{{ card.company_country_name }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                    {% if card.company_is_tnk_member|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">2.6</th>
                     <th>{{ card|var_verbose_name:'company_is_tnk_member' }}</th>
-                    {% if card.company_is_tnk_member|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
-                        <td>{{ card.company_is_tnk_member|date:"d.m.Y H:i" }}</td>
-                    {% endif %}
+
+                        <td>{{ card.company_is_tnk_member|date:"d.m.Y " }}</td>
                 </tr>
+                    {% endif %}
+                    {% if card.company_tnk_name|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">2.7</th>
                     <th>{{ card|var_verbose_name:'company_tnk_name' }}</th>
-                    {% if card.company_tnk_name|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
-                        <td>{{ card.company_tnk_name|date:"d.m.Y H:i" }}</td>
-                    {% endif %}
+                        <td>{{ card.company_tnk_name|date:"d.m.Y " }}</td>
                 </tr>
+                    {% endif %}
                 <tr>
                     <th class="counter">2.8</th>
                     <th>{{ card|var_verbose_name:'company_employees_count' }}</th>
@@ -216,11 +214,11 @@
                         <td>{{ item.name }}</td>
                     </tr>
                 {% empty %}
-                    <tr>
-                        <th class="counter">3.0</th>
-                        <th>{{ card|var_verbose_name:'card_demand_categories' }}</th>
-                        <td></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th class="counter">3.0</th>-->
+<!--                        <th>{{ card|var_verbose_name:'card_demand_categories' }}</th>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
                 {% endfor %}
                 {% for item in economic_demands %}
                     <tr>
@@ -229,21 +227,21 @@
                         <td>{{ item.name }}</td>
                     </tr>
                 {% empty %}
-                    <tr>
-                        <th class="counter">3.1</th>
-                        <th>{{ card|var_verbose_name:'economic_demands' }}</th>
-                        <td></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th class="counter">3.1</th>-->
+<!--                        <th>{{ card|var_verbose_name:'economic_demands' }}</th>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
                 {% endfor %}
+                    {% if card.economic_another|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">3.2</th>
                     <th>{{ card|var_verbose_name:'economic_another' }}</th>
-                    {% if card.economic_another|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.economic_another }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
                 {% for item in politic_demands %}
                     <tr>
                         <th class="counter">3.3</th>
@@ -257,15 +255,15 @@
                         <td></td>
                     </tr>
                 {% endfor %}
+                    {% if card.politic_another|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">3.4</th>
                     <th>{{ card|var_verbose_name:'politic_another' }}</th>
-                    {% if card.politic_another|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.politic_another }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
                 {% for item in combo_demands %}
                     <tr>
                         <th class="counter">3.5</th>
@@ -273,28 +271,28 @@
                         <td>{{ item.name }}</td>
                     </tr>
                 {% empty %}
-                    <tr>
-                        <th class="counter">3.5</th>
-                        <th>{{ card|var_verbose_name:'combo_demands' }}</th>
-                        <td></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th class="counter">3.5</th>-->
+<!--                        <th>{{ card|var_verbose_name:'combo_demands' }}</th>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
                 {% endfor %}
+                    {% if card.combo_another|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">3.6</th>
                     <th>{{ card|var_verbose_name:'combo_another' }}</th>
-                    {% if card.combo_another|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.combo_another }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
                 <tr>
                     <th class="counter">3.7</th>
                     <th>{{ card|var_verbose_name:'start_date' }}</th>
                     {% if card.start_date|check_arg_is_none %}
                         <td></td>
                     {% else %}
-                        <td>{{ card.start_date|date:"d.m.Y H:i" }}</td>
+                        <td>{{ card.start_date|date:"d.m.Y " }}</td>
                     {% endif %}
                 </tr>
                 <tr>
@@ -303,7 +301,7 @@
                     {% if card.end_date|check_arg_is_none %}
                         <td></td>
                     {% else %}
-                        <td>{{ card.end_date|date:"d.m.Y H:i" }}</td>
+                        <td>{{ card.end_date|date:"d.m.Y " }}</td>
                     {% endif %}
                 </tr>
                 <tr>
@@ -315,15 +313,14 @@
                         <td>{{ card.tradeunionChoice }}</td>
                     {% endif %}
                 </tr>
+                    {% if card.tradeunionChoiceAnother|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">4.0</th>
                     <th>{{ card|var_verbose_name:'tradeunionChoiceAnother' }}</th>
-                    {% if card.tradeunionChoiceAnother|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
                         <td>{{ card.tradeunionChoiceAnother }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
                 <tr>
                     <th class="counter">4.1</th>
                     <th>{{ card|var_verbose_name:'added_by' }}</th>
@@ -342,33 +339,35 @@
                         <td>{{ card.initiator }}</td>
                     {% endif %}
                 </tr>
+                    {% if card.tradeunion_data|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">4.3</th>
                     <th>{{ card|var_verbose_name:'tradeunion_data' }}</th>
-                    {% if card.tradeunion_data|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.tradeunion_data }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+
+
+                    {% if card.personGroupInfo|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">4.4</th>
                     <th>{{ card|var_verbose_name:'personGroupInfo' }}</th>
-                    {% if card.personGroupInfo|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.personGroupInfo }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                    {% if card.employear|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">4.5</th>
                     <th>{{ card|var_verbose_name:'employear' }}</th>
-                    {% if card.employear|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.employear }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
                 <tr>
                     <th class="counter">4.7</th>
                     <th>{{ card|var_verbose_name:'duration' }}</th>
@@ -378,15 +377,17 @@
                         <td>{{ card.duration }}</td>
                     {% endif %}
                 </tr>
+                    {% if card.meeting_requirements|check_arg_is_none %}
+                    {% else %}
                 <tr>
                     <th class="counter">4.8</th>
                     <th>{{ card|var_verbose_name:'meeting_requirements' }}</th>
-                    {% if card.meeting_requirements|check_arg_is_none %}
-                        <td></td>
-                    {% else %}
+
                         <td>{{ card.meeting_requirements }}</td>
-                    {% endif %}
                 </tr>
+                    {% endif %}
+                {% if card.story|check_arg_is_none|length < 1 %}
+                {% else %}
                 {% if card.story|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.story|length < 500 %}
@@ -398,12 +399,12 @@
                 {% endif %}
                 <th class="counter">4.9</th>
                 <th>{{ card|var_verbose_name:'story' }}</th>
-                {% if card.story|check_arg_is_none %}
-                    <td></td>
-                {% else %}
+
                     <td>{{ card.story|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
+                {% if card.reasons_for_strike|check_arg_is_none|length < 1%}
+                   {% else %}
                 {% if card.reasons_for_strike|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.reasons_for_strike|length < 500 %}
@@ -415,12 +416,11 @@
                 {% endif %}
                 <th class="counter">5.0</th>
                 <th>{{ card|var_verbose_name:'reasons_for_strike' }}</th>
-                {% if card.reasons_for_strike|check_arg_is_none %}
-                    <td></td>
-                {% else %}
                     <td>{{ card.reasons_for_strike|linebreaks }}</td>
                 {% endif %}
                 </tr>
+                {% if card.change_number_participants|check_arg_is_none|length < 1 or change_number_participants|length < 1 %}
+                {% else %}
                 {% if card.change_number_participants|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.change_number_participants|length < 500 %}
@@ -432,12 +432,12 @@
                 {% endif %}
                 <th class="counter">5.1</th>
                 <th>{{ card|var_verbose_name:'change_number_participants' }}</th>
-                {% if card.change_number_participants|check_arg_is_none %}
-                    <td></td>
-                {% else %}
                     <td>{{ card.change_number_participants|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
+
+                {% if card.initiators_and_participants|check_arg_is_none|length < 1 %}
+                   {% else %}
                 {% if card.initiators_and_participants|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.initiators_and_participants|length < 500 %}
@@ -449,12 +449,12 @@
                 {% endif %}
                 <th class="counter">5.2</th>
                 <th>{{ card|var_verbose_name:'initiators_and_participants' }}</th>
-                {% if card.initiators_and_participants|check_arg_is_none %}
-                    <td></td>
-                {% else %}
                     <td>{{ card.initiators_and_participants|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
+
+                {% if card.state_position|check_arg_is_none|length < 1 %}
+                   {% else %}
                 {% if card.state_position|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.state_position|length < 500 %}
@@ -466,12 +466,12 @@
                 {% endif %}
                 <th class="counter">5.3</th>
                 <th>{{ card|var_verbose_name:'state_position' }}</th>
-                {% if card.state_position|check_arg_is_none %}
-                    <td></td>
-                {% else %}
                     <td>{{ card.state_position|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
+
+                {% if card.results_so_far|check_arg_is_none|length < 1 %}
+                   {% else %}
                 {% if card.results_so_far|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.results_so_far|length < 500 %}
@@ -483,12 +483,13 @@
                 {% endif %}
                 <th class="counter">5.4</th>
                 <th>{{ card|var_verbose_name:'results_so_far' }}</th>
-                {% if card.results_so_far|check_arg_is_none %}
-                    <td></td>
-                {% else %}
                     <td>{{ card.results_so_far|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
+
+
+                {% if card.additional_information|check_arg_is_none|length < 1 %}
+                {% else %}
                 {% if card.additional_information|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.additional_information|length < 500 %}
@@ -500,12 +501,14 @@
                 {% endif %}
                 <th class="counter">5.5</th>
                 <th>{{ card|var_verbose_name:'additional_information' }}</th>
-                {% if card.additional_information|check_arg_is_none %}
-                    <td></td>
-                {% else %}
+
                     <td>{{ card.additional_information|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
+
+
+                {% if card.case_text|check_arg_is_none|length < 1%}
+                {% else %}
                 {% if card.case_text|length < 250 %}
                     <tr style="height: 50px">
                         {% elif card.case_text|length < 500 %}
@@ -517,12 +520,10 @@
                 {% endif %}
                 <th class="counter">5.6</th>
                 <th>{{ card|var_verbose_name:'case_text' }}</th>
-                {% if card.case_text|check_arg_is_none %}
-                    <td></td>
-                {% else %}
+
                     <td>{{ card.case_text|linebreaks }}</td>
-                {% endif %}
                 </tr>
+                {% endif %}
                 {% for item in comments %}
                     <tr>
                         <th class="counter">5.7</th>
@@ -530,11 +531,11 @@
                         <td>{{ item.comment }}</td>
                     </tr>
                 {% empty %}
-                    <tr>
-                        <th class="counter">5.7</th>
-                        <th>Комментарий</th>
-                        <td></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th class="counter">5.7</th>-->
+<!--                        <th>Комментарий</th>-->
+<!--                        <td></td>-->
+<!--                    </tr>-->
                 {% endfor %}
             </table>
         </div>

@@ -172,7 +172,9 @@ def case_detail(request, pk):
     intruder = Intruder.objects.filter(case__pk=pk)
     trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     comments = CaseComment.objects.filter(case_id=pk)
-    return render(request, 'statistica/detail_case.html', locals())
+    print("fsdlkmfdb")
+    print(case)
+    return render(request, 'statistica/detail_case2.html', locals())
 
 
 def card_strike_detail(request, pk):

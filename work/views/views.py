@@ -297,7 +297,7 @@ def update_case(request, pk):
                 case.company = companyInfoForm.save()
 
 
-            case.user = request.user
+            # case.user = request.user
             case.active = True
             case.save()
 

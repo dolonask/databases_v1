@@ -272,7 +272,7 @@ def update_case(request, pk):
                 case.employear = employerForm.save()
 
 
-            case.added_by = request.user
+            # case.added_by = request.user
             case.active = True
             case.save()
 

@@ -147,7 +147,7 @@ function showInfoModal(data){
 
         td += '<td>' + item['id'] + '</td>';
         td += '<td>' + item['user'] + '</td>';
-        td += '<td>' + '<a href="http://130.193.53.66:8000/analytic/detail/'+ item['id'] + '" target="_blank">'  + item['case_name'] + '</a></td>';
+        td += '<td>' + '<a href="http://127.0.0.1:8000/analytic/detail/'+ item['id'] + '" target="_blank">'  + item['case_name'] + '</a></td>';
         td += '<td>' + item['region'] + '</td>';
         td += '<td>' + item['country'] + '</td>';
         td += '<td>' + new Date(item['date_create']).toLocaleDateString() + '</td>';
