@@ -543,7 +543,7 @@ def card_photo_delete(request, pk):
 
 def strike_word_generate(request, pk):
     card = Card.objects.get(id=pk)
-    card_sources = Source.objects.filter(card__pk=pk)
+    card_sources = Source.objects.filter(id=pk)
     card_demand_categories = DemandCategory.objects.filter(card__pk=pk)
     economic_demands = EconomicDemand.objects.filter(card__pk=pk)
     politic_demands = PoliticDemand.objects.filter(card__pk=pk)

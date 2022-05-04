@@ -1,0 +1,62 @@
+WARNING django.request Not Found: /api/v1/wallet/get-wallets/ 2022-02-01 14:15:46,307
+WARNING django.server "GET /api/v1/wallet/get-wallets/ HTTP/1.1" 404 3569 2022-02-01 14:15:46,308
+WARNING django.request Not Found: /migrant/ 2022-02-01 14:16:01,976
+WARNING django.server "GET /migrant/ HTTP/1.1" 404 7212 2022-02-01 14:16:01,976
+ERROR django.request Internal Server Error: /migrant/work-purpose/ 2022-02-01 14:16:25,292
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\generics.py", line 63, in get_queryset
+    assert self.queryset is not None, (
+AssertionError: 'WorkPurposeAPIView' should either include a `queryset` attribute, or override the `get_queryset()` method.
+ERROR django.server "GET /migrant/work-purpose/ HTTP/1.1" 500 101146 2022-02-01 14:16:25,296
+ERROR django.request Internal Server Error: /migrant/work-purpose/ 2022-02-01 14:17:16,755
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\env\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+TypeError: 'ModelBase' object is not iterable
+ERROR django.server "GET /migrant/work-purpose/ HTTP/1.1" 500 110798 2022-02-01 14:17:16,759
+WARNING django.request Not Found: /api/v1/category/charges/ 2022-02-01 15:54:09,775
+WARNING django.server "GET /api/v1/category/charges/ HTTP/1.1" 404 3563 2022-02-01 15:54:09,775

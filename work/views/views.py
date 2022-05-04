@@ -262,6 +262,7 @@ def add_case(request):
 @login_required()
 def update_case(request, pk):
     case = Case.objects.get(id=pk)
+    case_user = case.user
 
     print(case.tradeUnionSituation)
     if request.method == 'POST':
@@ -297,7 +298,7 @@ def update_case(request, pk):
                 case.company = companyInfoForm.save()
 
 
-            # case.user = request.user
+            case.user = case_user
             case.active = True
             case.save()
 
@@ -528,12 +529,7 @@ class DataFilterAPI(APIView):
         one = get_request_data(request.data)
         two = return_right_data(one)
         values_list = get_values(two)
-        # now_date = datetime.now().date()
-        # start_date = two.get("start_date", None)
-        # print(start_date)
 
-
-        # values_list.append('')
         dicts = get_data(two)
         country = two.get('country')[0]
         count_country = Case.objects.filter(country=country).count()

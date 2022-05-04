@@ -386,11 +386,11 @@ class Company(models.Model):
     ownership = models.ForeignKey(OwnerShipType, on_delete=models.DO_NOTHING,
                                   verbose_name="Форма собственности компании")
     country_from = models.CharField("Страна происхождения компании", max_length=100,
-                                    help_text='Страна происхождения кампании', )
+                                    help_text='Страна происхождения кампании', blank=True )
     is_tnk_member= models.CharField("Является ли эта компания частью ТНК?",
-                                       choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
+                                       choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20, blank=True)
     tnk_name = models.CharField("Название ТНК, в которую входит эта компания", max_length=100,
-                                help_text='Название ТНК, в которую входит эта компания', )
+                                help_text='Название ТНК, в которую входит эта компания', blank=True)
     branch = models.CharField("Отрасль деятельности", max_length=200)
     product_type = models.CharField("Вид производимой продукции / Предоставляемые услуги ", max_length=200,
                                     help_text='Вид производимой продукции / Предоставляемые услуги ')
@@ -487,7 +487,7 @@ class RightsState(models.Model):
 
 class Entrepreneur(models.Model):
     entrepreneur_is_anonim = models.CharField("Ананимно", choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
-    entrepreneur_name = models.CharField("ФИО", max_length=50, help_text='ФИО', )
+    entrepreneur_name = models.CharField("ФИО", max_length=50, help_text='ФИО', blank=True, null=True)
     # entrepreneur_is_anonim = models.BooleanField("Аноним?", default=False)
     # entrepreneur_gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, verbose_name="Пол")
     entrepreneur_gender = models.CharField("Пол", choices=[('FEMALE', 'Женский'),('MALE', 'Мужской')],max_length=50)
@@ -498,8 +498,8 @@ class Entrepreneur(models.Model):
     entrepreneur_doAgreement= models.CharField("Оформляет ли он трудовые договора/соглашения с работниками? ",
                                        choices=[('YES', 'Да'), ('NO', 'Нет'), ], max_length=20)
     entrepreneur_payWay = models.ForeignKey(PayWay, on_delete=models.DO_NOTHING,
-                                  verbose_name="Как выдает заработную плату?")
-    entrepreneur_hireWay = models.ManyToManyField(HireWay, verbose_name="Как нанимает работников?")
+                                  verbose_name="Как выдает заработную плату?", null=True, blank=True)
+    entrepreneur_hireWay = models.ManyToManyField(HireWay, verbose_name="Как нанимает работников?", null=True, blank=True)
     entrepreneur_hireWayAnother = models.CharField("Другое", max_length=50, help_text='Введите значение', null=True,
                                          blank=True)
 

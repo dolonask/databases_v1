@@ -161,8 +161,10 @@ class CompanyForm(forms.ModelForm):
 
         }
 
-
+# forms.CheckboxSelectMultiple(
+#                 attrs={'class': 'checkbox-list-none', 'onchange': "onIntruderChanged(this.value);"}),
 class EntrepreneurForm(forms.ModelForm):
+
     class Meta:
         model = Entrepreneur
         fields = '__all__'
@@ -173,12 +175,12 @@ class EntrepreneurForm(forms.ModelForm):
             'entrepreneur_gender': forms.Select(attrs={'class': 'form-control'}),
             'entrepreneur_address': forms.TextInput(attrs={'class': 'form-control'}),
             'entrepreneur_workPurpose': forms.CheckboxSelectMultiple(
-                attrs={'class': 'select'}),
+                attrs={'class': 'entrepreneur_workPurpose',}),
             'entrepreneur_emp_count': forms.Select(attrs={'class': 'form-control'}),
             'entrepreneur_doAgreement': forms.Select(attrs={'class': 'form-control'}),
             'entrepreneur_payWay': forms.Select(attrs={'class': 'form-control'}),
             'entrepreneur_hireWay': forms.CheckboxSelectMultiple(
-                attrs={'class': 'checkbox-list-none', 'onchange': "onHireWayChanged(this.value);"}),
+                attrs={'class': '', 'onchange': "onHireWayChanged(this.value);"}),
             'entrepreneur_hireWayAnother': forms.TextInput(attrs={'class': 'form-control'}),
         }
 

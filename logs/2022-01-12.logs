@@ -1,0 +1,259 @@
+ERROR django.request Internal Server Error: /analytic/strike-detail/5/ 2022-01-12 09:09:54,919
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'elif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 189, in card_strike_detail
+    return render(request, 'statistica/detail_card_strike.html', locals())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 965, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 979, in do_if
+    nodelist = parser.parse(('endif',))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 516: 'elif', expected 'endif'. Did you forget to register or load this tag?
+ERROR django.server "GET /analytic/strike-detail/5/ HTTP/1.1" 500 188789 2022-01-12 09:09:54,925
+ERROR django.request Internal Server Error: /analytic/strike-detail/5/ 2022-01-12 09:09:55,910
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'elif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 189, in card_strike_detail
+    return render(request, 'statistica/detail_card_strike.html', locals())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 965, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 979, in do_if
+    nodelist = parser.parse(('endif',))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 516: 'elif', expected 'endif'. Did you forget to register or load this tag?
+ERROR django.server "GET /analytic/strike-detail/5/ HTTP/1.1" 500 188789 2022-01-12 09:09:55,914
+ERROR django.request Internal Server Error: /analytic/strike-detail/5/ 2022-01-12 09:09:57,122
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'elif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 189, in card_strike_detail
+    return render(request, 'statistica/detail_card_strike.html', locals())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 965, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 979, in do_if
+    nodelist = parser.parse(('endif',))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 516: 'elif', expected 'endif'. Did you forget to register or load this tag?
+ERROR django.server "GET /analytic/strike-detail/5/ HTTP/1.1" 500 188789 2022-01-12 09:09:57,126
+ERROR django.request Internal Server Error: /analytic/strike-detail/5/ 2022-01-12 09:16:53,163
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\smartif.py", line 175, in translate_token
+    op = OPERATORS[token]
+KeyError: '|length'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 189, in card_strike_detail
+    return render(request, 'statistica/detail_card_strike.html', locals())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 964, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 897, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\smartif.py", line 166, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\smartif.py", line 177, in translate_token
+    return self.create_var(token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 900, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 645, in __init__
+    raise TemplateSyntaxError("Could not find variable at "
+django.template.exceptions.TemplateSyntaxError: Could not find variable at start of |length.
+ERROR django.server "GET /analytic/strike-detail/5/ HTTP/1.1" 500 190038 2022-01-12 09:16:53,167
+ERROR django.request Internal Server Error: /analytic/strike-detail/5/ 2022-01-12 09:16:54,792
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\smartif.py", line 175, in translate_token
+    op = OPERATORS[token]
+KeyError: '|length'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 189, in card_strike_detail
+    return render(request, 'statistica/detail_card_strike.html', locals())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 964, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 897, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\smartif.py", line 166, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\smartif.py", line 177, in translate_token
+    return self.create_var(token)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 900, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 645, in __init__
+    raise TemplateSyntaxError("Could not find variable at "
+django.template.exceptions.TemplateSyntaxError: Could not find variable at start of |length.
+ERROR django.server "GET /analytic/strike-detail/5/ HTTP/1.1" 500 190038 2022-01-12 09:16:54,799

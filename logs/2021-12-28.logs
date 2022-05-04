@@ -2131,3 +2131,1724 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'counry' into field. C
 ERROR django.server "GET /migrant/cases/?case_name=&individualInfo_name=&country=4&region=&start_date=&end_date=&date_update=&end_update= HTTP/1.1" 500 158238 2021-12-28 12:02:08,893
 WARNING django.request Not Found: /favicon.ico 2021-12-28 12:09:39,154
 WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 12:09:39,155
+WARNING django.request Not Found: /favicon.ico 2021-12-28 13:49:24,453
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 13:49:24,454
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:02:06,465
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:02:06,465
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 14:03:05,663
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 128, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'endDate' into field. Choices are: active, antiTradeUnionDiscrimination, antiTradeUnionDiscriminationAnother, antiTradeUnionDiscrimination_id, case_company_name, case_description, case_name, case_result, case_text, casecomment, casefile, casephoto, childLabor, childLabor_id, city_name, comment, company, company_id, consultationRight, consultationRightAnother, consultationRight_id, convention182, convention182_id, conversationRight, conversationRightAnother, conversationRight_id, country, country_id, createOrganizationRight, createOrganizationRightAnother, createOrganizationRight_id, createStrikeRight, createStrikeRightAnother, createStrikeRight_id, createTradeUnionRight, createTradeUnionRightAnother, createTradeUnionRight_id, date_create, date_type, date_update, discriminatiOnVariousGrounds, discriminatiOnVariousGrounds_id, discriminationInVariousAreas, discriminationInVariousAreasAnother, discriminationInVariousAreas_id, electionsRight, electionsRightAnother, electionsRight_id, end_date, exact_data, failureSystemicMeasures, failureSystemicMeasures_id, governmentCoercion, governmentCoercion_id, government_agency_name, groupOfPersons, groupOfPersons_id, groupOfRights, groupOfRights_id, id, individualinfo, intruder, intruderAnother, local_agency_name, meetingsRight, meetingsRightAnother, meetingsRight_id, police_agency_name, principleOfNonDiscrimination, principleOfNonDiscrimination_id, prohibitionOfForcedLabor, prohibitionOfForcedLabor_id, publicPolicyDiscrimination, publicPolicyDiscrimination_id, region, region_id, rights_state, rights_state_another, rights_state_id, source, source_another, source_content, source_url, start_date, tradeUnionActivityRight, tradeUnionActivityRightAnother, tradeUnionActivityRight_id, tradeUnionBuildingsRight, tradeUnionBuildingsRightAnother, tradeUnionBuildingsRight_id, tradeUnionCount, tradeUnionCount_id, tradeUnionCrime, tradeUnionCrimeAnother, tradeUnionCrime_id, tradeUnionInfo, tradeUnionInfo_id, tradeUnionRight, tradeUnionRightAnother, tradeUnionRight_id, tradeUnionSituation, tradeUnionSituation_another, tradeUnionSituation_id, trade_union_activities, trade_union_activities_another, trade_union_activities_id, tradeunion_actions, useOfForcedLabor, useOfForcedLabor_id, user, user_id, victim, victim_id, victim_situation, victim_situation_another, victim_situation_id, violation_nature, violation_nature_id, violationsUsingCompulsoryLabor, violationsUsingCompulsoryLabor_id, сonvention135, сonvention135Another, сonvention135_id, сonvention138, сonvention138_id, сonvention87, сonvention87_id, сonvention98, сonvention98_id
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 166311 2021-12-28 14:03:05,670
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:08:01,477
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:08:01,478
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 14:11:00,726
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 136, in post
+    print(filters, 'filters')
+KeyError: 'start_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96314 2021-12-28 14:11:00,729
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 14:13:36,711
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 133, in post
+    filters.pop('start_date')
+KeyError: 'start_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96325 2021-12-28 14:13:36,713
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:18:57,939
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:18:57,939
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:19:03,245
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:19:03,246
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:19:52,107
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:19:52,107
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:23:45,462
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:23:45,463
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:28:24,166
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:28:24,167
+WARNING django.request Not Found: /favicon.ico 2021-12-28 14:36:22,329
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 14:36:22,330
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 14:37:50,331
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 133, in post
+    filters.pop('start_date')
+KeyError: 'start_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96325 2021-12-28 14:37:50,333
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:25:11,163
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:25:11,164
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:25:53,651
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 135, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161526 2021-12-28 15:25:53,657
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:26:28,952
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 135, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161500 2021-12-28 15:26:28,956
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:29:26,991
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 135, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161443 2021-12-28 15:29:26,997
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:30:28,372
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 136, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161443 2021-12-28 15:30:28,378
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:31:05,092
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 136, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161443 2021-12-28 15:31:05,098
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:32:05,591
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:32:05,592
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:35:01,509
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 136, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161429 2021-12-28 15:35:01,515
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:36:03,301
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 136, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161429 2021-12-28 15:36:03,307
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:37:11,651
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 136, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161429 2021-12-28 15:37:11,657
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:38:17,429
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 138, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161425 2021-12-28 15:38:17,435
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:39:11,387
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 138, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161425 2021-12-28 15:39:11,392
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:39:35,031
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 138, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161425 2021-12-28 15:39:35,037
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:40:19,648
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 141, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161586 2021-12-28 15:40:19,654
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:40:55,214
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:40:55,215
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:41:35,600
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 137, in post
+    filters.pop('start_date')
+KeyError: 'start_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96635 2021-12-28 15:41:35,603
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:42:26,901
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 137, in post
+    filters.pop('start_date')
+KeyError: 'start_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96635 2021-12-28 15:42:26,904
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:43:03,013
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 137, in post
+    filters.pop('start_date')
+KeyError: 'start_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96636 2021-12-28 15:43:03,016
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:43:07,730
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 138, in post
+    filters.pop('end_date')
+KeyError: 'end_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96577 2021-12-28 15:43:07,732
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:43:16,089
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 141, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161587 2021-12-28 15:43:16,096
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:44:36,567
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 141, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161562 2021-12-28 15:44:36,572
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:44:44,445
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:44:44,446
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:45:38,437
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 141, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161566 2021-12-28 15:45:38,443
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:47:36,596
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 142, in post
+    filters.pop("end_date")
+KeyError: 'end_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96468 2021-12-28 15:47:36,599
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:49:37,843
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 144, in post
+    filters.pop("end_date")
+KeyError: 'end_date'
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 96329 2021-12-28 15:49:37,846
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:50:10,671
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:50:10,672
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:51:19,290
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 144, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161460 2021-12-28 15:51:19,296
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:52:10,631
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:52:10,632
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:52:17,476
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 146, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161461 2021-12-28 15:52:17,482
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:53:18,207
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 146, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161517 2021-12-28 15:53:18,213
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:53:43,843
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 146, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161521 2021-12-28 15:53:43,849
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:53:51,530
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 146, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161521 2021-12-28 15:53:51,534
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:55:24,227
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 147, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161415 2021-12-28 15:55:24,233
+WARNING django.request Not Found: /favicon.ico 2021-12-28 15:56:02,834
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2021-12-28 15:56:02,836
+ERROR django.request Internal Server Error: /analytic/work/search/ 2021-12-28 15:56:08,777
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 148, in post
+    workcases = WorkCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 240, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/work/search/ HTTP/1.1" 500 161399 2021-12-28 15:56:08,783
+ERROR django.request Internal Server Error: /analytic/strike/search/ 2021-12-28 16:13:51,758
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 165, in post
+    cards = Card.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/strike/search/ HTTP/1.1" 500 161674 2021-12-28 16:13:51,764
+ERROR django.request Internal Server Error: /analytic/strike/search/ 2021-12-28 16:29:07,608
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 165, in post
+    cards = Card.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/strike/search/ HTTP/1.1" 500 161674 2021-12-28 16:29:07,616
+ERROR django.request Internal Server Error: /strike/cases/ 2021-12-28 16:36:28,931
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\views.py", line 184, in cases
+    return render(request, 'strike/strike.html', context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaultfilters.py", line 717, in date
+    return formats.date_format(value, arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 327, in format
+    return df.format(format_string)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 38, in format
+    raise TypeError(
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+ERROR django.server "GET /strike/cases/ HTTP/1.1" 500 212613 2021-12-28 16:36:28,938
+ERROR django.request Internal Server Error: /analytic/strike/search/ 2021-12-28 16:38:00,042
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 165, in post
+    cards = Card.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/strike/search/ HTTP/1.1" 500 157308 2021-12-28 16:38:00,048
+ERROR django.request Internal Server Error: /analytic/strike/search/ 2021-12-28 16:41:45,645
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 165, in post
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/strike/search/ HTTP/1.1" 500 154880 2021-12-28 16:41:45,651
+ERROR django.request Internal Server Error: /analytic/migrant/search/ 2021-12-28 16:43:51,495
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 90, in post
+    cases = MigrantCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1406, in get_prep_value
+    value = super().get_prep_value(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1388, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат. Оно должно быть в формате YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']
+ERROR django.server "POST /analytic/migrant/search/ HTTP/1.1" 500 162268 2021-12-28 16:43:51,502
+ERROR django.request Internal Server Error: /analytic/migrant/search/ 2021-12-28 16:45:08,401
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 90, in post
+    cases = MigrantCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/migrant/search/ HTTP/1.1" 500 157902 2021-12-28 16:45:08,406
+ERROR django.request Internal Server Error: /migrant/cases/ 2021-12-28 16:45:26,762
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\migrant\views.py", line 202, in cases
+    return render(request, 'migrant/cases.html', context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaultfilters.py", line 717, in date
+    return formats.date_format(value, arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 327, in format
+    return df.format(format_string)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 38, in format
+    raise TypeError(
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+ERROR django.server "GET /migrant/cases/ HTTP/1.1" 500 219454 2021-12-28 16:45:26,770
+ERROR django.request Internal Server Error: /analytic/migrant/search/ 2021-12-28 16:47:48,121
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\statistica\views.py", line 90, in post
+    cases = MigrantCase.objects.filter(**filters).order_by('id')
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1266, in get_prep_value
+    return self.to_python(value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1238, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “” имеет неверный формат даты. Оно должно быть в формате YYYY-MM-DD.']
+ERROR django.server "POST /analytic/migrant/search/ HTTP/1.1" 500 158186 2021-12-28 16:47:48,129

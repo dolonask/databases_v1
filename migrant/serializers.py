@@ -131,3 +131,14 @@ class MigrantCaseGroupByFilterSerializer(CustomTestSerializer):
     class Meta:
         model = Case
         fields = "__all__"
+
+class HireWaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HireWay
+        fields = ['id', "name"]
+        WorkPurpose
+
+class WorkPurposeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkPurpose
+        fields = ['id', "name"]

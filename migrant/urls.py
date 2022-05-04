@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import WorkPurposeAPIView, HireWayAPIView
 
 urlpatterns = [
     path('add/', views.append_case, name='migrant_case'),
@@ -18,5 +19,9 @@ urlpatterns = [
     path('case_files_download/<int:pk>/', views.case_files_download, name='migrant_case_files_download'),
     path('card_files_delete/<int:pk>/', views.case_files_delete, name='migrant_card_files_delete'),
     path('card_photo_delete/<int:pk>/', views.case_photo_delete, name='migrant_card_photo_delete'),
-    path('word/<int:pk>/', views.migrant_word_generate, name='migrant_case_word')
+    path('word/<int:pk>/', views.migrant_word_generate, name='migrant_case_word'),
+
+
+    path('work-purpose/', WorkPurposeAPIView.as_view()),
+    path('work-hireway/', HireWayAPIView.as_view()),
 ]

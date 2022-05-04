@@ -6,8 +6,10 @@ from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import get_template
+from rest_framework.generics import ListAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
 
 from strike.helpers import get_request_data, return_right_data, get_values, get_data, get_fields
 from .forms import CaseForm, CompanyForm, IndividualForm, GroupForm, EntrepreneurForm, PhotoForm, FileForm, CaseCommentForm
@@ -28,14 +30,14 @@ import os
 @login_required
 def append_case(request):
     if request.method == 'POST':
-        form = CaseForm(request.POST)
-        companyForm = CompanyForm(request.POST)
         # print(request.POST)
+        form = CaseForm(request.POST)
+        print(form.errors)
+        companyForm = CompanyForm(request.POST)
         individualForm = IndividualForm(request.POST)
-        print(individualForm.errors)
-        pprint.pprint(individualForm)
         groupForm = GroupForm(request.POST)
         entrepreneurForm = EntrepreneurForm(request.POST)
+        print(entrepreneurForm.errors, "chastnoe")
         photoForm = PhotoForm(request.POST, request.FILES)
         fileForm = FileForm(request.POST, request.FILES)
 
@@ -150,7 +152,7 @@ def update_case(request,pk):
 
         companyForm = CompanyForm()
         if case.company is not None:
-            companyForm = CompanyForm(instance=Company.objects.get(id=case.company))
+            companyForm = CompanyForm(instance=Company.objects.get(id=case.company.id))
 
         individualForm = IndividualForm
         if case.individualInfo is not None:
@@ -783,3 +785,13 @@ def migrant_word_generate(request, pk):
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(save_path)
             return response
     return Http404()
+
+
+class WorkPurposeAPIView(ListAPIView):
+    serializer_class = WorkPurposeSerializer
+    queryset = WorkPurpose.objects.all()
+
+
+class HireWayAPIView(ListAPIView):
+    serializer_class = HireWaySerializer
+    queryset = HireWay.objects.all()

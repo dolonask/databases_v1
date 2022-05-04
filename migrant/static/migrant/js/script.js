@@ -1,3 +1,44 @@
+async function setEnterprenuerAndHireWayValue() {
+    let work_purposes_list
+    let hireways_list
+
+    fetch('http://127.0.0.1:8000/migrant/work-purpose/')
+        .then((response) => response.json())
+        .then((data) => {
+            work_purposes_list = data
+
+            let work_purposes = document.getElementById('id_entrepreneur_workPurpose').children
+            for (let i = 0; i < work_purposes.length; i++) {
+                let inp = work_purposes[i].children[0].children[0]
+                let label = work_purposes[i].children[0].innerText.trim()
+                for (let j = 0; j < data.length; j++) {
+                    if (data[i].name === label) {
+                        inp.value = data[i].id
+                    }
+                }
+
+            }
+        })
+
+    fetch('http://127.0.0.1:8000/migrant/work-hireway/')
+        .then((response) => response.json())
+        .then((data) => {
+            hireways_list = data
+
+            let entrepreneur_hireWays = document.getElementById('id_entrepreneur_hireWay').children
+            for (let i = 0; i < entrepreneur_hireWays.length; i++) {
+                let inp = entrepreneur_hireWays[i].children[0].children[0]
+                let label = entrepreneur_hireWays[i].children[0].innerText.trim()
+                for (let j = 0; j < data.length; j++) {
+                    if (data[i].name === label) {
+                        inp.value = data[i].id
+                    }
+                }
+
+            }
+        })
+}
+setEnterprenuerAndHireWayValue()
 
 
 function get_selected(id){
@@ -152,6 +193,8 @@ function onHireWayChanged(value){
     }
 }
 function onIntruderChanged(value) {
+
+    setEnterprenuerAndHireWayValue()
 
     if (document.getElementById("id_intruder_0").checked == true){
         showTandem("id_government_agency_name")

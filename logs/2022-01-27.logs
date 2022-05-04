@@ -1,0 +1,211 @@
+WARNING django.request Not Found: /favicon.ico 2022-01-27 10:11:40,662
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-01-27 10:11:40,662
+ERROR django.request Internal Server Error: /migrant/download-pdf/1 2022-01-27 10:12:45,658
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\migrant\views.py", line 317, in case_download_pdf_view
+    html = template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaultfilters.py", line 717, in date
+    return formats.date_format(value, arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 327, in format
+    return df.format(format_string)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 38, in format
+    raise TypeError(
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+ERROR django.server "GET /migrant/download-pdf/1 HTTP/1.1" 500 150707 2022-01-27 10:12:45,663
+ERROR django.request Internal Server Error: /work/download-pdf/1/ 2022-01-27 10:15:40,086
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\work\views\views.py", line 470, in case_download_pdf_view
+    html = template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaultfilters.py", line 717, in date
+    return formats.date_format(value, arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 327, in format
+    return df.format(format_string)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 38, in format
+    raise TypeError(
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+ERROR django.server "GET /work/download-pdf/1/ HTTP/1.1" 500 147438 2022-01-27 10:15:40,089
+WARNING django.request Not Found: /favicon.ico 2022-01-27 10:16:35,704
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-01-27 10:16:35,705
+ERROR django.request Internal Server Error: /strike/get-pdf/1 2022-01-27 10:20:24,223
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\views.py", line 389, in case_render_pdf_view
+    html = template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\template\defaultfilters.py", line 717, in date
+    return formats.date_format(value, arg)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 327, in format
+    return df.format(format_string)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\dateformat.py", line 38, in format
+    raise TypeError(
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+ERROR django.server "GET /strike/get-pdf/1 HTTP/1.1" 500 147974 2022-01-27 10:20:24,226
+ERROR django.request Internal Server Error: /strike/get-pdf/1 2022-01-27 10:22:56,863
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\views.py", line 391, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\pdfkit\api.py", line 72, in from_string
+    return r.to_pdf(output_path)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\pdfkit\pdfkit.py", line 156, in to_pdf
+    raise IOError('wkhtmltopdf reported an error:\n' + stderr)
+OSError: wkhtmltopdf reported an error:
+Loading pages (1/6)
+[>                                                           ] 0%[======>                                                     ] 10%[==============>                                             ] 24%Error: Failed to load https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css, with network status code 1 and http status code 0 - Connection refused
+[============================================================] 100%Counting pages (2/6)                                               
+[============================================================] Object 1 of 1Resolving links (4/6)                                                       
+[============================================================] Object 1 of 1Loading headers and footers (5/6)                                           
+Printing pages (6/6)
+[>                                                           ] Preparing[============================================================] Page 1 of 1Done                                                                      
+Exit with code 1 due to network error: ConnectionRefusedError
+
+ERROR django.server "GET /strike/get-pdf/1 HTTP/1.1" 500 110938 2022-01-27 10:22:56,865
+ERROR django.request Internal Server Error: /strike/get-pdf/1 2022-01-27 10:23:43,401
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\strike\views.py", line 391, in case_render_pdf_view
+    pdf = pdfkit.from_string(html, False)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\pdfkit\api.py", line 72, in from_string
+    return r.to_pdf(output_path)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\pdfkit\pdfkit.py", line 156, in to_pdf
+    raise IOError('wkhtmltopdf reported an error:\n' + stderr)
+OSError: wkhtmltopdf reported an error:
+Loading pages (1/6)
+[>                                                           ] 0%[======>                                                     ] 10%[==============>                                             ] 24%Error: Failed to load https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css, with network status code 1 and http status code 0 - Connection refused
+[============================================================] 100%Counting pages (2/6)                                               
+[============================================================] Object 1 of 1Resolving links (4/6)                                                       
+[============================================================] Object 1 of 1Loading headers and footers (5/6)                                           
+Printing pages (6/6)
+[>                                                           ] Preparing[============================================================] Page 1 of 1Done                                                                      
+Exit with code 1 due to network error: ConnectionRefusedError
+
+ERROR django.server "GET /strike/get-pdf/1 HTTP/1.1" 500 110938 2022-01-27 10:23:43,404
+WARNING django.request Not Found: /favicon.ico 2022-01-27 11:18:31,510
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-01-27 11:18:31,511
+WARNING django.request Not Found: /favicon.ico 2022-01-27 11:36:25,785
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-01-27 11:36:25,786
+ERROR django.request Internal Server Error: /migrant/update/17 2022-01-27 12:45:49,850
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Company'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\migrant\views.py", line 155, in update_case
+    companyForm = CompanyForm(instance=Company.objects.get(id=case.company))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 424, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <Company: Название предприятия (юридического лица)>.
+ERROR django.server "GET /migrant/update/17 HTTP/1.1" 500 137981 2022-01-27 12:45:49,857
