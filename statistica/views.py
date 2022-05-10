@@ -123,10 +123,6 @@ class WorkResultApiView(APIView):
         if "tradeunionright_id" in list_filter:
             filters["tradeUnionRight__in"] = [tradeunionright_id]
             filters.pop("tradeunionright_id")
-
-
-        print(filters, 'filters')
-
         workcases = WorkCase.objects.filter(**filters).order_by('id')
         serializer = WorkResultSerializer(workcases, many=True)
         return Response(serializer.data)
@@ -172,8 +168,6 @@ def case_detail(request, pk):
     intruder = Intruder.objects.filter(case__pk=pk)
     trade_union_activities = TradeUnionActivities.objects.filter(case__id=pk)
     comments = CaseComment.objects.filter(case_id=pk)
-    print("fsdlkmfdb")
-    print(case)
     return render(request, 'statistica/detail_case2.html', locals())
 
 

@@ -53,6 +53,7 @@ class CompanySerializers(serializers.ModelSerializer):
 
 
 class EntrepreneurSerializers(serializers.ModelSerializer):
+    name = serializers.CharField(source='entrepreneur_name')
     class Meta:
         model = Entrepreneur
         fields = ('id', 'name')

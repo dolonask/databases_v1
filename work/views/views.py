@@ -181,7 +181,6 @@ def total_forms(data):
 def add_case(request):
     if request.method == 'POST':
         form = CaseForm(request.POST)
-        print(request.POST)
         tradeUnionForm = TradeUnionInfoForm(request.POST)
         individualForm = IndividualForm(request.POST)
         data_ = form_formset(request.POST)
@@ -192,9 +191,6 @@ def add_case(request):
 
         casePhotoForm = CasePhotoForm(request.POST)
         caseFileForm = CaseFileForm(request.POST)
-        print(len(individualFormSet))
-        print(individualFormSet.is_valid())
-        print(individualFormSet.errors)
 
         if form.is_valid():
             case = form.save(commit=False)
