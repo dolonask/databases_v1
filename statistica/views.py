@@ -86,7 +86,6 @@ class MigrantResultApiView(APIView):
         if "source_id" in list_filter:
             filters["source__in"] = [source_id]
             filters.pop("source_id")
-        print(filters)
         cases = MigrantCase.objects.filter(**filters).order_by('id')
         serializer = MigrantResultSerializer(cases, many=True)
         return Response(serializer.data)
@@ -97,7 +96,6 @@ class WorkResultApiView(APIView):
 
     def post(self, request):
         filters = dict(request.data)
-        print(filters, "reqq")
         start_date = filters.get('start_date')
         end_date = filters.get('end_date')
         list_filter = list(filters.keys())
