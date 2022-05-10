@@ -1,0 +1,976 @@
+WARNING django.request Not Found: /favicon.ico 2022-05-04 15:47:37,818
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 179 2022-05-04 15:47:37,819
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:44,041
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:44,294
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:50,767
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:50,784
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:51,859
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:51,879
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:52,065
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:52,083
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:52,250
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:52,270
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:52,411
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:52,430
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:52,597
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:52,616
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:47:52,753
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 363, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 145 2022-05-04 15:47:52,772
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:54,304
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:54,310
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:56,705
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:56,710
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:57,397
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:57,402
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:57,680
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:57,687
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:57,762
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:57,767
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:57,950
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:57,955
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:58,222
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:58,227
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:58,476
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:58,481
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:58,635
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:58,639
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:58,829
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:58,834
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-04 15:49:59,039
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-04 15:49:59,045
+WARNING django.request Not Found: /favicon.ico 2022-05-10 08:04:07,707
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-05-10 08:04:07,707
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-10 08:04:27,752
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167205 2022-05-10 08:04:27,758
+WARNING django.request Not Found: /favicon.ico 2022-05-10 08:04:30,367
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-05-10 08:04:30,367
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-10 08:04:30,444
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167470 2022-05-10 08:04:30,448
+WARNING django.request Not Found: /favicon.ico 2022-05-10 08:04:32,321
+WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3524 2022-05-10 08:04:32,321
+ERROR django.request Internal Server Error: /migrant/data/ 2022-05-10 08:04:32,400
+Traceback (most recent call last):
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Users\ntabyldieva\Desktop\databases_v1\migrant\views.py", line 377, in get
+    {'id': 'entrepreneur', 'name': 'Работодатель(Частное лицо)', 'item': entrepreneur.data},
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 745, in data
+    ret = super().data
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 663, in to_representation
+    return [
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 664, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 500, in to_representation
+    for field in fields:
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 361, in _readable_fields
+    for field in self.fields.values():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "D:\Users\ntabyldieva\Desktop\crm\databases_v1\venv\lib\site-packages\rest_framework\serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Entrepreneur`.
+ERROR django.server "GET /migrant/data/ HTTP/1.1" 500 167470 2022-05-10 08:04:32,405
